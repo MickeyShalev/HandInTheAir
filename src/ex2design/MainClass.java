@@ -5,13 +5,21 @@
  */
 package ex2design;
 
+import gui.main.LoginGui;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Administrator
  */
 public class MainClass {
       public static void main(String[] args) {
-            Ex2Design var = new Ex2Design();
+          
+            //Initiate Main Project
+            iMuzaMusic project = new iMuzaMusic();
+          
+            //Initiate GUI
+            JFrame LoginGui = new LoginGui();
         }
       }
 
