@@ -46,15 +46,24 @@ public class iMuzaMusic {
     /**
      * Internal Logging 
      **/
-    public void log(String str){
+    public static void log(String str){
         System.err.println(str);
     }
   
     
     
-    public void logIn(String user, String pass){
-        System.err.println("Attempting login using "+user+"/"+pass);
+    public static void logIn(String email, String pass) throws SQLException{
+       int id=0;
+            System.err.println("Attempting login using "+email+"/"+pass);
+            ResultSet result = iMuzaMusic.DB.query("select count(*) as flag from Customers where strEmail=\""+email+"\" AND strPasswd=\""+pass+"\"");
+            if(result.next())
+                id=result.getInt(1);
         
+            if(id>0) 
+                System.err.println("Successfully connected!");
+            else
+                System.err.println("Email and password does not match customer db!");
+    
         
         
     } 

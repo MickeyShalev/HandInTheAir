@@ -198,7 +198,7 @@ public class LoginGui extends javax.swing.JFrame {
     public void submitForm(){
         System.err.println("Submitted");
         System.err.println("User: "+fldLogin.getText()+" Password: "+fldPassword.getText());
-        
+        iMuzaMusic.logIn(fldLogin.getText(), fldPassword.getText());
         
         
     }

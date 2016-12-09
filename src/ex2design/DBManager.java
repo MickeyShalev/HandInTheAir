@@ -6,6 +6,8 @@
 package ex2design;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * DB Connection Manager
@@ -21,9 +23,15 @@ public class DBManager {
     }
     
     
-    public ResultSet query(String SQL) throws SQLException{
-        Statement stmt = conn.createStatement();
-        ResultSet result = stmt.executeQuery(SQL);
+    public ResultSet query(String SQL){
+        ResultSet result = null;
+        try {
+            Statement stmt = conn.createStatement();
+            result = stmt.executeQuery(SQL);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return result;
     }
     
