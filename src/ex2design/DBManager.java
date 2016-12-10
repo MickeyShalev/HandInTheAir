@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * This is a new comment
  * DB Connection Manager
  * @author Administrator
  */
