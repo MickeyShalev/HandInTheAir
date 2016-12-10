@@ -58,9 +58,10 @@ public class iMuzaMusic {
             
             log("Attempting login using "+id+"/"+pass);
             
-            
+            id = id.replace("Cust","");
             tmp = iMuzaMusic.DB.query("select * from Customers where ClientID=\""+id+"\" AND strPasswd=\""+pass+"\"");
             if(tmp.next()){
+                log("test");
                 if(tmp.getString(1).length()>0){
                     //Logged in as customer
                     String ID = tmp.getString("ClientID");
@@ -69,6 +70,7 @@ public class iMuzaMusic {
                     Person p = new Customer(ID, strFirstName, strLastName, pass);
                     loggedUser = p;
                     log("Customer logged in");
+                    return;
                 }
             }
             
@@ -82,6 +84,7 @@ public class iMuzaMusic {
                     Person p = new Agent(ID, strFirstName, strLastName, pass);
                     loggedUser = p;
                     log("Agent logged in");
+                    return;
                 }
                 
                 
