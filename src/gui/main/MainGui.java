@@ -5,6 +5,9 @@
  */
 package gui.main;
 
+import ex2design.iMuzaMusic;
+import java.sql.SQLException;
+
 /**
  *
  * @author Administrator
@@ -15,7 +18,10 @@ public class MainGui extends javax.swing.JFrame {
      * Creates new form MainGui
      */
     public MainGui() {
+        setUndecorated(true);
         initComponents();
+        setLocationRelativeTo(null);
+        refreshVars();
     }
 
     /**
@@ -27,25 +33,79 @@ public class MainGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblUsernames = new javax.swing.JLabel();
+        lblUserType = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/maingui.gif"))); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(204, 204, 204));
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTitle.setText("Page Title");
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 240, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
-        );
+        lblUsernames.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUsernames.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsernames.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUsernames.setText("First Name");
+        getContentPane().add(lblUsernames, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 200, 30));
+
+        lblUserType.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblUserType.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserType.setText("User Type");
+        getContentPane().add(lblUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, 30));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/maingui.gif"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnExit.setText("jButton1");
+        btnExit.setEnabled(false);
+        btnExit.setFocusPainted(false);
+        btnExit.setFocusable(false);
+        btnExit.setRequestFocusEnabled(false);
+        btnExit.setRolloverEnabled(false);
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, 160, 40));
+
+        btnLogout.setText("jButton1");
+        btnLogout.setEnabled(false);
+        btnLogout.setFocusPainted(false);
+        btnLogout.setFocusable(false);
+        btnLogout.setRequestFocusEnabled(false);
+        btnLogout.setRolloverEnabled(false);
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 160, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        // TODO add your handling code here:
+        iMuzaMusic.setLoggedUser(null);
+        setVisible(false);
+        LoginGui tmp = new LoginGui();
+        tmp.setVisible(true);
+    }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
+        // TODO add your handling code here:
+        iMuzaMusic.log("Quitting MuzaMusic");
+        System.exit(0);
+    }//GEN-LAST:event_btnExitMouseClicked
 
     /**
      * @param args the command line arguments
@@ -82,7 +142,19 @@ public class MainGui extends javax.swing.JFrame {
         });
     }
 
+    public void refreshVars(){
+        lblTitle.setText("Homepage");
+        lblUserType.setText(iMuzaMusic.getLoggedUser().getAuth2Text());
+        lblUsernames.setText(iMuzaMusic.getLoggedUser().getFirstName()+" "+iMuzaMusic.getLoggedUser().getLastName());
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel bg;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUserType;
+    private javax.swing.JLabel lblUsernames;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,9 @@ package gui.main;
 import ex2design.iMuzaMusic;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -123,8 +126,12 @@ public class LoginGui extends javax.swing.JFrame {
     }//GEN-LAST:event_fldPasswordActionPerformed
 
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
-        // TODO add your handling code here:
-        submitForm();
+        try {
+            // TODO add your handling code here:
+            submitForm();
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnSubmitMouseClicked
 
     private void fldLoginCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_fldLoginCaretPositionChanged
@@ -143,7 +150,11 @@ public class LoginGui extends javax.swing.JFrame {
             fldLogin.setText("");
         
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            submitForm();
+            try {
+                submitForm();
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginGui.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }//GEN-LAST:event_fldLoginKeyPressed
@@ -154,7 +165,11 @@ public class LoginGui extends javax.swing.JFrame {
             fldPassword.setText("");
         
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            submitForm();
+            try {
+                submitForm();
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginGui.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_fldPasswordKeyPressed
 
@@ -195,10 +210,20 @@ public class LoginGui extends javax.swing.JFrame {
         
     }
     
-    public void submitForm(){
+    public void submitForm() throws SQLException{
         System.err.println("Submitted");
         System.err.println("User: "+fldLogin.getText()+" Password: "+fldPassword.getText());
-        iMuzaMusic.logIn(fldLogin.getText(), fldPassword.getText());
+        
+        if(iMuzaMusic.logIn(fldLogin.getText(), fldPassword.getText())){
+        //Open main gui if successfull    
+            setVisible(false);
+            
+            iMuzaMusic.log("Initiating main UI");
+            
+            MainGui tmp = new MainGui();
+            tmp.setVisible(true);
+        }
+        
         
         
     }

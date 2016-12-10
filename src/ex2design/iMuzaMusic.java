@@ -26,6 +26,22 @@ public class iMuzaMusic {
         
         
     }
+
+    public static DBManager getDB() {
+        return DB;
+    }
+
+    public static void setDB(DBManager DB) {
+        iMuzaMusic.DB = DB;
+    }
+
+    public static Person getLoggedUser() {
+        return loggedUser;
+    }
+
+    public static void setLoggedUser(Person loggedUser) {
+        iMuzaMusic.loggedUser = loggedUser;
+    }
     
     /**
      * Initiates a DB Connection
@@ -53,7 +69,7 @@ public class iMuzaMusic {
   
     
     
-    public static void logIn(String id, String pass) throws SQLException{
+    public static boolean logIn(String id, String pass) throws SQLException{
             ResultSet tmp = null;
             
             log("Attempting login using "+id+"/"+pass);
@@ -67,10 +83,10 @@ public class iMuzaMusic {
                     String ID = tmp.getString("ClientID");
                     String strFirstName = tmp.getString("strFirstName");
                     String strLastName = tmp.getString("strLastName");
-                    Person p = new Customer(ID, strFirstName, strLastName, pass);
+                    Person p = new Customer(ID, strFirstName, strLastName, pass, 1);
                     loggedUser = p;
                     log("Customer logged in");
-                    return;
+                    return true;
                 }
             }
             
@@ -81,20 +97,19 @@ public class iMuzaMusic {
                     String ID = tmp.getString("AgentID");
                     String strFirstName = tmp.getString("FirstName");
                     String strLastName = tmp.getString("LastName");
-                    Person p = new Agent(ID, strFirstName, strLastName, pass);
+                    Person p = new Agent(ID, strFirstName, strLastName, pass, 2);
                     loggedUser = p;
                     log("Agent logged in");
-                    return;
+                    return true;
                 }
                 
                 
                 
             }
             
-            if(loggedUser!=null){
-                //Activate the GUI
-                log("Activating GUI");
-            }
+            
+            return false;
+            
             
                 
     } 

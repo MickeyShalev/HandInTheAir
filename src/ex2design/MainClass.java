@@ -6,6 +6,7 @@
 package ex2design;
 
 import gui.main.LoginGui;
+import gui.main.iWindow;
 import javax.swing.JFrame;
 
 /**
@@ -19,7 +20,10 @@ public class MainClass {
             iMuzaMusic project = new iMuzaMusic();
           
             //Initiate GUI
-            JFrame LoginGui = new LoginGui();
+            //JFrame LoginGui = new LoginGui();
+            iMuzaMusic.log("Opening Login Window through iWindow");
+            iWindow.openLogin();
+            
         }
       }
 

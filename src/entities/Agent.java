@@ -10,8 +10,8 @@ package entities;
  * @author Administrator
  */
 public class Agent extends Person {
-    public Agent(String ID, String strFirstName, String strLastName, String strPasswd){
-        super(ID, strFirstName, strLastName, strPasswd);
+    public Agent(String ID, String strFirstName, String strLastName, String strPasswd, int userAuth){
+        super(ID, strFirstName, strLastName, strPasswd, userAuth);
         
     }
 }

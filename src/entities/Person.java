@@ -11,11 +11,22 @@ package entities;
  */
 public abstract class Person {
     private String firstName, lastName, ID, password;
-    public Person(String ID, String firstName, String lastName, String password){
+    private int userAuth=0;
+    public Person(String ID, String firstName, String lastName, String password, int userAuth){
         this.ID=ID;
         this.firstName=firstName;
         this.lastName=lastName;
         this.password=password;
+        this.userAuth=userAuth;
+        
+    }
+
+    public int getUserAuth() {
+        return userAuth;
+    }
+
+    public void setUserAuth(int userAuth) {
+        this.userAuth = userAuth;
     }
 
     public String getFirstName() {
@@ -50,6 +61,36 @@ public abstract class Person {
         this.password = password;
     }
     
+    public String getAuth2Text(){
+        String toReturn="";
+        
+        
+        switch(this.userAuth){
+            case 1:
+                toReturn = "Customer";
+            break;
+            case 2:
+                toReturn = "Agent";
+            break;
+            case 3:
+                toReturn = "Artist";
+            break;
+            case 4:
+                toReturn = "Location Represantative";
+            break;
+            case 5:
+                toReturn = "Represantative";
+            break;
+            case 6:
+                toReturn = "admin";
+            break;
+            default:
+                toReturn = "Unknown";
+            break;
+        }
+        
+        return toReturn;
+    }
     
     
     
