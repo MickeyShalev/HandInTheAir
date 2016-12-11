@@ -62,7 +62,7 @@ public class MainGui extends javax.swing.JFrame {
         lblUserType.setText("User Type");
         getContentPane().add(lblUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, 30));
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/maingui.gif"))); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/muzagui.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnExit.setText("jButton1");

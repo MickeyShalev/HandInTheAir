@@ -96,7 +96,7 @@ public class LoginGui extends javax.swing.JFrame {
         });
         getContentPane().add(fldLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 400, 40));
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/login.gif"))); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/login.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnSubmit.setText("jButton1");
