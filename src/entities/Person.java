@@ -5,27 +5,29 @@
  */
 package entities;
 
+import ex2design.utilities.EAuth;
+
 /**
  *
  * @author Administrator
  */
 public abstract class Person {
     private String firstName, lastName, ID, password;
-    private int userAuth=0;
-    public Person(String ID, String firstName, String lastName, String password, int userAuth){
+    private EAuth userAuth=null;
+    public Person(String ID, String firstName, String lastName, String password, EAuth userAuth){
         this.ID=ID;
-        this.firstName=firstName;
-        this.lastName=lastName;
+        this.firstName=(firstName.substring(0, 1).toUpperCase() + firstName.substring(1));
+        this.lastName=(lastName.substring(0, 1).toUpperCase() + lastName.substring(1));
         this.password=password;
         this.userAuth=userAuth;
         
     }
 
-    public int getUserAuth() {
+    public EAuth getUserAuth() {
         return userAuth;
     }
 
-    public void setUserAuth(int userAuth) {
+    public void setUserAuth(EAuth userAuth) {
         this.userAuth = userAuth;
     }
 
@@ -61,38 +63,6 @@ public abstract class Person {
         this.password = password;
     }
     
-    public String getAuth2Text(){
-        String toReturn="";
-        
-        
-        switch(this.userAuth){
-            case 1:
-                toReturn = "Customer";
-            break;
-            case 2:
-                toReturn = "Agent";
-            break;
-            case 3:
-                toReturn = "Artist";
-            break;
-            case 4:
-                toReturn = "Location Represantative";
-            break;
-            case 5:
-                toReturn = "Represantative";
-            break;
-            case 6:
-                toReturn = "admin";
-            break;
-            default:
-                toReturn = "Unknown";
-            break;
-        }
-        
-        return toReturn;
-    }
-    
-    
-    
+  
     
 }

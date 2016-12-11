@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 package entities;
-
+import ex2design.utilities.EAuth;
 /**
  *
  * @author Administrator
  */
 public class Agent extends Person {
-    public Agent(String ID, String strFirstName, String strLastName, String strPasswd, int userAuth){
+    public Agent(String ID, String strFirstName, String strLastName, String strPasswd, EAuth userAuth){
         super(ID, strFirstName, strLastName, strPasswd, userAuth);
         
     }

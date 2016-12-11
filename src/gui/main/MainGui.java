@@ -7,6 +7,7 @@ package gui.main;
 
 import ex2design.iMuzaMusic;
 import java.sql.SQLException;
+import ex2design.utilities.EAuth;
 
 /**
  *
@@ -144,7 +145,7 @@ public class MainGui extends javax.swing.JFrame {
 
     public void refreshVars(){
         lblTitle.setText("Homepage");
-        lblUserType.setText(iMuzaMusic.getLoggedUser().getAuth2Text());
+        lblUserType.setText(""+iMuzaMusic.getLoggedUser().getUserAuth());
         lblUsernames.setText(iMuzaMusic.getLoggedUser().getFirstName()+" "+iMuzaMusic.getLoggedUser().getLastName());
         
     }
@@ -157,4 +158,5 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel lblUserType;
     private javax.swing.JLabel lblUsernames;
     // End of variables declaration//GEN-END:variables
+
 }

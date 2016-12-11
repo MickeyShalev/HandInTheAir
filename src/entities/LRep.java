@@ -9,8 +9,8 @@ import ex2design.utilities.EAuth;
  *
  * @author Administrator
  */
-public class Customer extends Person {
-    public Customer(String ID, String strFirstName, String strLastName, String strPasswd, EAuth userAuth){
+public class LRep extends Person {
+    public LRep(String ID, String strFirstName, String strLastName, String strPasswd, EAuth userAuth){
         super(ID, strFirstName, strLastName, strPasswd, userAuth);
         
     }

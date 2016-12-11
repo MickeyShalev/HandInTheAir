@@ -9,6 +9,7 @@ import entities.*;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ex2design.utilities.EAuth;
 
 /**
  *
@@ -49,7 +50,7 @@ public class iMuzaMusic {
     public void init(){
         try {
             log("Attempting connection to MS Access DB");
-            DB = new DBManager("C:\\Users\\Administrator\\Documents\\NetBeansProjects\\ex2Design\\src\\ex2design\\DB.accdb");
+            DB = new DBManager();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(iMuzaMusic.class.getName()).log(Level.SEVERE, null, ex);
             return;
@@ -73,8 +74,11 @@ public class iMuzaMusic {
             ResultSet tmp = null;
             
             log("Attempting login using "+id+"/"+pass);
-            
-            id = id.replace("Cust","");
+            id = id.replace("Cust","").
+                            replace("RE", "").
+                                replace("AR", "").
+                                    replace("AG", "AG").
+                                        replace("LR", "");
             tmp = iMuzaMusic.DB.query("select * from Customers where ClientID=\""+id+"\" AND strPasswd=\""+pass+"\"");
             if(tmp.next()){
                 log("test");
@@ -83,7 +87,7 @@ public class iMuzaMusic {
                     String ID = tmp.getString("ClientID");
                     String strFirstName = tmp.getString("strFirstName");
                     String strLastName = tmp.getString("strLastName");
-                    Person p = new Customer(ID, strFirstName, strLastName, pass, 1);
+                    Person p = new Customer(ID, strFirstName, strLastName, pass, EAuth.Customer);
                     loggedUser = p;
                     log("Customer logged in");
                     return true;
@@ -97,9 +101,40 @@ public class iMuzaMusic {
                     String ID = tmp.getString("AgentID");
                     String strFirstName = tmp.getString("FirstName");
                     String strLastName = tmp.getString("LastName");
-                    Person p = new Agent(ID, strFirstName, strLastName, pass, 2);
+                    Person p = new Agent(ID, strFirstName, strLastName, pass, EAuth.Agent);
                     loggedUser = p;
                     log("Agent logged in");
+                    return true;
+                }
+                
+                
+            }
+            tmp = iMuzaMusic.DB.query("select * from Artists where ArtistID=\""+id+"\" AND strPasswd=\""+pass+"\"");
+            if(tmp.next()){
+                if(tmp.getString(1).length()>0){
+                    //Logged in as agent
+                    String ID = tmp.getString("ArtistID");
+                    String strFirstName = tmp.getString("strStageName");
+                    String strLastName = tmp.getString("");
+                    Person p = new Artist(ID, strFirstName, strLastName, pass, EAuth.Artist);
+                    loggedUser = p;
+                    log("Artist logged in");
+                    return true;
+                }
+                
+                
+                
+            }
+            tmp = iMuzaMusic.DB.query("select * from LReps where LRepID=\""+id+"\" AND strPasswd=\""+pass+"\"");
+            if(tmp.next()){
+                if(tmp.getString(1).length()>0){
+                    //Logged in as agent
+                    String ID = tmp.getString("LRepID");
+                    String strFirstName = tmp.getString("FirstName");
+                    String strLastName = tmp.getString("LastName");
+                    Person p = new LRep(ID, strFirstName, strLastName, pass, EAuth.Location_Representative);
+                    loggedUser = p;
+                    log("Location Represantative logged in");
                     return true;
                 }
                 
@@ -107,7 +142,22 @@ public class iMuzaMusic {
                 
             }
             
-            
+            tmp = iMuzaMusic.DB.query("select * from Reps where RepID=\""+id+"\" AND strPasswd=\""+pass+"\"");
+            if(tmp.next()){
+                if(tmp.getString(1).length()>0){
+                    //Logged in as agent
+                    String ID = tmp.getString("RepID");
+                    String strFirstName = tmp.getString("FirstName");
+                    String strLastName = tmp.getString("LastName");
+                    Person p = new Rep(ID, strFirstName, strLastName, pass, EAuth.Representative);
+                    loggedUser = p;
+                    log("Artist logged in");
+                    return true;
+                }
+                
+                
+                
+            }
             return false;
             
             

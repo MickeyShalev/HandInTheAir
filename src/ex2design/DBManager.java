@@ -6,21 +6,25 @@
 package ex2design;
 
 import java.sql.*;
+import ex2design.iMuzaMusic;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This is a new comment
  * DB Connection Manager
  * @author Administrator
  */
 public class DBManager {
     private static Connection conn;
     
-    public DBManager(String urlToDatabase) throws ClassNotFoundException, SQLException{
+   
+    public DBManager() throws ClassNotFoundException, SQLException{
+        String dbFile = (new File("src\\ex2design\\MM_DB.accdb")).getAbsolutePath();
+        iMuzaMusic.log("DB File: "+dbFile);
         String driver="net.ucanaccess.jdbc.UcanaccessDriver"; 
         Class.forName(driver); 
-        conn=DriverManager.getConnection("jdbc:ucanaccess://"+urlToDatabase);
+        conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);
     }
     
     /**

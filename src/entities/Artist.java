@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 package entities;
+
 import ex2design.utilities.EAuth;
+
 /**
  *
  * @author Administrator
  */
-public class Customer extends Person {
-    public Customer(String ID, String strFirstName, String strLastName, String strPasswd, EAuth userAuth){
+public class Artist extends Person {
+    public Artist(String ID, String strFirstName, String strLastName, String strPasswd, EAuth userAuth){
         super(ID, strFirstName, strLastName, strPasswd, userAuth);
         
     }

@@ -8,9 +8,10 @@ package ex2design;
 import gui.main.LoginGui;
 import gui.main.iWindow;
 import javax.swing.JFrame;
+import ex2design.utilities.EAuth;
 
 /**
- *
+ *test
  * @author Administrator
  */
 public class MainClass {
@@ -18,7 +19,6 @@ public class MainClass {
           
             //Initiate Main Project
             iMuzaMusic project = new iMuzaMusic();
-          
             //Initiate GUI
             //JFrame LoginGui = new LoginGui();
             iMuzaMusic.log("Opening Login Window through iWindow");
