@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import ex2design.utilities.EAuth;
 
 /**
- *test
+ *
  * @author Administrator
  */
 public class MainClass {
