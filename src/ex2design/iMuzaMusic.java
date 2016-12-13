@@ -22,9 +22,7 @@ public class iMuzaMusic {
     public iMuzaMusic(){
         //Initiate DB
         init();
-        
-        
-        
+  
         
     }
 
@@ -77,7 +75,7 @@ public class iMuzaMusic {
             id = id.replace("Cust","").
                             replace("RE", "").
                                 replace("AR", "").
-                                    replace("AG", "AG").
+                                    replace("AAG", "").
                                         replace("LR", "");
             tmp = iMuzaMusic.DB.query("select * from Customers where ClientID=\""+id+"\" AND strPasswd=\""+pass+"\"");
             if(tmp.next()){

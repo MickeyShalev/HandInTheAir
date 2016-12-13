@@ -8,6 +8,7 @@ package gui.main;
 import ex2design.iMuzaMusic;
 import java.sql.SQLException;
 import ex2design.utilities.EAuth;
+import gui.internal.frmTemplate;
 import java.awt.Color;
 
 /**
@@ -24,6 +25,8 @@ public class MainGui extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         refreshVars();
+        iWindow.setPanel(ContentFrame);
+        iWindow.setLblTitle(lblTitle);
        
     }
 
@@ -39,10 +42,10 @@ public class MainGui extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblUsernames = new javax.swing.JLabel();
         lblUserType = new javax.swing.JLabel();
+        ContentFrame = new javax.swing.JPanel();
         pnlAgent = new javax.swing.JPanel();
         btnManageArtists = new javax.swing.JLabel();
         btnAddShow = new javax.swing.JLabel();
-        ContentFrame = new javax.swing.JPanel();
         bg = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -67,6 +70,24 @@ public class MainGui extends javax.swing.JFrame {
         lblUserType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUserType.setText("User Type");
         getContentPane().add(lblUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, 30));
+
+        ContentFrame.setForeground(new java.awt.Color(255, 51, 102));
+        ContentFrame.setAutoscrolls(true);
+        ContentFrame.setOpaque(false);
+        ContentFrame.setVisible(false);
+
+        javax.swing.GroupLayout ContentFrameLayout = new javax.swing.GroupLayout(ContentFrame);
+        ContentFrame.setLayout(ContentFrameLayout);
+        ContentFrameLayout.setHorizontalGroup(
+            ContentFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 820, Short.MAX_VALUE)
+        );
+        ContentFrameLayout.setVerticalGroup(
+            ContentFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 650, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(ContentFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
 
         pnlAgent.setOpaque(false);
 
@@ -113,24 +134,6 @@ public class MainGui extends javax.swing.JFrame {
         );
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
-
-        ContentFrame.setForeground(new java.awt.Color(255, 51, 102));
-        ContentFrame.setAutoscrolls(true);
-        ContentFrame.setOpaque(false);
-        ContentFrame.setVisible(false);
-
-        javax.swing.GroupLayout ContentFrameLayout = new javax.swing.GroupLayout(ContentFrame);
-        ContentFrame.setLayout(ContentFrameLayout);
-        ContentFrameLayout.setHorizontalGroup(
-            ContentFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
-        );
-        ContentFrameLayout.setVerticalGroup(
-            ContentFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(ContentFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/muzagui.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -180,8 +183,8 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnManageArtistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageArtistsMouseClicked
         // TODO add your handling code here:
-        //ManageCustomers add = new ManageCustomers(iWindow.getCustomerLogged());
-        //iWindow.openWin(add);
+        frmTemplate add = new frmTemplate();
+        iWindow.openWin(add);
     }//GEN-LAST:event_btnManageArtistsMouseClicked
 
     private void btnAddShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShowMouseClicked

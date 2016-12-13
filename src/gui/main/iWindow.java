@@ -33,7 +33,7 @@ import jdk.nashorn.internal.scripts.JO;
 /**
  * Main iWindow Class -> Manages all internal jframes and DB connection to GUI
  */
-public class iWindow {
+public abstract class iWindow {
 
     //User Decalress
     protected static int authLogged;
