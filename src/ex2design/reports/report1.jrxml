@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c48abf14-818c-474b-9cef-266e813f173a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from Shows]]>
+	</queryString>
+	<field name="pID" class="java.lang.String"/>
+	<field name="pStartDate" class="java.sql.Timestamp"/>
+	<field name="pTicketPrice" class="java.lang.Integer"/>
+	<field name="pMinAge" class="java.lang.Integer"/>
+	<field name="pStatus" class="java.lang.String"/>
+	<field name="iLocation" class="java.lang.String"/>
+	<field name="iMainArtist" class="java.lang.String"/>
+	<field name="pDateCreated" class="java.sql.Timestamp"/>
+	<group name="pID">
+		<groupExpression><![CDATA[$F{pID}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="28" y="2" width="100" height="20" uuid="42ae83e1-1975-4ab1-aa45-28a078a09c40"/>
+				<text><![CDATA[pID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="2" width="100" height="20" uuid="13d2c9ce-b615-4280-9f56-1fd9c7a978b2"/>
+				<text><![CDATA[pStartDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="2" width="100" height="20" uuid="b72622bc-e499-478e-ab73-77805b353337"/>
+				<text><![CDATA[pTicketPrice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" uuid="8555f757-8774-47d4-87f1-9dbdb20eabf0"/>
+				<text><![CDATA[pMinAge]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="0" width="100" height="20" uuid="467d3f48-1664-44ae-a612-075723d39ce1"/>
+				<textFieldExpression><![CDATA[$F{pID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="4" width="100" height="20" uuid="a7b9b099-6771-4c32-96cd-d5b98a4bf51b"/>
+				<textFieldExpression><![CDATA[$F{pStartDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="4" width="100" height="20" uuid="eb9a5e29-8e87-46d4-9d23-1e813d6d71bf"/>
+				<textFieldExpression><![CDATA[$F{pTicketPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="7" width="100" height="20" uuid="1d35c29e-b7f0-49ca-b092-118b0d01c4d1"/>
+				<textFieldExpression><![CDATA[$F{pMinAge}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="340" y="15" width="80" height="20" uuid="d3e863d8-5f41-4c6e-bb63-f4cead6df4a7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="420" y="15" width="40" height="20" uuid="d3ec9451-ebd0-4429-8d1d-6cbfc2dbd721"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

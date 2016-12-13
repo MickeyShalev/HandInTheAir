@@ -8,6 +8,7 @@ package gui.main;
 import ex2design.iMuzaMusic;
 import java.sql.SQLException;
 import ex2design.utilities.EAuth;
+import java.awt.Color;
 
 /**
  *
@@ -23,6 +24,7 @@ public class MainGui extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         refreshVars();
+       
     }
 
     /**
@@ -37,6 +39,10 @@ public class MainGui extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblUsernames = new javax.swing.JLabel();
         lblUserType = new javax.swing.JLabel();
+        pnlAgent = new javax.swing.JPanel();
+        btnManageArtists = new javax.swing.JLabel();
+        btnAddShow = new javax.swing.JLabel();
+        ContentFrame = new javax.swing.JPanel();
         bg = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -61,6 +67,70 @@ public class MainGui extends javax.swing.JFrame {
         lblUserType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUserType.setText("User Type");
         getContentPane().add(lblUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, 30));
+
+        pnlAgent.setOpaque(false);
+
+        btnManageArtists.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnManageArtists.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageArtists.setText("Manage Artists");
+        btnManageArtists.setToolTipText("");
+        btnManageArtists.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageArtistsMouseClicked(evt);
+            }
+        });
+
+        btnAddShow.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnAddShow.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddShow.setText("Add Shows");
+        btnAddShow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddShowMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAgentLayout = new javax.swing.GroupLayout(pnlAgent);
+        pnlAgent.setLayout(pnlAgentLayout);
+        pnlAgentLayout.setHorizontalGroup(
+            pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAgentLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgentLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        pnlAgentLayout.setVerticalGroup(
+            pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgentLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(274, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+
+        ContentFrame.setForeground(new java.awt.Color(255, 51, 102));
+        ContentFrame.setAutoscrolls(true);
+        ContentFrame.setOpaque(false);
+        ContentFrame.setVisible(false);
+
+        javax.swing.GroupLayout ContentFrameLayout = new javax.swing.GroupLayout(ContentFrame);
+        ContentFrame.setLayout(ContentFrameLayout);
+        ContentFrameLayout.setHorizontalGroup(
+            ContentFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 820, Short.MAX_VALUE)
+        );
+        ContentFrameLayout.setVerticalGroup(
+            ContentFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 650, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(ContentFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/muzagui.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -108,6 +178,18 @@ public class MainGui extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked
 
+    private void btnManageArtistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageArtistsMouseClicked
+        // TODO add your handling code here:
+        //ManageCustomers add = new ManageCustomers(iWindow.getCustomerLogged());
+        //iWindow.openWin(add);
+    }//GEN-LAST:event_btnManageArtistsMouseClicked
+
+    private void btnAddShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShowMouseClicked
+        // TODO add your handling code here:
+        //ViewLessons add = new ViewLessons(iWindow.getCustomerLogged());
+        //iWindow.openWin(add);
+    }//GEN-LAST:event_btnAddShowMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -147,16 +229,27 @@ public class MainGui extends javax.swing.JFrame {
         lblTitle.setText("Homepage");
         lblUserType.setText(""+iMuzaMusic.getLoggedUser().getUserAuth());
         lblUsernames.setText(iMuzaMusic.getLoggedUser().getFirstName()+" "+iMuzaMusic.getLoggedUser().getLastName());
+        pnlAgent.setVisible(false);
+        
+        switch(iMuzaMusic.getLoggedUser().getUserAuth()){
+            case Agent:
+                pnlAgent.setVisible(true);
+                break;
+        }
         
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ContentFrame;
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel btnAddShow;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JLabel btnManageArtists;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserType;
     private javax.swing.JLabel lblUsernames;
+    private javax.swing.JPanel pnlAgent;
     // End of variables declaration//GEN-END:variables
 
 }
