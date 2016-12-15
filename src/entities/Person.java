@@ -17,7 +17,10 @@ public abstract class Person {
     public Person(String ID, String firstName, String lastName, String password, EAuth userAuth){
         this.ID=ID;
         this.firstName=(firstName.substring(0, 1).toUpperCase() + firstName.substring(1));
+        if(lastName.length()>0)
         this.lastName=(lastName.substring(0, 1).toUpperCase() + lastName.substring(1));
+        else
+            this.lastName="";
         this.password=password;
         this.userAuth=userAuth;
         

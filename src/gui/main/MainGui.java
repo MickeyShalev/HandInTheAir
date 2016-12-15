@@ -8,7 +8,8 @@ package gui.main;
 import ex2design.iMuzaMusic;
 import java.sql.SQLException;
 import ex2design.utilities.EAuth;
-import gui.internal.frmTemplate;
+import gui.internal.frmCreateShow;
+import gui.internal.frmManageArtists;
 import java.awt.Color;
 
 /**
@@ -80,14 +81,14 @@ public class MainGui extends javax.swing.JFrame {
         ContentFrame.setLayout(ContentFrameLayout);
         ContentFrameLayout.setHorizontalGroup(
             ContentFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
+            .addGap(0, 830, Short.MAX_VALUE)
         );
         ContentFrameLayout.setVerticalGroup(
             ContentFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGap(0, 690, Short.MAX_VALUE)
         );
 
-        getContentPane().add(ContentFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
+        getContentPane().add(ContentFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 830, 690));
 
         pnlAgent.setOpaque(false);
 
@@ -171,6 +172,8 @@ public class MainGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         iMuzaMusic.setLoggedUser(null);
         setVisible(false);
+        iWindow.getPanel().setVisible(false);
+        iWindow.getCurrentWindow().setVisible(false);
         LoginGui tmp = new LoginGui();
         tmp.setVisible(true);
     }//GEN-LAST:event_btnLogoutMouseClicked
@@ -183,14 +186,14 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnManageArtistsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageArtistsMouseClicked
         // TODO add your handling code here:
-        frmTemplate add = new frmTemplate();
+        frmManageArtists add = new frmManageArtists();
         iWindow.openWin(add);
     }//GEN-LAST:event_btnManageArtistsMouseClicked
 
     private void btnAddShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShowMouseClicked
         // TODO add your handling code here:
-        //ViewLessons add = new ViewLessons(iWindow.getCustomerLogged());
-        //iWindow.openWin(add);
+        frmCreateShow add = new frmCreateShow();
+        iWindow.openWin(add);
     }//GEN-LAST:event_btnAddShowMouseClicked
 
     /**

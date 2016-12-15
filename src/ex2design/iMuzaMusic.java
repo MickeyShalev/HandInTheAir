@@ -6,10 +6,12 @@
 package ex2design;
 
 import entities.*;
+import ex2design.utilities.EArtistStatus;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ex2design.utilities.EAuth;
+import gui.internal.frmManageArtists;
 
 /**
  *
@@ -70,13 +72,16 @@ public class iMuzaMusic {
     
     public static boolean logIn(String id, String pass) throws SQLException{
             ResultSet tmp = null;
-            
+            Person tmpPerson = null;
             log("Attempting login using "+id+"/"+pass);
+            /** TO BE DELETED 
             id = id.replace("Cust","").
                             replace("RE", "").
                                 replace("AR", "").
                                     replace("AAG", "").
                                         replace("LR", "");
+            **/
+
             tmp = iMuzaMusic.DB.query("select * from Customers where ClientID=\""+id+"\" AND strPasswd=\""+pass+"\"");
             if(tmp.next()){
                 log("test");
@@ -91,6 +96,8 @@ public class iMuzaMusic {
                     return true;
                 }
             }
+            
+            
             
             tmp = iMuzaMusic.DB.query("select * from Agents where AgentID=\""+id+"\" AND strPasswd=\""+pass+"\"");
             if(tmp.next()){
@@ -107,14 +114,21 @@ public class iMuzaMusic {
                 
                 
             }
+            
+            
+            
             tmp = iMuzaMusic.DB.query("select * from Artists where ArtistID=\""+id+"\" AND strPasswd=\""+pass+"\"");
             if(tmp.next()){
                 if(tmp.getString(1).length()>0){
                     //Logged in as agent
                     String ID = tmp.getString("ArtistID");
                     String strFirstName = tmp.getString("strStageName");
-                    String strLastName = tmp.getString("");
-                    Person p = new Artist(ID, strFirstName, strLastName, pass, EAuth.Artist);
+                    String strLastName = "";
+                    String bio = tmp.getString("strShortBio");
+                    String stageName = tmp.getString("strStageName");
+                    String arStatus = tmp.getString("iStatus");
+                    System.err.println("status: "+arStatus);
+                    Person p = new Artist(ID, strFirstName, strLastName, pass, EAuth.Artist, bio, stageName, bio, EArtistStatus.Active, "");
                     loggedUser = p;
                     log("Artist logged in");
                     return true;
@@ -161,6 +175,68 @@ public class iMuzaMusic {
             
                 
     } 
+    
+    
+    public static String getID(String str){
+        
+        try{
+        String tmp[] = str.split("\\(");
+        tmp = tmp[1].split("\\)");
+        str = tmp[0];
+        }
+        catch(Exception e){
+            iMuzaMusic.log(""+e.getStackTrace());
+            e.printStackTrace();
+        }
+        return str;
+    }
+    
+    /**
+     * This method returns a new artist entity from a given artist id
+     * @param ArtistID
+     * @return 
+     */
+    public static Artist getAgentEntity(String ArtistID){
+            Artist toReturn = null;
+            
+            ResultSet getAgent = iMuzaMusic.getDB().query("select * from Artists where ArtistID=\""+ArtistID+"\"");
+            try {
+                while(getAgent.next()){
+                     String ID = getAgent.getString("ArtistID");
+                    String strFirstName = getAgent.getString("strStageName");
+                    String strLastName = "";
+                    String pass = getAgent.getString("strPasswd");
+                    String bio = getAgent.getString("strShortBio");
+                    String stageName = getAgent.getString("strStageName");
+                    String emailAddr = getAgent.getString("strEmailAddr");
+                    String fbAddr = getAgent.getString("strFacebook");
+                    /**
+                     *  EArtist Status
+                    ***/
+                    EArtistStatus arStatus = null;
+                    switch(getAgent.getString("iStatus")){
+                        case "1":
+                            arStatus = EArtistStatus.Active;
+                            break;
+                        case "2":
+                            arStatus = EArtistStatus.Inactive;
+                            break;
+                            
+                        default:
+                            System.exit(0);
+                        break;
+                    }
+
+                    System.err.println(arStatus);
+                    toReturn = new Artist(ID, strFirstName, strLastName, pass, EAuth.Artist, bio, stageName, fbAddr, arStatus, emailAddr);
+                    
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(frmManageArtists.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            return toReturn;
+    }
     
     
     

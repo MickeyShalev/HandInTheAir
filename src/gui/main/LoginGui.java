@@ -18,10 +18,13 @@ import java.util.logging.Logger;
  */
 public class LoginGui extends javax.swing.JFrame {
 
+    public static boolean skipLogin=true;
+    public static String skipID="AG001";
+    public static String skipPW="asf230g2";
     /**
      * Creates new form LoginGui
      */
-    public LoginGui() {
+    public LoginGui(){
         setUndecorated(true);
         initComponents();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -31,6 +34,16 @@ public class LoginGui extends javax.swing.JFrame {
         });
         setLocationRelativeTo(null);
         fldLogin.setCaretPosition(0);
+        if(skipLogin){
+            try {
+                //Skip the login GUI
+                fldLogin.setText(skipID);
+                fldPassword.setText(skipPW);
+                submitForm();
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginGui.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     /**
@@ -44,6 +57,7 @@ public class LoginGui extends javax.swing.JFrame {
 
         fldPassword = new javax.swing.JTextField();
         fldLogin = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
 
@@ -95,6 +109,13 @@ public class LoginGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(fldLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 400, 40));
+
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, 110, 110));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/login.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -173,6 +194,12 @@ public class LoginGui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fldPasswordKeyPressed
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        iMuzaMusic.log("Exiting application...");
+        System.exit(0);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -203,7 +230,9 @@ public class LoginGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginGui().setVisible(true);
+ 
+                    new LoginGui().setVisible(true);
+
             }
         });
         
@@ -211,8 +240,8 @@ public class LoginGui extends javax.swing.JFrame {
     }
     
     public void submitForm() throws SQLException{
-        System.err.println("Submitted");
-        System.err.println("User: "+fldLogin.getText()+" Password: "+fldPassword.getText());
+        iMuzaMusic.log("Submitted");
+        iMuzaMusic.log("User: "+fldLogin.getText()+" Password: "+fldPassword.getText());
         
         if(iMuzaMusic.logIn(fldLogin.getText(), fldPassword.getText())){
         //Open main gui if successfull    
@@ -233,5 +262,6 @@ public class LoginGui extends javax.swing.JFrame {
     private javax.swing.JButton btnSubmit;
     private javax.swing.JTextField fldLogin;
     private javax.swing.JTextField fldPassword;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
