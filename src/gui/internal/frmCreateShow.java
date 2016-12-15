@@ -30,13 +30,13 @@ import javax.swing.*;
  * @author nisan
  */
 public class frmCreateShow extends javax.swing.JInternalFrame {
-
+    Map<String, String> artistNames;
     /**
      * Creates new form frmTemplate
      */
     private static Artist art = null;
     public frmCreateShow() {
-        
+        artistNames = new HashMap<String, String>();
         initComponents();
         setTitle("Create New Show");
         slctArtist.setVisible(false);
@@ -47,13 +47,14 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         slctLocation.setVisible(false);
         slctLocation.addItem("Select Location");
         lblAddress.setVisible(false);
-        
+        slctedArtists.removeAll();
         slctSubArtist.setVisible(false);
         slctedArtists.setBackground(new Color(0,0,0,0));
         slctedArtists.setForeground(Color.black);
         slctedArtists.setEnabled(false);
-        slctedArtists.removeAll();
-     
+        slctedArtists.setVisible(false);
+        pnlSubArtists.setVisible(false);
+        jScrollPane1.setVisible(false);
          String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n" +
 "FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n" +
 "WHERE (((Agents.AgentID)=[AgentPreferLocation].[AgentID]) AND ((Locations.LocationID)=[AgentPreferLocation].[LocationID]) AND ((Agents.AgentID)=\""+iMuzaMusic.getLoggedUser().getID()+"\"))";
@@ -85,11 +86,12 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         txtLocation = new javax.swing.JLabel();
         slctLocation = new javax.swing.JComboBox<>();
         lblAddress = new javax.swing.JLabel();
+        pnlSubArtists = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         slctedArtists = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
         addArtist = new javax.swing.JButton();
         slctSubArtist = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
@@ -160,10 +162,14 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         getContentPane().add(lblAddress);
         lblAddress.setBounds(250, 160, 230, 30);
 
-        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
+        pnlSubArtists.setBackground(new Color(0,0,0,0));
+        pnlSubArtists.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setBackground(new Color(0,0,0,0));
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
+        slctedArtists.setBackground(new Color(0,0,0,0));
         slctedArtists.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -171,8 +177,11 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(slctedArtists);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(60, 260, 160, 110);
+        pnlSubArtists.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 280, 170));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Selected Invited Artists");
+        pnlSubArtists.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         addArtist.setText("Add");
         addArtist.addActionListener(new java.awt.event.ActionListener() {
@@ -180,8 +189,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 addArtistActionPerformed(evt);
             }
         });
-        getContentPane().add(addArtist);
-        addArtist.setBounds(240, 210, 80, 20);
+        pnlSubArtists.add(addArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 80, 20));
 
         slctSubArtist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctSubArtist.addItemListener(new java.awt.event.ItemListener() {
@@ -194,13 +202,10 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 slctSubArtistActionPerformed(evt);
             }
         });
-        getContentPane().add(slctSubArtist);
-        slctSubArtist.setBounds(60, 210, 170, 22);
+        pnlSubArtists.add(slctSubArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, -1));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Selected Invited Artists");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(60, 240, 160, 16);
+        getContentPane().add(pnlSubArtists);
+        pnlSubArtists.setBounds(50, 190, 320, 250);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -210,6 +215,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         
         //This will get available artists on a given date
         //Go through all of this agents' artists
+        slctArtist.removeAllItems();
         slctArtist.addItem("Select Artist");
         String qry = "SELECT * from Artists where Artists.AgentID=\""+iMuzaMusic.getLoggedUser().getID()+"\"";
         ResultSet getArtists = iMuzaMusic.getDB().query(qry);
@@ -250,7 +256,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
              }} catch (SQLException ex) {
              Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
          }
-            
+        jScrollPane1.setVisible(true);
         slctSubArtist.setVisible(true);
         txtLocation.setVisible(true);
         slctLocation.setVisible(true);
@@ -281,17 +287,34 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+            pnlSubArtists.setVisible(true);
             lblAddress.setVisible(true);
             }
     }//GEN-LAST:event_slctLocationItemStateChanged
 
     private void addArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArtistActionPerformed
         // TODO add your handling code here:
-           Map<String, String> artistNames = new HashMap<String, String>(); //<name><id>
-           artistNames.put("nisan","bahar");
-
+           //<name><id>
+           //Get artist
+           if(slctSubArtist.getSelectedItem().toString().equals("Select Sub Artists"))
+               return;
+           
+           String ArtistID = iMuzaMusic.getID(slctSubArtist.getSelectedItem().toString());
+           System.err.println("Getting ArtistID "+ArtistID);
+           ResultSet qry = iMuzaMusic.getDB().query("select strStageName from Artists where ArtistID=\""+ArtistID+"\"");
+        try {
+            if(qry.next()){
+                String strStageName = qry.getString("strStageName");
+                artistNames.put(strStageName,ArtistID);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+        
         slctedArtists.setListData(artistNames.keySet().toArray(new String[artistNames.size()]));
+        slctedArtists.setVisible(true);
+        iWindow.update();
     }//GEN-LAST:event_addArtistActionPerformed
 
     private void slctSubArtistItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_slctSubArtistItemStateChanged
@@ -318,6 +341,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JPanel pnlSubArtists;
     private javax.swing.JComboBox<String> slctArtist;
     private javax.swing.JComboBox<String> slctLocation;
     private javax.swing.JComboBox<String> slctSubArtist;

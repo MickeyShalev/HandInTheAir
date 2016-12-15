@@ -72,6 +72,7 @@ public class MainGui extends javax.swing.JFrame {
         lblUserType.setText("User Type");
         getContentPane().add(lblUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, 30));
 
+        ContentFrame.setBackground(new Color(0,0,0,0));
         ContentFrame.setForeground(new java.awt.Color(255, 51, 102));
         ContentFrame.setAutoscrolls(true);
         ContentFrame.setOpaque(false);
