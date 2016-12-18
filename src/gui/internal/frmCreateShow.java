@@ -96,6 +96,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         addArtist = new javax.swing.JButton();
         slctSubArtist = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         getContentPane().setLayout(null);
 
@@ -211,6 +212,15 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         getContentPane().add(pnlSubArtists);
         pnlSubArtists.setBounds(50, 190, 320, 250);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(60, 450, 280, 23);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -244,10 +254,9 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
      if (evt.getStateChange() == ItemEvent.SELECTED) {
             Object item = evt.getItem();
-            if (item.equals("Select Artist")) {
-
+            if (item.equals("Select Artist")) 
                 return;
-            }
+            
        slctSubArtist.removeAllItems();
         slctSubArtist.addItem("Select Sub Artists");
         
@@ -334,6 +343,11 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_slctSubArtistActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        iMuzaMusic.log("Creating Show..");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void updateData(){
 
         iWindow.update();
@@ -343,6 +357,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addArtist;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
