@@ -119,7 +119,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         txtSlctArtist.setForeground(new java.awt.Color(255, 255, 255));
         txtSlctArtist.setText("Select Main Artist");
         getContentPane().add(txtSlctArtist);
-        txtSlctArtist.setBounds(60, 130, 170, 16);
+        txtSlctArtist.setBounds(60, 130, 170, 14);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,7 +139,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(slctArtist);
-        slctArtist.setBounds(60, 150, 170, 22);
+        slctArtist.setBounds(60, 150, 170, 20);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Select Show Date");
@@ -158,7 +158,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(slctLocation);
-        slctLocation.setBounds(250, 150, 170, 22);
+        slctLocation.setBounds(250, 150, 170, 20);
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lblAddress.setForeground(new java.awt.Color(255, 255, 255));
@@ -181,11 +181,11 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(slctedArtists);
 
-        pnlSubArtists.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 280, 170));
+        pnlSubArtists.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 280, 170));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Selected Invited Artists");
-        pnlSubArtists.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        pnlSubArtists.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         addArtist.setText("Add");
         addArtist.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +221,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         //Go through all of this agents' artists
         slctArtist.removeAllItems();
         slctArtist.addItem("Select Artist");
-        String qry = "SELECT * from Artists where Artists.AgentID=\""+iMuzaMusic.getLoggedUser().getID()+"\"";
+        String qry = "SELECT * from Artists where Artists.AgentID=\""+iMuzaMusic.getLoggedUser().getID()+"\" AND Artists.iStatus=1";
         ResultSet getArtists = iMuzaMusic.getDB().query(qry);
         try {
             while(getArtists.next()){
@@ -252,7 +252,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         slctSubArtist.addItem("Select Sub Artists");
         
         
-        String qry = "select * from Artists where ArtistID!=\""+iMuzaMusic.getID(slctArtist.getSelectedItem().toString())+"\"";
+        String qry = "select * from Artists where ArtistID!=\""+iMuzaMusic.getID(slctArtist.getSelectedItem().toString())+"\" AND Artists.iStatus=1";
         ResultSet r = iMuzaMusic.getDB().query(qry);
          try {
              while(r.next()){
@@ -291,6 +291,8 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
             }
+            slctedArtists.setVisible(false);
+            jScrollPane1.setVisible(false);
             pnlSubArtists.setVisible(true);
             lblAddress.setVisible(true);
             }
@@ -317,7 +319,10 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
            
         
         slctedArtists.setListData(artistNames.keySet().toArray(new String[artistNames.size()]));
+        if(!slctedArtists.isVisible())
         slctedArtists.setVisible(true);
+        if(!jScrollPane1.isVisible())
+        jScrollPane1.setVisible(true);
         iWindow.update();
     }//GEN-LAST:event_addArtistActionPerformed
 

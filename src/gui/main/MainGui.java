@@ -137,7 +137,7 @@ public class MainGui extends javax.swing.JFrame {
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/muzagui.png"))); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/muzagui.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnExit.setText("jButton1");

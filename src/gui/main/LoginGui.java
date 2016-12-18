@@ -117,7 +117,7 @@ public class LoginGui extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, 110, 110));
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui_images/login.png"))); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/login.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnSubmit.setText("jButton1");
