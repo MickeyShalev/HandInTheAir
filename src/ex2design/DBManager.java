@@ -51,15 +51,19 @@ public class DBManager {
      * @return
      * @throws SQLException 
      */
-    public int updateReturnID(String SQL) throws SQLException{
-        Statement stmt=conn.createStatement();
+    public int updateReturnID(String SQL){
         int id=-1;
-        stmt.executeUpdate(SQL, Statement.RETURN_GENERATED_KEYS);
-        ResultSet result = stmt.getGeneratedKeys();
-        if(result.next()){
-            id=result.getInt(1);
+        iMuzaMusic.log("Sending UPDATE Query: "+SQL);
+        try {
+            Statement stmt=conn.createStatement();
+            stmt.executeUpdate(SQL, Statement.RETURN_GENERATED_KEYS);
+            ResultSet result = stmt.getGeneratedKeys();
+            if(result.next()){
+                id=result.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return id;
     }
     

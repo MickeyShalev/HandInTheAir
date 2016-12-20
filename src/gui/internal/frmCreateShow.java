@@ -16,6 +16,8 @@ import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -55,9 +57,12 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         slctedArtists.setVisible(false);
         pnlSubArtists.setVisible(false);
         jScrollPane1.setVisible(false);
-        
-        
-        
+        btnCreate.setVisible(false);
+        fldPrice.setVisible(false);
+        fldAge.setVisible(false);
+        txtSign.setVisible(false);
+        txtMinimum.setVisible(false);
+        txtPrice.setVisible(false);
         
          String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n" +
 "FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n" +
@@ -69,6 +74,12 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //Handle time
+        slctTime.removeAllItems();
+        for(int i=0; i<=24;i++){
+            slctTime.addItem(String.format("%02d:00",i));
         }
     }
 
@@ -84,7 +95,6 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         txtSlctArtist = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         slctArtist = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtLocation = new javax.swing.JLabel();
@@ -96,7 +106,13 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         addArtist = new javax.swing.JButton();
         slctSubArtist = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
+        fldPrice = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JLabel();
+        txtSign = new javax.swing.JLabel();
+        txtMinimum = new javax.swing.JLabel();
+        fldAge = new javax.swing.JTextField();
+        slctTime = new javax.swing.JComboBox<>();
 
         getContentPane().setLayout(null);
 
@@ -115,18 +131,12 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jXDatePicker1);
-        jXDatePicker1.setBounds(60, 100, 160, 20);
+        jXDatePicker1.setBounds(70, 100, 160, 20);
 
         txtSlctArtist.setForeground(new java.awt.Color(255, 255, 255));
         txtSlctArtist.setText("Select Main Artist");
         getContentPane().add(txtSlctArtist);
-        txtSlctArtist.setBounds(60, 130, 170, 14);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("*At this time shows can only be set at 20:00 (8PM) ");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 80, 320, 20);
+        txtSlctArtist.setBounds(70, 190, 170, 16);
 
         slctArtist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctArtist.addItemListener(new java.awt.event.ItemListener() {
@@ -140,17 +150,17 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(slctArtist);
-        slctArtist.setBounds(60, 150, 170, 20);
+        slctArtist.setBounds(70, 210, 170, 22);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Select Show Date");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(60, 60, 170, 30);
+        jLabel3.setBounds(70, 70, 170, 30);
 
         txtLocation.setForeground(new java.awt.Color(255, 255, 255));
         txtLocation.setText("Select Location");
         getContentPane().add(txtLocation);
-        txtLocation.setBounds(250, 130, 170, 20);
+        txtLocation.setBounds(260, 190, 170, 20);
 
         slctLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctLocation.addItemListener(new java.awt.event.ItemListener() {
@@ -159,13 +169,13 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(slctLocation);
-        slctLocation.setBounds(250, 150, 170, 20);
+        slctLocation.setBounds(260, 210, 170, 22);
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Address");
         getContentPane().add(lblAddress);
-        lblAddress.setBounds(250, 160, 230, 30);
+        lblAddress.setBounds(260, 230, 230, 20);
 
         pnlSubArtists.setBackground(new Color(0,0,0,0));
         pnlSubArtists.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -210,16 +220,48 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         pnlSubArtists.add(slctSubArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, -1));
 
         getContentPane().add(pnlSubArtists);
-        pnlSubArtists.setBounds(50, 190, 320, 250);
+        pnlSubArtists.setBounds(60, 250, 320, 250);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCreate.setText("Create Show");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCreateActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(60, 450, 280, 23);
+        getContentPane().add(btnCreate);
+        btnCreate.setBounds(70, 510, 280, 25);
+
+        fldPrice.setText("0.00");
+        getContentPane().add(fldPrice);
+        fldPrice.setBounds(170, 160, 31, 22);
+
+        txtPrice.setForeground(new java.awt.Color(255, 255, 255));
+        txtPrice.setText("Ticket Price: ");
+        getContentPane().add(txtPrice);
+        txtPrice.setBounds(70, 160, 80, 20);
+
+        txtSign.setForeground(new java.awt.Color(255, 255, 255));
+        txtSign.setText("$");
+        getContentPane().add(txtSign);
+        txtSign.setBounds(160, 160, 10, 20);
+
+        txtMinimum.setForeground(new java.awt.Color(255, 255, 255));
+        txtMinimum.setText("Minimum Age:");
+        getContentPane().add(txtMinimum);
+        txtMinimum.setBounds(260, 160, 90, 20);
+
+        fldAge.setText("0");
+        fldAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fldAgeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fldAge);
+        fldAge.setBounds(360, 160, 30, 22);
+
+        slctTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(slctTime);
+        slctTime.setBounds(250, 100, 70, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -242,6 +284,11 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         }
         slctArtist.setVisible(true);
         txtSlctArtist.setVisible(true);
+        txtMinimum.setVisible(true);
+        txtPrice.setVisible(true);
+        txtSign.setVisible(true);
+        fldPrice.setVisible(true);
+        fldAge.setVisible(true);
         
     }//GEN-LAST:event_jXDatePicker1ActionPerformed
 
@@ -332,6 +379,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         slctedArtists.setVisible(true);
         if(!jScrollPane1.isVisible())
         jScrollPane1.setVisible(true);
+        btnCreate.setVisible(true);
         iWindow.update();
     }//GEN-LAST:event_addArtistActionPerformed
 
@@ -343,10 +391,57 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_slctSubArtistActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        try {
+            // TODO add your handling code here:
+            iMuzaMusic.log("Creating Show..");
+            ResultSet rs = iMuzaMusic.getDB().query("Select TOP 1 pID from Shows order by pID desc");
+            String pID = "";
+            String LocationID = iMuzaMusic.getID(slctLocation.getSelectedItem().toString());
+            String MainArtist = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
+            Timestamp dateCreated = new Timestamp(new Date().getTime());
+            SimpleDateFormat df = new SimpleDateFormat("d/M/Y");
+            
+            Integer hrs = Integer.parseInt(slctTime.getSelectedItem().toString().substring(0, 2));
+            Date dt = jXDatePicker1.getDate();
+            dt.setHours(hrs);
+            Timestamp ts = new Timestamp(dt.getTime());
+        
+            
+            String ticketPrice = Double.parseDouble(fldPrice.getText())+"";
+            String minAge = Integer.parseInt(fldAge.getText())+"";
+            
+            Integer tmp = 0;
+            
+            while(rs.next()){
+                pID = rs.getString("pID");
+                pID = pID.replace("PF", "");
+                tmp = Integer.parseInt(pID);
+                tmp++;
+                pID = "PF"+String.format("%03d", tmp);
+            }
+            
+         
+            String qry = "INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated)"
+                    + " VALUES ('"+pID+"',\""+ts+"\",'"+ticketPrice+"','"+minAge+"','Awaiting Approval','"+LocationID+"','"+MainArtist+"',\""+dateCreated+"\")";
+            if(iMuzaMusic.getDB().updateReturnID(qry)>0){
+                //Success
+                iMuzaMusic.log("Successfully added show to Shows table");
+                
+            }
+            else{
+                iMuzaMusic.log("Failed adding show to Shows table");
+                iMuzaMusic.log("Query: "+qry);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void fldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldAgeActionPerformed
         // TODO add your handling code here:
-        iMuzaMusic.log("Creating Show..");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_fldAgeActionPerformed
 
     public void updateData(){
 
@@ -357,10 +452,11 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addArtist;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JTextField fldAge;
+    private javax.swing.JTextField fldPrice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
@@ -369,8 +465,12 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> slctArtist;
     private javax.swing.JComboBox<String> slctLocation;
     private javax.swing.JComboBox<String> slctSubArtist;
+    private javax.swing.JComboBox<String> slctTime;
     private javax.swing.JList<String> slctedArtists;
     private javax.swing.JLabel txtLocation;
+    private javax.swing.JLabel txtMinimum;
+    private javax.swing.JLabel txtPrice;
+    private javax.swing.JLabel txtSign;
     private javax.swing.JLabel txtSlctArtist;
     // End of variables declaration//GEN-END:variables
 }
