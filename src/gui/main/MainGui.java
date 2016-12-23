@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import ex2design.utilities.EAuth;
 import gui.internal.frmCreateShow;
 import gui.internal.frmManageArtists;
+import gui.internal.frmWatchArtists;
 import java.awt.Color;
 
 /**
@@ -47,6 +48,7 @@ public class MainGui extends javax.swing.JFrame {
         pnlAgent = new javax.swing.JPanel();
         btnManageArtists = new javax.swing.JLabel();
         btnAddShow = new javax.swing.JLabel();
+        btnTesting = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -112,18 +114,26 @@ public class MainGui extends javax.swing.JFrame {
             }
         });
 
+        btnTesting.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnTesting.setForeground(new java.awt.Color(255, 255, 255));
+        btnTesting.setText("Testing button");
+        btnTesting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTestingMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlAgentLayout = new javax.swing.GroupLayout(pnlAgent);
         pnlAgent.setLayout(pnlAgentLayout);
         pnlAgentLayout.setHorizontalGroup(
             pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAgentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTesting, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlAgentLayout.setVerticalGroup(
             pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +142,9 @@ public class MainGui extends javax.swing.JFrame {
                 .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnTesting, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(206, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
@@ -197,6 +209,11 @@ public class MainGui extends javax.swing.JFrame {
         iWindow.openWin(add);
     }//GEN-LAST:event_btnAddShowMouseClicked
 
+    private void btnTestingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTestingMouseClicked
+        frmWatchArtists add = new frmWatchArtists();
+        iWindow.openWin(add);
+    }//GEN-LAST:event_btnTestingMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -253,6 +270,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;
+    private javax.swing.JLabel btnTesting;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserType;
     private javax.swing.JLabel lblUsernames;

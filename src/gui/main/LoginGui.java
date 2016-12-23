@@ -18,13 +18,14 @@ import java.util.logging.Logger;
  */
 public class LoginGui extends javax.swing.JFrame {
 
-    public static boolean skipLogin=false;
-    public static String skipID="AG001";
-    public static String skipPW="asf230g2";
+    public static boolean skipLogin = true;
+    public static String skipID = "AG001";
+    public static String skipPW = "asf230g2";
+
     /**
      * Creates new form LoginGui
      */
-    public LoginGui(){
+    public LoginGui() {
         setUndecorated(true);
         initComponents();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -34,7 +35,7 @@ public class LoginGui extends javax.swing.JFrame {
         });
         setLocationRelativeTo(null);
         fldLogin.setCaretPosition(0);
-        if(skipLogin){
+        if (skipLogin) {
             try {
                 //Skip the login GUI
                 fldLogin.setText(skipID);
@@ -139,7 +140,7 @@ public class LoginGui extends javax.swing.JFrame {
     private void fldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldLoginActionPerformed
         // TODO add your handling code here:
 
- 
+
     }//GEN-LAST:event_fldLoginActionPerformed
 
     private void fldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldPasswordActionPerformed
@@ -162,30 +163,32 @@ public class LoginGui extends javax.swing.JFrame {
 
     private void fldLoginPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fldLoginPropertyChange
         // TODO add your handling code here:
- 
+
     }//GEN-LAST:event_fldLoginPropertyChange
 
     private void fldLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fldLoginKeyPressed
         // TODO add your handling code here:
-        if(fldLogin.getText().equals("Username"))
+        if (fldLogin.getText().equals("Username")) {
             fldLogin.setText("");
-        
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        }
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 submitForm();
             } catch (SQLException ex) {
                 Logger.getLogger(LoginGui.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
     }//GEN-LAST:event_fldLoginKeyPressed
 
     private void fldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fldPasswordKeyPressed
         // TODO add your handling code here:
-        if(fldPassword.getText().equals("Password"))
+        if (fldPassword.getText().equals("Password")) {
             fldPassword.setText("");
-        
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        }
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 submitForm();
             } catch (SQLException ex) {
@@ -230,31 +233,28 @@ public class LoginGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
- 
-                    new LoginGui().setVisible(true);
+
+                new LoginGui().setVisible(true);
 
             }
         });
-        
-        
+
     }
-    
-    public void submitForm() throws SQLException{
+
+    public void submitForm() throws SQLException {
         iMuzaMusic.log("Submitted");
-        iMuzaMusic.log("User: "+fldLogin.getText()+" Password: "+fldPassword.getText());
-        
-        if(iMuzaMusic.logIn(fldLogin.getText(), fldPassword.getText())){
-        //Open main gui if successfull    
+        iMuzaMusic.log("User: " + fldLogin.getText() + " Password: " + fldPassword.getText());
+
+        if (iMuzaMusic.logIn(fldLogin.getText(), fldPassword.getText())) {
+            //Open main gui if successfull    
             setVisible(false);
-            
+
             iMuzaMusic.log("Initiating main UI");
-            
+
             MainGui tmp = new MainGui();
             tmp.setVisible(true);
         }
-        
-        
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
