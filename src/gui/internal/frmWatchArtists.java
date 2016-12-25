@@ -87,7 +87,8 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         lblFacebook = new javax.swing.JLabel();
         txtStatus = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
-        lblDetails = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtBio = new javax.swing.JTextArea();
         lblBack = new javax.swing.JLabel();
         lblNext = new javax.swing.JLabel();
 
@@ -119,6 +120,7 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         slctArtist.setBounds(60, 50, 240, 30);
 
         pnlArtist.setBackground(new Color(0,0,0,0));
+        pnlArtist.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         pnlArtist.setLayout(null);
         pnlArtist.add(jSeparator2);
         jSeparator2.setBounds(30, 50, 210, 0);
@@ -214,14 +216,26 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         pnlArtist.add(lblStatus);
         lblStatus.setBounds(210, 100, 200, 14);
 
-        lblDetails.setForeground(new java.awt.Color(255, 255, 255));
-        lblDetails.setText("lblPhone");
-        lblDetails.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        pnlArtist.add(lblDetails);
-        lblDetails.setBounds(10, 180, 490, 200);
+        txtBio.setEditable(false);
+        txtBio.setBackground(new java.awt.Color(102, 102, 102));
+        txtBio.setColumns(20);
+        txtBio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtBio.setForeground(new java.awt.Color(255, 255, 255));
+        txtBio.setLineWrap(true);
+        txtBio.setRows(5);
+        txtBio.setWrapStyleWord(true);
+        txtBio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
+        txtBio.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtBio.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtBio.setDisabledTextColor(new Color(0,0,0,100));
+        txtBio.setSelectionColor(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setViewportView(txtBio);
+
+        pnlArtist.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 160, 480, 100);
 
         getContentPane().add(pnlArtist);
-        pnlArtist.setBounds(10, 80, 690, 420);
+        pnlArtist.setBounds(10, 100, 690, 420);
 
         lblBack.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/back.png"))); // NOI18N
@@ -279,8 +293,8 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
     private void lblNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNextMouseClicked
         
         //can't be longer than max index
-        if (slctArtist.getSelectedIndex() > slctArtist.getMaximumRowCount()){
-            pnlArtist.setVisible(false);
+        if ((slctArtist.getSelectedIndex()+1) > slctArtist.getItemCount()){
+            //pnlArtist.setVisible(false);
             return;
         }
         //get the correct object details
@@ -299,9 +313,7 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
     private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseClicked
         
         //can't be less than 0
-        if (slctArtist.getSelectedIndex()-1 < 1){
-            slctArtist.setSelectedIndex(0);
-        
+        if (slctArtist.getSelectedIndex()-1 < 1){            
             return;
         }
         //get the correct object details
@@ -320,26 +332,27 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
     public void updateData(){
         
         if(art!=null){
-//Artist chosen
-lblArtistID.setText(art.getID());
-lblDetails.setText("<html>"+art.getBiography()+"</html>");
+            //Artist chosen
+            lblArtistID.setText(art.getID());
+            txtBio.setText(art.getBiography());
 
-lblStageName.setText(art.getStageName());
-lblStatus.setText(art.getArStatus().toString());
-lblEmailAddress.setText(art.getEmailAddr());
-//treat fb
-//end fb
-pnlArtist.setVisible(false);
-pnlArtist.setVisible(true);
+            lblStageName.setText(art.getStageName());
+            lblStatus.setText(art.getArStatus().toString());
+            lblEmailAddress.setText(art.getEmailAddr());
+                //treat fb
+                //end fb
+            pnlArtist.setVisible(false);
+            pnlArtist.setVisible(true);
 
         }
-        
+
         iWindow.update();
         
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
@@ -348,7 +361,6 @@ pnlArtist.setVisible(true);
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JLabel lblArtistID;
     private javax.swing.JLabel lblBack;
-    private javax.swing.JLabel lblDetails;
     private javax.swing.JLabel lblEmailAddress;
     private javax.swing.JLabel lblFacebook;
     private javax.swing.JLabel lblFreeze;
@@ -359,6 +371,7 @@ pnlArtist.setVisible(true);
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlArtist;
     private javax.swing.JComboBox<String> slctArtist;
+    private javax.swing.JTextArea txtBio;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtID;
     private javax.swing.JLabel txtStageName;
