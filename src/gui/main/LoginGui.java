@@ -248,6 +248,7 @@ public class LoginGui extends javax.swing.JFrame {
         if (iMuzaMusic.logIn(fldLogin.getText(), fldPassword.getText())) {
             //Open main gui if successfull    
             setVisible(false);
+            dispose();
 
             iMuzaMusic.log("Initiating main UI");
 

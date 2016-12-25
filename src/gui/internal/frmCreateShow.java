@@ -13,6 +13,7 @@ import ex2design.utilities.EArtistStatus;
 import ex2design.utilities.EAuth;
 import gui.main.iWindow;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ItemEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,7 +64,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         txtSign.setVisible(false);
         txtMinimum.setVisible(false);
         txtPrice.setVisible(false);
-        
+        pnlArtistSelected.setVisible(false);
          String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n" +
 "FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n" +
 "WHERE (((Agents.AgentID)=[AgentPreferLocation].[AgentID]) AND ((Locations.LocationID)=[AgentPreferLocation].[LocationID]) AND ((Agents.AgentID)=\""+iMuzaMusic.getLoggedUser().getID()+"\"))";
@@ -113,15 +114,23 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         txtMinimum = new javax.swing.JLabel();
         fldAge = new javax.swing.JTextField();
         slctTime = new javax.swing.JComboBox<>();
+        pnlArtistSelected = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblArtistStageName = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtBio = new javax.swing.JLabel();
 
-        getContentPane().setLayout(null);
+        setBackground(new Color(0,0,0,0));
+        setAutoscrolls(true);
+        setOpaque(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setBackground(new Color(0,0,0,0));
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Welcome to Create New Show feature!");
-        getContentPane().add(jLabel16);
-        jLabel16.setBounds(60, 30, 360, 30);
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 360, 30));
 
         jXDatePicker1.setBackground(new Color(0,0,0,0));
         jXDatePicker1.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,13 +139,11 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 jXDatePicker1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jXDatePicker1);
-        jXDatePicker1.setBounds(70, 100, 160, 20);
+        getContentPane().add(jXDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 20));
 
         txtSlctArtist.setForeground(new java.awt.Color(255, 255, 255));
         txtSlctArtist.setText("Select Main Artist");
-        getContentPane().add(txtSlctArtist);
-        txtSlctArtist.setBounds(70, 190, 170, 16);
+        getContentPane().add(txtSlctArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 170, -1));
 
         slctArtist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctArtist.addItemListener(new java.awt.event.ItemListener() {
@@ -149,18 +156,15 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 slctArtistActionPerformed(evt);
             }
         });
-        getContentPane().add(slctArtist);
-        slctArtist.setBounds(70, 210, 170, 22);
+        getContentPane().add(slctArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 170, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Select Show Date");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(70, 70, 170, 30);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 170, 30));
 
         txtLocation.setForeground(new java.awt.Color(255, 255, 255));
         txtLocation.setText("Select Location");
-        getContentPane().add(txtLocation);
-        txtLocation.setBounds(260, 190, 170, 20);
+        getContentPane().add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 170, 20));
 
         slctLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctLocation.addItemListener(new java.awt.event.ItemListener() {
@@ -168,14 +172,12 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 slctLocationItemStateChanged(evt);
             }
         });
-        getContentPane().add(slctLocation);
-        slctLocation.setBounds(260, 210, 170, 22);
+        getContentPane().add(slctLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 170, -1));
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Address");
-        getContentPane().add(lblAddress);
-        lblAddress.setBounds(260, 230, 230, 20);
+        getContentPane().add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 230, 20));
 
         pnlSubArtists.setBackground(new Color(0,0,0,0));
         pnlSubArtists.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -219,8 +221,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         });
         pnlSubArtists.add(slctSubArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, -1));
 
-        getContentPane().add(pnlSubArtists);
-        pnlSubArtists.setBounds(60, 250, 320, 250);
+        getContentPane().add(pnlSubArtists, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 320, 250));
 
         btnCreate.setText("Create Show");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -228,27 +229,22 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 btnCreateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCreate);
-        btnCreate.setBounds(70, 510, 280, 25);
+        getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 280, -1));
 
         fldPrice.setText("0.00");
-        getContentPane().add(fldPrice);
-        fldPrice.setBounds(170, 160, 31, 22);
+        getContentPane().add(fldPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
 
         txtPrice.setForeground(new java.awt.Color(255, 255, 255));
         txtPrice.setText("Ticket Price: ");
-        getContentPane().add(txtPrice);
-        txtPrice.setBounds(70, 160, 80, 20);
+        getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 80, 20));
 
         txtSign.setForeground(new java.awt.Color(255, 255, 255));
         txtSign.setText("$");
-        getContentPane().add(txtSign);
-        txtSign.setBounds(160, 160, 10, 20);
+        getContentPane().add(txtSign, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 10, 20));
 
         txtMinimum.setForeground(new java.awt.Color(255, 255, 255));
         txtMinimum.setText("Minimum Age:");
-        getContentPane().add(txtMinimum);
-        txtMinimum.setBounds(260, 160, 90, 20);
+        getContentPane().add(txtMinimum, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 90, 20));
 
         fldAge.setText("0");
         fldAge.addActionListener(new java.awt.event.ActionListener() {
@@ -256,12 +252,41 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 fldAgeActionPerformed(evt);
             }
         });
-        getContentPane().add(fldAge);
-        fldAge.setBounds(360, 160, 30, 22);
+        getContentPane().add(fldAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 30, -1));
 
         slctTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(slctTime);
-        slctTime.setBounds(250, 100, 70, 20);
+        getContentPane().add(slctTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 70, -1));
+
+        pnlArtistSelected.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlArtistSelected.setOpaque(false);
+        pnlArtistSelected.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Selected Artist Details");
+        pnlArtistSelected.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 5, 210, -1));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Stage Name: ");
+        pnlArtistSelected.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 70, -1));
+
+        lblArtistStageName.setBackground(new java.awt.Color(255, 255, 255));
+        lblArtistStageName.setForeground(new java.awt.Color(255, 255, 255));
+        lblArtistStageName.setText("jLabel5");
+        pnlArtistSelected.add(lblArtistStageName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Biography");
+        pnlArtistSelected.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 60, -1));
+
+        txtBio.setBackground(new java.awt.Color(51, 51, 51));
+        txtBio.setForeground(new java.awt.Color(255, 255, 255));
+        txtBio.setText("jLabel6");
+        pnlArtistSelected.add(txtBio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 280, 70));
+
+        getContentPane().add(pnlArtistSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 370, 170));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -351,6 +376,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             jScrollPane1.setVisible(false);
             pnlSubArtists.setVisible(true);
             lblAddress.setVisible(true);
+            btnCreate.setVisible(true);
             }
     }//GEN-LAST:event_slctLocationItemStateChanged
 
@@ -385,6 +411,34 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
 
     private void slctSubArtistItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_slctSubArtistItemStateChanged
         // TODO add your handling code here:
+        if (evt.getStateChange() != ItemEvent.SELECTED) 
+        return;
+            Object item = evt.getItem();
+            if (item.equals("Select Sub Artists")) {
+                    
+                return;
+            }
+        
+           String ArtistID = iMuzaMusic.getID(slctSubArtist.getSelectedItem().toString());
+           iMuzaMusic.log("Getting ArtistID "+ArtistID);
+           ResultSet qry = iMuzaMusic.getDB().query("select * from Artists where ArtistID=\""+ArtistID+"\"");
+        try {
+            if(qry.next()){
+                String strStageName = qry.getString("strStageName");
+                String strBio = qry.getString("strShortBio");
+                txtBio.setText("<html>"+strBio+"</html>");
+                lblArtistStageName.setText(strStageName);
+                
+                pnlArtistSelected.setVisible(true);
+                pnlArtistSelected.setVisible(false);
+                pnlArtistSelected.setVisible(true);
+                iWindow.update();
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_slctSubArtistItemStateChanged
 
     private void slctSubArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slctSubArtistActionPerformed
@@ -444,11 +498,14 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_fldAgeActionPerformed
 
     public void updateData(){
-
         iWindow.update();
-        
     }
     
+    @Override
+    public void paintComponent(Graphics g) {
+        g.setColor(getBackground());
+        g.fillRect(0, 0, getWidth(), getHeight());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addArtist;
@@ -457,16 +514,22 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     private javax.swing.JTextField fldPrice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblArtistStageName;
+    private javax.swing.JPanel pnlArtistSelected;
     private javax.swing.JPanel pnlSubArtists;
     private javax.swing.JComboBox<String> slctArtist;
     private javax.swing.JComboBox<String> slctLocation;
     private javax.swing.JComboBox<String> slctSubArtist;
     private javax.swing.JComboBox<String> slctTime;
     private javax.swing.JList<String> slctedArtists;
+    private javax.swing.JLabel txtBio;
     private javax.swing.JLabel txtLocation;
     private javax.swing.JLabel txtMinimum;
     private javax.swing.JLabel txtPrice;

@@ -12,6 +12,7 @@ import gui.internal.frmCreateShow;
 import gui.internal.frmManageArtists;
 import gui.internal.frmWatchArtists;
 import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  *
@@ -29,7 +30,7 @@ public class MainGui extends javax.swing.JFrame {
         refreshVars();
         iWindow.setPanel(ContentFrame);
         iWindow.setLblTitle(lblTitle);
-       
+
     }
 
     /**
@@ -249,20 +250,21 @@ public class MainGui extends javax.swing.JFrame {
         });
     }
 
-    public void refreshVars(){
+    public void refreshVars() {
         lblTitle.setText("Homepage");
-        lblUserType.setText(""+iMuzaMusic.getLoggedUser().getUserAuth());
-        lblUsernames.setText(iMuzaMusic.getLoggedUser().getFirstName()+" "+iMuzaMusic.getLoggedUser().getLastName());
+        lblUserType.setText("" + iMuzaMusic.getLoggedUser().getUserAuth());
+        lblUsernames.setText(iMuzaMusic.getLoggedUser().getFirstName() + " " + iMuzaMusic.getLoggedUser().getLastName());
         pnlAgent.setVisible(false);
-        
-        switch(iMuzaMusic.getLoggedUser().getUserAuth()){
+
+        switch (iMuzaMusic.getLoggedUser().getUserAuth()) {
             case Agent:
                 pnlAgent.setVisible(true);
                 break;
         }
-        
+
     }
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ContentFrame;
     private javax.swing.JLabel bg;
