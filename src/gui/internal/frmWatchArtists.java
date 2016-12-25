@@ -99,7 +99,7 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("You may choose an artist by using the selector.");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(60, 30, 228, 14);
+        jLabel16.setBounds(60, 30, 270, 14);
 
         lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/search.png"))); // NOI18N
         getContentPane().add(lblSearch);
@@ -120,7 +120,8 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         slctArtist.setBounds(60, 50, 240, 30);
 
         pnlArtist.setBackground(new Color(0,0,0,0));
-        pnlArtist.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        pnlArtist.setRequestFocusEnabled(false);
+        pnlArtist.setVerifyInputWhenFocusTarget(false);
         pnlArtist.setLayout(null);
         pnlArtist.add(jSeparator2);
         jSeparator2.setBounds(30, 50, 210, 0);
@@ -217,7 +218,7 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         lblStatus.setBounds(210, 100, 200, 14);
 
         txtBio.setEditable(false);
-        txtBio.setBackground(new java.awt.Color(102, 102, 102));
+        txtBio.setBackground(new java.awt.Color(204, 204, 204));
         txtBio.setColumns(20);
         txtBio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtBio.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,11 +229,12 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         txtBio.setCaretColor(new java.awt.Color(255, 255, 255));
         txtBio.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtBio.setDisabledTextColor(new Color(0,0,0,100));
+        txtBio.setFocusable(false);
         txtBio.setSelectionColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(txtBio);
 
         pnlArtist.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 160, 480, 100);
+        jScrollPane1.setBounds(20, 160, 480, 120);
 
         getContentPane().add(pnlArtist);
         pnlArtist.setBounds(10, 100, 690, 420);
