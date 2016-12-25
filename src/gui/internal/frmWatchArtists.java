@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.midi.SysexMessage;
 
 /**
  *
@@ -86,7 +87,7 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         lblFacebook = new javax.swing.JLabel();
         txtStatus = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
-        lblPhoneNum = new javax.swing.JLabel();
+        lblDetails = new javax.swing.JLabel();
         lblBack = new javax.swing.JLabel();
         lblNext = new javax.swing.JLabel();
 
@@ -213,11 +214,11 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         pnlArtist.add(lblStatus);
         lblStatus.setBounds(210, 100, 200, 14);
 
-        lblPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
-        lblPhoneNum.setText("lblPhone");
-        lblPhoneNum.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        pnlArtist.add(lblPhoneNum);
-        lblPhoneNum.setBounds(20, 150, 490, 200);
+        lblDetails.setForeground(new java.awt.Color(255, 255, 255));
+        lblDetails.setText("lblPhone");
+        lblDetails.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        pnlArtist.add(lblDetails);
+        lblDetails.setBounds(10, 180, 490, 200);
 
         getContentPane().add(pnlArtist);
         pnlArtist.setBounds(10, 80, 690, 420);
@@ -225,6 +226,11 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         lblBack.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/back.png"))); // NOI18N
         lblBack.setLabelFor(lblBack);
+        lblBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBackMouseClicked(evt);
+            }
+        });
         getContentPane().add(lblBack);
         lblBack.setBounds(330, 50, 30, 30);
 
@@ -255,11 +261,8 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
             
             this.art = iMuzaMusic.getAgentEntity(agID);
             
-            
-            
-            
+
             updateData();
-            
         }
     }//GEN-LAST:event_slctArtistItemStateChanged
     
@@ -274,38 +277,67 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_lblFreezeMouseClicked
     
     private void lblNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNextMouseClicked
-        //TODO
         
-        try {
-            r.getRow();
-            String ArtistID = r.getString("ArtistID");
-            String strStageName = r.getString("strStageName");
-        } catch (SQLException ex) {
-            Logger.getLogger(frmWatchArtists.class.getName()).log(Level.SEVERE, null, ex);
+        //can't be longer than max index
+        if (slctArtist.getSelectedIndex() > slctArtist.getMaximumRowCount()){
+            pnlArtist.setVisible(false);
+            return;
         }
-    
+        //get the correct object details
+        else{
+            slctArtist.setSelectedIndex(slctArtist.getSelectedIndex()+1);
+            String agID = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
+            this.art = iMuzaMusic.getAgentEntity(agID);
+            
+        }
+        
+        
+        updateData();
+        
     }//GEN-LAST:event_lblNextMouseClicked
 
-public void updateData(){
-
-if(art!=null){
+    private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseClicked
+        
+        //can't be less than 0
+        if (slctArtist.getSelectedIndex()-1 < 1){
+            slctArtist.setSelectedIndex(0);
+        
+            return;
+        }
+        //get the correct object details
+        else{
+            slctArtist.setSelectedIndex(slctArtist.getSelectedIndex()-1);
+            String agID = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
+            this.art = iMuzaMusic.getAgentEntity(agID);
+            
+        }
+        
+        
+        updateData();
+        
+    }//GEN-LAST:event_lblBackMouseClicked
+    
+    public void updateData(){
+        
+        if(art!=null){
 //Artist chosen
 lblArtistID.setText(art.getID());
-lblPhoneNum.setText("<html>"+art.getBiography()+"</html>");
+lblDetails.setText("<html>"+art.getBiography()+"</html>");
 
 lblStageName.setText(art.getStageName());
 lblStatus.setText(art.getArStatus().toString());
 lblEmailAddress.setText(art.getEmailAddr());
 //treat fb
 //end fb
+pnlArtist.setVisible(false);
 pnlArtist.setVisible(true);
 
-}
-
-iWindow.update();
-
-}
-
+        }
+        
+        iWindow.update();
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel16;
     private javax.swing.JSeparator jSeparator2;
@@ -316,11 +348,11 @@ iWindow.update();
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JLabel lblArtistID;
     private javax.swing.JLabel lblBack;
+    private javax.swing.JLabel lblDetails;
     private javax.swing.JLabel lblEmailAddress;
     private javax.swing.JLabel lblFacebook;
     private javax.swing.JLabel lblFreeze;
     private javax.swing.JLabel lblNext;
-    private javax.swing.JLabel lblPhoneNum;
     private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblStageName;
     private javax.swing.JLabel lblStatus;
