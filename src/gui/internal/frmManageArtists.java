@@ -8,6 +8,7 @@ package gui.internal;
 import ex2design.iMuzaMusic;
 import entities.Artist;
 import entities.Person;
+import entities.ShowsToArtists;
 import ex2design.utilities.EArtistStatus;
 import ex2design.utilities.EAuth;
 import gui.main.iWindow;
@@ -15,8 +16,12 @@ import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -28,8 +33,9 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
      * Creates new form frmTemplate
      */
     private static Artist art = null;
+
     public frmManageArtists() {
-        
+
         initComponents();
         setTitle("Manage Artists");
         pnlArtist.setVisible(false);
@@ -38,21 +44,24 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         slctArtist.removeAllItems();
         slctArtist.addItem("Select an artist");
         slctArtist.setSelectedIndex(0);
-        ResultSet r = iMuzaMusic.getDB().query("select * from Artists where AgentID='"+iMuzaMusic.getLoggedUser().getID()+"'");
+        ResultSet r = iMuzaMusic.getDB().query("select * from Artists where AgentID='" + iMuzaMusic.getLoggedUser().getID() + "'");
         try {
-            while(r.next()){
+            while (r.next()) {
                 String ArtistID = r.getString("ArtistID");
                 String strStageName = r.getString("strStageName");
-                slctArtist.addItem(strStageName+" ("+ArtistID+")");
+                slctArtist.addItem(strStageName + " (" + ArtistID + ")");
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmManageArtists.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
-        
+        jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+                public void valueChanged(ListSelectionEvent event) {
+                    // do some actions here, for example
+                    // print first column value from selected row
+                    System.out.println(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+                }
+            });
+
     }
 
     /**
@@ -88,6 +97,9 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblStatus = new javax.swing.JLabel();
         lblPhoneNum = new javax.swing.JLabel();
         txtEmail1 = new javax.swing.JLabel();
+        txtEmail2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         getContentPane().setLayout(null);
 
@@ -233,6 +245,31 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         pnlArtist.add(txtEmail1);
         txtEmail1.setBounds(20, 120, 110, 16);
 
+        txtEmail2.setBackground(new java.awt.Color(255, 255, 255));
+        txtEmail2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtEmail2.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail2.setText("Approve Shows Invitations");
+        pnlArtist.add(txtEmail2);
+        txtEmail2.setBounds(20, 180, 210, 16);
+
+        jTable1.setBackground(new Color(0,0,0,0));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setOpaque(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        pnlArtist.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 200, 540, 150);
+
         getContentPane().add(pnlArtist);
         pnlArtist.setBounds(10, 80, 690, 420);
 
@@ -249,15 +286,52 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
             }
             // do something with object
             String agID = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
-            
+
             this.art = iMuzaMusic.getAgentEntity(agID);
-                    
-                    
-                    
-                    
+            List<ShowsToArtists> AL = new ArrayList<ShowsToArtists>();
+            String ShowID, ArtistID, showDate, showLocation;
+            ResultSet shows = iMuzaMusic.getDB().query("SELECT Shows.*, Locations.strName\n"
+                    + "FROM Locations INNER JOIN (Shows INNER JOIN ShowsToArtists ON Shows.pID = ShowsToArtists.ShowID) ON Locations.LocationID = Shows.iLocation\n"
+                    + "WHERE (((Shows.pID)=[ShowsToArtists].[ShowID]) AND ((ShowsToArtists.Status)=\"Pending Approval\") AND ((ShowsToArtists.ArtistID)=\"" + art.getID() + "\") AND ((Locations.LocationID)=[Shows].[iLocation]));");
+            try {
+                while (shows.next()) {
+                    ShowID = shows.getString("pID");
+                    ArtistID = shows.getString("iMainArtist");
+                    ResultSet getArtistName = iMuzaMusic.getDB().query("select strStageName from Artists where ArtistiD=\"" + ArtistID + "\"");
+                    while (getArtistName.next()) {
+                        ArtistID = getArtistName.getString("strStageName");
+                    }
+                    showLocation = shows.getString("strName");
+                    showDate = shows.getString("pStartDate").substring(0, 10);
+                    iMuzaMusic.log(ShowID + " " + ArtistID + " " + showLocation + " " + showDate);
+                    AL.add(new ShowsToArtists(ShowID, ArtistID, "Pending Approval", showDate, showLocation));
+
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(frmManageArtists.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Object[][] objs = new Object[AL.size()][4];
+            int i = 0;
+            for (ShowsToArtists sta : AL) {
+                objs[i][0] = sta.getShowID();
+                objs[i][1] = sta.getShowDate();
+                objs[i][2] = sta.getArtistID();
+                objs[i][3] = sta.getLocation();
+
+                i++;
+            }
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    objs,
+                    new String[]{
+                        "#", "Date", "Main Artist", "Location"
+                    }
+            ));
+
+            
             updateData();
 
         }
+        
     }//GEN-LAST:event_slctArtistItemStateChanged
 
     private void slctArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slctArtistActionPerformed
@@ -269,54 +343,54 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
 
         //Create new Branch
         hide();
-       // AddBranchForm frm = new AddBranchForm();
-       // iWindow.openWin(frm);
+        // AddBranchForm frm = new AddBranchForm();
+        // iWindow.openWin(frm);
     }//GEN-LAST:event_lblAddArtistMouseClicked
 
     private void lblFreezeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFreezeMouseClicked
-        
-       //Freeze Agent
-       if(art.getArStatus().equals(EArtistStatus.Active)){
-       iMuzaMusic.getDB().updateReturnID("update Artists set iStatus=2 where ArtistID=\""+art.getID()+"\"");
-       art.setArStatus(EArtistStatus.Inactive);
-       }
-       else{
-           
-       iMuzaMusic.getDB().updateReturnID("update Artists set iStatus=1 where ArtistID=\""+art.getID()+"\"");
-       art.setArStatus(EArtistStatus.Active);
-       }
-       
-       updateData();
+
+        //Freeze Agent
+        if (art.getArStatus().equals(EArtistStatus.Active)) {
+            iMuzaMusic.getDB().updateReturnID("update Artists set iStatus=2 where ArtistID=\"" + art.getID() + "\"");
+            art.setArStatus(EArtistStatus.Inactive);
+        } else {
+            iMuzaMusic.getDB().updateReturnID("update Artists set iStatus=1 where ArtistID=\"" + art.getID() + "\"");
+            art.setArStatus(EArtistStatus.Active);
+        }
+
+        updateData();
     }//GEN-LAST:event_lblFreezeMouseClicked
 
-    public void updateData(){
-    
-        if(art!=null){
+    public void updateData() {
+
+        if (art != null) {
             //Artist chosen
             lblArtistID.setText(art.getID());
             lblPhoneNum.setText(art.getBiography());
-         
+
             lblStageName.setText(art.getStageName());
             lblStatus.setText(art.getArStatus().toString());
             lblEmailAddress.setText(art.getEmailAddr());
             //treat fb
             //end fb
             pnlArtist.setVisible(true);
-            
+
         }
-        
+
         iWindow.update();
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAddArtist;
     private javax.swing.JLabel lblArtistID;
     private javax.swing.JLabel lblEmailAddress;
@@ -331,6 +405,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> slctArtist;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtEmail1;
+    private javax.swing.JLabel txtEmail2;
     private javax.swing.JLabel txtID;
     private javax.swing.JLabel txtStageName;
     private javax.swing.JLabel txtStatus;
