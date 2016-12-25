@@ -34,6 +34,7 @@ import javax.swing.*;
  */
 public class frmCreateShow extends javax.swing.JInternalFrame {
     Map<String, String> artistNames;
+    Boolean rePaint = true;
     /**
      * Creates new form frmTemplate
      */
@@ -214,6 +215,13 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 slctSubArtistItemStateChanged(evt);
             }
         });
+        slctSubArtist.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                slctSubArtistInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
         slctSubArtist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 slctSubArtistActionPerformed(evt);
@@ -232,7 +240,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 280, -1));
 
         fldPrice.setText("0.00");
-        getContentPane().add(fldPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
+        getContentPane().add(fldPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 40, -1));
 
         txtPrice.setForeground(new java.awt.Color(255, 255, 255));
         txtPrice.setText("Ticket Price: ");
@@ -257,36 +265,36 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         slctTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(slctTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 70, -1));
 
+        pnlArtistSelected.setBackground(new Color(0,0,0,0));
         pnlArtistSelected.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        pnlArtistSelected.setOpaque(false);
         pnlArtistSelected.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Selected Artist Details");
-        pnlArtistSelected.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 5, 210, -1));
+        pnlArtistSelected.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 210, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Stage Name: ");
-        pnlArtistSelected.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 70, -1));
+        pnlArtistSelected.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, -1));
 
         lblArtistStageName.setBackground(new java.awt.Color(255, 255, 255));
         lblArtistStageName.setForeground(new java.awt.Color(255, 255, 255));
         lblArtistStageName.setText("jLabel5");
-        pnlArtistSelected.add(lblArtistStageName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        pnlArtistSelected.add(lblArtistStageName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 120, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Biography");
         pnlArtistSelected.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 60, -1));
 
-        txtBio.setBackground(new java.awt.Color(51, 51, 51));
         txtBio.setForeground(new java.awt.Color(255, 255, 255));
-        txtBio.setText("jLabel6");
-        pnlArtistSelected.add(txtBio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 280, 70));
+        txtBio.setText("jLabel7");
+        pnlArtistSelected.add(txtBio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 330, -1));
 
-        getContentPane().add(pnlArtistSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 370, 170));
+        getContentPane().add(pnlArtistSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 380, 230));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -426,18 +434,24 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             if(qry.next()){
                 String strStageName = qry.getString("strStageName");
                 String strBio = qry.getString("strShortBio");
-                txtBio.setText("<html>"+strBio+"</html>");
+                pnlArtistSelected.setVisible(true);
+                
+                txtBio.setText(strBio);
+                
                 lblArtistStageName.setText(strStageName);
                 
-                pnlArtistSelected.setVisible(true);
-                pnlArtistSelected.setVisible(false);
-                pnlArtistSelected.setVisible(true);
-                iWindow.update();
+                if(rePaint) {
+                    rePaint = false;
+                    slctSubArtistItemStateChanged(evt);
+                    
+                }
                 
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
+        iWindow.update();
         
     }//GEN-LAST:event_slctSubArtistItemStateChanged
 
@@ -496,6 +510,10 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     private void fldAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldAgeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fldAgeActionPerformed
+
+    private void slctSubArtistInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_slctSubArtistInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_slctSubArtistInputMethodTextChanged
 
     public void updateData(){
         iWindow.update();

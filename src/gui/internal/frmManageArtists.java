@@ -87,6 +87,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         txtStatus = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
         lblPhoneNum = new javax.swing.JLabel();
+        txtEmail1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
@@ -94,7 +95,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("You may choose an artist by using the selector.");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(60, 30, 270, 16);
+        jLabel16.setBounds(60, 30, 228, 14);
 
         lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/search.png"))); // NOI18N
         getContentPane().add(lblSearch);
@@ -107,7 +108,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(lblAddArtist);
-        lblAddArtist.setBounds(310, 50, 30, 30);
+        lblAddArtist.setBounds(310, 40, 40, 50);
 
         slctArtist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctArtist.addItemListener(new java.awt.event.ItemListener() {
@@ -154,7 +155,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblArtistID.setForeground(new java.awt.Color(255, 255, 255));
         lblArtistID.setText("id");
         pnlArtist.add(lblArtistID);
-        lblArtistID.setBounds(210, 60, 70, 16);
+        lblArtistID.setBounds(210, 60, 70, 14);
 
         txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -166,7 +167,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblEmailAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblEmailAddress.setText("address");
         pnlArtist.add(lblEmailAddress);
-        lblEmailAddress.setBounds(210, 120, 200, 16);
+        lblEmailAddress.setBounds(210, 120, 200, 14);
 
         txtStageName.setBackground(new java.awt.Color(255, 255, 255));
         txtStageName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -188,9 +189,9 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         txtEmail.setBackground(new java.awt.Color(255, 255, 255));
         txtEmail.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail.setText("Email Address");
+        txtEmail.setText("Biography");
         pnlArtist.add(txtEmail);
-        txtEmail.setBounds(20, 120, 110, 16);
+        txtEmail.setBounds(20, 140, 110, 16);
 
         lblFreeze.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblFreeze.setForeground(new java.awt.Color(51, 102, 255));
@@ -217,13 +218,20 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("status");
         pnlArtist.add(lblStatus);
-        lblStatus.setBounds(210, 100, 200, 16);
+        lblStatus.setBounds(210, 100, 200, 14);
 
         lblPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
-        lblPhoneNum.setText("lblPhone");
-        lblPhoneNum.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblPhoneNum.setText("jLabel1");
+        lblPhoneNum.setToolTipText("");
         pnlArtist.add(lblPhoneNum);
-        lblPhoneNum.setBounds(20, 150, 490, 200);
+        lblPhoneNum.setBounds(20, 160, 420, 20);
+
+        txtEmail1.setBackground(new java.awt.Color(255, 255, 255));
+        txtEmail1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        txtEmail1.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail1.setText("Email Address");
+        pnlArtist.add(txtEmail1);
+        txtEmail1.setBounds(20, 120, 110, 16);
 
         getContentPane().add(pnlArtist);
         pnlArtist.setBounds(10, 80, 690, 420);
@@ -268,6 +276,17 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
     private void lblFreezeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFreezeMouseClicked
         
        //Freeze Agent
+       if(art.getArStatus().equals(EArtistStatus.Active)){
+       iMuzaMusic.getDB().updateReturnID("update Artists set iStatus=2 where ArtistID=\""+art.getID()+"\"");
+       art.setArStatus(EArtistStatus.Inactive);
+       }
+       else{
+           
+       iMuzaMusic.getDB().updateReturnID("update Artists set iStatus=1 where ArtistID=\""+art.getID()+"\"");
+       art.setArStatus(EArtistStatus.Active);
+       }
+       
+       updateData();
     }//GEN-LAST:event_lblFreezeMouseClicked
 
     public void updateData(){
@@ -275,7 +294,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         if(art!=null){
             //Artist chosen
             lblArtistID.setText(art.getID());
-            lblPhoneNum.setText("<html>"+art.getBiography()+"</html>");
+            lblPhoneNum.setText(art.getBiography());
          
             lblStageName.setText(art.getStageName());
             lblStatus.setText(art.getArStatus().toString());
@@ -311,6 +330,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlArtist;
     private javax.swing.JComboBox<String> slctArtist;
     private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtEmail1;
     private javax.swing.JLabel txtID;
     private javax.swing.JLabel txtStageName;
     private javax.swing.JLabel txtStatus;
