@@ -20,8 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -58,7 +60,12 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
                 public void valueChanged(ListSelectionEvent event) {
                     // do some actions here, for example
                     // print first column value from selected row
-                    System.out.println(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+                    try{
+                        System.out.println(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+                    }
+                    catch(Exception e){
+                        
+                    }
                 }
             });
 
@@ -99,7 +106,23 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         txtEmail1 = new javax.swing.JLabel();
         txtEmail2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable(){
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                    return String.class;
+                    case 1:
+                    return String.class;
+                    case 2:
+                    return String.class;
+                    case 3:
+                    return String.class;
+                    default:
+                    return Boolean.class;
+                }
+            }
+        };
 
         getContentPane().setLayout(null);
 
@@ -107,7 +130,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("You may choose an artist by using the selector.");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(60, 30, 228, 14);
+        jLabel16.setBounds(60, 30, 270, 16);
 
         lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/search.png"))); // NOI18N
         getContentPane().add(lblSearch);
@@ -167,7 +190,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblArtistID.setForeground(new java.awt.Color(255, 255, 255));
         lblArtistID.setText("id");
         pnlArtist.add(lblArtistID);
-        lblArtistID.setBounds(210, 60, 70, 14);
+        lblArtistID.setBounds(210, 60, 70, 16);
 
         txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -179,7 +202,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblEmailAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblEmailAddress.setText("address");
         pnlArtist.add(lblEmailAddress);
-        lblEmailAddress.setBounds(210, 120, 200, 14);
+        lblEmailAddress.setBounds(210, 120, 200, 16);
 
         txtStageName.setBackground(new java.awt.Color(255, 255, 255));
         txtStageName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -207,14 +230,14 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
 
         lblFreeze.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblFreeze.setForeground(new java.awt.Color(51, 102, 255));
-        lblFreeze.setText("[Freeze Agent]");
+        lblFreeze.setText("[Deactivate Artist]");
         lblFreeze.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblFreezeMouseClicked(evt);
             }
         });
         pnlArtist.add(lblFreeze);
-        lblFreeze.setBounds(490, 90, 80, 20);
+        lblFreeze.setBounds(470, 90, 110, 20);
 
         lblFacebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/Facebook-Download-PNG.png"))); // NOI18N
         pnlArtist.add(lblFacebook);
@@ -230,7 +253,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("status");
         pnlArtist.add(lblStatus);
-        lblStatus.setBounds(210, 100, 200, 14);
+        lblStatus.setBounds(210, 100, 200, 16);
 
         lblPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNum.setText("jLabel1");
@@ -268,7 +291,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         pnlArtist.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 200, 540, 150);
+        jScrollPane1.setBounds(20, 200, 540, 160);
 
         getContentPane().add(pnlArtist);
         pnlArtist.setBounds(10, 80, 690, 420);
@@ -310,23 +333,27 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(frmManageArtists.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Object[][] objs = new Object[AL.size()][4];
+            
+            Object[][] objs = new Object[AL.size()][5];
             int i = 0;
             for (ShowsToArtists sta : AL) {
                 objs[i][0] = sta.getShowID();
                 objs[i][1] = sta.getShowDate();
                 objs[i][2] = sta.getArtistID();
                 objs[i][3] = sta.getLocation();
+                objs[i][4] = false;
 
                 i++;
             }
             jTable1.setModel(new javax.swing.table.DefaultTableModel(
                     objs,
                     new String[]{
-                        "#", "Date", "Main Artist", "Location"
+                        "#", "Date", "Main Artist", "Location", "Approve Show"
                     }
             ));
-
+TableColumn tc = jTable1.getColumnModel().getColumn(4);
+            tc.setCellEditor(jTable1.getDefaultEditor(Boolean.class));
+            tc.setCellRenderer(jTable1.getDefaultRenderer(Boolean.class));
             
             updateData();
 
