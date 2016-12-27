@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="956df5b0-5bcb-4982-bf35-0728ae27896e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     qryShowsByYear.`pID` AS qryShowsByYear_pID,
+     qryShowsByYear.`pStartDate` AS qryShowsByYear_pStartDate,
+     qryShowsByYear.`pTicketPrice` AS qryShowsByYear_pTicketPrice,
+     qryShowsByYear.`pMinAge` AS qryShowsByYear_pMinAge,
+     qryShowsByYear.`pStatus` AS qryShowsByYear_pStatus,
+     qryShowsByYear.`iLocation` AS qryShowsByYear_iLocation,
+     qryShowsByYear.`iMainArtist` AS qryShowsByYear_iMainArtist,
+     qryShowsByYear.`pDateCreated` AS qryShowsByYear_pDateCreated,
+     qryShowsByYear.`RegularSale` AS qryShowsByYear_RegularSale,
+     qryShowsByYear.`PreSale` AS qryShowsByYear_PreSale
+FROM
+     `qryShowsByYear` qryShowsByYear]]>
+	</queryString>
+	<field name="qryShowsByYear_pID" class="java.lang.String"/>
+	<field name="qryShowsByYear_pStartDate" class="java.sql.Timestamp"/>
+	<field name="qryShowsByYear_pTicketPrice" class="java.lang.Integer"/>
+	<field name="qryShowsByYear_pMinAge" class="java.lang.Integer"/>
+	<field name="qryShowsByYear_pStatus" class="java.lang.String"/>
+	<field name="qryShowsByYear_iLocation" class="java.lang.String"/>
+	<field name="qryShowsByYear_iMainArtist" class="java.lang.String"/>
+	<field name="qryShowsByYear_pDateCreated" class="java.sql.Timestamp"/>
+	<field name="qryShowsByYear_RegularSale" class="java.lang.Long"/>
+	<field name="qryShowsByYear_PreSale" class="java.lang.Long"/>
+	<group name="qryShowsByYear_pID">
+		<groupExpression><![CDATA[$F{qryShowsByYear_pID}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="55" height="20" uuid="df6892f7-508f-42f2-8018-86d8468d1c36"/>
+				<text><![CDATA[qryShowsByYear_pID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="0" width="55" height="20" uuid="fb6e4ab8-1ad7-4bb6-94e5-8d92b5ee1b5a"/>
+				<text><![CDATA[qryShowsByYear_pStartDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="55" height="20" uuid="4bdd9281-f29b-4e1a-bf3f-29c185e8a09b"/>
+				<text><![CDATA[qryShowsByYear_pTicketPrice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="0" width="55" height="20" uuid="f6b96aa7-78ee-44e3-88db-14eeb65c25d4"/>
+				<text><![CDATA[qryShowsByYear_pMinAge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="55" height="20" uuid="921c944f-0dab-4ebc-b190-fe8a2ad7c8cb"/>
+				<text><![CDATA[qryShowsByYear_pStatus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="0" width="55" height="20" uuid="05cc9394-9101-4a75-aaa4-09b99aa8890c"/>
+				<text><![CDATA[qryShowsByYear_iLocation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="55" height="20" uuid="847ef980-1f61-4afe-af57-dc99c94c5f88"/>
+				<text><![CDATA[qryShowsByYear_iMainArtist]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="0" width="55" height="20" uuid="87da3ed9-2e4d-4339-9b86-7095b1476577"/>
+				<text><![CDATA[qryShowsByYear_pDateCreated]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="55" height="20" uuid="27251942-1811-43c5-b1cf-9a84ebc83d95"/>
+				<text><![CDATA[qryShowsByYear_RegularSale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="0" width="55" height="20" uuid="0f39501e-34d0-4145-8851-429714daaf88"/>
+				<text><![CDATA[qryShowsByYear_PreSale]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="607" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="55" height="20" uuid="4d5b036b-46af-499b-8818-57f8c01fb040"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_pID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="0" width="55" height="20" uuid="b777789d-aedd-4746-981e-1a91146fef6b"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_pStartDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="55" height="20" uuid="3df338da-cbdc-4340-959a-faf630b244bd"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_pTicketPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="0" width="55" height="20" uuid="fa592af4-8919-48e2-8fff-dfd6f9ed785c"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_pMinAge}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="55" height="20" uuid="cedf6626-5cbb-4e4b-aefa-cd0d789d9c6c"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_pStatus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="0" width="55" height="20" uuid="50138a5d-223f-4b43-9005-d95b2d7f50e6"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_iLocation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="55" height="20" uuid="af203b56-f884-4f3a-9f0a-f88c80a64e53"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_iMainArtist}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="385" y="0" width="55" height="20" uuid="08982829-04e8-4743-8284-a604eff0fcc1"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_pDateCreated}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="55" height="20" uuid="cd2da87b-5724-4227-bc03-bf71272ebe0c"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_RegularSale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="495" y="0" width="55" height="20" uuid="854cafcf-65a5-49c7-9636-9c000c343a4e"/>
+				<textFieldExpression><![CDATA[$F{qryShowsByYear_PreSale}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

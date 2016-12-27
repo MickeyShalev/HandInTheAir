@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import ex2design.utilities.EAuth;
 import gui.internal.frmCreateShow;
 import gui.internal.frmManageArtists;
+import gui.internal.frmViewReport;
 import gui.internal.frmWatchArtists;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -50,6 +51,8 @@ public class MainGui extends javax.swing.JFrame {
         btnManageArtists = new javax.swing.JLabel();
         btnAddShow = new javax.swing.JLabel();
         btnTesting = new javax.swing.JLabel();
+        pnlRep = new javax.swing.JPanel();
+        btnViewReport = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -150,6 +153,37 @@ public class MainGui extends javax.swing.JFrame {
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
+        pnlRep.setOpaque(false);
+
+        btnViewReport.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnViewReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewReport.setText("View Reports");
+        btnViewReport.setToolTipText("");
+        btnViewReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewReportMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlRepLayout = new javax.swing.GroupLayout(pnlRep);
+        pnlRep.setLayout(pnlRepLayout);
+        pnlRepLayout.setHorizontalGroup(
+            pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRepLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        pnlRepLayout.setVerticalGroup(
+            pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRepLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(342, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnlRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/muzagui.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -215,6 +249,12 @@ public class MainGui extends javax.swing.JFrame {
         iWindow.openWin(add);
     }//GEN-LAST:event_btnTestingMouseClicked
 
+    private void btnViewReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReportMouseClicked
+        // TODO add your handling code here:
+       frmViewReport add = new frmViewReport();
+       iWindow.openWin(add);
+    }//GEN-LAST:event_btnViewReportMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -260,6 +300,11 @@ public class MainGui extends javax.swing.JFrame {
             case Agent:
                 pnlAgent.setVisible(true);
                 break;
+                
+            case Representative:
+                
+                pnlRep.setVisible(true);
+                break;
         }
 
     }
@@ -273,10 +318,12 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;
     private javax.swing.JLabel btnTesting;
+    private javax.swing.JLabel btnViewReport;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserType;
     private javax.swing.JLabel lblUsernames;
     private javax.swing.JPanel pnlAgent;
+    private javax.swing.JPanel pnlRep;
     // End of variables declaration//GEN-END:variables
 
 }
