@@ -289,9 +289,9 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
             slctArtist.setSelectedIndex(slctArtist.getSelectedIndex()+1);
             String agID = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
             this.art = iMuzaMusic.getAgentEntity(agID);
-            
         }
         
+        iMuzaMusic.getDB().query("select * from tbl");
         
         updateData();
         

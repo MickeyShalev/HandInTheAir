@@ -7,6 +7,8 @@ package gui.internal;
 
 import ex2design.iMuzaMusic;
 import java.awt.event.ItemEvent;
+import java.sql.ResultSet;
+import static java.sql.Types.NULL;
 import javax.swing.JOptionPane;
 
 /**
@@ -68,13 +70,29 @@ public class frmViewReport extends javax.swing.JInternalFrame {
         iMuzaMusic.log("Exporting report for year "+item.toString());
         
             try{
-                String report = "\\Reports\\report1.jrxml";
+                ResultSet runReport = iMuzaMusic.getDB().query("SELECT * from testq");
+                for(int i=1; i<=runReport.getMetaData().getColumnCount();i++)
+                    {
+                        System.err.print(i+":"+runReport.getMetaData().getColumnClassName(i)+" - ");
+                    }
+                
+                while(runReport.next()){
+                    iMuzaMusic.log("");
+
+                    for(int i=1; i<=runReport.getMetaData().getColumnCount();i++)
+                        System.err.print(i+"("+runReport.getMetaData().getColumnName(i)+")"+runReport.getString(i)+" - ");
+                 
+
+
+
+                }
+                
                 
                 
                 
             }
             catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Error executing");
+                e.printStackTrace();
             }
         
         

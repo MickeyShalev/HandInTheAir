@@ -295,7 +295,7 @@ public class MainGui extends javax.swing.JFrame {
         lblUserType.setText("" + iMuzaMusic.getLoggedUser().getUserAuth());
         lblUsernames.setText(iMuzaMusic.getLoggedUser().getFirstName() + " " + iMuzaMusic.getLoggedUser().getLastName());
         pnlAgent.setVisible(false);
-
+        pnlRep.setVisible(false);
         switch (iMuzaMusic.getLoggedUser().getUserAuth()) {
             case Agent:
                 pnlAgent.setVisible(true);
