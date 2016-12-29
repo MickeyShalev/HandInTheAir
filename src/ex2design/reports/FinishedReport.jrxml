@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0e157c6-0b2b-40cd-bfbb-84b8cad09075">
+	<property name="ireport.zoom" value="1.3310000000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="57"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#ADFF2F">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6FFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8FFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#73B0E6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#CFDBE6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F3F6F8"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="ad1b6cf4-f2c6-436c-a664-2641c2f5c9b3"/>
+	<subDataset name="Table Dataset 2" uuid="c48978d8-09a5-4527-a00c-e0301a96be4b"/>
+	<parameter name="year" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     RunReport.`pID` AS RunReport_pID,
+     RunReport.`pStartDate` AS RunReport_pStartDate,
+     RunReport.`pTicketPrice` AS RunReport_pTicketPrice,
+     RunReport.`pMinAge` AS RunReport_pMinAge,
+     RunReport.`pStatus` AS RunReport_pStatus,
+     RunReport.`iLocation` AS RunReport_iLocation,
+     RunReport.`iMainArtist` AS RunReport_iMainArtist,
+     RunReport.`pDateCreated` AS RunReport_pDateCreated,
+     RunReport.`PreSaleTotal` AS RunReport_PreSaleTotal,
+     RunReport.`RegularSaleTotal` AS RunReport_RegularSaleTotal,
+     RunReport.`pTotalSales` AS RunReport_pTotalSales,
+     RunReport.`AdditionalCosts` AS RunReport_AdditionalCosts,
+     RunReport.`LocComm` AS RunReport_LocComm,
+     RunReport.`ArtistComm` AS RunReport_ArtistComm,
+     RunReport.`TotalOutcome` AS RunReport_TotalOutcome,
+     RunReport.`TotalRevenue` AS RunReport_TotalRevenue,
+     RunReport.`showYear` AS RunReport_showYear
+FROM
+     `RunReport` RunReport WHERE showYear=$P{year} order by TotalRevenue desc]]>
+	</queryString>
+	<field name="RunReport_pID" class="java.lang.String"/>
+	<field name="RunReport_pStartDate" class="java.sql.Timestamp"/>
+	<field name="RunReport_pTicketPrice" class="java.lang.Integer"/>
+	<field name="RunReport_pMinAge" class="java.lang.Integer"/>
+	<field name="RunReport_pStatus" class="java.lang.String"/>
+	<field name="RunReport_iLocation" class="java.lang.String"/>
+	<field name="RunReport_iMainArtist" class="java.lang.String"/>
+	<field name="RunReport_pDateCreated" class="java.sql.Timestamp"/>
+	<field name="RunReport_PreSaleTotal" class="java.math.BigDecimal"/>
+	<field name="RunReport_RegularSaleTotal" class="java.lang.Long"/>
+	<field name="RunReport_pTotalSales" class="java.math.BigDecimal"/>
+	<field name="RunReport_AdditionalCosts" class="java.lang.Double"/>
+	<field name="RunReport_LocComm" class="java.math.BigDecimal"/>
+	<field name="RunReport_ArtistComm" class="java.math.BigDecimal"/>
+	<field name="RunReport_TotalOutcome" class="java.lang.Integer"/>
+	<field name="RunReport_TotalRevenue" class="java.math.BigDecimal"/>
+	<field name="RunReport_showYear" class="java.lang.Integer"/>
+	<group name="RunReport_pID">
+		<groupExpression><![CDATA[$F{RunReport_pID}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement mode="Opaque" x="2" y="2" width="555" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="1c55bf23-1c64-4d89-821a-a95525a30fa2"/>
+					<textField>
+						<reportElement style="Column header" x="433" y="4" width="80" height="20" forecolor="#FFFFFF" uuid="46b92419-1262-42b9-9992-4293be890c1d"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font size="10" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Show "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+					</textField>
+					<textField evaluationTime="Report">
+						<reportElement style="Column header" x="513" y="4" width="40" height="20" forecolor="#FFFFFF" uuid="f52ba98f-08d8-4ced-a847-cef87c77998d"/>
+						<textElement verticalAlignment="Middle">
+							<font size="10" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="6" width="370" height="24" forecolor="#FFFFFF" uuid="607e3b6f-8c1b-4ab1-8402-5baed0e59ad7"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Displaying details for show #"+ $F{RunReport_pID}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="125" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="551" height="95" backcolor="#000000" uuid="25ba41d5-071d-4ad9-83e9-0ce65eda13a0"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="034fc749-1828-4d23-a1b6-b2a886721f43"/>
+					<textElement>
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Annual Report]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="c2ce964a-b6b7-4fa3-970d-cf87e10654d0"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Report for year ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="306" y="75" width="100" height="20" forecolor="#FFFFFF" uuid="7b317aab-1bc6-4028-b6be-faa8d348752f"/>
+					<textFieldExpression><![CDATA[$P{year}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="402" y="7" width="149" height="59" forecolor="#FFFFFF" uuid="c910c9db-d3a7-4571-8ce4-13a0414de314"/>
+					<textElement>
+						<font size="40"/>
+					</textElement>
+					<text><![CDATA[M u z a]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="464" y="0" width="73" height="28" forecolor="#FFFFFF" uuid="f43b6d8d-70ff-4b34-a6e4-1466e4609285"/>
+					<textElement rotation="None">
+						<font size="22"/>
+					</textElement>
+					<text><![CDATA[Music]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="95" width="551" height="30" forecolor="#000000" backcolor="#999999" uuid="026bc14b-69bf-40f1-b3aa-7708b773cef6"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="351" y="10" width="200" height="20" forecolor="#FFFFFF" uuid="2a17f041-dbdf-41e9-bb26-660ea17d34d5"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Export Date: "+new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="354" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="353" width="100" height="1" uuid="49da1418-c3ab-48df-a61c-3d314c98c894"/>
+			</break>
+			<staticText>
+				<reportElement x="2" y="0" width="136" height="28" uuid="a5f0bb09-1eef-4832-aa2f-64c0d4125c07"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Show Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="69" width="100" height="20" uuid="70ceb4c8-3344-4b42-b522-f42b4abbf587"/>
+				<text><![CDATA[Created By]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="102" y="69" width="100" height="20" uuid="38c2e4ee-565b-4fa5-ad1e-16a05747bb89"/>
+				<textFieldExpression><![CDATA[$F{RunReport_iMainArtist}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="49" width="100" height="20" uuid="7792a08c-3940-40c9-89c3-383ec7823a66"/>
+				<text><![CDATA[Show Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="102" y="49" width="100" height="20" uuid="9af967c1-f2cf-4727-89dc-713b43db7cfa"/>
+				<textFieldExpression><![CDATA[$F{RunReport_pStartDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="356" y="66" width="100" height="20" uuid="5ce4f1dc-55c7-45ba-a6b8-70484adb3273"/>
+				<text><![CDATA[Total PreSale Income]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="456" y="66" width="100" height="20" uuid="6313f41b-4721-4346-85dc-f6d0c9d2b2ee"/>
+				<textFieldExpression><![CDATA[$F{RunReport_PreSaleTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="1c3f8990-016a-4832-9146-4cba9e226d0d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="1e396683-eb48-415a-8ece-d48f06c1ecd2"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="ea9e4177-44a2-4e46-9783-be429217f2f2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="fdc3fab7-8330-4a3a-97ae-143af0a8fc5e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="2b5ffdad-6db6-4ce4-b8e3-b8d056d1a443"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

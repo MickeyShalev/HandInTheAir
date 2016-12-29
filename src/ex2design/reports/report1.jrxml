@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0e157c6-0b2b-40cd-bfbb-84b8cad09075">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="093586d6-b898-4767-a8a0-165e8e951538">
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -13,60 +10,71 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
-	<parameter name="year" class="java.lang.String"/>
-	<queryString>
+	<queryString language="SQL">
 		<![CDATA[SELECT
-     RunReport.`pID` AS RunReport_pID,
-     RunReport.`pStartDate` AS RunReport_pStartDate,
-     RunReport.`pTicketPrice` AS RunReport_pTicketPrice,
-     RunReport.`pMinAge` AS RunReport_pMinAge,
-     RunReport.`pStatus` AS RunReport_pStatus,
-     RunReport.`iLocation` AS RunReport_iLocation,
-     RunReport.`iMainArtist` AS RunReport_iMainArtist,
-     RunReport.`pDateCreated` AS RunReport_pDateCreated,
-     RunReport.`PreSaleTotal` AS RunReport_PreSaleTotal,
-     RunReport.`RegularSaleTotal` AS RunReport_RegularSaleTotal,
-     RunReport.`pTotalSales` AS RunReport_pTotalSales,
-     RunReport.`AdditionalCosts` AS RunReport_AdditionalCosts,
-     RunReport.`LocComm` AS RunReport_LocComm,
-     RunReport.`ArtistComm` AS RunReport_ArtistComm,
-     RunReport.`TotalOutcome` AS RunReport_TotalOutcome,
-     RunReport.`TotalRevenue` AS RunReport_TotalRevenue,
-     RunReport.`showYear` AS RunReport_showYear
+     qryYearlyRpt.`pID` AS qryYearlyRpt_pID,
+     qryYearlyRpt.`pStartDate` AS qryYearlyRpt_pStartDate,
+     qryYearlyRpt.`pTicketPrice` AS qryYearlyRpt_pTicketPrice,
+     qryYearlyRpt.`pMinAge` AS qryYearlyRpt_pMinAge,
+     qryYearlyRpt.`pStatus` AS qryYearlyRpt_pStatus,
+     qryYearlyRpt.`iLocation` AS qryYearlyRpt_iLocation,
+     qryYearlyRpt.`iMainArtist` AS qryYearlyRpt_iMainArtist,
+     qryYearlyRpt.`pDateCreated` AS qryYearlyRpt_pDateCreated,
+     qryYearlyRpt.`PreSaleTotal` AS qryYearlyRpt_PreSaleTotal,
+     qryYearlyRpt.`RegularSaleTotal` AS qryYearlyRpt_RegularSaleTotal,
+     qryYearlyRpt.`pTotalSales` AS qryYearlyRpt_pTotalSales,
+     qryYearlyRpt.`AdditionalCosts` AS qryYearlyRpt_AdditionalCosts,
+     qryYearlyRpt.`LocComm` AS qryYearlyRpt_LocComm,
+     qryYearlyRpt.`ArtistComm` AS qryYearlyRpt_ArtistComm,
+     qryYearlyRpt.`TotalOutcome` AS qryYearlyRpt_TotalOutcome,
+     qryYearlyRpt.`TotalRevenue` AS qryYearlyRpt_TotalRevenue,
+     qryYearlyRpt.`strStageName` AS qryYearlyRpt_strStageName,
+     qryYearlyRpt.`strName` AS qryYearlyRpt_strName,
+     qryYearlyRpt.`AgentName` AS qryYearlyRpt_AgentName,
+     qryYearlyRpt.`showYear` AS qryYearlyRpt_showYear
 FROM
-     `RunReport` RunReport WHERE showYear=$P{year} order by TotalRevenue desc	]]>
+     `qryYearlyRpt` qryYearlyRpt]]>
 	</queryString>
-	<field name="RunReport_pID" class="java.lang.String"/>
-	<field name="RunReport_pStartDate" class="java.sql.Timestamp"/>
-	<field name="RunReport_pTicketPrice" class="java.lang.Integer"/>
-	<field name="RunReport_pMinAge" class="java.lang.Integer"/>
-	<field name="RunReport_pStatus" class="java.lang.String"/>
-	<field name="RunReport_iLocation" class="java.lang.String"/>
-	<field name="RunReport_iMainArtist" class="java.lang.String"/>
-	<field name="RunReport_pDateCreated" class="java.sql.Timestamp"/>
-	<field name="RunReport_PreSaleTotal" class="java.math.BigDecimal"/>
-	<field name="RunReport_RegularSaleTotal" class="java.lang.Long"/>
-	<field name="RunReport_pTotalSales" class="java.math.BigDecimal"/>
-	<field name="RunReport_AdditionalCosts" class="java.lang.Double"/>
-	<field name="RunReport_LocComm" class="java.math.BigDecimal"/>
-	<field name="RunReport_ArtistComm" class="java.math.BigDecimal"/>
-	<field name="RunReport_TotalOutcome" class="java.lang.Integer"/>
-	<field name="RunReport_TotalRevenue" class="java.math.BigDecimal"/>
-	<field name="RunReport_showYear" class="java.lang.Integer"/>
-	<group name="RunReport_pID">
-		<groupExpression><![CDATA[$F{RunReport_pID}]]></groupExpression>
+	<field name="qryYearlyRpt_pID" class="java.lang.String"/>
+	<field name="qryYearlyRpt_pStartDate" class="java.sql.Timestamp"/>
+	<field name="qryYearlyRpt_pTicketPrice" class="java.lang.Integer"/>
+	<field name="qryYearlyRpt_pMinAge" class="java.lang.Integer"/>
+	<field name="qryYearlyRpt_pStatus" class="java.lang.String"/>
+	<field name="qryYearlyRpt_iLocation" class="java.lang.String"/>
+	<field name="qryYearlyRpt_iMainArtist" class="java.lang.String"/>
+	<field name="qryYearlyRpt_pDateCreated" class="java.sql.Timestamp"/>
+	<field name="qryYearlyRpt_PreSaleTotal" class="java.math.BigDecimal"/>
+	<field name="qryYearlyRpt_RegularSaleTotal" class="java.lang.Long"/>
+	<field name="qryYearlyRpt_pTotalSales" class="java.math.BigDecimal"/>
+	<field name="qryYearlyRpt_AdditionalCosts" class="java.lang.Double"/>
+	<field name="qryYearlyRpt_LocComm" class="java.math.BigDecimal"/>
+	<field name="qryYearlyRpt_ArtistComm" class="java.math.BigDecimal"/>
+	<field name="qryYearlyRpt_TotalOutcome" class="java.lang.Integer"/>
+	<field name="qryYearlyRpt_TotalRevenue" class="java.math.BigDecimal"/>
+	<field name="qryYearlyRpt_strStageName" class="java.lang.String"/>
+	<field name="qryYearlyRpt_strName" class="java.lang.String"/>
+	<field name="qryYearlyRpt_AgentName" class="java.lang.String"/>
+	<field name="qryYearlyRpt_showYear" class="java.lang.Integer"/>
+	<group name="qryYearlyRpt_pID">
+		<groupExpression><![CDATA[$F{qryYearlyRpt_pID}]]></groupExpression>
 		<groupHeader>
-			<band height="37">
+			<band height="27">
 				<frame>
-					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="1c55bf23-1c64-4d89-821a-a95525a30fa2"/>
+					<reportElement mode="Opaque" x="0" y="3" width="721" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="cdd72a77-e83f-4de4-b70e-636c301e8169"/>
 					<textField isStretchWithOverflow="true">
-						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="0" width="479" height="24" forecolor="#FFFFFF" uuid="607e3b6f-8c1b-4ab1-8402-5baed0e59ad7"/>
+						<reportElement style="SubTitle" x="2" y="0" width="695" height="24" forecolor="#FFFFFF" uuid="e0a8e66e-c72f-4880-aa25-5a36b2d52c76"/>
 						<textElement>
 							<font isBold="false"/>
 						</textElement>
-						<textFieldExpression><![CDATA[$F{RunReport_pID}]]></textFieldExpression>
+						<textFieldExpression><![CDATA[$F{qryYearlyRpt_pID}]]></textFieldExpression>
 					</textField>
 				</frame>
+				<rectangle>
+					<reportElement x="725" y="3" width="77" height="24" backcolor="#666666" uuid="cfab92b9-853c-4599-b144-6e230c60a72a"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -77,32 +85,33 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="132" splitType="Stretch">
+		<band height="102" splitType="Stretch">
 			<image>
-				<reportElement x="456" y="0" width="99" height="132" uuid="50167a0d-21fd-4dd8-841b-c922bf1d6a47"/>
+				<reportElement x="725" y="0" width="77" height="102" uuid="97b4137c-6cde-48ff-be8f-33b5ac0b3ca5"/>
 				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
 			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="25ba41d5-071d-4ad9-83e9-0ce65eda13a0"/>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="6deedfa2-3eb9-42ef-81f3-7054dda3842c"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="034fc749-1828-4d23-a1b6-b2a886721f43"/>
-					<textElement>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="dd5271f8-c907-4982-9d23-7c3bce94987c"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
 					<text><![CDATA[Cherry Title]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="c2ce964a-b6b7-4fa3-970d-cf87e10654d0"/>
-					<textElement>
+					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="32fcd3a9-058b-4cc4-84ca-d5e26d65bc91"/>
+					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
 					<text><![CDATA[Cherry SubTitle]]></text>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="026bc14b-69bf-40f1-b3aa-7708b773cef6"/>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="dbb8f4e7-c7fe-42af-b723-8577d935df7c"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="2a17f041-dbdf-41e9-bb26-660ea17d34d5"/>
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="4842ae96-9d24-45dd-b955-d5baa9db6a65"/>
 					<textElement textAlignment="Right">
 						<font size="12"/>
 					</textElement>
@@ -115,236 +124,278 @@ FROM
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="26" splitType="Stretch">
+		<band height="18" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" x="0" y="7" width="34" height="18" forecolor="#000000" uuid="26f4a57e-c284-48e0-9608-52f57d969302"/>
+				<reportElement style="Column header" x="0" y="0" width="41" height="18" forecolor="#000000" uuid="13b15caa-a211-4a5a-a579-3f3478166f4a"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_pStartDate]]></text>
+				<text><![CDATA[qryYearlyRpt_pStartDate]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="34" y="7" width="34" height="18" forecolor="#000000" uuid="b05e4dbc-1d1a-4694-b4a6-9745bb5a42f2"/>
+				<reportElement style="Column header" x="41" y="0" width="41" height="18" forecolor="#000000" uuid="0f72cdb1-04f4-4966-9c34-c62a485b19c1"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_pTicketPrice]]></text>
+				<text><![CDATA[qryYearlyRpt_pTicketPrice]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="68" y="7" width="34" height="18" forecolor="#000000" uuid="d3ce60f4-70a0-4f8b-a02a-f4e9f8de162d"/>
+				<reportElement style="Column header" x="82" y="0" width="41" height="18" forecolor="#000000" uuid="ba7b4faf-eead-4451-96d6-fdf30614efe7"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_pMinAge]]></text>
+				<text><![CDATA[qryYearlyRpt_pMinAge]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="102" y="7" width="34" height="18" forecolor="#000000" uuid="de368388-2a9c-4f92-a824-c6299088f999"/>
+				<reportElement style="Column header" x="123" y="0" width="41" height="18" forecolor="#000000" uuid="6d109154-3ff5-4838-925d-e91f397b7041"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_pStatus]]></text>
+				<text><![CDATA[qryYearlyRpt_pStatus]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="136" y="7" width="34" height="18" forecolor="#000000" uuid="29c2a91a-4306-4c76-a445-8f0739ee5ef1"/>
+				<reportElement style="Column header" x="164" y="0" width="41" height="18" forecolor="#000000" uuid="5908a648-201e-4870-ae00-87a880dffe79"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_iLocation]]></text>
+				<text><![CDATA[qryYearlyRpt_iLocation]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="170" y="7" width="34" height="18" forecolor="#000000" uuid="d14a7987-d8cc-481a-af60-77e32aeeb550"/>
+				<reportElement style="Column header" x="205" y="0" width="41" height="18" forecolor="#000000" uuid="37efb18e-96b9-4fe9-be8b-2d6ecd94c3b8"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_iMainArtist]]></text>
+				<text><![CDATA[qryYearlyRpt_iMainArtist]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="204" y="7" width="34" height="18" forecolor="#000000" uuid="f3aee887-55bf-4e0e-9743-e357e5d90d36"/>
+				<reportElement style="Column header" x="246" y="0" width="41" height="18" forecolor="#000000" uuid="7f1e4920-fdec-442f-8faa-3f02c0433799"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_pDateCreated]]></text>
+				<text><![CDATA[qryYearlyRpt_pDateCreated]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="238" y="7" width="34" height="18" forecolor="#000000" uuid="1586d2a3-355e-434b-899c-d7ee413a031e"/>
+				<reportElement style="Column header" x="287" y="0" width="41" height="18" forecolor="#000000" uuid="4c5c64db-e98d-4c3a-a697-9b32eeca2ce0"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_PreSaleTotal]]></text>
+				<text><![CDATA[qryYearlyRpt_PreSaleTotal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="272" y="7" width="34" height="18" forecolor="#000000" uuid="4b2d070e-c149-429f-927f-55cf450c4754"/>
+				<reportElement style="Column header" x="328" y="0" width="41" height="18" forecolor="#000000" uuid="3267b12f-306f-4a04-9379-6eb220a7f6f3"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_RegularSaleTotal]]></text>
+				<text><![CDATA[qryYearlyRpt_RegularSaleTotal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="306" y="7" width="34" height="18" forecolor="#000000" uuid="231ff1ab-f7b1-4beb-b0b8-ff168d7c73d2"/>
+				<reportElement style="Column header" x="369" y="0" width="41" height="18" forecolor="#000000" uuid="5580315d-ac24-4f6b-a1e2-1cbee12604b7"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_pTotalSales]]></text>
+				<text><![CDATA[qryYearlyRpt_pTotalSales]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="340" y="7" width="34" height="18" forecolor="#000000" uuid="0470d980-1eaf-4243-bc80-0cc32b3fdd2f"/>
+				<reportElement style="Column header" x="410" y="0" width="41" height="18" forecolor="#000000" uuid="c4d78dd8-33f3-4bbb-a006-4582884a40e0"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_AdditionalCosts]]></text>
+				<text><![CDATA[qryYearlyRpt_AdditionalCosts]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="374" y="7" width="34" height="18" forecolor="#000000" uuid="d7973952-cd07-4ef3-aff6-d843f7d5e7ff"/>
+				<reportElement style="Column header" x="451" y="0" width="41" height="18" forecolor="#000000" uuid="9d1371cc-92f2-4b39-909c-72988074bfa5"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_LocComm]]></text>
+				<text><![CDATA[qryYearlyRpt_LocComm]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="408" y="7" width="34" height="18" forecolor="#000000" uuid="c034c9c3-d6ed-4db2-ba1a-5049d1d96b7e"/>
+				<reportElement style="Column header" x="492" y="0" width="41" height="18" forecolor="#000000" uuid="fe95fe9f-7d31-4d5e-93e6-d671365ea949"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_ArtistComm]]></text>
+				<text><![CDATA[qryYearlyRpt_ArtistComm]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="442" y="7" width="34" height="18" forecolor="#000000" uuid="3a74030b-c09c-46a8-8f08-70e499d5bee3"/>
+				<reportElement style="Column header" x="533" y="0" width="41" height="18" forecolor="#000000" uuid="5b1b135c-d11b-450c-a049-9b3bd02b9cb9"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_TotalOutcome]]></text>
+				<text><![CDATA[qryYearlyRpt_TotalOutcome]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="476" y="7" width="34" height="18" forecolor="#000000" uuid="34c9b701-cb5f-4e2f-bc57-aaacaaac5433"/>
+				<reportElement style="Column header" x="574" y="0" width="41" height="18" forecolor="#000000" uuid="17a81723-14c7-4dde-8884-404764ffdd4d"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_TotalRevenue]]></text>
+				<text><![CDATA[qryYearlyRpt_TotalRevenue]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="510" y="7" width="34" height="18" forecolor="#000000" uuid="de0df99b-534a-4b87-b424-b84d65729ebe"/>
+				<reportElement style="Column header" x="615" y="0" width="41" height="18" forecolor="#000000" uuid="dd467b97-3404-4dfb-8f50-02ea763b5a8f"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[RunReport_showYear]]></text>
+				<text><![CDATA[qryYearlyRpt_strStageName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="656" y="0" width="41" height="18" forecolor="#000000" uuid="bba45c87-23b9-43e7-877b-3ca7d9f99e5c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[qryYearlyRpt_strName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="697" y="0" width="41" height="18" forecolor="#000000" uuid="6cd584bb-3b6a-4ed6-b1e7-140fe75814ee"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[qryYearlyRpt_AgentName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="738" y="0" width="41" height="18" forecolor="#000000" uuid="bfe60dcc-af84-4301-939e-25eb3a23ce1f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[qryYearlyRpt_showYear]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="18" splitType="Stretch">
 			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="c4b3b383-f9be-4eb8-8cb3-29facc3a9f4e"/>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="bb9841cd-a700-453d-b774-07ee079a8fba"/>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="0" y="0" width="34" height="18" uuid="ce12fd1e-8790-46c9-b4d4-1413eb442bdc"/>
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="41" height="18" uuid="e6538c1d-6e18-4d20-a002-7bbf2bb94c04"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_pStartDate}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_pStartDate}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="34" y="0" width="34" height="18" uuid="66ff351b-91d1-458a-bb1f-2161b1ac642b"/>
+					<reportElement style="Detail" positionType="Float" x="41" y="0" width="41" height="18" uuid="683b55a4-22a2-4858-9c7d-dc45d96b2f68"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_pTicketPrice}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_pTicketPrice}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="68" y="0" width="34" height="18" uuid="09432d7e-2e38-48e4-bcfe-73cc7bd38c9c"/>
+					<reportElement style="Detail" positionType="Float" x="82" y="0" width="41" height="18" uuid="5c7fc854-6ab9-4222-b398-f682afbaf0b0"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_pMinAge}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_pMinAge}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="102" y="0" width="34" height="18" uuid="eb8b7030-323d-4e5c-b86b-a6cb76402235"/>
+					<reportElement style="Detail" positionType="Float" x="123" y="0" width="41" height="18" uuid="75d39f73-6b25-407b-ab29-fd4b4d8c1f0f"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_pStatus}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_pStatus}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="136" y="0" width="34" height="18" uuid="e3f07397-276d-459e-9928-524807051114"/>
+					<reportElement style="Detail" positionType="Float" x="164" y="0" width="41" height="18" uuid="392e8393-6161-4598-b6db-a8f11e5aedb0"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_iLocation}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_iLocation}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="170" y="0" width="34" height="18" uuid="32fdd9f2-7ca0-4cb5-8b7f-31d3fff26cdf"/>
+					<reportElement style="Detail" positionType="Float" x="205" y="0" width="41" height="18" uuid="38b9d75d-e60c-400d-9aa1-629b89b8b35e"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_iMainArtist}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_iMainArtist}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="204" y="0" width="34" height="18" uuid="3df2f9b3-dfb9-4dc8-bba2-f2ffaf8c940f"/>
+					<reportElement style="Detail" positionType="Float" x="246" y="0" width="41" height="18" uuid="46bf4c48-0738-4777-b4f9-6a5612b5987e"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_pDateCreated}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_pDateCreated}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="238" y="0" width="34" height="18" uuid="5006823a-ba3d-4584-92f0-a6f200a09013"/>
+					<reportElement style="Detail" positionType="Float" x="287" y="0" width="41" height="18" uuid="ef9b68b0-a75c-42f9-aaf2-98fc718cb2c5"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_PreSaleTotal}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_PreSaleTotal}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="272" y="0" width="34" height="18" uuid="2438a8ea-a784-4ab7-b0f3-b6b6d38d34ca"/>
+					<reportElement style="Detail" positionType="Float" x="328" y="0" width="41" height="18" uuid="22f396e8-7ecc-4081-a648-82fe1a310492"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_RegularSaleTotal}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_RegularSaleTotal}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="306" y="0" width="34" height="18" uuid="e064c258-7b16-4a33-9a8d-221a523b92e3"/>
+					<reportElement style="Detail" positionType="Float" x="369" y="0" width="41" height="18" uuid="7295ddd7-6459-403a-99e7-2c80d6c978d3"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_pTotalSales}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_pTotalSales}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="340" y="0" width="34" height="18" uuid="390ff7c7-4e95-4db6-a504-f920227147a0"/>
+					<reportElement style="Detail" positionType="Float" x="410" y="0" width="41" height="18" uuid="86c08ceb-3e25-42e2-917a-b3e5f65ef8f3"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_AdditionalCosts}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_AdditionalCosts}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="374" y="0" width="34" height="18" uuid="a6d3158a-7643-4b95-8c17-760a878f200f"/>
+					<reportElement style="Detail" positionType="Float" x="451" y="0" width="41" height="18" uuid="2d27bda7-935c-4a1b-9d3e-7a5d42eef261"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_LocComm}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_LocComm}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="408" y="0" width="34" height="18" uuid="b766ad69-4195-4e16-83c3-0c0c0316900a"/>
+					<reportElement style="Detail" positionType="Float" x="492" y="0" width="41" height="18" uuid="07210b35-3a1e-4168-b42a-8f2b96ae7252"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_ArtistComm}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_ArtistComm}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="442" y="0" width="34" height="18" uuid="6157888c-add0-4add-8a26-1e37b8bcb192"/>
+					<reportElement style="Detail" positionType="Float" x="533" y="0" width="41" height="18" uuid="28511ac9-0efc-49ca-8e1e-56362ad61c82"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_TotalOutcome}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_TotalOutcome}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="476" y="0" width="34" height="18" uuid="e24b4f19-d057-4ab2-bffa-59b67c300428"/>
+					<reportElement style="Detail" positionType="Float" x="574" y="0" width="41" height="18" uuid="9a36a3ba-c5e9-432e-b6c7-1e95d321e63c"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_TotalRevenue}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_TotalRevenue}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="510" y="0" width="34" height="18" uuid="15d38d2c-3df3-42d8-9b75-ca61d9e865fa"/>
+					<reportElement style="Detail" positionType="Float" x="615" y="0" width="41" height="18" uuid="4830b186-52c1-4f0d-838e-f1db8ff81f93"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{RunReport_showYear}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_strStageName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="656" y="0" width="41" height="18" uuid="187034cc-ee90-42da-8edd-3dea690e860c"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_strName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="697" y="0" width="41" height="18" uuid="4445543e-63ab-4534-97e4-d8ed458d8557"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_AgentName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="738" y="0" width="41" height="18" uuid="40737147-c108-4023-8a73-2353e8ed6bc9"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{qryYearlyRpt_showYear}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -352,7 +403,7 @@ FROM
 	<columnFooter>
 		<band height="7" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="1c3f8990-016a-4832-9146-4cba9e226d0d"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="95ff01fb-c804-4936-9a19-d1133ffb019e"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -362,23 +413,23 @@ FROM
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="1e396683-eb48-415a-8ece-d48f06c1ecd2"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="ae1c32a6-e555-4823-9eb9-1a6c4b710d19"/>
 				<textField evaluationTime="Report">
-					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="ea9e4177-44a2-4e46-9783-be429217f2f2"/>
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="215da426-fe2d-48a7-8466-f58f85a99de5"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="fdc3fab7-8330-4a3a-97ae-143af0a8fc5e"/>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="a67a8b2e-6e81-4397-ace6-175b15f276a8"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 				</textField>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="2b5ffdad-6db6-4ce4-b8e3-b8d056d1a443"/>
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="fead6013-a70b-4ce3-8f1b-35804cc7dc68"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
