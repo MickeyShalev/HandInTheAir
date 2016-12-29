@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0e157c6-0b2b-40cd-bfbb-84b8cad09075">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -10,7 +13,8 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
-	<queryString language="SQL">
+	<parameter name="year" class="java.lang.String"/>
+	<queryString>
 		<![CDATA[SELECT
      RunReport.`pID` AS RunReport_pID,
      RunReport.`pStartDate` AS RunReport_pStartDate,
@@ -30,7 +34,7 @@
      RunReport.`TotalRevenue` AS RunReport_TotalRevenue,
      RunReport.`showYear` AS RunReport_showYear
 FROM
-     `RunReport` RunReport]]>
+     `RunReport` RunReport WHERE showYear=$P{year} order by TotalRevenue desc	]]>
 	</queryString>
 	<field name="RunReport_pID" class="java.lang.String"/>
 	<field name="RunReport_pStartDate" class="java.sql.Timestamp"/>
