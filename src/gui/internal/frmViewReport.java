@@ -7,10 +7,18 @@ package gui.internal;
 
 import ex2design.iMuzaMusic;
 import java.awt.event.ItemEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import static java.sql.Types.NULL;
+import java.util.HashMap;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JRViewer;
 /**
  *
  * @author nisan
@@ -69,32 +77,25 @@ public class frmViewReport extends javax.swing.JInternalFrame {
             
         iMuzaMusic.log("Exporting report for year "+item.toString());
         
+   try {
+       
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             try{
-                ResultSet runReport = iMuzaMusic.getDB().query("SELECT * from testq");
-                for(int i=1; i<=runReport.getMetaData().getColumnCount();i++)
-                    {
-                        System.err.print(i+":"+runReport.getMetaData().getColumnClassName(i)+" - ");
-                    }
-                
-                while(runReport.next()){
-                    iMuzaMusic.log("");
-
-                    for(int i=1; i<=runReport.getMetaData().getColumnCount();i++)
-                        System.err.print(i+"("+runReport.getMetaData().getColumnName(i)+")"+runReport.getString(i)+" - ");
-                 
-
-
-
-                }
-                
-                
-                
-                
-            }
-            catch(Exception e){
+            
+                JasperPrint print = JasperFillManager.fillReport(getClass()
+                        .getResourceAsStream("/ex2design/reports/report1.jasper"), 
+                        new HashMap());
+                JFrame frame = new JFrame("Customer Orders Report");
+                frame.getContentPane().add(new JRViewer(print));
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                frame.pack();
+                frame.setVisible(true);
+            } catch (JRException | NullPointerException e) {
                 e.printStackTrace();
             }
-        
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }        
         
     }//GEN-LAST:event_slctYearItemStateChanged
 

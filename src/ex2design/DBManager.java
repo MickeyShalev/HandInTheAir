@@ -87,6 +87,15 @@ public class DBManager {
         
             return false;
     }
+
+    public static Connection getConn() {
+        return conn;
+    }
+
+    public static void setConn(Connection conn) {
+        DBManager.conn = conn;
+    }
+    
     
 }
 
