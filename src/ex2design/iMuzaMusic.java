@@ -12,6 +12,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import ex2design.utilities.EAuth;
 import gui.internal.frmManageArtists;
+import java.util.HashMap;
+import javax.swing.JFrame;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JRViewer;
 
 /**
  *
@@ -21,6 +27,8 @@ public class iMuzaMusic {
 
     static DBManager DB;
     static Person loggedUser = null;
+
+ 
 
     public iMuzaMusic() {
         //Initiate DB
@@ -220,6 +228,29 @@ public class iMuzaMusic {
         }
 
         return toReturn;
+    }
+    
+    public JFrame getReport() {
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            
+            try (Connection conn = (iMuzaMusic.getDB().getConn())) {
+                JasperPrint print = JasperFillManager.fillReport(getClass()
+                        .getResourceAsStream("../view/RptCustomerOrders.jasper"), 
+                        new HashMap(), conn);
+                JFrame frame = new JFrame("Customer Orders Report");
+                frame.getContentPane().add(new JRViewer(print));
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                frame.pack();
+                return frame;
+            } catch (SQLException | JRException | NullPointerException e) {
+                e.printStackTrace();
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
     }
 
 }

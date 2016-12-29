@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import static java.sql.Types.NULL;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
@@ -68,34 +70,36 @@ public class frmViewReport extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void slctYearItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_slctYearItemStateChanged
-        // TODO add your handling code here:
-        if (evt.getStateChange() != ItemEvent.SELECTED) 
-            return;
-            Object item = evt.getItem();
-            if (item.equals("Select Year")) 
-                return;
-            
-        iMuzaMusic.log("Exporting report for year "+item.toString());
-        
-   try {
-       
+                                                
+                // TODO add your handling code here:
+                if (evt.getStateChange() != ItemEvent.SELECTED)
+                    return;
+                Object item = evt.getItem();
+                if (item.equals("Select Year"))
+                    return;
+                
+                 try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            try{
             
+            try (Connection conn = (iMuzaMusic.getDB().getConn())) {
                 JasperPrint print = JasperFillManager.fillReport(getClass()
                         .getResourceAsStream("/ex2design/reports/report1.jasper"), 
-                        new HashMap());
+                        new HashMap(), conn);
                 JFrame frame = new JFrame("Customer Orders Report");
                 frame.getContentPane().add(new JRViewer(print));
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.pack();
                 frame.setVisible(true);
-            } catch (JRException | NullPointerException e) {
+            } catch (SQLException | JRException | NullPointerException e) {
                 e.printStackTrace();
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }        
+        }
+        
+                
+                
+                
         
     }//GEN-LAST:event_slctYearItemStateChanged
 
