@@ -6,6 +6,7 @@
 package gui.internal;
 
 import ex2design.iMuzaMusic;
+import gui.main.iWindow;
 import java.awt.event.ItemEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import static java.sql.Types.NULL;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -49,7 +51,7 @@ public class frmViewReport extends javax.swing.JInternalFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        slctYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2016", "2015", "2014"}));
+        slctYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2017", "2016", "2015", "2014"}));
         slctYear.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 slctYearItemStateChanged(evt);
@@ -82,14 +84,21 @@ public class frmViewReport extends javax.swing.JInternalFrame {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             
             try (Connection conn = (iMuzaMusic.getDB().getConn())) {
+                Map<String, Object> n = new HashMap<String, Object>();
+                n.put("year",item.toString());
+                iMuzaMusic.log("Sending Report Query with Year: "+n.get("year"));
                 JasperPrint print = JasperFillManager.fillReport(getClass()
-                        .getResourceAsStream("/ex2design/reports/report1.jasper"), 
-                        new HashMap(), conn);
+                        .getResourceAsStream("/ex2design/reports/report2.jasper"), 
+                        n, conn);
                 JFrame frame = new JFrame("Customer Orders Report");
                 frame.getContentPane().add(new JRViewer(print));
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.pack();
                 frame.setVisible(true);
+                n.clear();
+                dispose();
+                SuccessExport t = new SuccessExport();
+                iWindow.openWin(t);
             } catch (SQLException | JRException | NullPointerException e) {
                 e.printStackTrace();
             }
