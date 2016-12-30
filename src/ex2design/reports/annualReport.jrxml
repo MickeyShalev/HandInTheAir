@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d7df7f0-1d50-4b4b-91f2-74aa984c4ba6">
 	<property name="ireport.zoom" value="1.1000000000000012"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="87"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -118,6 +118,20 @@ FROM
 				<rectangle>
 					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="6738992d-d602-4a27-b56d-544691f1a735"/>
 				</rectangle>
+				<textField>
+					<reportElement style="Column header" x="433" y="13" width="80" height="20" forecolor="#000000" uuid="11731083-8e88-4750-b1a4-3daf2b660e38"/>
+					<textElement textAlignment="Right">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Show "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="515" y="13" width="40" height="20" forecolor="#000000" uuid="1c331c08-60ae-480d-904b-990c1357c88d"/>
+					<textElement>
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -144,20 +158,6 @@ FROM
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Column header" x="438" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="11731083-8e88-4750-b1a4-3daf2b660e38"/>
-				<textElement textAlignment="Right">
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Show "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement style="Column header" x="511" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="1c331c08-60ae-480d-904b-990c1357c88d"/>
-				<textElement>
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="141" y="38" width="100" height="20" forecolor="#FFFFFF" uuid="3c0e0679-4df4-4511-a5c4-9c07c681a23f"/>
 				<textElement>
 					<font size="15"/>
@@ -180,7 +180,7 @@ FROM
 				<reportElement x="0" y="322" width="100" height="1" uuid="584d3aca-917f-436a-a0fe-303c28e074e2"/>
 			</break>
 			<componentElement>
-				<reportElement key="table" style="table" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="216" width="551" height="106" uuid="840995f7-281c-43de-949b-f1df73319400"/>
+				<reportElement key="table" style="Detail" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="216" width="551" height="106" uuid="840995f7-281c-43de-949b-f1df73319400"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="New Dataset 2" uuid="05ad7792-936d-4ede-b082-95666b62876f">
 						<datasetParameter name="showid">
@@ -191,9 +191,9 @@ FROM
 					<jr:column width="552" uuid="3a62f15c-98b2-4bb9-97bd-8a0aa5176c88">
 						<jr:columnHeader style="Detail" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="220" height="30" forecolor="#CCCCCC" uuid="dd19dbda-3cb6-4752-aa25-72758eb1cd13"/>
-								<textElement textAlignment="Left" verticalAlignment="Middle">
-									<font size="18"/>
+								<reportElement x="0" y="0" width="552" height="30" forecolor="#999999" uuid="a7688748-2f32-48dd-ae17-841db435f6f8"/>
+								<textElement>
+									<font size="18" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Participated Artists]]></text>
 							</staticText>

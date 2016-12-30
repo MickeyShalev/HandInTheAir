@@ -33,21 +33,7 @@ public class MainGui extends javax.swing.JFrame {
         iWindow.setPanel(ContentFrame);
         iWindow.setLblTitle(lblTitle);
 
-        /**
-         * 
-         * 
-         * This will be for testing the query
-         */
-        
-        ResultSet rs = iMuzaMusic.getDB().query("SELECT * from generateReport where year(pStartDate)=2016 order by TotalRevenue desc");
-        for(int i=9; i<=rs.getMetaData().getColumnCount();i++)
-            System.err.print(rs.getMetaData().getColumnName(i)+"\t");
-        while(rs.next()){
-            System.err.println("");
-            for(int i=9; i<=rs.getMetaData().getColumnCount();i++){
-                System.err.print(rs.getString(i)+"\t\t");
-            }
-        }
+    
         
         
         

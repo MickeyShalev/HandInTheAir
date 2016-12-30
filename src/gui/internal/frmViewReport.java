@@ -88,9 +88,9 @@ public class frmViewReport extends javax.swing.JInternalFrame {
                 n.put("year",item.toString());
                 iMuzaMusic.log("Sending Report Query with Year: "+n.get("year"));
                 JasperPrint print = JasperFillManager.fillReport(getClass()
-                        .getResourceAsStream("/ex2design/reports/report2.jasper"), 
+                        .getResourceAsStream("/ex2design/reports/annualReport.jasper"), 
                         n, conn);
-                JFrame frame = new JFrame("Customer Orders Report");
+                JFrame frame = new JFrame("iMuzaMusic - Annual Report "+n.get("year"));
                 frame.getContentPane().add(new JRViewer(print));
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.pack();
