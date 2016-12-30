@@ -66,18 +66,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         txtMinimum.setVisible(false);
         txtPrice.setVisible(false);
         pnlArtistSelected.setVisible(false);
-         String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n" +
-"FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n" +
-"WHERE (((Agents.AgentID)=[AgentPreferLocation].[AgentID]) AND ((Locations.LocationID)=[AgentPreferLocation].[LocationID]) AND ((Agents.AgentID)=\""+iMuzaMusic.getLoggedUser().getID()+"\"))";
-        ResultSet getLocations = iMuzaMusic.getDB().query(qry);
-        try {
-            while(getLocations.next()){
-                slctLocation.addItem(""+getLocations.getString("strName")+" ("+getLocations.getString("LocationID")+")");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+         
         //Handle time
         slctTime.removeAllItems();
         for(int i=0; i<=24;i++){
@@ -310,7 +299,6 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jXDatePicker1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXDatePicker1ActionPerformed
-        // TODO add your handling code here:
         
         //This will get available artists on a given date
         //Go through all of this agents' artists
@@ -325,6 +313,19 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        ResultSet getLocations = iMuzaMusic.getLocationsByAgent(iMuzaMusic.getLoggedUser().getID());
+        try {
+            while(getLocations.next()){
+                slctLocation.addItem(""+getLocations.getString("strName")+" ("+getLocations.getString("LocationID")+")");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
         
         // Enable Fields
         slctArtist.setVisible(true);
@@ -383,8 +384,10 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             
             //Get location addr
             String LocationID = iMuzaMusic.getID(item.toString());
-            String qry = "SELECT strAddress from Locations where LocationID=\""+LocationID+"\"";
-            ResultSet getLocation = iMuzaMusic.getDB().query(qry);
+            
+            ResultSet getLocation = iMuzaMusic.getLocationDetails(LocationID);
+            
+            
             try {
                 while(getLocation.next()){
                     lblAddress.setText(getLocation.getString("strAddress"));

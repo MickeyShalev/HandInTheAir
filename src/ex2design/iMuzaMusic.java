@@ -277,4 +277,17 @@ public class iMuzaMusic {
         return getDB().query(qry);
     }
     
+    public static ResultSet getLocationsByAgent(String AgentID){
+        String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n" +
+"FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n" +
+"WHERE (((Agents.AgentID)=[AgentPreferLocation].[AgentID]) AND ((Locations.LocationID)=[AgentPreferLocation].[LocationID]) AND ((Agents.AgentID)=\""+AgentID+"\"))";
+        
+        return iMuzaMusic.getDB().query(qry);
+    }
+    
+    public static ResultSet getLocationDetails(String LocationID){
+        String qry = "SELECT strAddress from Locations where LocationID=\""+LocationID+"\"";
+        return iMuzaMusic.getDB().query(qry);
+    }
+    
 }
