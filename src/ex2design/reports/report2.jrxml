@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d7df7f0-1d50-4b4b-91f2-74aa984c4ba6">
 	<property name="ireport.zoom" value="1.1000000000000012"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="87"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -113,7 +113,7 @@ FROM
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Show #"+$F{generateReport_pID}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{generateReport_strStageName}+" - "+ $F{generateReport_strName}]]></textFieldExpression>
 				</textField>
 				<rectangle>
 					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="6738992d-d602-4a27-b56d-544691f1a735"/>
@@ -180,7 +180,7 @@ FROM
 				<reportElement x="0" y="322" width="100" height="1" uuid="584d3aca-917f-436a-a0fe-303c28e074e2"/>
 			</break>
 			<componentElement>
-				<reportElement key="table" style="table" x="0" y="216" width="551" height="106" uuid="840995f7-281c-43de-949b-f1df73319400"/>
+				<reportElement key="table" style="table" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="216" width="551" height="106" uuid="840995f7-281c-43de-949b-f1df73319400"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="New Dataset 2" uuid="05ad7792-936d-4ede-b082-95666b62876f">
 						<datasetParameter name="showid">
@@ -188,19 +188,19 @@ FROM
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column width="281" uuid="3a62f15c-98b2-4bb9-97bd-8a0aa5176c88">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+					<jr:column width="552" uuid="3a62f15c-98b2-4bb9-97bd-8a0aa5176c88">
+						<jr:columnHeader style="Detail" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="62" y="0" width="164" height="30" forecolor="#FFFFFF" uuid="dd19dbda-3cb6-4752-aa25-72758eb1cd13"/>
-								<textElement>
+								<reportElement x="0" y="0" width="220" height="30" forecolor="#CCCCCC" uuid="dd19dbda-3cb6-4752-aa25-72758eb1cd13"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font size="18"/>
 								</textElement>
 								<text><![CDATA[Participated Artists]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+						<jr:detailCell style="Detail" height="17" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="281" height="20" uuid="883c2f7e-0f91-470d-a91c-9dd087e1833c"/>
+								<reportElement x="0" y="0" width="220" height="17" uuid="883c2f7e-0f91-470d-a91c-9dd087e1833c"/>
 								<textFieldExpression><![CDATA[$F{qryGetArtistsByShowID_strStageName}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -208,43 +208,58 @@ FROM
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement x="0" y="20" width="100" height="20" uuid="59118b50-848b-43b1-b539-eddd320b513a"/>
+				<reportElement x="0" y="43" width="100" height="20" forecolor="#666666" uuid="59118b50-848b-43b1-b539-eddd320b513a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Show Date]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="100" y="20" width="100" height="20" uuid="3a46170b-309a-4a72-b4c0-1d93484b117e"/>
+				<reportElement x="100" y="43" width="100" height="20" uuid="3a46170b-309a-4a72-b4c0-1d93484b117e"/>
 				<textFieldExpression><![CDATA[$F{generateReport_pStartDate}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="40" width="100" height="20" uuid="63033210-4137-4860-92fe-92df8aca0c63"/>
+				<reportElement x="0" y="63" width="100" height="20" forecolor="#666666" uuid="63033210-4137-4860-92fe-92df8aca0c63"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Minimum Age]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="100" y="40" width="100" height="20" uuid="01e2205f-be40-4944-a0a0-dde4fc62fa15"/>
-				<textFieldExpression><![CDATA[$F{generateReport_pMinAge}]]></textFieldExpression>
+				<reportElement x="100" y="63" width="100" height="20" uuid="01e2205f-be40-4944-a0a0-dde4fc62fa15"/>
+				<textFieldExpression><![CDATA[$F{generateReport_pMinAge} +"+"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="60" width="100" height="20" uuid="3798c503-e6a9-4d68-bf81-a598aad87d59"/>
+				<reportElement x="0" y="83" width="100" height="20" forecolor="#666666" uuid="3798c503-e6a9-4d68-bf81-a598aad87d59"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Location Name]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="100" y="60" width="100" height="20" uuid="6c82c74f-cdaf-4dcd-84e5-b3719b2d4416"/>
+				<reportElement x="100" y="83" width="100" height="20" uuid="6c82c74f-cdaf-4dcd-84e5-b3719b2d4416"/>
 				<textFieldExpression><![CDATA[$F{generateReport_strName}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="80" width="100" height="20" uuid="33bddce5-0adf-455b-bbef-54875bfeaaa6"/>
+				<reportElement x="0" y="103" width="100" height="20" forecolor="#666666" uuid="33bddce5-0adf-455b-bbef-54875bfeaaa6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Created By]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="100" y="80" width="100" height="20" uuid="84d2af9f-605a-4281-b35c-bf22a8ca8476"/>
+				<reportElement x="100" y="103" width="100" height="20" uuid="84d2af9f-605a-4281-b35c-bf22a8ca8476"/>
 				<textFieldExpression><![CDATA[$F{generateReport_AgentName}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="100" width="100" height="20" uuid="28f61712-0f2a-405f-aa68-c8f9cede1273"/>
+				<reportElement x="0" y="123" width="100" height="20" forecolor="#666666" uuid="28f61712-0f2a-405f-aa68-c8f9cede1273"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Date Created]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="100" y="100" width="100" height="20" uuid="1045c1bc-a042-48b4-8ba2-80f7740355d0"/>
+				<reportElement x="100" y="123" width="100" height="20" uuid="1045c1bc-a042-48b4-8ba2-80f7740355d0"/>
 				<textFieldExpression><![CDATA[$F{generateReport_pDateCreated}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -261,6 +276,105 @@ FROM
 				</textElement>
 				<text><![CDATA[Financial Report]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="313" y="23" width="100" height="20" forecolor="#666666" uuid="8e21c60b-684f-4caf-803a-dcde69f93f69"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Presale Income]]></text>
+			</staticText>
+			<textField pattern="###0">
+				<reportElement x="413" y="23" width="100" height="20" uuid="3985ce6f-3c6e-4c6c-891c-fb00a2e63857"/>
+				<textFieldExpression><![CDATA["\$"+$F{generateReport_PreSaleTotal}.intValue()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="313" y="43" width="100" height="20" forecolor="#666666" uuid="ce444946-1381-41b0-be25-4616bf70cbe6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Regular Income]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="43" width="100" height="20" uuid="60c5740a-0431-4646-9a2a-5207350c0620"/>
+				<textFieldExpression><![CDATA["\$"+$F{generateReport_RegularSaleTotal}.intValue()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="313" y="123" width="100" height="20" forecolor="#666666" uuid="1d41405a-9778-4c96-96c2-ea3a62aceb55"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Income]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="123" width="100" height="20" uuid="8c3e3f1f-7ff8-4aeb-bdd4-86767cd39ebf"/>
+				<textFieldExpression><![CDATA["\$"+$F{generateReport_pTotalSales}.intValue()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="313" y="63" width="100" height="20" forecolor="#666666" uuid="cc32ae66-e4f9-4587-8f9b-6051e7a7f456"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Additional Costs]]></text>
+			</staticText>
+			<textField pattern="###0">
+				<reportElement x="413" y="63" width="100" height="20" uuid="08fa9b66-6bf8-43a7-9a5d-ba89d05f7a44"/>
+				<textFieldExpression><![CDATA["\$" + ($F{generateReport_pTotalSales} * $F{generateReport_AdditionalCosts}).intValue() + " (" + ($F{generateReport_AdditionalCosts}*100).intValue() + "%)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="313" y="83" width="100" height="20" forecolor="#666666" uuid="b52bb4ff-a456-48ba-a347-44279dcd86da"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Location Commission]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="83" width="100" height="20" uuid="48a78cf5-bfd3-462f-811a-90960820915a"/>
+				<textFieldExpression><![CDATA["\$" + ($F{generateReport_LocComm}*$F{generateReport_pTotalSales}).intValue() +" ("+ ($F{generateReport_LocComm}*100).intValue() + "%)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="23" width="100" height="20" forecolor="#666666" uuid="0aabb0e9-ed9a-450d-ae33-44a8e46e29d1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Show ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="23" width="100" height="20" uuid="03d519f1-f10a-4b2c-aba1-be4f5081bbb7"/>
+				<textFieldExpression><![CDATA[$F{generateReport_pID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="313" y="143" width="100" height="20" forecolor="#666666" uuid="73c893b3-051a-44c2-a3fc-880a1c72bea2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Outcome]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="143" width="100" height="20" uuid="d0fabc54-347b-4523-9dc8-f528027af0e4"/>
+				<textFieldExpression><![CDATA["\$"+$F{generateReport_TotalOutcome}.intValue()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="313" y="163" width="100" height="20" forecolor="#666666" uuid="32920af5-7a83-4947-ab20-12aadfd03d43"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Revenue]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="163" width="100" height="20" uuid="fdee52a2-9f9c-41e5-9f84-25308fcfd434"/>
+				<textFieldExpression><![CDATA["\$"+$F{generateReport_TotalRevenue}.intValue()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="313" y="103" width="100" height="20" forecolor="#666666" uuid="03f8dffd-1887-47ad-b21c-2a5a2706813c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Artists Commission]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="103" width="100" height="20" uuid="db54819b-5105-422e-9d7a-3b9b2e38c6ad"/>
+				<textFieldExpression><![CDATA["\$"+($F{generateReport_ArtistComm}*$F{generateReport_pTotalSales}).intValue()+" ("+($F{generateReport_ArtistComm}*100).intValue()+"%)"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
