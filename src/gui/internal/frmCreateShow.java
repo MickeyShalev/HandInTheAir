@@ -216,10 +216,10 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
         });
         slctSubArtist.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 slctSubArtistInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         slctSubArtist.addActionListener(new java.awt.event.ActionListener() {
@@ -240,6 +240,11 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 280, -1));
 
         fldPrice.setText("0.00");
+        fldPrice.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fldPriceFocusLost(evt);
+            }
+        });
         getContentPane().add(fldPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 40, -1));
 
         txtPrice.setForeground(new java.awt.Color(255, 255, 255));
@@ -255,6 +260,11 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         getContentPane().add(txtMinimum, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 90, 20));
 
         fldAge.setText("0");
+        fldAge.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fldAgeFocusLost(evt);
+            }
+        });
         fldAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fldAgeActionPerformed(evt);
@@ -306,8 +316,8 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         //Go through all of this agents' artists
         slctArtist.removeAllItems();
         slctArtist.addItem("Select Artist");
-        String qry = "SELECT * from Artists where Artists.AgentID=\""+iMuzaMusic.getLoggedUser().getID()+"\" AND Artists.iStatus=1";
-        ResultSet getArtists = iMuzaMusic.getDB().query(qry);
+        
+        ResultSet getArtists = iMuzaMusic.getAvailableArtistsByAgent(iMuzaMusic.getLoggedUser().getID());
         try {
             while(getArtists.next()){
                 slctArtist.addItem(""+getArtists.getString("strStageName")+" ("+getArtists.getString("ArtistID")+")");
@@ -315,6 +325,8 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        // Enable Fields
         slctArtist.setVisible(true);
         txtSlctArtist.setVisible(true);
         txtMinimum.setVisible(true);
@@ -388,6 +400,8 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_slctLocationItemStateChanged
 
+    
+    
     private void addArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArtistActionPerformed
         // TODO add your handling code here:
            //<name><id>
@@ -515,6 +529,29 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_slctSubArtistInputMethodTextChanged
 
+    private void fldPriceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldPriceFocusLost
+        checkTicketPrice();
+    }//GEN-LAST:event_fldPriceFocusLost
+
+    private void fldAgeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldAgeFocusLost
+        checkMinimalAge();
+    }//GEN-LAST:event_fldAgeFocusLost
+
+    /**
+     * To be added - check minimal age
+     */
+    private void checkMinimalAge(){
+        
+    }
+    
+    /**
+     * To Be Implented - Check ticket price
+     */
+    private void checkTicketPrice(){
+        
+    }
+    
+    
     public void updateData(){
         iWindow.update();
     }

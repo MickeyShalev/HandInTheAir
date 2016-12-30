@@ -270,4 +270,11 @@ public class iMuzaMusic {
         * */
     }
 
+    public static ResultSet getAvailableArtistsByAgent(String AgentID){
+        
+        String qry = "SELECT * from Artists where Artists.AgentID=\""+AgentID+"\" AND Artists.iStatus=1";
+        
+        return getDB().query(qry);
+    }
+    
 }
