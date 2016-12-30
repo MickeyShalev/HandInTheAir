@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d7df7f0-1d50-4b4b-91f2-74aa984c4ba6">
+	<property name="ireport.zoom" value="1.1000000000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="b642eddc-f75b-4966-a30b-4c4cae0bf23d">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     ShowsToArtists.`ShowID` AS ShowsToArtists_ShowID,
+     ShowsToArtists.`ArtistID` AS ShowsToArtists_ArtistID,
+     ShowsToArtists.`Status` AS ShowsToArtists_Status
+FROM
+     `ShowsToArtists` ShowsToArtists
+WHERE
+     ShowID = "$F{generateReport_pID}"]]>
+		</queryString>
+		<field name="ShowsToArtists_ArtistID" class="java.lang.String"/>
+		<group name="ShowsToArtists_ArtistID">
+			<groupExpression><![CDATA[$F{ShowsToArtists_ArtistID}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="New Dataset 2" uuid="dfab7dc1-1bde-4604-80ca-19a57bf31056">
+		<parameter name="showid" class="java.lang.String">
+			<defaultValueExpression><![CDATA[005]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     qryGetArtistsByShowID.`strStageName` AS qryGetArtistsByShowID_strStageName
+FROM
+     `qryGetArtistsByShowID` qryGetArtistsByShowID where ShowID=$P{showid}]]>
+		</queryString>
+		<field name="qryGetArtistsByShowID_strStageName" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="year" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Administrator\\Documents\\NetBeansProjects\\HandsInAirNew\\src\\ex2design\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     generateReport.`pID` AS generateReport_pID,
+     generateReport.`pStartDate` AS generateReport_pStartDate,
+     generateReport.`pTicketPrice` AS generateReport_pTicketPrice,
+     generateReport.`pMinAge` AS generateReport_pMinAge,
+     generateReport.`pStatus` AS generateReport_pStatus,
+     generateReport.`iLocation` AS generateReport_iLocation,
+     generateReport.`iMainArtist` AS generateReport_iMainArtist,
+     generateReport.`pDateCreated` AS generateReport_pDateCreated,
+     generateReport.`PreSaleTotal` AS generateReport_PreSaleTotal,
+     generateReport.`RegularSaleTotal` AS generateReport_RegularSaleTotal,
+     generateReport.`pTotalSales` AS generateReport_pTotalSales,
+     generateReport.`AdditionalCosts` AS generateReport_AdditionalCosts,
+     generateReport.`LocComm` AS generateReport_LocComm,
+     generateReport.`ArtistComm` AS generateReport_ArtistComm,
+     generateReport.`TotalOutcome` AS generateReport_TotalOutcome,
+     generateReport.`TotalRevenue` AS generateReport_TotalRevenue,
+     generateReport.`strStageName` AS generateReport_strStageName,
+     generateReport.`strName` AS generateReport_strName,
+     generateReport.`AgentName` AS generateReport_AgentName,
+     generateReport.`showYear` AS generateReport_showYear
+FROM
+     `generateReport` generateReport WHERE showYear=$P{year} order by TotalRevenue desc]]>
+	</queryString>
+	<field name="generateReport_pID" class="java.lang.String"/>
+	<field name="generateReport_pStartDate" class="java.sql.Timestamp"/>
+	<field name="generateReport_pTicketPrice" class="java.lang.Integer"/>
+	<field name="generateReport_pMinAge" class="java.lang.Integer"/>
+	<field name="generateReport_pStatus" class="java.lang.String"/>
+	<field name="generateReport_iLocation" class="java.lang.String"/>
+	<field name="generateReport_iMainArtist" class="java.lang.String"/>
+	<field name="generateReport_pDateCreated" class="java.sql.Timestamp"/>
+	<field name="generateReport_PreSaleTotal" class="java.math.BigDecimal"/>
+	<field name="generateReport_RegularSaleTotal" class="java.lang.Long"/>
+	<field name="generateReport_pTotalSales" class="java.math.BigDecimal"/>
+	<field name="generateReport_AdditionalCosts" class="java.lang.Double"/>
+	<field name="generateReport_LocComm" class="java.math.BigDecimal"/>
+	<field name="generateReport_ArtistComm" class="java.math.BigDecimal"/>
+	<field name="generateReport_TotalOutcome" class="java.lang.Integer"/>
+	<field name="generateReport_TotalRevenue" class="java.math.BigDecimal"/>
+	<field name="generateReport_strStageName" class="java.lang.String"/>
+	<field name="generateReport_strName" class="java.lang.String"/>
+	<field name="generateReport_AgentName" class="java.lang.String"/>
+	<field name="generateReport_showYear" class="java.lang.Integer"/>
+	<group name="generateReport_pID">
+		<groupExpression><![CDATA[$F{generateReport_pID}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#333333" uuid="d386fef3-4f43-4fcb-bad3-5da0b2d99ca3"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Show #"+$F{generateReport_pID}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="6738992d-d602-4a27-b56d-544691f1a735"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="66" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="553" height="64" uuid="72b24e0c-736f-44b6-a2e4-e2ed66789088"/>
+				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="460" y="44" width="91" height="20" forecolor="#FFFFFF" uuid="d589f131-c285-4cdb-b4e4-b4e491af4b67"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column header" x="438" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="11731083-8e88-4750-b1a4-3daf2b660e38"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Show "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="511" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="1c331c08-60ae-480d-904b-990c1357c88d"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="38" width="100" height="20" forecolor="#FFFFFF" uuid="3c0e0679-4df4-4511-a5c4-9c07c681a23f"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Year "+$F{generateReport_showYear}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Title" x="20" y="5" width="263" height="33" uuid="6524e551-6840-4fdc-86e8-3bf8e75af0b2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Annual Report]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="323" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="322" width="100" height="1" uuid="584d3aca-917f-436a-a0fe-303c28e074e2"/>
+			</break>
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="216" width="551" height="106" uuid="840995f7-281c-43de-949b-f1df73319400"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 2" uuid="05ad7792-936d-4ede-b082-95666b62876f">
+						<datasetParameter name="showid">
+							<datasetParameterExpression><![CDATA[$F{generateReport_pID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="281" uuid="3a62f15c-98b2-4bb9-97bd-8a0aa5176c88">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="62" y="0" width="164" height="30" forecolor="#FFFFFF" uuid="dd19dbda-3cb6-4752-aa25-72758eb1cd13"/>
+								<textElement>
+									<font size="18"/>
+								</textElement>
+								<text><![CDATA[Participated Artists]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="281" height="20" uuid="883c2f7e-0f91-470d-a91c-9dd087e1833c"/>
+								<textFieldExpression><![CDATA[$F{qryGetArtistsByShowID_strStageName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="59118b50-848b-43b1-b539-eddd320b513a"/>
+				<text><![CDATA[Show Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="20" width="100" height="20" uuid="3a46170b-309a-4a72-b4c0-1d93484b117e"/>
+				<textFieldExpression><![CDATA[$F{generateReport_pStartDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20" uuid="63033210-4137-4860-92fe-92df8aca0c63"/>
+				<text><![CDATA[Minimum Age]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="40" width="100" height="20" uuid="01e2205f-be40-4944-a0a0-dde4fc62fa15"/>
+				<textFieldExpression><![CDATA[$F{generateReport_pMinAge}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="100" height="20" uuid="3798c503-e6a9-4d68-bf81-a598aad87d59"/>
+				<text><![CDATA[Location Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="60" width="100" height="20" uuid="6c82c74f-cdaf-4dcd-84e5-b3719b2d4416"/>
+				<textFieldExpression><![CDATA[$F{generateReport_strName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="100" height="20" uuid="33bddce5-0adf-455b-bbef-54875bfeaaa6"/>
+				<text><![CDATA[Created By]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="80" width="100" height="20" uuid="84d2af9f-605a-4281-b35c-bf22a8ca8476"/>
+				<textFieldExpression><![CDATA[$F{generateReport_AgentName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="100" width="100" height="20" uuid="28f61712-0f2a-405f-aa68-c8f9cede1273"/>
+				<text><![CDATA[Date Created]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="100" width="100" height="20" uuid="1045c1bc-a042-48b4-8ba2-80f7740355d0"/>
+				<textFieldExpression><![CDATA[$F{generateReport_pDateCreated}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="0" width="149" height="23" forecolor="#999999" uuid="f07c75d6-ac7a-4dd0-832e-76075bb33bd2"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[General Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="0" width="149" height="23" forecolor="#999999" uuid="1044aa7b-e533-4802-9d86-0464037f324d"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Financial Report]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="83" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="7b30bf9b-54c3-4dcb-ae1b-f7074aafbd0a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="c1042d15-6339-43d9-ac54-aef825ccf21f"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="72fc974e-3ef4-4399-8271-2a196fda01e7"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

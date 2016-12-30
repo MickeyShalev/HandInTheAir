@@ -39,7 +39,7 @@ public class MainGui extends javax.swing.JFrame {
          * This will be for testing the query
          */
         
-        ResultSet rs = iMuzaMusic.getDB().query("SELECT * from RunReport where year(pStartDate)=2016 order by TotalRevenue desc");
+        ResultSet rs = iMuzaMusic.getDB().query("SELECT * from generateReport where year(pStartDate)=2016 order by TotalRevenue desc");
         for(int i=9; i<=rs.getMetaData().getColumnCount();i++)
             System.err.print(rs.getMetaData().getColumnName(i)+"\t");
         while(rs.next()){
