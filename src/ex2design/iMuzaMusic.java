@@ -11,8 +11,11 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ex2design.utilities.EAuth;
+import gui.internal.SuccessExport;
 import gui.internal.frmManageArtists;
+import gui.main.iWindow;
 import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFrame;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -230,27 +233,41 @@ public class iMuzaMusic {
         return toReturn;
     }
     
-    public JFrame getReport() {
+    
+    /**
+     * This method generates an annual report given a specified year
+     * @param year 
+     */
+    public void generateReport(String year){
+        
+        /**
+         * To be added altered
+         
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             
             try (Connection conn = (iMuzaMusic.getDB().getConn())) {
+                Map<String, Object> n = new HashMap<String, Object>();
+                n.put("year",year);
+                iMuzaMusic.log("Sending Report Query with Year: "+n.get("year"));
                 JasperPrint print = JasperFillManager.fillReport(getClass()
-                        .getResourceAsStream("../view/RptCustomerOrders.jasper"), 
-                        new HashMap(), conn);
-                JFrame frame = new JFrame("Customer Orders Report");
+                        .getResourceAsStream("/ex2design/reports/annualReport.jasper"), 
+                        n, conn);
+                JFrame frame = new JFrame("iMuzaMusic - Annual Report "+n.get("year"));
                 frame.getContentPane().add(new JRViewer(print));
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.pack();
-                return frame;
+                frame.setVisible(true);
+                n.clear();
+                SuccessExport t = new SuccessExport();
+                iWindow.openWin(t);
             } catch (SQLException | JRException | NullPointerException e) {
                 e.printStackTrace();
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        
-        return null;
+        * */
     }
 
 }

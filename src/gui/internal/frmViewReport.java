@@ -51,7 +51,7 @@ public class frmViewReport extends javax.swing.JInternalFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        slctYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2017", "2016", "2015", "2014"}));
+        slctYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2016", "2015", "2014"}));
         slctYear.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 slctYearItemStateChanged(evt);
@@ -79,6 +79,8 @@ public class frmViewReport extends javax.swing.JInternalFrame {
                 Object item = evt.getItem();
                 if (item.equals("Select Year"))
                     return;
+          
+                
                 
                  try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
