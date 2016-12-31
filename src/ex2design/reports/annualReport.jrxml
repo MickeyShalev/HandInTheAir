@@ -146,9 +146,9 @@ FROM
 	</title>
 	<pageHeader>
 		<band height="66" splitType="Stretch">
-			<image>
+			<image scaleImage="FillFrame">
 				<reportElement x="0" y="0" width="553" height="64" uuid="72b24e0c-736f-44b6-a2e4-e2ed66789088"/>
-				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["sources/wood.jpg"]]></imageExpression>
 			</image>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement style="Column header" x="460" y="44" width="91" height="20" forecolor="#FFFFFF" uuid="d589f131-c285-4cdb-b4e4-b4e491af4b67"/>
@@ -169,6 +169,10 @@ FROM
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Annual Report]]></text>
 			</staticText>
+			<image>
+				<reportElement x="448" y="5" width="91" height="36" uuid="7f8bc9c2-c0b5-49b6-b10d-985266ec47cb"/>
+				<imageExpression><![CDATA["sources/muzalogo.png"]]></imageExpression>
+			</image>
 		</band>
 	</pageHeader>
 	<columnHeader>

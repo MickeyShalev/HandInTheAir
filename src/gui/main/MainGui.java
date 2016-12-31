@@ -55,7 +55,6 @@ public class MainGui extends javax.swing.JFrame {
         pnlAgent = new javax.swing.JPanel();
         btnManageArtists = new javax.swing.JLabel();
         btnAddShow = new javax.swing.JLabel();
-        btnTesting = new javax.swing.JLabel();
         pnlRep = new javax.swing.JPanel();
         btnViewReport = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
@@ -63,6 +62,9 @@ public class MainGui extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1020, 766));
+        setMinimumSize(new java.awt.Dimension(1020, 766));
+        setPreferredSize(new java.awt.Dimension(1020, 766));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -123,15 +125,6 @@ public class MainGui extends javax.swing.JFrame {
             }
         });
 
-        btnTesting.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnTesting.setForeground(new java.awt.Color(255, 255, 255));
-        btnTesting.setText("Testing button");
-        btnTesting.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnTestingMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlAgentLayout = new javax.swing.GroupLayout(pnlAgent);
         pnlAgent.setLayout(pnlAgentLayout);
         pnlAgentLayout.setHorizontalGroup(
@@ -139,21 +132,18 @@ public class MainGui extends javax.swing.JFrame {
             .addGroup(pnlAgentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTesting, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlAgentLayout.setVerticalGroup(
             pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgentLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(23, 23, 23)
                 .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnTesting, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
@@ -174,23 +164,23 @@ public class MainGui extends javax.swing.JFrame {
         pnlRep.setLayout(pnlRepLayout);
         pnlRepLayout.setHorizontalGroup(
             pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRepLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRepLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pnlRepLayout.setVerticalGroup(
             pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRepLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+            .addGroup(pnlRepLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/muzagui.png"))); // NOI18N
-        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 1020, 770));
 
         btnExit.setText("jButton1");
         btnExit.setEnabled(false);
@@ -223,11 +213,14 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
         // TODO add your handling code here:
+        iMuzaMusic.log("Logging out..");
         iMuzaMusic.setLoggedUser(null);
-        setVisible(false);
-        iWindow.getPanel().setVisible(false);
-        iWindow.getCurrentWindow().setVisible(false);
+        dispose();
+       
+        iMuzaMusic.log("Successfully logged out");
+        
         LoginGui tmp = new LoginGui();
+        iMuzaMusic.log("Activating login screen");
         tmp.setVisible(true);
     }//GEN-LAST:event_btnLogoutMouseClicked
 
@@ -248,11 +241,6 @@ public class MainGui extends javax.swing.JFrame {
         frmCreateShow add = new frmCreateShow();
         iWindow.openWin(add);
     }//GEN-LAST:event_btnAddShowMouseClicked
-
-    private void btnTestingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTestingMouseClicked
-        frmWatchArtists add = new frmWatchArtists();
-        iWindow.openWin(add);
-    }//GEN-LAST:event_btnTestingMouseClicked
 
     private void btnViewReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReportMouseClicked
         // TODO add your handling code here:
@@ -288,7 +276,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;
-    private javax.swing.JLabel btnTesting;
     private javax.swing.JLabel btnViewReport;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserType;

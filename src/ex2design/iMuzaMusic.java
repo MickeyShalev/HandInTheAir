@@ -7,6 +7,7 @@ package ex2design;
 
 import entities.*;
 import ex2design.utilities.EArtistStatus;
+import java.util.Date;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,12 @@ import ex2design.utilities.EAuth;
 import gui.internal.SuccessExport;
 import gui.internal.frmManageArtists;
 import gui.main.iWindow;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
@@ -28,12 +35,28 @@ import net.sf.jasperreports.view.JRViewer;
  */
 public class iMuzaMusic {
 
-    static DBManager DB;
-    static Person loggedUser = null;
-
- 
+    private static DBManager DB;
+    private static Person loggedUser = null;
+    private static String fileName = "iMuzaMusicLogger";
+    private static FileWriter logFile;
+    private static PrintStream logWriter;
 
     public iMuzaMusic() {
+        //Reset log
+        try {
+            SimpleDateFormat sdfDate = new SimpleDateFormat("ddM_hhmm");
+            Date now = new Date();
+            String strDate = sdfDate.format(now);
+            logWriter = new PrintStream(new File(fileName+"_"+strDate+".log"));
+            System.setErr(logWriter);
+            System.setOut(logWriter);
+            logWriter.print("=================  iMuzaMusic v1.0 - " + new Date() + " ==================" + System.getProperty("line.separator"));
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            System.err.println("Cannot write to log file!");
+            System.exit(0);
+        }
+
         //Initiate DB
         init();
 
@@ -73,11 +96,15 @@ public class iMuzaMusic {
     }
 
     /**
-     * Internal Logging 
+     * Internal Logging
      *
      */
     public static void log(String str) {
-        System.err.println(str);
+        SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm:ss");
+        Date now = new Date();
+        String strDate = sdfDate.format(now);
+        logWriter.print(strDate + "\t" + str + System.getProperty("line.separator"));
+        logWriter.flush();
     }
 
     public static boolean logIn(String id, String pass) throws SQLException {
@@ -87,7 +114,7 @@ public class iMuzaMusic {
         /**
          * TO BE DELETED id = id.replace("Cust",""). replace("RE", "").
          * replace("AR", ""). replace("AAG", ""). replace("LR", "");
-            *
+         *
          */
 
         tmp = iMuzaMusic.DB.query("select * from Customers where ClientID=\"" + id + "\" AND strPasswd=\"" + pass + "\"");
@@ -205,8 +232,7 @@ public class iMuzaMusic {
                 String emailAddr = getAgent.getString("strEmailAddr");
                 String fbAddr = getAgent.getString("strFacebook");
                 /**
-                 * EArtist Status
-                    **
+                 * EArtist Status *
                  */
                 EArtistStatus arStatus = null;
                 switch (getAgent.getString("iStatus")) {
@@ -232,62 +258,54 @@ public class iMuzaMusic {
 
         return toReturn;
     }
-    
-    
+
     /**
      * This method generates an annual report given a specified year
-     * @param year 
+     *
+     * @param year
      */
-    public void generateReport(String year){
-        
+    public void generateReport(String year) {
+
         /**
          * To be added altered
-         
-        try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            
-            try (Connection conn = (iMuzaMusic.getDB().getConn())) {
-                Map<String, Object> n = new HashMap<String, Object>();
-                n.put("year",year);
-                iMuzaMusic.log("Sending Report Query with Year: "+n.get("year"));
-                JasperPrint print = JasperFillManager.fillReport(getClass()
-                        .getResourceAsStream("/ex2design/reports/annualReport.jasper"), 
-                        n, conn);
-                JFrame frame = new JFrame("iMuzaMusic - Annual Report "+n.get("year"));
-                frame.getContentPane().add(new JRViewer(print));
-                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                frame.pack();
-                frame.setVisible(true);
-                n.clear();
-                SuccessExport t = new SuccessExport();
-                iWindow.openWin(t);
-            } catch (SQLException | JRException | NullPointerException e) {
-                e.printStackTrace();
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        * */
+         *
+         * try { Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+         *
+         * try (Connection conn = (iMuzaMusic.getDB().getConn())) {
+         * Map<String, Object> n = new HashMap<String, Object>();
+         * n.put("year",year); iMuzaMusic.log("Sending Report Query with Year:
+         * "+n.get("year")); JasperPrint print =
+         * JasperFillManager.fillReport(getClass()
+         * .getResourceAsStream("/ex2design/reports/annualReport.jasper"), n,
+         * conn); JFrame frame = new JFrame("iMuzaMusic - Annual Report
+         * "+n.get("year")); frame.getContentPane().add(new JRViewer(print));
+         * frame.setExtendedState(JFrame.MAXIMIZED_BOTH); frame.pack();
+         * frame.setVisible(true); n.clear(); SuccessExport t = new
+         * SuccessExport(); iWindow.openWin(t); } catch (SQLException |
+         * JRException | NullPointerException e) { e.printStackTrace(); } }
+         * catch (ClassNotFoundException e) { e.printStackTrace(); }
+        *
+         */
     }
 
-    public static ResultSet getAvailableArtistsByAgent(String AgentID){
-        
-        String qry = "SELECT * from Artists where Artists.AgentID=\""+AgentID+"\" AND Artists.iStatus=1";
-        
+    public static ResultSet getAvailableArtistsByAgent(String AgentID) {
+
+        String qry = "SELECT * from Artists where Artists.AgentID=\"" + AgentID + "\" AND Artists.iStatus=1";
+
         return getDB().query(qry);
     }
-    
-    public static ResultSet getLocationsByAgent(String AgentID){
-        String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n" +
-"FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n" +
-"WHERE (((Agents.AgentID)=[AgentPreferLocation].[AgentID]) AND ((Locations.LocationID)=[AgentPreferLocation].[LocationID]) AND ((Agents.AgentID)=\""+AgentID+"\"))";
-        
+
+    public static ResultSet getLocationsByAgent(String AgentID) {
+        String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n"
+                + "FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n"
+                + "WHERE (((Agents.AgentID)=[AgentPreferLocation].[AgentID]) AND ((Locations.LocationID)=[AgentPreferLocation].[LocationID]) AND ((Agents.AgentID)=\"" + AgentID + "\"))";
+
         return iMuzaMusic.getDB().query(qry);
     }
-    
-    public static ResultSet getLocationDetails(String LocationID){
-        String qry = "SELECT strAddress from Locations where LocationID=\""+LocationID+"\"";
+
+    public static ResultSet getLocationDetails(String LocationID) {
+        String qry = "SELECT strAddress from Locations where LocationID=\"" + LocationID + "\"";
         return iMuzaMusic.getDB().query(qry);
     }
-    
+
 }

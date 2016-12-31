@@ -20,11 +20,18 @@ public class DBManager {
     
    
     public DBManager() throws ClassNotFoundException, SQLException{
-        String dbFile = (new File("src\\ex2design\\MM_DB.accdb")).getAbsolutePath();
+        String dbFile = (new File("sources/MM_DB.accdb")).getAbsolutePath();
         iMuzaMusic.log("DB File: "+dbFile);
         String driver="net.ucanaccess.jdbc.UcanaccessDriver"; 
         Class.forName(driver); 
-        conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);
+        try{
+        conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);    
+        }
+        catch(Exception e){
+            dbFile = (new File("src/sources/MM_DB.accdb")).getAbsolutePath();
+            conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);
+        }
+        
     }
     
     /**
