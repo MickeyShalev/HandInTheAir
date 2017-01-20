@@ -1,0 +1,38 @@
+=================  iMuzaMusic v1.0 - Sat Jan 21 00:49:43 IST 2017 ==================
+00:49:43	Attempting connection to MS Access DB
+00:49:43	DB File: C:\Users\Administrator\Documents\NetBeansProjects\HandsInAirTMP\sources\MM_DB.accdb
+00:49:45	Successfully connected to MS Access DB.
+00:49:45	Opening Login Window through iWindow
+Jan 21, 2017 12:49:45 AM ex2design.DBManager query
+SEVERE: null
+net.ucanaccess.jdbc.UcanaccessSQLException: UCAExc:::3.0.7 user lacks privilege or object not found: ARTISTID
+	at net.ucanaccess.jdbc.UcanaccessStatement.executeQuery(UcanaccessStatement.java:211)
+	at ex2design.DBManager.query(DBManager.java:46)
+	at ex2design.XMLManager.ExportXML(XMLManager.java:54)
+	at gui.main.LoginGui.<init>(LoginGui.java:31)
+	at gui.main.iWindow.openLogin(iWindow.java:56)
+	at ex2design.MainClass.main(MainClass.java:25)
+Caused by: java.sql.SQLSyntaxErrorException: user lacks privilege or object not found: ARTISTID
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCStatement.fetchResult(Unknown Source)
+	at org.hsqldb.jdbc.JDBCStatement.executeQuery(Unknown Source)
+	at net.ucanaccess.jdbc.UcanaccessStatement.executeQuery(UcanaccessStatement.java:208)
+	... 5 more
+Caused by: org.hsqldb.HsqlException: user lacks privilege or object not found: ARTISTID
+	at org.hsqldb.error.Error.error(Unknown Source)
+	at org.hsqldb.error.Error.error(Unknown Source)
+	at org.hsqldb.ExpressionColumn.checkColumnsResolved(Unknown Source)
+	at org.hsqldb.QueryExpression.resolve(Unknown Source)
+	at org.hsqldb.ParserDQL.compileCursorSpecification(Unknown Source)
+	at org.hsqldb.ParserCommand.compilePart(Unknown Source)
+	at org.hsqldb.ParserCommand.compileStatements(Unknown Source)
+	at org.hsqldb.Session.executeDirectStatement(Unknown Source)
+	at org.hsqldb.Session.execute(Unknown Source)
+	... 8 more
+
+Exception in thread "main" java.lang.NullPointerException
+	at ex2design.XMLManager.ExportXML(XMLManager.java:55)
+	at gui.main.LoginGui.<init>(LoginGui.java:31)
+	at gui.main.iWindow.openLogin(iWindow.java:56)
+	at ex2design.MainClass.main(MainClass.java:25)

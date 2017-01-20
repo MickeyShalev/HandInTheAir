@@ -1,0 +1,26 @@
+=================  iMuzaMusic v1.0 - Sat Jan 21 00:51:49 IST 2017 ==================
+00:51:49	Attempting connection to MS Access DB
+00:51:49	DB File: C:\Users\Administrator\Documents\NetBeansProjects\HandsInAirTMP\sources\MM_DB.accdb
+00:51:51	Successfully connected to MS Access DB.
+00:51:51	Opening Login Window through iWindow
+Jan 21, 2017 12:51:51 AM ex2design.XMLManager ExportXML
+SEVERE: null
+net.ucanaccess.jdbc.UcanaccessSQLException: UCAExc:::3.0.7 Column not found: SessionStartDate
+	at net.ucanaccess.jdbc.UcanaccessResultSet.getDate(UcanaccessResultSet.java:375)
+	at ex2design.XMLManager.ExportXML(XMLManager.java:58)
+	at gui.main.LoginGui.<init>(LoginGui.java:31)
+	at gui.main.iWindow.openLogin(iWindow.java:56)
+	at ex2design.MainClass.main(MainClass.java:25)
+Caused by: java.sql.SQLException: Column not found: SessionStartDate
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCResultSet.findColumn(Unknown Source)
+	at org.hsqldb.jdbc.JDBCResultSet.getDate(Unknown Source)
+	at net.ucanaccess.jdbc.UcanaccessResultSet.getDate(UcanaccessResultSet.java:373)
+	... 4 more
+Caused by: org.hsqldb.HsqlException: Column not found: SessionStartDate
+	at org.hsqldb.error.Error.error(Unknown Source)
+	at org.hsqldb.error.Error.error(Unknown Source)
+	... 8 more
+

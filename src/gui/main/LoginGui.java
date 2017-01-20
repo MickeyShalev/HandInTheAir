@@ -5,6 +5,8 @@
  */
 package gui.main;
 
+import entities.Artist;
+import ex2design.XMLManager;
 import ex2design.iMuzaMusic;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -26,6 +28,8 @@ public class LoginGui extends javax.swing.JFrame {
      * Creates new form LoginGui
      */
     public LoginGui() {
+        XMLManager.ExportXML();
+        System.exit(0);
         setUndecorated(true);
         initComponents();
         java.awt.EventQueue.invokeLater(new Runnable() {

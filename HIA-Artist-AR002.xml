@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<HandsInAirXML>
+  <DateCreated>Sat Jan 21 01:03:12 IST 2017</DateCreated>
+  <Artist ID="AR002">
+    <Session timestamp="1484085600000">10 Jan 2017 22:00:00 GMT</Session>
+    <Session timestamp="1483048800000">29 Dec 2016 22:00:00 GMT</Session>
+  </Artist>
+</HandsInAirXML>

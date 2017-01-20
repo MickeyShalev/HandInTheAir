@@ -25,6 +25,9 @@ public abstract class Person {
         this.userAuth=userAuth;
         
     }
+    public Person(String ID){
+        this.ID=ID;
+    }
 
     public EAuth getUserAuth() {
         return userAuth;

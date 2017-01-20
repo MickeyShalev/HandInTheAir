@@ -1,0 +1,13 @@
+=================  iMuzaMusic v1.0 - Sat Jan 21 01:00:24 IST 2017 ==================
+01:00:24	Attempting connection to MS Access DB
+01:00:24	DB File: C:\Users\Administrator\Documents\NetBeansProjects\HandsInAirTMP\sources\MM_DB.accdb
+01:00:26	Successfully connected to MS Access DB.
+01:00:26	Opening Login Window through iWindow
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<HandsInAirXML>
+  <DateCreated>Sat Jan 21 01:00:27 IST 2017</DateCreated>
+  <Artist ID="AR002">
+    <Session>1484085600000</Session>
+    <Session>1483048800000</Session>
+  </Artist>
+</HandsInAirXML>

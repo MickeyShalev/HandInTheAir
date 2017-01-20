@@ -5,6 +5,8 @@
  */
 package gui.main;
 
+import entities.Artist;
+import ex2design.XMLManager;
 import ex2design.iMuzaMusic;
 import java.sql.SQLException;
 import ex2design.utilities.EAuth;
@@ -55,6 +57,7 @@ public class MainGui extends javax.swing.JFrame {
         pnlAgent = new javax.swing.JPanel();
         btnManageArtists = new javax.swing.JLabel();
         btnAddShow = new javax.swing.JLabel();
+        btnAddShow1 = new javax.swing.JLabel();
         pnlRep = new javax.swing.JPanel();
         btnViewReport = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
@@ -125,6 +128,15 @@ public class MainGui extends javax.swing.JFrame {
             }
         });
 
+        btnAddShow1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnAddShow1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddShow1.setText("Export XML");
+        btnAddShow1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddShow1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlAgentLayout = new javax.swing.GroupLayout(pnlAgent);
         pnlAgent.setLayout(pnlAgentLayout);
         pnlAgentLayout.setHorizontalGroup(
@@ -133,7 +145,8 @@ public class MainGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddShow1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlAgentLayout.setVerticalGroup(
@@ -143,7 +156,9 @@ public class MainGui extends javax.swing.JFrame {
                 .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAddShow1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
@@ -248,6 +263,11 @@ public class MainGui extends javax.swing.JFrame {
        iWindow.openWin(add);
     }//GEN-LAST:event_btnViewReportMouseClicked
 
+    private void btnAddShow1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnAddShow1MouseClicked
+
 
     public void refreshVars() {
         lblTitle.setText("Homepage");
@@ -273,6 +293,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JPanel ContentFrame;
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnAddShow;
+    private javax.swing.JLabel btnAddShow1;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;

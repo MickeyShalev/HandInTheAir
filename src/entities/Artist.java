@@ -34,6 +34,10 @@ public class Artist extends Person {
         this.arStatus=arStatus;
         this.emailAddr=emailAddr;
     }
+    
+    public Artist(String ID){
+        super(ID);
+    }
 
     public String getFbAddr() {
         return fbAddr;
