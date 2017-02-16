@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
-
-import ex2design.utilities.EArtistStatus;
-import ex2design.utilities.EAuth;
+package Entity;
 
 /**
  *

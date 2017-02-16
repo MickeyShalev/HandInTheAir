@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
-import ex2design.utilities.EAuth;
+package Entity;
 /**
  *
  * @author Administrator
  */
-public class LRep extends Person {
-    public LRep(String ID, String strFirstName, String strLastName, String strPasswd, EAuth userAuth){
+public class Rep extends Person {
+    public Rep(String ID, String strFirstName, String strLastName, String strPasswd, EAuth userAuth){
         super(ID, strFirstName, strLastName, strPasswd, userAuth);
         
     }

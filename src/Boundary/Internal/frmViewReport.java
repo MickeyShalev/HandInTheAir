@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.internal;
+package Boundary.Internal;
 
-import ex2design.iMuzaMusic;
-import gui.main.iWindow;
+import Controller.General.iMuzaMusic;
+import Boundary.Main.iWindow;
 import java.awt.event.ItemEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -2,11 +2,11 @@
  * This Class controls the opened windows and prevents more than one shown window
  * Other windows will remain active but at hide state;
  */
-package gui.main;
+package Boundary.Main;
 
 
-import gui.main.MainGui;
-import gui.main.LoginGui;
+import Boundary.Main.MainGui;
+import Boundary.Main.LoginGui;
 import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.File;

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.main;
+package Boundary.Main;
 
-import entities.Artist;
-import ex2design.XMLManager;
-import ex2design.iMuzaMusic;
+import Entity.Artist;
+import Controller.General.XMLManager;
+import Controller.General.iMuzaMusic;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;

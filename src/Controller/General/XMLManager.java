@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ex2design;
+package Controller.General;
 
-import entities.Artist;
+import Entity.Artist;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;

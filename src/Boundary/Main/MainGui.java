@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.main;
+package Boundary.Main;
 
-import entities.Artist;
-import ex2design.XMLManager;
-import ex2design.iMuzaMusic;
+import Entity.Artist;
+import Controller.General.XMLManager;
+import Controller.General.iMuzaMusic;
 import java.sql.SQLException;
-import ex2design.utilities.EAuth;
-import gui.internal.frmCreateShow;
-import gui.internal.frmManageArtists;
-import gui.internal.frmViewReport;
-import gui.internal.frmWatchArtists;
+import Entity.EAuth;
+import Boundary.Internal.frmCreateShow;
+import Boundary.Internal.frmManageArtists;
+import Boundary.Internal.frmViewReport;
+import Boundary.Internal.frmWatchArtists;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.sql.ResultSet;
@@ -65,9 +65,7 @@ public class MainGui extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1020, 766));
         setMinimumSize(new java.awt.Dimension(1020, 766));
-        setPreferredSize(new java.awt.Dimension(1020, 766));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N

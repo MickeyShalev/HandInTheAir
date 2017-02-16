@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ex2design;
+package Controller.General;
 
 import java.sql.*;
-import ex2design.iMuzaMusic;
+import Controller.General.iMuzaMusic;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;

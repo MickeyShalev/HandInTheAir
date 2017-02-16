@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ex2design;
+package Controller.General;
 
-import gui.main.LoginGui;
-import gui.main.iWindow;
+import Boundary.Main.LoginGui;
+import Boundary.Main.iWindow;
 import javax.swing.JFrame;
-import ex2design.utilities.EAuth;
+import Entity.EAuth;
 
 /**
  *

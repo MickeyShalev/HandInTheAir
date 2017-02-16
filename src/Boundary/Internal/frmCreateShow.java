@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.internal;
+package Boundary.Internal;
 
-import ex2design.iMuzaMusic;
-import entities.Artist;
-import entities.Person;
-import ex2design.DBManager;
-import ex2design.utilities.EArtistStatus;
-import ex2design.utilities.EAuth;
-import gui.main.iWindow;
+import Controller.General.iMuzaMusic;
+import Entity.Artist;
+import Entity.Person;
+import Controller.General.DBManager;
+import Entity.EArtistStatus;
+import Entity.EAuth;
+import Boundary.Main.iWindow;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ItemEvent;

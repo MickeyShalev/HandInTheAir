@@ -3,18 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ex2design;
+package Controller.General;
 
-import entities.*;
-import ex2design.utilities.EArtistStatus;
+import Entity.Customer;
+import Entity.Person;
+import Entity.Agent;
+import Entity.LRep;
+import Entity.Artist;
+import Entity.Rep;
+import Entity.EArtistStatus;
 import java.util.Date;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import ex2design.utilities.EAuth;
-import gui.internal.SuccessExport;
-import gui.internal.frmManageArtists;
-import gui.main.iWindow;
+import Entity.EAuth;
+import Boundary.Internal.SuccessExport;
+import Boundary.Internal.frmManageArtists;
+import Boundary.Main.iWindow;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
