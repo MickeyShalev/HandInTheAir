@@ -23,8 +23,8 @@ public class Artist extends Person {
     private String fbAddr = "";
     private EArtistStatus arStatus = null;
     private String emailAddr = "";
-    public Artist(String ID, String strFirstName, String strLastName, String strPasswd, EAuth userAuth, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr){
-        super(ID, strFirstName, strLastName, strPasswd, userAuth);
+    public Artist(String ID, String strFirstName, String strLastName, EAuth userAuth, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr){
+        super(ID, strFirstName, strLastName, userAuth);
         this.biography=biography;
         this.stageName=stageName;
         this.fbAddr=fbAddr;

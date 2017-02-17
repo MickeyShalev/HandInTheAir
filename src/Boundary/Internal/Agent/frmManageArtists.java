@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Boundary.Internal;
+package Boundary.Internal.Agent;
 
 import Controller.General.iMuzaMusic;
 import Entity.Artist;
@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -123,6 +125,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
                 }
             }
         };
+        lblFreeze1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
@@ -130,7 +133,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("You may choose an artist by using the selector.");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(60, 30, 228, 14);
+        jLabel16.setBounds(60, 30, 270, 16);
 
         lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/search.png"))); // NOI18N
         getContentPane().add(lblSearch);
@@ -172,11 +175,11 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
         pnlArtist.add(jSeparator5);
-        jSeparator5.setBounds(10, 40, 10, 350);
+        jSeparator5.setBounds(10, 40, 10, 410);
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         pnlArtist.add(jSeparator6);
-        jSeparator6.setBounds(10, 390, 570, 10);
+        jSeparator6.setBounds(10, 450, 570, 10);
 
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         pnlArtist.add(jSeparator7);
@@ -185,12 +188,12 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
         pnlArtist.add(jSeparator8);
-        jSeparator8.setBounds(580, 40, 10, 350);
+        jSeparator8.setBounds(580, 40, 10, 420);
 
         lblArtistID.setForeground(new java.awt.Color(255, 255, 255));
         lblArtistID.setText("id");
         pnlArtist.add(lblArtistID);
-        lblArtistID.setBounds(210, 60, 70, 14);
+        lblArtistID.setBounds(210, 60, 70, 16);
 
         txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -202,7 +205,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblEmailAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblEmailAddress.setText("address");
         pnlArtist.add(lblEmailAddress);
-        lblEmailAddress.setBounds(210, 120, 200, 14);
+        lblEmailAddress.setBounds(210, 120, 200, 16);
 
         txtStageName.setBackground(new java.awt.Color(255, 255, 255));
         txtStageName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -229,7 +232,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         txtEmail.setBounds(20, 140, 110, 16);
 
         lblFreeze.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        lblFreeze.setForeground(new java.awt.Color(51, 102, 255));
+        lblFreeze.setForeground(new java.awt.Color(255, 0, 0));
         lblFreeze.setText("[Deactivate Artist]");
         lblFreeze.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -253,7 +256,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("status");
         pnlArtist.add(lblStatus);
-        lblStatus.setBounds(210, 100, 200, 14);
+        lblStatus.setBounds(210, 100, 200, 16);
 
         lblPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNum.setText("jLabel1");
@@ -273,7 +276,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         txtEmail2.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail2.setText("Approve Shows Invitations");
         pnlArtist.add(txtEmail2);
-        txtEmail2.setBounds(20, 180, 210, 16);
+        txtEmail2.setBounds(20, 260, 210, 16);
 
         jTable1.setBackground(new Color(0,0,0,0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -291,10 +294,21 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         pnlArtist.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 200, 540, 160);
+        jScrollPane1.setBounds(20, 280, 540, 160);
+
+        lblFreeze1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        lblFreeze1.setForeground(new java.awt.Color(51, 51, 255));
+        lblFreeze1.setText("[Artist Evaluations]");
+        lblFreeze1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblFreeze1MouseClicked(evt);
+            }
+        });
+        pnlArtist.add(lblFreeze1);
+        lblFreeze1.setBounds(470, 110, 110, 20);
 
         getContentPane().add(pnlArtist);
-        pnlArtist.setBounds(10, 80, 690, 420);
+        pnlArtist.setBounds(10, 80, 600, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -380,13 +394,23 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
         if (art.getArStatus().equals(EArtistStatus.Active)) {
             iMuzaMusic.getDB().updateReturnID("update Artists set iStatus=2 where ArtistID=\"" + art.getID() + "\"");
             art.setArStatus(EArtistStatus.Inactive);
+            lblFreeze.setText("[Activate Artist]");
+            lblFreeze.setForeground(Color.green);
         } else {
             iMuzaMusic.getDB().updateReturnID("update Artists set iStatus=1 where ArtistID=\"" + art.getID() + "\"");
             art.setArStatus(EArtistStatus.Active);
+            lblFreeze.setText("[Deactivate Artist]");
+            lblFreeze.setForeground(Color.red);
         }
 
         updateData();
     }//GEN-LAST:event_lblFreezeMouseClicked
+
+    private void lblFreeze1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFreeze1MouseClicked
+        // TODO add your handling code here:
+        JFrame frmEvalation = new frmEvaluateArtist();
+        frmEvalation.setVisible(true);
+    }//GEN-LAST:event_lblFreeze1MouseClicked
 
     public void updateData() {
 
@@ -423,6 +447,7 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
     private javax.swing.JLabel lblEmailAddress;
     private javax.swing.JLabel lblFacebook;
     private javax.swing.JLabel lblFreeze;
+    private javax.swing.JLabel lblFreeze1;
     private javax.swing.JLabel lblPhoneNum;
     private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblStageName;

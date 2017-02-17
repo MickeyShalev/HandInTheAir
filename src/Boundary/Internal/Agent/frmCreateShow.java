@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Boundary.Internal;
+package Boundary.Internal.Agent;
 
 import Controller.General.iMuzaMusic;
 import Entity.Artist;
@@ -205,10 +205,10 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             }
         });
         slctSubArtist.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 slctSubArtistInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         slctSubArtist.addActionListener(new java.awt.event.ActionListener() {

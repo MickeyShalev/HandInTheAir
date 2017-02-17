@@ -1,0 +1,21 @@
+=================  iMuzaMusic v1.0 - Fri Feb 17 12:16:40 IST 2017 ==================
+12:16:40	Attempting connection to MS Access DB
+12:16:40	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+12:16:41	Successfully connected to MS Access DB.
+12:16:41	Opening Login Window through iWindow
+12:16:41	Submitted
+12:16:41	User: AG001 Password: asf230g2
+12:16:41	Attempting login using AG001/asf230g2
+12:16:41	Agent logged in
+12:16:41	Initiating main UI
+12:16:44	Sending UPDATE Query: update Artists set iStatus=2 where ArtistID="AR003"
+12:16:45	Sending UPDATE Query: update Artists set iStatus=1 where ArtistID="AR003"
+12:16:46	Sending UPDATE Query: update Artists set iStatus=2 where ArtistID="AR003"
+12:16:46	Sending UPDATE Query: update Artists set iStatus=1 where ArtistID="AR003"
+12:16:47	Sending UPDATE Query: update Artists set iStatus=2 where ArtistID="AR003"
+12:16:47	Sending UPDATE Query: update Artists set iStatus=1 where ArtistID="AR003"
+12:16:52	PF001 Drake Rotshild 2016-12-29
+12:16:57	PF001 Drake Rotshild 2016-12-29
+12:17:00	PF002 Justin Bieber Barbarosa 2017-01-11
+12:17:00	PF004 Sia Barbarosa 2016-10-10
+12:17:05	PF001 Drake Rotshild 2016-12-29

@@ -23,6 +23,16 @@ public abstract class Person {
         this.userAuth=userAuth;
         
     }
+      public Person(String ID, String firstName, String lastName, EAuth userAuth){
+        this.ID=ID;
+        this.firstName=(firstName.substring(0, 1).toUpperCase() + firstName.substring(1));
+        if(lastName.length()>0)
+        this.lastName=(lastName.substring(0, 1).toUpperCase() + lastName.substring(1));
+        else
+            this.lastName="";
+        this.userAuth=userAuth;
+        
+    }  
     public Person(String ID){
         this.ID=ID;
     }

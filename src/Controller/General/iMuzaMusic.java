@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Entity.EAuth;
 import Boundary.Internal.SuccessExport;
-import Boundary.Internal.frmManageArtists;
+import Boundary.Internal.Agent.frmManageArtists;
 import Boundary.Main.iWindow;
 import java.io.File;
 import java.io.FileWriter;
@@ -53,8 +53,8 @@ public class iMuzaMusic {
             Date now = new Date();
             String strDate = sdfDate.format(now);
             logWriter = new PrintStream(new File(fileName+"_"+strDate+".log"));
-            System.setErr(logWriter);
-            System.setOut(logWriter);
+            //System.setErr(logWriter);
+            //System.setOut(logWriter);
             logWriter.print("=================  iMuzaMusic v1.0 - " + new Date() + " ==================" + System.getProperty("line.separator"));
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -163,7 +163,7 @@ public class iMuzaMusic {
                 String stageName = tmp.getString("strStageName");
                 String arStatus = tmp.getString("iStatus");
                 System.err.println("status: " + arStatus);
-                Person p = new Artist(ID, strFirstName, strLastName, pass, EAuth.Artist, bio, stageName, bio, EArtistStatus.Active, "");
+                Person p = new Artist(ID, strFirstName, strLastName, EAuth.Artist, bio, stageName, bio, EArtistStatus.Active, "");
                 loggedUser = p;
                 log("Artist logged in");
                 return true;
@@ -231,7 +231,6 @@ public class iMuzaMusic {
                 String ID = getAgent.getString("ArtistID");
                 String strFirstName = getAgent.getString("strStageName");
                 String strLastName = "";
-                String pass = getAgent.getString("strPasswd");
                 String bio = getAgent.getString("strShortBio");
                 String stageName = getAgent.getString("strStageName");
                 String emailAddr = getAgent.getString("strEmailAddr");
@@ -254,7 +253,7 @@ public class iMuzaMusic {
                 }
 
                 System.err.println(arStatus);
-                toReturn = new Artist(ID, strFirstName, strLastName, pass, EAuth.Artist, bio, stageName, fbAddr, arStatus, emailAddr);
+                toReturn = new Artist(ID, strFirstName, strLastName, EAuth.Artist, bio, stageName, fbAddr, arStatus, emailAddr);
 
             }
         } catch (SQLException ex) {
