@@ -5,19 +5,46 @@
  */
 package Boundary.Internal.Agent;
 
+import Controller.Artist.EvaluationsController;
+import Entity.Artist;
+import java.awt.Color;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+
 /**
  *
  * @author nisan
  */
 public class frmEvaluateArtist extends javax.swing.JFrame {
-
+    Artist artist = null;
     /**
      * Creates new form NewJFrame
      */
-    public frmEvaluateArtist() {
+    public frmEvaluateArtist(Artist artist, List<Artist> unEvaluated, List<Artist> evaluated) {
+        this.artist = artist;
         setUndecorated(true);
         setLocationRelativeTo(null);
         initComponents();
+        DefaultListModel lm = new DefaultListModel();
+        jList1.setModel(lm);
+        for(Artist a : unEvaluated){
+            lm.addElement(a);
+            //EvaluatedJList1.getModel().addElement(a);
+            
+        }
+        DefaultListModel lm2 = new DefaultListModel();
+        jList2.setModel(lm2);
+        for(Artist a : evaluated)
+            lm2.addElement(a);
+            
+        
+        
+        
+        
+        
+        
+        
         
     }
 
@@ -30,10 +57,13 @@ public class frmEvaluateArtist extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        EvaluatedScrollPane1 = new javax.swing.JScrollPane();
-        EvaluatedJList1 = new javax.swing.JList<>();
-        unEvaluatedScrollPane = new javax.swing.JScrollPane();
-        unEvaluatedJList = new javax.swing.JList<>();
+        lblUnEvaluate = new javax.swing.JLabel();
+        lblEvaluate = new javax.swing.JLabel();
+        lblApply = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,76 +72,106 @@ public class frmEvaluateArtist extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(null);
 
-        EvaluatedJList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        lblUnEvaluate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblUnEvaluateMouseClicked(evt);
+            }
         });
-        unEvaluatedJList.removeAll();
-        EvaluatedScrollPane1.setViewportView(EvaluatedJList1);
+        getContentPane().add(lblUnEvaluate);
+        lblUnEvaluate.setBounds(350, 260, 100, 50);
 
-        getContentPane().add(EvaluatedScrollPane1);
-        EvaluatedScrollPane1.setBounds(570, 160, 140, 146);
-
-        unEvaluatedJList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        lblEvaluate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEvaluateMouseClicked(evt);
+            }
         });
-        unEvaluatedJList.removeAll();
-        unEvaluatedScrollPane.setViewportView(unEvaluatedJList);
+        getContentPane().add(lblEvaluate);
+        lblEvaluate.setBounds(350, 200, 100, 50);
 
-        getContentPane().add(unEvaluatedScrollPane);
-        unEvaluatedScrollPane.setBounds(120, 160, 140, 146);
+        lblApply.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblApplyMouseClicked(evt);
+            }
+        });
+        getContentPane().add(lblApply);
+        lblApply.setBounds(320, 450, 170, 40);
+
+        jScrollPane2.setBackground(new java.awt.Color(0, 0, 0));
+
+        jList2.setBackground(new java.awt.Color(0, 0, 0));
+        jList2.setForeground(new java.awt.Color(255, 255, 255));
+        jList2.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jList2);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(550, 180, 170, 130);
+
+        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jList1.setBackground(new java.awt.Color(0, 0, 0));
+        jList1.setForeground(new java.awt.Color(255, 255, 255));
+        jList1.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jList1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(90, 180, 170, 130);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/artist_evaluations.png"))); // NOI18N
         getContentPane().add(bg);
-        bg.setBounds(0, -80, 1024, 768);
+        bg.setBounds(0, 0, 800, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmEvaluateArtist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmEvaluateArtist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmEvaluateArtist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmEvaluateArtist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void lblUnEvaluateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUnEvaluateMouseClicked
+        // TODO add your handling code here:
+         DefaultListModel lm = (DefaultListModel) jList1.getModel();
+        DefaultListModel lm2 = (DefaultListModel) jList2.getModel();
+        try{
+        Artist a = (Artist) lm2.getElementAt(jList2.getSelectedIndex());
+        lm2.removeElement(a);
+        lm.addElement(a);
         }
-        //</editor-fold>
-        //</editor-fold>
+        catch(Exception e){
+           
+        }
+    }//GEN-LAST:event_lblUnEvaluateMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmEvaluateArtist().setVisible(true);
-            }
-        });
-    }
+    private void lblEvaluateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEvaluateMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+         DefaultListModel lm = (DefaultListModel) jList1.getModel();
+        DefaultListModel lm2 = (DefaultListModel) jList2.getModel();
+        try{
+        Artist a = (Artist) lm.getElementAt(jList1.getSelectedIndex());
+        lm.removeElement(a);
+        lm2.addElement(a);
+        }
+        catch(Exception e){
+           
+        }
+    }//GEN-LAST:event_lblEvaluateMouseClicked
+
+    private void lblApplyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblApplyMouseClicked
+        // TODO add your handling code here:
+        DefaultListModel lm = (DefaultListModel) jList2.getModel();
+        EvaluationsController.wipeEvaluations(artist);
+        for(int i=0; i<jList2.getModel().getSize(); i++)
+            EvaluationsController.addEvaluation(artist, (Artist) lm.getElementAt(i));
+        
+        dispose();
+    }//GEN-LAST:event_lblApplyMouseClicked
+
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> EvaluatedJList1;
-    private javax.swing.JScrollPane EvaluatedScrollPane1;
     private javax.swing.JLabel bg;
-    private javax.swing.JList<String> unEvaluatedJList;
-    private javax.swing.JScrollPane unEvaluatedScrollPane;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblApply;
+    private javax.swing.JLabel lblEvaluate;
+    private javax.swing.JLabel lblUnEvaluate;
     // End of variables declaration//GEN-END:variables
 }

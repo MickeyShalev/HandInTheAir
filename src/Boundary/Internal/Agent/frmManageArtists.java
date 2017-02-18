@@ -133,7 +133,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("You may choose an artist by using the selector.");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(60, 30, 270, 16);
+        jLabel16.setBounds(60, 30, 228, 14);
 
         lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/search.png"))); // NOI18N
         getContentPane().add(lblSearch);
@@ -193,7 +193,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblArtistID.setForeground(new java.awt.Color(255, 255, 255));
         lblArtistID.setText("id");
         pnlArtist.add(lblArtistID);
-        lblArtistID.setBounds(210, 60, 70, 16);
+        lblArtistID.setBounds(210, 60, 70, 14);
 
         txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -205,7 +205,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblEmailAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblEmailAddress.setText("address");
         pnlArtist.add(lblEmailAddress);
-        lblEmailAddress.setBounds(210, 120, 200, 16);
+        lblEmailAddress.setBounds(210, 120, 200, 14);
 
         txtStageName.setBackground(new java.awt.Color(255, 255, 255));
         txtStageName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -256,7 +256,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("status");
         pnlArtist.add(lblStatus);
-        lblStatus.setBounds(210, 100, 200, 16);
+        lblStatus.setBounds(210, 100, 200, 14);
 
         lblPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNum.setText("jLabel1");
@@ -297,7 +297,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jScrollPane1.setBounds(20, 280, 540, 160);
 
         lblFreeze1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        lblFreeze1.setForeground(new java.awt.Color(51, 51, 255));
+        lblFreeze1.setForeground(new java.awt.Color(255, 255, 255));
         lblFreeze1.setText("[Artist Evaluations]");
         lblFreeze1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -408,8 +408,13 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
 
     private void lblFreeze1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFreeze1MouseClicked
         // TODO add your handling code here:
-        JFrame frmEvalation = new frmEvaluateArtist();
-        frmEvalation.setVisible(true);
+        List<Artist> unEvaluated = new ArrayList<Artist>();
+        List<Artist> evaluated = new ArrayList<Artist>();
+        Controller.Artist.EvaluationsController.getEvaluatedArtist(art, unEvaluated, evaluated);
+        
+        JFrame frmEvaluation = new frmEvaluateArtist(art, unEvaluated, evaluated);
+        frmEvaluation.setLocationRelativeTo(null);
+        frmEvaluation.setVisible(true);
     }//GEN-LAST:event_lblFreeze1MouseClicked
 
     public void updateData() {

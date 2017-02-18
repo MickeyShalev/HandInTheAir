@@ -67,5 +67,19 @@ public class Artist extends Person {
     public void setStageName(String stageName) {
         this.stageName = stageName;
     }
+
+    @Override
+    public String toString() {
+        return getStageName();
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    
+    
     
 }

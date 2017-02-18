@@ -1,0 +1,12 @@
+=================  iMuzaMusic v1.0 - Sat Feb 18 01:55:33 IST 2017 ==================
+01:55:33	Attempting connection to MS Access DB
+01:55:33	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+01:55:35	Successfully connected to MS Access DB.
+01:55:35	Opening Login Window through iWindow
+01:55:36	Submitted
+01:55:36	User: AG001 Password: asf230g2
+01:55:36	Attempting login using AG001/asf230g2
+01:55:36	Agent logged in
+01:55:36	Initiating main UI
+01:55:38	PF001 Drake Rotshild 2016-12-29
+01:55:39	Getting unevaluated and evaluated artists for artist AR002
