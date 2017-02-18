@@ -203,18 +203,6 @@ public class iMuzaMusic {
 
     }
 
-    public static String getID(String str) {
-
-        try {
-            String tmp[] = str.split("\\(");
-            tmp = tmp[1].split("\\)");
-            str = tmp[0];
-        } catch (Exception e) {
-            iMuzaMusic.log("" + e.getStackTrace());
-            e.printStackTrace();
-        }
-        return str;
-    }
 
     /**
      * This method returns a new artist entity from a given artist id

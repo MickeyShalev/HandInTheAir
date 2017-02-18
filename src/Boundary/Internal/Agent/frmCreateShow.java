@@ -12,6 +12,9 @@ import Controller.General.DBManager;
 import Entity.EArtistStatus;
 import Entity.EAuth;
 import Boundary.Main.iWindow;
+import Controller.Show.ShowController;
+import Entity.Agent;
+import Entity.Location;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ItemEvent;
@@ -43,13 +46,13 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         artistNames = new HashMap<String, String>();
         initComponents();
         setTitle("Create New Show");
-        slctArtist.setVisible(false);
-        txtSlctArtist.setVisible(false);
         slctArtist.removeAllItems();
         txtLocation.setVisible(false);
         slctLocation.removeAllItems();
         slctLocation.setVisible(false);
-        slctLocation.addItem("Select Location");
+        Location tmpL = new Location("0000");
+        tmpL.setStrName("Select Location");
+        slctLocation.addItem(tmpL);
         lblAddress.setVisible(false);
         slctedArtists.removeAll();
         slctSubArtist.setVisible(false);
@@ -66,7 +69,20 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         txtMinimum.setVisible(false);
         txtPrice.setVisible(false);
         pnlArtistSelected.setVisible(false);
-         
+        jXDatePicker1.setVisible(false);
+        jLabel3.setVisible(false);
+        
+        slctArtist.removeAllItems();
+        Artist tmp = new Artist("0000");
+        tmp.setStageName("Select Artist");
+        slctArtist.addItem(tmp);
+        
+        
+        for(Artist a : ShowController.getArtistsByAgent((Agent) iMuzaMusic.getLoggedUser())){
+            slctArtist.addItem(a);
+        }
+        
+        
         //Handle time
         slctTime.removeAllItems();
         for(int i=0; i<=24;i++){
@@ -86,17 +102,35 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         txtSlctArtist = new javax.swing.JLabel();
-        slctArtist = new javax.swing.JComboBox<>();
+        try {
+            slctArtist =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "Boundary/Internal/Agent.frmCreateShow_slctArtist");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         jLabel3 = new javax.swing.JLabel();
         txtLocation = new javax.swing.JLabel();
-        slctLocation = new javax.swing.JComboBox<>();
+        try {
+            slctLocation =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "Boundary/Internal/Agent.frmCreateShow_slctLocation");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         lblAddress = new javax.swing.JLabel();
         pnlSubArtists = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         slctedArtists = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         addArtist = new javax.swing.JButton();
-        slctSubArtist = new javax.swing.JComboBox<>();
+        try {
+            slctSubArtist =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "Boundary/Internal/Agent.frmCreateShow_slctSubArtist");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         btnCreate = new javax.swing.JButton();
         fldPrice = new javax.swing.JTextField();
         txtPrice = new javax.swing.JLabel();
@@ -129,13 +163,13 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 jXDatePicker1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jXDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 20));
+        getContentPane().add(jXDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 160, 20));
 
+        txtSlctArtist.setBackground(new java.awt.Color(0, 0, 0));
         txtSlctArtist.setForeground(new java.awt.Color(255, 255, 255));
         txtSlctArtist.setText("Select Main Artist");
-        getContentPane().add(txtSlctArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 170, -1));
+        getContentPane().add(txtSlctArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 170, -1));
 
-        slctArtist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctArtist.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 slctArtistItemStateChanged(evt);
@@ -146,17 +180,16 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 slctArtistActionPerformed(evt);
             }
         });
-        getContentPane().add(slctArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 170, -1));
+        getContentPane().add(slctArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 170, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Select Show Date");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 170, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 170, 30));
 
         txtLocation.setForeground(new java.awt.Color(255, 255, 255));
         txtLocation.setText("Select Location");
         getContentPane().add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 170, 20));
 
-        slctLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctLocation.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 slctLocationItemStateChanged(evt);
@@ -198,17 +231,16 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         });
         pnlSubArtists.add(addArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 80, 20));
 
-        slctSubArtist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctSubArtist.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 slctSubArtistItemStateChanged(evt);
             }
         });
         slctSubArtist.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 slctSubArtistInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         slctSubArtist.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +250,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         });
         pnlSubArtists.add(slctSubArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, -1));
 
-        getContentPane().add(pnlSubArtists, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 320, 250));
+        getContentPane().add(pnlSubArtists, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 320, 250));
 
         btnCreate.setText("Create Show");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +258,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 btnCreateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 280, -1));
+        getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 280, -1));
 
         fldPrice.setText("0.00");
         fldPrice.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -262,7 +294,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         getContentPane().add(fldAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 30, -1));
 
         slctTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(slctTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 70, -1));
+        getContentPane().add(slctTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 70, -1));
 
         pnlArtistSelected.setBackground(new Color(0,0,0,0));
         pnlArtistSelected.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -293,48 +325,14 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         txtBio.setText("jLabel7");
         pnlArtistSelected.add(txtBio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 330, -1));
 
-        getContentPane().add(pnlArtistSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 380, 230));
+        getContentPane().add(pnlArtistSelected, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 380, 230));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jXDatePicker1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXDatePicker1ActionPerformed
         
-        //This will get available artists on a given date
-        //Go through all of this agents' artists
-        slctArtist.removeAllItems();
-        slctArtist.addItem("Select Artist");
         
-        ResultSet getArtists = iMuzaMusic.getAvailableArtistsByAgent(iMuzaMusic.getLoggedUser().getID());
-        try {
-            while(getArtists.next()){
-                slctArtist.addItem(""+getArtists.getString("strStageName")+" ("+getArtists.getString("ArtistID")+")");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        ResultSet getLocations = iMuzaMusic.getLocationsByAgent(iMuzaMusic.getLoggedUser().getID());
-        try {
-            while(getLocations.next()){
-                slctLocation.addItem(""+getLocations.getString("strName")+" ("+getLocations.getString("LocationID")+")");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        
-        // Enable Fields
-        slctArtist.setVisible(true);
-        txtSlctArtist.setVisible(true);
-        txtMinimum.setVisible(true);
-        txtPrice.setVisible(true);
-        txtSign.setVisible(true);
-        fldPrice.setVisible(true);
-        fldAge.setVisible(true);
         
     }//GEN-LAST:event_jXDatePicker1ActionPerformed
 
@@ -351,21 +349,39 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                 return;
             
        slctSubArtist.removeAllItems();
-        slctSubArtist.addItem("Select Sub Artists");
+       Artist a = new Artist("0000");
+       a.setStageName("Select Sub Artists");
+       slctSubArtist.addItem(a);
         
         
-        String qry = "select * from Artists where ArtistID!=\""+iMuzaMusic.getID(slctArtist.getSelectedItem().toString())+"\" AND Artists.iStatus=1";
-        ResultSet r = iMuzaMusic.getDB().query(qry);
-         try {
-             while(r.next()){
-                 slctSubArtist.addItem(r.getString("strStageName")+" ("+r.getString("ArtistID")+")");
-             }} catch (SQLException ex) {
-             Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        for(Artist tmpSubArt : ShowController.getSubArtistsForShow(art))
+            slctSubArtist.addItem(tmpSubArt);
+             
         jScrollPane1.setVisible(true);
         slctSubArtist.setVisible(true);
         txtLocation.setVisible(true);
         slctLocation.setVisible(true);
+        jXDatePicker1.setVisible(true);
+        jLabel3.setVisible(true);
+        //This will get available artists on a given date
+        //Go through all of this agents' artists
+       
+        
+        
+      for(Location l : ShowController.getFavLocationsByAgent((Agent)iMuzaMusic.getLoggedUser()))
+                slctLocation.addItem(l);
+            
+        
+        
+        
+        // Enable Fields
+        slctArtist.setVisible(true);
+        txtSlctArtist.setVisible(true);
+        txtMinimum.setVisible(true);
+        txtPrice.setVisible(true);
+        txtSign.setVisible(true);
+        fldPrice.setVisible(true);
+        fldAge.setVisible(true);
      }
      
      
@@ -377,24 +393,14 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
             if (evt.getStateChange() == ItemEvent.SELECTED) {
             Object item = evt.getItem();
-            if (item.equals("Select Location")) {
+            if (item.equals(new Location("0000"))) {
                     lblAddress.setVisible(false);
                 return;
             }
             
             //Get location addr
-            String LocationID = iMuzaMusic.getID(item.toString());
-            
-            ResultSet getLocation = iMuzaMusic.getLocationDetails(LocationID);
-            
-            
-            try {
-                while(getLocation.next()){
-                    lblAddress.setText(getLocation.getString("strAddress"));
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            lblAddress.setText(((Location)slctLocation.getSelectedItem()).getStrAddress());
+         
             slctedArtists.setVisible(false);
             jScrollPane1.setVisible(false);
             pnlSubArtists.setVisible(true);
@@ -411,18 +417,10 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
            //Get artist
            if(slctSubArtist.getSelectedItem().toString().equals("Select Sub Artists"))
                return;
+           Artist chosenSubArt = (Artist) slctSubArtist.getSelectedItem();
            
-           String ArtistID = iMuzaMusic.getID(slctSubArtist.getSelectedItem().toString());
-           System.err.println("Getting ArtistID "+ArtistID);
-           ResultSet qry = iMuzaMusic.getDB().query("select strStageName from Artists where ArtistID=\""+ArtistID+"\"");
-        try {
-            if(qry.next()){
-                String strStageName = qry.getString("strStageName");
-                artistNames.put(strStageName,ArtistID);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                artistNames.put(chosenSubArt.getStageName(),chosenSubArt.getID());
+           
            
         
         slctedArtists.setListData(artistNames.keySet().toArray(new String[artistNames.size()]));
@@ -443,19 +441,13 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                     
                 return;
             }
-        
-           String ArtistID = iMuzaMusic.getID(slctSubArtist.getSelectedItem().toString());
-           iMuzaMusic.log("Getting ArtistID "+ArtistID);
-           ResultSet qry = iMuzaMusic.getDB().query("select * from Artists where ArtistID=\""+ArtistID+"\"");
-        try {
-            if(qry.next()){
-                String strStageName = qry.getString("strStageName");
-                String strBio = qry.getString("strShortBio");
+            Artist chosenSub = (Artist) slctSubArtist.getSelectedItem();
+          
                 pnlArtistSelected.setVisible(true);
                 
-                txtBio.setText(strBio);
+                txtBio.setText(chosenSub.getBiography());
                 
-                lblArtistStageName.setText(strStageName);
+                lblArtistStageName.setText(chosenSub.getStageName());
                 
                 if(rePaint) {
                     rePaint = false;
@@ -463,10 +455,8 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
                     
                 }
                 
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(frmCreateShow.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            
+        
        
         iWindow.update();
         
@@ -482,8 +472,8 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             iMuzaMusic.log("Creating Show..");
             ResultSet rs = iMuzaMusic.getDB().query("Select TOP 1 pID from Shows order by pID desc");
             String pID = "";
-            String LocationID = iMuzaMusic.getID(slctLocation.getSelectedItem().toString());
-            String MainArtist = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
+            String LocationID = ((Location)slctLocation.getSelectedItem()).getLocationID();
+            String MainArtist = ((Artist)slctArtist.getSelectedItem()).getID();
             Timestamp dateCreated = new Timestamp(new Date().getTime());
             SimpleDateFormat df = new SimpleDateFormat("d/M/Y");
             
@@ -582,9 +572,9 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblArtistStageName;
     private javax.swing.JPanel pnlArtistSelected;
     private javax.swing.JPanel pnlSubArtists;
-    private javax.swing.JComboBox<String> slctArtist;
-    private javax.swing.JComboBox<String> slctLocation;
-    private javax.swing.JComboBox<String> slctSubArtist;
+    private javax.swing.JComboBox<Artist> slctArtist;
+    private javax.swing.JComboBox<Location> slctLocation;
+    private javax.swing.JComboBox<Artist> slctSubArtist;
     private javax.swing.JComboBox<String> slctTime;
     private javax.swing.JList<String> slctedArtists;
     private javax.swing.JLabel txtBio;
