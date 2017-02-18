@@ -61,27 +61,16 @@ public abstract class EvaluationsController{
     public static void addEvaluation(Artist of, Artist fan){
         String qry = "INSERT INTO ArtistLikes (ArtistID, LikeID)"
                     + " VALUES ('"+of.getID()+"',\""+fan.getID()+"\")";
-            if(iMuzaMusic.getDB().updateReturnID(qry)>0){
-                //Success
-                iMuzaMusic.log("Successfully connected artist evaluation ("+of.getID()+" "+fan.getID());
-                
-            }
-            else{
-                iMuzaMusic.log("Failed connected evaluations");
-                iMuzaMusic.log("Query: "+qry);
-            }
+            iMuzaMusic.getDB().updateReturnID(qry);
+            
+            
     }
     
     public static void wipeEvaluations(Artist of){
         String qry = "DELETE FROM ArtistLikes WHERE ArtistID in(\""+of.getID()+"\")";
-            if(iMuzaMusic.getDB().updateReturnID(qry)>0){
+            iMuzaMusic.getDB().updateReturnID(qry);
                 //Success
                 iMuzaMusic.log("Successfully wiped artist evaluation ("+of.getID()+" "+of.getID());
-                
-            }
-            else{
-                iMuzaMusic.log("Failed connected evaluations");
-                iMuzaMusic.log("Query: "+qry);
-            }
+            
     }
 }
