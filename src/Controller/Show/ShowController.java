@@ -111,7 +111,7 @@ public abstract class ShowController {
     public static List<Artist> getSubArtistsForShow(Artist artist){
         List<Artist> arr = new ArrayList<Artist>();
         
-        String qry = "SELECT ArtistLikes.LikeID, Artists.strStageName\n" +
+        String qry = "SELECT ArtistLikes.LikeID, Artists.strStageName, Artists.strShortBio\n" +
 "FROM ArtistLikes, Artists\n" +
 "WHERE (((ArtistLikes.ArtistID) In (\""+artist.getID()+"\")) AND ((Artists.iStatus)=\"1\") AND ((Artists.ArtistID)=[ArtistLikes].[LikeID]))\n" +
 "ORDER BY Artists.strStageName;";

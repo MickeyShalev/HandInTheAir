@@ -38,14 +38,16 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         slctArtist.setBackground(Color.black);
         slctArtist.setForeground(Color.white);
         slctArtist.removeAllItems();
-        slctArtist.addItem("Select an artist");
+        Artist tmp = new Artist("0000");
+        tmp.setStageName("Select an artist");
+        slctArtist.addItem(tmp);
         slctArtist.setSelectedIndex(0);
         r = iMuzaMusic.getDB().query("select * from Artists");
         try {
             while(r.next()){
-                String ArtistID = r.getString("ArtistID");
-                String strStageName = r.getString("strStageName");
-                slctArtist.addItem(strStageName+" ("+ArtistID+")");
+                Artist a = new Artist(r.getString("ArtistID"));
+                a.setStageName(r.getString("strStageName"));
+                slctArtist.addItem(a);
             }
         } catch (SQLException ex) {
             Logger.getLogger(frmWatchArtists.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,7 +70,13 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
 
         jLabel16 = new javax.swing.JLabel();
         lblSearch = new javax.swing.JLabel();
-        slctArtist = new javax.swing.JComboBox<>();
+        try {
+            slctArtist =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "Boundary/Internal.frmWatchArtists_slctArtist");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         pnlArtist = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -104,7 +112,6 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         getContentPane().add(lblSearch);
         lblSearch.setBounds(20, 50, 30, 30);
 
-        slctArtist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctArtist.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 slctArtistItemStateChanged(evt);
@@ -253,14 +260,14 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             Object item = evt.getItem();
-            if (item.equals("Select an artist")) {
+            if (item.toString().equals("Select an artist")) {
                 pnlArtist.setVisible(false);
                 return;
             }
             // do something with object
-            String agID = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
             
-            this.art = iMuzaMusic.getAgentEntity(agID);
+            
+            this.art = (Artist) slctArtist.getSelectedItem();
             
 
             updateData();
@@ -279,41 +286,12 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
     
     private void lblNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNextMouseClicked
         
-        //can't be longer than max index
-        if ((slctArtist.getSelectedIndex()+1) > slctArtist.getItemCount()){
-            //pnlArtist.setVisible(false);
-            return;
-        }
-        //get the correct object details
-        else{
-            slctArtist.setSelectedIndex(slctArtist.getSelectedIndex()+1);
-            String agID = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
-            this.art = iMuzaMusic.getAgentEntity(agID);
-        }
-        
-        iMuzaMusic.getDB().query("select * from tbl");
-        
-        updateData();
-        
+      
     }//GEN-LAST:event_lblNextMouseClicked
 
     private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseClicked
         
-        //can't be less than 0
-        if (slctArtist.getSelectedIndex()-1 < 1){            
-            return;
-        }
-        //get the correct object details
-        else{
-            slctArtist.setSelectedIndex(slctArtist.getSelectedIndex()-1);
-            String agID = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
-            this.art = iMuzaMusic.getAgentEntity(agID);
-            
-        }
-        
-        
-        updateData();
-        
+       
     }//GEN-LAST:event_lblBackMouseClicked
     
     public void updateData(){
@@ -356,7 +334,7 @@ public class frmWatchArtists extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlArtist;
-    private javax.swing.JComboBox<String> slctArtist;
+    private javax.swing.JComboBox<Artist> slctArtist;
     private javax.swing.JLabel txtBio;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtID;

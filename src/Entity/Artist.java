@@ -23,17 +23,21 @@ public class Artist extends Person {
     private String fbAddr = "";
     private EArtistStatus arStatus = null;
     private String emailAddr = "";
-    public Artist(String ID, String strFirstName, String strLastName, EAuth userAuth, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr){
-        super(ID, strFirstName, strLastName, userAuth);
-        this.biography=biography;
-        this.stageName=stageName;
-        this.fbAddr=fbAddr;
-        this.arStatus=arStatus;
-        this.emailAddr=emailAddr;
+
+    public Artist(String ID, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr) {
+        super(ID, stageName, "", EAuth.Artist);
+        this.biography = biography;
+        this.stageName = stageName;
+        this.fbAddr = fbAddr;
+        this.arStatus = arStatus;
+        this.emailAddr = emailAddr;
     }
-    
-    public Artist(String ID){
+
+    public Artist(String ID) {
         super(ID);
+        if (ID.equals("0000")) {
+            setStageName("Select an artist");
+        }
     }
 
     public String getFbAddr() {
@@ -78,8 +82,4 @@ public class Artist extends Person {
         return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-    
-    
-    
 }

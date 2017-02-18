@@ -152,24 +152,6 @@ public class iMuzaMusic {
 
         }
 
-        tmp = iMuzaMusic.DB.query("select * from Artists where ArtistID=\"" + id + "\" AND strPasswd=\"" + pass + "\"");
-        if (tmp.next()) {
-            if (tmp.getString(1).length() > 0) {
-                //Logged in as agent
-                String ID = tmp.getString("ArtistID");
-                String strFirstName = tmp.getString("strStageName");
-                String strLastName = "";
-                String bio = tmp.getString("strShortBio");
-                String stageName = tmp.getString("strStageName");
-                String arStatus = tmp.getString("iStatus");
-                System.err.println("status: " + arStatus);
-                Person p = new Artist(ID, strFirstName, strLastName, EAuth.Artist, bio, stageName, bio, EArtistStatus.Active, "");
-                loggedUser = p;
-                log("Artist logged in");
-                return true;
-            }
-
-        }
         tmp = iMuzaMusic.DB.query("select * from LReps where LRepID=\"" + id + "\" AND strPasswd=\"" + pass + "\"");
         if (tmp.next()) {
             if (tmp.getString(1).length() > 0) {
@@ -204,52 +186,6 @@ public class iMuzaMusic {
     }
 
 
-    /**
-     * This method returns a new artist entity from a given artist id
-     *
-     * @param ArtistID
-     * @return
-     */
-    public static Artist getAgentEntity(String ArtistID) {
-        Artist toReturn = null;
-
-        ResultSet getAgent = iMuzaMusic.getDB().query("select * from Artists where ArtistID=\"" + ArtistID + "\"");
-        try {
-            while (getAgent.next()) {
-                String ID = getAgent.getString("ArtistID");
-                String strFirstName = getAgent.getString("strStageName");
-                String strLastName = "";
-                String bio = getAgent.getString("strShortBio");
-                String stageName = getAgent.getString("strStageName");
-                String emailAddr = getAgent.getString("strEmailAddr");
-                String fbAddr = getAgent.getString("strFacebook");
-                /**
-                 * EArtist Status *
-                 */
-                EArtistStatus arStatus = null;
-                switch (getAgent.getString("iStatus")) {
-                    case "1":
-                        arStatus = EArtistStatus.Active;
-                        break;
-                    case "2":
-                        arStatus = EArtistStatus.Inactive;
-                        break;
-
-                    default:
-                        System.exit(0);
-                        break;
-                }
-
-                System.err.println(arStatus);
-                toReturn = new Artist(ID, strFirstName, strLastName, EAuth.Artist, bio, stageName, fbAddr, arStatus, emailAddr);
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(frmManageArtists.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return toReturn;
-    }
 
     /**
      * This method generates an annual report given a specified year

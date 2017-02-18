@@ -7,28 +7,44 @@ package Entity;
 
 /**
  * EArtistSTatus - Artist Status Types
+ *
  * @author Administrator
  */
 public enum EArtistStatus {
 
     Active, Inactive;
-    
-    
+
+    public static EArtistStatus getStatus(String str) {
+        Integer i = Integer.parseInt(str);
+        EArtistStatus toReturn = EArtistStatus.Active;
+        if (i == 2) {
+            toReturn = EArtistStatus.Inactive;
+        }
+
+        return toReturn;
+
+    }
+
     /**
      * This class returns a toString of a given EAuth object
-     * @return 
+     *
+     * @return
      */
     @Override
-    public String toString(){
+    public String toString() {
         String toReturn = "";
-        switch(this){
-            case Active: toReturn = "Active"; break;
-            case Inactive: toReturn = "Inactive"; break;
-            
-            default: toReturn = "Unknown Type"; break;
+        switch (this) {
+            case Active:
+                toReturn = "Active";
+                break;
+            case Inactive:
+                toReturn = "Inactive";
+                break;
+
+            default:
+                toReturn = "Unknown Type";
+                break;
         }
         return toReturn;
     }
 }
-
-

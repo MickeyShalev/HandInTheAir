@@ -354,7 +354,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
        slctSubArtist.addItem(a);
         
         
-        for(Artist tmpSubArt : ShowController.getSubArtistsForShow(art))
+        for(Artist tmpSubArt : ShowController.getSubArtistsForShow((Artist)slctArtist.getSelectedItem()))
             slctSubArtist.addItem(tmpSubArt);
              
         jScrollPane1.setVisible(true);

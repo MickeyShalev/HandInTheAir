@@ -12,6 +12,10 @@ import Entity.ShowsToArtists;
 import Entity.EArtistStatus;
 import Entity.EAuth;
 import Boundary.Main.iWindow;
+import Controller.Artist.EvaluationsController;
+import Controller.Artist.GeneralController;
+import Controller.Artist.ManageController;
+import Entity.Agent;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.sql.ResultSet;
@@ -26,18 +30,19 @@ import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
+import net.sf.jasperreports.web.servlets.Controller;
 
 /**
  *
  * @author nisan
  */
 public class frmManageArtists extends javax.swing.JInternalFrame {
-
+    
     /**
      * Creates new form frmTemplate
      */
     private static Artist art = null;
-
+    
     public frmManageArtists() {
 
         initComponents();
@@ -46,18 +51,12 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         slctArtist.setBackground(Color.black);
         slctArtist.setForeground(Color.white);
         slctArtist.removeAllItems();
-        slctArtist.addItem("Select an artist");
+        
+        slctArtist.addItem(new Artist("0000"));
         slctArtist.setSelectedIndex(0);
-        ResultSet r = iMuzaMusic.getDB().query("select * from Artists where AgentID='" + iMuzaMusic.getLoggedUser().getID() + "'");
-        try {
-            while (r.next()) {
-                String ArtistID = r.getString("ArtistID");
-                String strStageName = r.getString("strStageName");
-                slctArtist.addItem(strStageName + " (" + ArtistID + ")");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(frmManageArtists.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        for(Artist a : ManageController.getArtistsByAgent((Agent)iMuzaMusic.getLoggedUser()))
+            slctArtist.addItem(a);
+       
         jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
                 public void valueChanged(ListSelectionEvent event) {
                     // do some actions here, for example
@@ -85,7 +84,13 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         lblSearch = new javax.swing.JLabel();
         lblAddArtist = new javax.swing.JLabel();
-        slctArtist = new javax.swing.JComboBox<>();
+        try {
+            slctArtist =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "Boundary/Internal/Agent.frmManageArtists_slctArtist");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         pnlArtist = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -135,11 +140,11 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel16);
         jLabel16.setBounds(60, 30, 228, 14);
 
-        lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/search.png"))); // NOI18N
+        lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/search.png"))); // NOI18N
         getContentPane().add(lblSearch);
         lblSearch.setBounds(20, 50, 30, 30);
 
-        lblAddArtist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/add.png"))); // NOI18N
+        lblAddArtist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/add.png"))); // NOI18N
         lblAddArtist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAddArtistMouseClicked(evt);
@@ -148,7 +153,6 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         getContentPane().add(lblAddArtist);
         lblAddArtist.setBounds(310, 40, 40, 50);
 
-        slctArtist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         slctArtist.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 slctArtistItemStateChanged(evt);
@@ -242,7 +246,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         pnlArtist.add(lblFreeze);
         lblFreeze.setBounds(470, 90, 110, 20);
 
-        lblFacebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/Facebook-Download-PNG.png"))); // NOI18N
+        lblFacebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/Facebook-Download-PNG.png"))); // NOI18N
         pnlArtist.add(lblFacebook);
         lblFacebook.setBounds(510, 50, 50, 40);
 
@@ -317,14 +321,14 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             Object item = evt.getItem();
-            if (item.equals("Select an artist")) {
+            if (item.toString().equals("Select an artist")) {
                 pnlArtist.setVisible(false);
                 return;
             }
             // do something with object
-            String agID = iMuzaMusic.getID(slctArtist.getSelectedItem().toString());
-
-            this.art = iMuzaMusic.getAgentEntity(agID);
+            
+            this.art = (Artist) slctArtist.getSelectedItem();
+            
             List<ShowsToArtists> AL = new ArrayList<ShowsToArtists>();
             String ShowID, ArtistID, showDate, showLocation;
             ResultSet shows = iMuzaMusic.getDB().query("SELECT Shows.*, Locations.strName\n"
@@ -410,7 +414,8 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
         // TODO add your handling code here:
         List<Artist> unEvaluated = new ArrayList<Artist>();
         List<Artist> evaluated = new ArrayList<Artist>();
-        Controller.Artist.EvaluationsController.getEvaluatedArtist(art, unEvaluated, evaluated);
+        
+        EvaluationsController.getEvaluatedArtist(art, unEvaluated, evaluated);
         
         JFrame frmEvaluation = new frmEvaluateArtist(art, unEvaluated, evaluated);
         frmEvaluation.setLocationRelativeTo(null);
@@ -459,7 +464,7 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlArtist;
-    private javax.swing.JComboBox<String> slctArtist;
+    private javax.swing.JComboBox<Artist> slctArtist;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtEmail1;
     private javax.swing.JLabel txtEmail2;
