@@ -108,6 +108,7 @@ public class iMuzaMusic {
         SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm:ss");
         Date now = new Date();
         String strDate = sdfDate.format(now);
+        System.out.println(strDate + "\t" + str);
         logWriter.print(strDate + "\t" + str + System.getProperty("line.separator"));
         logWriter.flush();
     }

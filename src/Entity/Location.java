@@ -115,6 +115,14 @@ public class Location {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return getStrName();
+    }
+    
+    
+    
     
     
     

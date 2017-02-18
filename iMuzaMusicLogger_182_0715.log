@@ -1,0 +1,27 @@
+=================  iMuzaMusic v1.0 - Sat Feb 18 19:15:07 IST 2017 ==================
+19:15:07	Attempting connection to MS Access DB
+19:15:07	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+19:15:09	Successfully connected to MS Access DB.
+19:15:09	Opening Login Window through iWindow
+19:15:10	Submitted
+19:15:10	User: AG001 Password: asf230g2
+19:15:10	Attempting login using AG001/asf230g2
+19:15:10	Agent logged in
+19:15:10	Initiating main UI
+19:15:18	Creating Show..
+19:15:19	Sending UPDATE Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF019',"2017-02-16 00:00:00.0",'0.0','0','Awaiting Approval','LC001','AR003',"2017-02-18 19:15:18.993")
+19:15:19	Failed adding show to Shows table
+19:15:19	Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF019',"2017-02-16 00:00:00.0",'0.0','0','Awaiting Approval','LC001','AR003',"2017-02-18 19:15:18.993")
+19:15:22	Creating Show..
+19:15:22	Sending UPDATE Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF020',"2017-02-16 00:00:00.0",'0.0','0','Awaiting Approval','LC001','AR003',"2017-02-18 19:15:22.041")
+19:15:22	Failed adding show to Shows table
+19:15:22	Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF020',"2017-02-16 00:00:00.0",'0.0','0','Awaiting Approval','LC001','AR003',"2017-02-18 19:15:22.041")
+19:15:22	Creating Show..
+19:15:22	Sending UPDATE Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF021',"2017-02-16 00:00:00.0",'0.0','0','Awaiting Approval','LC001','AR003',"2017-02-18 19:15:22.345")
+19:15:22	Failed adding show to Shows table
+19:15:22	Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF021',"2017-02-16 00:00:00.0",'0.0','0','Awaiting Approval','LC001','AR003',"2017-02-18 19:15:22.345")
+19:15:22	Creating Show..
+19:15:22	Sending UPDATE Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF022',"2017-02-16 00:00:00.0",'0.0','0','Awaiting Approval','LC001','AR003',"2017-02-18 19:15:22.531")
+19:15:22	Failed adding show to Shows table
+19:15:22	Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF022',"2017-02-16 00:00:00.0",'0.0','0','Awaiting Approval','LC001','AR003',"2017-02-18 19:15:22.531")
+19:15:23	Quitting MuzaMusic

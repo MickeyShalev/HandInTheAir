@@ -1,0 +1,15 @@
+=================  iMuzaMusic v1.0 - Sat Feb 18 19:24:28 IST 2017 ==================
+19:24:28	Attempting connection to MS Access DB
+19:24:28	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+19:24:30	Successfully connected to MS Access DB.
+19:24:30	Opening Login Window through iWindow
+19:24:31	Submitted
+19:24:31	User: AG001 Password: asf230g2
+19:24:31	Attempting login using AG001/asf230g2
+19:24:31	Agent logged in
+19:24:31	Initiating main UI
+19:24:41	Creating Show..
+19:24:41	Starting to insert show PF042 with 2 sub artists
+19:24:41	Sending UPDATE Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF042',"2017-02-14 00:00:00.0",'0.0','0','Awaiting Approval','LC002','AR002',"2017-02-18 19:24:41.335")
+19:24:41	Failed adding show to Shows table
+19:24:41	Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF042',"2017-02-14 00:00:00.0",'0.0','0','Awaiting Approval','LC002','AR002',"2017-02-18 19:24:41.335")
