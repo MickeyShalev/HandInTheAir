@@ -62,6 +62,8 @@ public class MainGui extends javax.swing.JFrame {
         btnAddShow2 = new javax.swing.JLabel();
         pnlRep = new javax.swing.JPanel();
         btnViewReport = new javax.swing.JLabel();
+        pnlCustomer = new javax.swing.JPanel();
+        btnViewReport1 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -206,6 +208,37 @@ public class MainGui extends javax.swing.JFrame {
 
         getContentPane().add(pnlRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
+        pnlCustomer.setOpaque(false);
+
+        btnViewReport1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnViewReport1.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewReport1.setText("View Shows");
+        btnViewReport1.setToolTipText("");
+        btnViewReport1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewReport1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlCustomerLayout = new javax.swing.GroupLayout(pnlCustomer);
+        pnlCustomer.setLayout(pnlCustomerLayout);
+        pnlCustomerLayout.setHorizontalGroup(
+            pnlCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomerLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(btnViewReport1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        pnlCustomerLayout.setVerticalGroup(
+            pnlCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCustomerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnViewReport1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(347, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnlCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/muzagui.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 1020, 770));
 
@@ -243,7 +276,7 @@ public class MainGui extends javax.swing.JFrame {
         iMuzaMusic.log("Logging out..");
         iMuzaMusic.setLoggedUser(null);
         dispose();
-       
+        setVisible(false);
         iMuzaMusic.log("Successfully logged out");
         
         LoginGui tmp = new LoginGui();
@@ -285,6 +318,10 @@ public class MainGui extends javax.swing.JFrame {
         iWindow.openWin(new frmLocationManager());
     }//GEN-LAST:event_btnAddShow2MouseClicked
 
+    private void btnViewReport1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewReport1MouseClicked
+
 
     public void refreshVars() {
         lblTitle.setText("Homepage");
@@ -316,10 +353,12 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;
     private javax.swing.JLabel btnViewReport;
+    private javax.swing.JLabel btnViewReport1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserType;
     private javax.swing.JLabel lblUsernames;
     private javax.swing.JPanel pnlAgent;
+    private javax.swing.JPanel pnlCustomer;
     private javax.swing.JPanel pnlRep;
     // End of variables declaration//GEN-END:variables
 

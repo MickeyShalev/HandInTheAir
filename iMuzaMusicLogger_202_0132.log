@@ -1,0 +1,75 @@
+=================  iMuzaMusic v1.0 - Mon Feb 20 01:32:08 IST 2017 ==================
+01:32:08	Attempting connection to MS Access DB
+01:32:08	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+01:32:09	Successfully connected to MS Access DB.
+01:32:09	Opening Login Window through iWindow
+01:32:10	Submitted
+01:32:10	User: AG001 Password: asf230g2
+01:32:10	Attempting login using AG001/asf230g2
+01:32:10	Agent logged in
+01:32:10	Initiating main UI
+01:32:11	Removing Barbarosa from favorited list
+01:32:11	Removing Rotshild from favorited list
+01:32:11	Removing Sleek from favorited list
+01:32:11	Removing OpenHouse from favorited list
+01:32:11	Found 4 favorited locations
+01:32:19	Removing Barbarosa from favorited list
+01:32:19	Removing Rotshild from favorited list
+01:32:19	Removing Sleek from favorited list
+01:32:19	Removing OpenHouse from favorited list
+01:32:19	Found 4 favorited locations
+01:32:26	Removing Barbarosa from favorited list
+01:32:26	Removing Rotshild from favorited list
+01:32:26	Removing Sleek from favorited list
+01:32:26	Removing OpenHouse from favorited list
+01:32:26	Found 4 favorited locations
+01:32:26	Removing Barbarosa from favorited list
+01:32:26	Removing Rotshild from favorited list
+01:32:26	Removing Sleek from favorited list
+01:32:26	Removing OpenHouse from favorited list
+01:32:26	Found 4 favorited locations
+01:32:27	Removing Barbarosa from favorited list
+01:32:27	Removing Rotshild from favorited list
+01:32:27	Removing Sleek from favorited list
+01:32:27	Removing OpenHouse from favorited list
+01:32:27	Found 4 favorited locations
+01:32:28	Removing Barbarosa from favorited list
+01:32:28	Removing Rotshild from favorited list
+01:32:28	Removing Sleek from favorited list
+01:32:28	Removing OpenHouse from favorited list
+01:32:28	Found 4 favorited locations
+01:32:28	Removing Barbarosa from favorited list
+01:32:28	Removing Rotshild from favorited list
+01:32:28	Removing Sleek from favorited list
+01:32:28	Removing OpenHouse from favorited list
+01:32:28	Found 4 favorited locations
+01:32:28	Removing Barbarosa from favorited list
+01:32:28	Removing Rotshild from favorited list
+01:32:28	Removing Sleek from favorited list
+01:32:28	Removing OpenHouse from favorited list
+01:32:28	Found 4 favorited locations
+01:32:30	Sending UPDATE Query: INSERT INTO AgentPreferLocation (AgentID, LocationID) values ("AG001","LC003")
+01:32:31	Removing Barbarosa from favorited list
+01:32:31	Removing Rotshild from favorited list
+01:32:31	Removing Ha Beer from favorited list
+01:32:31	Removing Sleek from favorited list
+01:32:31	Removing OpenHouse from favorited list
+01:32:31	Found 5 favorited locations
+01:32:35	Sending UPDATE Query: delete from AgentPreferLocation where AgentID="AG001" AND LocationID="LC005"
+01:32:36	Cancel favorited location: LocationID: LC005
+01:32:36	Sending UPDATE Query: delete from AgentPreferLocation where AgentID="AG001" AND LocationID="LC003"
+01:32:36	Cancel favorited location: LocationID: LC003
+01:32:36	Sending UPDATE Query: delete from AgentPreferLocation where AgentID="AG001" AND LocationID="LC001"
+01:32:36	Cancel favorited location: LocationID: LC001
+01:32:36	Removing Rotshild from favorited list
+01:32:36	Removing Sleek from favorited list
+01:32:36	Found 2 favorited locations
+01:32:40	Logging out..
+01:32:40	Successfully logged out
+01:32:40	Submitted
+01:32:40	User: AG001 Password: asf230g2
+01:32:40	Attempting login using AG001/asf230g2
+01:32:40	Agent logged in
+01:32:40	Initiating main UI
+01:32:40	Activating login screen
+01:32:42	Quitting MuzaMusic
