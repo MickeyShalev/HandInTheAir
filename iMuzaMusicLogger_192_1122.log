@@ -1,0 +1,14 @@
+=================  iMuzaMusic v1.0 - Sun Feb 19 23:22:02 IST 2017 ==================
+23:22:02	Attempting connection to MS Access DB
+23:22:02	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+23:22:04	Successfully connected to MS Access DB.
+23:22:04	Opening Login Window through iWindow
+23:22:04	Submitted
+23:22:04	User: AG001 Password: asf230g2
+23:22:04	Attempting login using AG001/asf230g2
+23:22:04	Agent logged in
+23:22:04	Initiating main UI
+23:22:05	Removing Barbarosa from favorited list
+23:22:05	Removing Rotshild from favorited list
+23:22:05	Removing OpenHouse from favorited list
+23:22:05	Found 3 favorited locations

@@ -1,0 +1,17 @@
+=================  iMuzaMusic v1.0 - Sun Feb 19 20:54:46 IST 2017 ==================
+20:54:46	Attempting connection to MS Access DB
+20:54:46	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+20:54:47	Successfully connected to MS Access DB.
+20:54:47	Opening Login Window through iWindow
+20:54:48	Submitted
+20:54:48	User: AG001 Password: asf230g2
+20:54:48	Attempting login using AG001/asf230g2
+20:54:48	Agent logged in
+20:54:48	Initiating main UI
+20:54:53	PF001 Drake Rotshild 2016-12-29
+20:54:53	PF049 Shawn Mendes Rotshild 2017-02-14
+20:55:07	Creating Show..
+20:55:07	Starting to insert show PF050 with 1 sub artists
+20:55:07	Sending UPDATE Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF050',"2017-02-28 04:00:00.0",'0.0','0','Awaiting Approval','LC002','AR002',"2017-02-19 20:55:07.254")
+20:55:07	Sending UPDATE Query: INSERT INTO ShowsToArtists(ShowID, ArtistID) values ("PF050","AR003")
+20:55:15	Quitting MuzaMusic

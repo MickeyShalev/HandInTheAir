@@ -11,6 +11,7 @@ import Controller.General.iMuzaMusic;
 import java.sql.SQLException;
 import Entity.EAuth;
 import Boundary.Internal.Agent.frmCreateShow;
+import Boundary.Internal.Agent.frmLocationManager;
 import Boundary.Internal.Agent.frmManageArtists;
 import Boundary.Internal.frmViewReport;
 import Boundary.Internal.frmWatchArtists;
@@ -58,6 +59,7 @@ public class MainGui extends javax.swing.JFrame {
         btnManageArtists = new javax.swing.JLabel();
         btnAddShow = new javax.swing.JLabel();
         btnAddShow1 = new javax.swing.JLabel();
+        btnAddShow2 = new javax.swing.JLabel();
         pnlRep = new javax.swing.JPanel();
         btnViewReport = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
@@ -135,6 +137,15 @@ public class MainGui extends javax.swing.JFrame {
             }
         });
 
+        btnAddShow2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnAddShow2.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddShow2.setText("Locations Manager");
+        btnAddShow2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddShow2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlAgentLayout = new javax.swing.GroupLayout(pnlAgent);
         pnlAgent.setLayout(pnlAgentLayout);
         pnlAgentLayout.setHorizontalGroup(
@@ -144,7 +155,8 @@ public class MainGui extends javax.swing.JFrame {
                 .addGroup(pnlAgentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnManageArtists, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddShow1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddShow1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddShow2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlAgentLayout.setVerticalGroup(
@@ -155,8 +167,10 @@ public class MainGui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAddShow2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(btnAddShow1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
@@ -266,6 +280,11 @@ public class MainGui extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAddShow1MouseClicked
 
+    private void btnAddShow2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow2MouseClicked
+
+        iWindow.openWin(new frmLocationManager());
+    }//GEN-LAST:event_btnAddShow2MouseClicked
+
 
     public void refreshVars() {
         lblTitle.setText("Homepage");
@@ -292,6 +311,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel bg;
     private javax.swing.JLabel btnAddShow;
     private javax.swing.JLabel btnAddShow1;
+    private javax.swing.JLabel btnAddShow2;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;

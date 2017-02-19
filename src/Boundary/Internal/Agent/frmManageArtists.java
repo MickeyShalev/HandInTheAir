@@ -12,9 +12,9 @@ import Entity.ShowsToArtists;
 import Entity.EArtistStatus;
 import Entity.EAuth;
 import Boundary.Main.iWindow;
-import Controller.Artist.EvaluationsController;
-import Controller.Artist.GeneralController;
-import Controller.Artist.ManageController;
+import Controller.Agent.EvaluationsController;
+import Controller.Agent.GeneralController;
+import Controller.Agent.ManageController;
 import Entity.Agent;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
@@ -84,13 +84,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         lblSearch = new javax.swing.JLabel();
         lblAddArtist = new javax.swing.JLabel();
-        try {
-            slctArtist =(javax.swing.JComboBox)java.beans.Beans.instantiate(getClass().getClassLoader(), "Boundary/Internal/Agent.frmManageArtists_slctArtist");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
-        }
+        slctArtist = new javax.swing.JComboBox<>();
         pnlArtist = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -131,6 +125,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
             }
         };
         lblFreeze1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
@@ -138,7 +133,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("You may choose an artist by using the selector.");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(60, 30, 228, 14);
+        jLabel16.setBounds(60, 30, 270, 16);
 
         lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/search.png"))); // NOI18N
         getContentPane().add(lblSearch);
@@ -183,21 +178,21 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         pnlArtist.add(jSeparator6);
-        jSeparator6.setBounds(10, 450, 570, 10);
+        jSeparator6.setBounds(10, 450, 720, 10);
 
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         pnlArtist.add(jSeparator7);
-        jSeparator7.setBounds(130, 40, 450, 10);
+        jSeparator7.setBounds(130, 40, 600, 10);
 
         jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
         pnlArtist.add(jSeparator8);
-        jSeparator8.setBounds(580, 40, 10, 420);
+        jSeparator8.setBounds(730, 40, 10, 410);
 
         lblArtistID.setForeground(new java.awt.Color(255, 255, 255));
         lblArtistID.setText("id");
         pnlArtist.add(lblArtistID);
-        lblArtistID.setBounds(210, 60, 70, 14);
+        lblArtistID.setBounds(210, 60, 70, 16);
 
         txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -209,7 +204,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblEmailAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblEmailAddress.setText("address");
         pnlArtist.add(lblEmailAddress);
-        lblEmailAddress.setBounds(210, 120, 200, 14);
+        lblEmailAddress.setBounds(210, 120, 200, 16);
 
         txtStageName.setBackground(new java.awt.Color(255, 255, 255));
         txtStageName.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -235,8 +230,8 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         pnlArtist.add(txtEmail);
         txtEmail.setBounds(20, 140, 110, 16);
 
-        lblFreeze.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        lblFreeze.setForeground(new java.awt.Color(255, 0, 0));
+        lblFreeze.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        lblFreeze.setForeground(new java.awt.Color(255, 255, 255));
         lblFreeze.setText("[Deactivate Artist]");
         lblFreeze.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -244,11 +239,11 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
             }
         });
         pnlArtist.add(lblFreeze);
-        lblFreeze.setBounds(470, 90, 110, 20);
+        lblFreeze.setBounds(600, 100, 110, 20);
 
         lblFacebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/Facebook-Download-PNG.png"))); // NOI18N
         pnlArtist.add(lblFacebook);
-        lblFacebook.setBounds(510, 50, 50, 40);
+        lblFacebook.setBounds(640, 60, 50, 40);
 
         txtStatus.setBackground(new java.awt.Color(255, 255, 255));
         txtStatus.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -260,7 +255,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("status");
         pnlArtist.add(lblStatus);
-        lblStatus.setBounds(210, 100, 200, 14);
+        lblStatus.setBounds(210, 100, 200, 16);
 
         lblPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNum.setText("jLabel1");
@@ -298,9 +293,9 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         pnlArtist.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 280, 540, 160);
+        jScrollPane1.setBounds(20, 280, 700, 160);
 
-        lblFreeze1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        lblFreeze1.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         lblFreeze1.setForeground(new java.awt.Color(255, 255, 255));
         lblFreeze1.setText("[Artist Evaluations]");
         lblFreeze1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -309,10 +304,26 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
             }
         });
         pnlArtist.add(lblFreeze1);
-        lblFreeze1.setBounds(470, 110, 110, 20);
+        lblFreeze1.setBounds(600, 120, 110, 20);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("[Apply Changes]");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jLabel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jLabel1KeyReleased(evt);
+            }
+        });
+        pnlArtist.add(jLabel1);
+        jLabel1.setBounds(620, 260, 120, 20);
 
         getContentPane().add(pnlArtist);
-        pnlArtist.setBounds(10, 80, 600, 530);
+        pnlArtist.setBounds(10, 80, 880, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -328,51 +339,7 @@ public class frmManageArtists extends javax.swing.JInternalFrame {
             // do something with object
             
             this.art = (Artist) slctArtist.getSelectedItem();
-            
-            List<ShowsToArtists> AL = new ArrayList<ShowsToArtists>();
-            String ShowID, ArtistID, showDate, showLocation;
-            ResultSet shows = iMuzaMusic.getDB().query("SELECT Shows.*, Locations.strName\n"
-                    + "FROM Locations INNER JOIN (Shows INNER JOIN ShowsToArtists ON Shows.pID = ShowsToArtists.ShowID) ON Locations.LocationID = Shows.iLocation\n"
-                    + "WHERE (((Shows.pID)=[ShowsToArtists].[ShowID]) AND ((ShowsToArtists.Status)=\"Pending Approval\") AND ((ShowsToArtists.ArtistID)=\"" + art.getID() + "\") AND ((Locations.LocationID)=[Shows].[iLocation]));");
-            try {
-                while (shows.next()) {
-                    ShowID = shows.getString("pID");
-                    ArtistID = shows.getString("iMainArtist");
-                    ResultSet getArtistName = iMuzaMusic.getDB().query("select strStageName from Artists where ArtistiD=\"" + ArtistID + "\"");
-                    while (getArtistName.next()) {
-                        ArtistID = getArtistName.getString("strStageName");
-                    }
-                    showLocation = shows.getString("strName");
-                    showDate = shows.getString("pStartDate").substring(0, 10);
-                    iMuzaMusic.log(ShowID + " " + ArtistID + " " + showLocation + " " + showDate);
-                    AL.add(new ShowsToArtists(ShowID, ArtistID, "Pending Approval", showDate, showLocation));
-
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(frmManageArtists.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            Object[][] objs = new Object[AL.size()][5];
-            int i = 0;
-            for (ShowsToArtists sta : AL) {
-                objs[i][0] = sta.getShowID();
-                objs[i][1] = sta.getShowDate();
-                objs[i][2] = sta.getArtistID();
-                objs[i][3] = sta.getLocation();
-                objs[i][4] = false;
-
-                i++;
-            }
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                    objs,
-                    new String[]{
-                        "#", "Date", "Main Artist", "Location", "Approve Show"
-                    }
-            ));
-TableColumn tc = jTable1.getColumnModel().getColumn(4);
-            tc.setCellEditor(jTable1.getDefaultEditor(Boolean.class));
-            tc.setCellRenderer(jTable1.getDefaultRenderer(Boolean.class));
-            
+            ManageController.updateAttendanceTable(jTable1, art);
             updateData();
 
         }
@@ -422,6 +389,34 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
         frmEvaluation.setVisible(true);
     }//GEN-LAST:event_lblFreeze1MouseClicked
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        for(int i=0; i<jTable1.getRowCount(); i++){
+            String ShowID = (String) jTable1.getValueAt(i, 0);
+            Boolean status = (Boolean) jTable1.getValueAt(i, 4);
+            Boolean cancel = (Boolean) jTable1.getValueAt(i, 5);
+            
+            if(status==true && cancel!=true){
+            ManageController.updateShowAttendance(art.getID(), ShowID, 2);
+            iMuzaMusic.log("Update Attendance: ArtistID: "+art.getID()+" ShowID: "+ShowID+" Status: "+status);
+            
+            }
+            if(cancel==true && status!=true){
+               ManageController.updateShowAttendance(art.getID(), ShowID, 3);
+            iMuzaMusic.log("Cancel Attendance: ArtistID: "+art.getID()+" ShowID: "+ShowID+" Status: "+status);
+             
+            }
+            
+            
+            
+        }
+        ManageController.updateAttendanceTable(jTable1, art);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1KeyReleased
+
     public void updateData() {
 
         if (art != null) {
@@ -443,6 +438,7 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
@@ -464,7 +460,7 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlArtist;
-    private javax.swing.JComboBox<Artist> slctArtist;
+    private javax.swing.JComboBox<Entity.Artist> slctArtist;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtEmail1;
     private javax.swing.JLabel txtEmail2;

@@ -1,0 +1,24 @@
+=================  iMuzaMusic v1.0 - Sun Feb 19 21:03:40 IST 2017 ==================
+21:03:40	Attempting connection to MS Access DB
+21:03:40	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+21:03:42	Successfully connected to MS Access DB.
+21:03:42	Opening Login Window through iWindow
+21:03:42	Submitted
+21:03:42	User: AG001 Password: asf230g2
+21:03:42	Attempting login using AG001/asf230g2
+21:03:42	Agent logged in
+21:03:42	Initiating main UI
+21:03:46	PF045 Justin Bieber Barbarosa 2017-02-23
+21:03:46	PF051 Justin Bieber Barbarosa 2017-02-07
+21:03:50	PF045 Justin Bieber Barbarosa 2017-02-23
+21:03:50	PF046 Justin Bieber Barbarosa 2017-02-22
+21:03:50	PF047 Justin Bieber Barbarosa 2017-02-21
+21:03:52	PF045 Justin Bieber Barbarosa 2017-02-23
+21:03:52	PF051 Justin Bieber Barbarosa 2017-02-07
+21:04:08	Creating Show..
+21:04:08	Starting to insert show PF052 with 2 sub artists
+21:04:08	Sending UPDATE Query: INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated) VALUES ('PF052',"2017-02-13 03:00:00.0",'0.0','0','Awaiting Approval','LC002','AR003',"2017-02-19 21:04:08.963")
+21:04:08	Sending UPDATE Query: INSERT INTO ShowsToArtists(ShowID, ArtistID, Status) values ("PF052","AR231", 1)
+21:04:08	Sending UPDATE Query: INSERT INTO ShowsToArtists(ShowID, ArtistID, Status) values ("PF052","AR002", 1)
+21:04:11	PF052 Shawn Mendes Rotshild 2017-02-13
+21:04:13	Quitting MuzaMusic

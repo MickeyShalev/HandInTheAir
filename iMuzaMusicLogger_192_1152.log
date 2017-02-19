@@ -1,0 +1,81 @@
+=================  iMuzaMusic v1.0 - Sun Feb 19 23:52:35 IST 2017 ==================
+23:52:35	Attempting connection to MS Access DB
+23:52:35	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+23:52:36	Successfully connected to MS Access DB.
+23:52:36	Opening Login Window through iWindow
+23:52:36	Submitted
+23:52:36	User: AG001 Password: asf230g2
+23:52:36	Attempting login using AG001/asf230g2
+23:52:36	Agent logged in
+23:52:36	Initiating main UI
+23:52:37	Removing Barbarosa from favorited list
+23:52:37	Removing Rotshild from favorited list
+23:52:37	Removing Sleek from favorited list
+23:52:37	Removing OpenHouse from favorited list
+23:52:37	Found 4 favorited locations
+23:52:53	Removing Barbarosa from favorited list
+23:52:53	Removing Rotshild from favorited list
+23:52:53	Removing Sleek from favorited list
+23:52:53	Removing OpenHouse from favorited list
+23:52:53	Found 4 favorited locations
+23:52:53	Removing Barbarosa from favorited list
+23:52:53	Removing Rotshild from favorited list
+23:52:53	Removing Sleek from favorited list
+23:52:53	Removing OpenHouse from favorited list
+23:52:53	Found 4 favorited locations
+23:52:54	Removing Barbarosa from favorited list
+23:52:54	Removing Rotshild from favorited list
+23:52:54	Removing Sleek from favorited list
+23:52:54	Removing OpenHouse from favorited list
+23:52:54	Found 4 favorited locations
+23:52:54	Removing Barbarosa from favorited list
+23:52:54	Removing Rotshild from favorited list
+23:52:54	Removing Sleek from favorited list
+23:52:54	Removing OpenHouse from favorited list
+23:52:54	Found 4 favorited locations
+23:52:54	Removing Barbarosa from favorited list
+23:52:54	Removing Rotshild from favorited list
+23:52:54	Removing Sleek from favorited list
+23:52:54	Removing OpenHouse from favorited list
+23:52:54	Found 4 favorited locations
+23:52:54	Removing Barbarosa from favorited list
+23:52:54	Removing Rotshild from favorited list
+23:52:54	Removing Sleek from favorited list
+23:52:54	Removing OpenHouse from favorited list
+23:52:54	Found 4 favorited locations
+23:52:54	Removing Barbarosa from favorited list
+23:52:54	Removing Rotshild from favorited list
+23:52:54	Removing Sleek from favorited list
+23:52:54	Removing OpenHouse from favorited list
+23:52:54	Found 4 favorited locations
+23:52:54	Removing Barbarosa from favorited list
+23:52:54	Removing Rotshild from favorited list
+23:52:54	Removing Sleek from favorited list
+23:52:54	Removing OpenHouse from favorited list
+23:52:54	Found 4 favorited locations
+23:52:55	Removing Barbarosa from favorited list
+23:52:55	Removing Rotshild from favorited list
+23:52:55	Removing Sleek from favorited list
+23:52:55	Removing OpenHouse from favorited list
+23:52:55	Found 4 favorited locations
+23:52:55	Removing Barbarosa from favorited list
+23:52:55	Removing Rotshild from favorited list
+23:52:55	Removing Sleek from favorited list
+23:52:55	Removing OpenHouse from favorited list
+23:52:55	Found 4 favorited locations
+23:52:55	Removing Barbarosa from favorited list
+23:52:55	Removing Rotshild from favorited list
+23:52:55	Removing Sleek from favorited list
+23:52:55	Removing OpenHouse from favorited list
+23:52:55	Found 4 favorited locations
+23:52:55	Removing Barbarosa from favorited list
+23:52:55	Removing Rotshild from favorited list
+23:52:55	Removing Sleek from favorited list
+23:52:55	Removing OpenHouse from favorited list
+23:52:55	Found 4 favorited locations
+23:52:59	Sending UPDATE Query: delete from AgentPreferLocation where AgentID="AG001" AND LocationID="LC005"
+23:52:59	Cancel favorited location: LocationID: LC005
+23:52:59	Removing Barbarosa from favorited list
+23:52:59	Removing Rotshild from favorited list
+23:52:59	Removing Sleek from favorited list
+23:52:59	Found 3 favorited locations

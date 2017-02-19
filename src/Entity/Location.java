@@ -13,9 +13,10 @@ import java.util.Objects;
  */
 public class Location {
     String LocationID, strName, strAddress, strEmail, urlGoogleMaps, iPhoneNum;
+    Integer maxCapacity;
     LRep Owner;
 
-    public Location(String LocationID, String strName, String strAddress, String strEmail, String urlGoogleMaps, String iPhoneNum, LRep Owner) {
+    public Location(String LocationID, String strName, String strAddress, String strEmail, String urlGoogleMaps, String iPhoneNum, LRep Owner, Integer maxCapacity) {
         this.LocationID = LocationID;
         this.strName = strName;
         this.strAddress = strAddress;
@@ -23,6 +24,7 @@ public class Location {
         this.urlGoogleMaps = urlGoogleMaps;
         this.iPhoneNum = iPhoneNum;
         this.Owner = Owner;
+        this.maxCapacity = maxCapacity;
     }
 
     public Location(String LocationID, String strName, String strAddress) {
@@ -34,6 +36,8 @@ public class Location {
     public Location(String LocationID){
         this.LocationID = LocationID;
     }
+
+
 
     public String getLocationID() {
         return LocationID;
@@ -106,9 +110,7 @@ public class Location {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
+
         final Location other = (Location) obj;
         if (!Objects.equals(this.LocationID, other.LocationID)) {
             return false;
@@ -119,6 +121,14 @@ public class Location {
     @Override
     public String toString() {
         return getStrName();
+    }
+
+    public Integer getMaxCapacity() {
+        return maxCapacity;
+    }
+
+    public void setMaxCapacity(Integer maxCapacity) {
+        this.maxCapacity = maxCapacity;
     }
     
     

@@ -1,0 +1,16 @@
+=================  iMuzaMusic v1.0 - Sun Feb 19 23:45:11 IST 2017 ==================
+23:45:11	Attempting connection to MS Access DB
+23:45:11	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+23:45:12	Successfully connected to MS Access DB.
+23:45:12	Opening Login Window through iWindow
+23:45:12	Submitted
+23:45:12	User: AG001 Password: asf230g2
+23:45:12	Attempting login using AG001/asf230g2
+23:45:12	Agent logged in
+23:45:12	Initiating main UI
+23:45:14	Removing Barbarosa from favorited list
+23:45:14	Removing Rotshild from favorited list
+23:45:14	Removing OpenHouse from favorited list
+23:45:14	Found 3 favorited locations
+23:45:16	Sending UPDATE Query: delete from AgentPreferLocation where AgentID="AG001" AND LocationID="LC002"
+23:45:16	Cancel favorited location: LocationID: LC002

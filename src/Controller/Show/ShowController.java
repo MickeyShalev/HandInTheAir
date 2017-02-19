@@ -151,7 +151,7 @@ public abstract class ShowController {
             iMuzaMusic.log("Starting to insert show "+pID+" with "+subArtists.size()+" sub artists");
             iMuzaMusic.getDB().updateReturnID(qry);
             for(Artist subArtist : subArtists){
-            qry = "INSERT INTO ShowsToArtists(ShowID, ArtistID) values (\""+pID+"\",\""+subArtist.getID()+"\")";
+            qry = "INSERT INTO ShowsToArtists(ShowID, ArtistID, Status) values (\""+pID+"\",\""+subArtist.getID()+"\", 1)";
             iMuzaMusic.getDB().updateReturnID(qry);
             System.err.println("Added show to artist: "+qry);
             }

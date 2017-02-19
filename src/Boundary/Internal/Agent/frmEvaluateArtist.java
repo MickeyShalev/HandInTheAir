@@ -5,7 +5,7 @@
  */
 package Boundary.Internal.Agent;
 
-import Controller.Artist.EvaluationsController;
+import Controller.Agent.EvaluationsController;
 import Entity.Artist;
 import java.awt.Color;
 import java.util.List;

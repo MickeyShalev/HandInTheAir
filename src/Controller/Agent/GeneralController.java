@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.Artist;
+package Controller.Agent;
 
 import Entity.Artist;
 import Entity.EArtistStatus;

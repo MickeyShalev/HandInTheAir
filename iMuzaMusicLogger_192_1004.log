@@ -1,0 +1,24 @@
+=================  iMuzaMusic v1.0 - Sun Feb 19 22:04:02 IST 2017 ==================
+22:04:02	Attempting connection to MS Access DB
+22:04:02	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+22:04:04	Successfully connected to MS Access DB.
+22:04:04	Opening Login Window through iWindow
+22:04:04	Submitted
+22:04:04	User: AG001 Password: asf230g2
+22:04:04	Attempting login using AG001/asf230g2
+22:04:04	Agent logged in
+22:04:04	Initiating main UI
+22:04:05	Logging out..
+22:04:05	Successfully logged out
+22:04:05	Submitted
+22:04:05	User: AG001 Password: asf230g2
+22:04:05	Attempting login using AG001/asf230g2
+22:04:05	Agent logged in
+22:04:05	Initiating main UI
+22:04:05	Activating login screen
+22:09:14	Submitted
+22:09:14	User: AG001 Password: asf230g2
+22:09:14	Attempting login using AG001/asf230g2
+22:09:14	Agent logged in
+22:09:14	Initiating main UI
+22:09:20	Quitting MuzaMusic

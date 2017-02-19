@@ -1,0 +1,26 @@
+=================  iMuzaMusic v1.0 - Sun Feb 19 21:27:32 IST 2017 ==================
+21:27:32	Attempting connection to MS Access DB
+21:27:32	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+21:27:33	Successfully connected to MS Access DB.
+21:27:33	Opening Login Window through iWindow
+21:27:33	Submitted
+21:27:33	User: AG001 Password: asf230g2
+21:27:33	Attempting login using AG001/asf230g2
+21:27:33	Agent logged in
+21:27:33	Initiating main UI
+21:27:44	PF002 Justin Bieber Barbarosa 2017-01-11
+21:27:44	PF004 Sia Barbarosa 2016-10-10
+21:27:44	PF005 Sia Barbarosa 2016-12-29
+21:27:44	PF045 Justin Bieber Barbarosa 2017-02-23
+21:27:44	PF046 Justin Bieber Barbarosa 2017-02-22
+21:27:44	PF047 Justin Bieber Barbarosa 2017-02-21
+21:27:48	Sending UPDATE Query: update ShowsToArtists set Status=2 where ShowID="PF002" AND ArtistID="AR004"
+21:27:48	Update Attendance: ArtistID: AR004 ShowID: PF002 Status: true
+21:27:48	Sending UPDATE Query: update ShowsToArtists set Status=2 where ShowID="PF004" AND ArtistID="AR004"
+21:27:48	Update Attendance: ArtistID: AR004 ShowID: PF004 Status: true
+21:27:48	Sending UPDATE Query: update ShowsToArtists set Status=2 where ShowID="PF045" AND ArtistID="AR004"
+21:27:48	Update Attendance: ArtistID: AR004 ShowID: PF045 Status: true
+21:27:48	PF005 Sia Barbarosa 2016-12-29
+21:27:48	PF046 Justin Bieber Barbarosa 2017-02-22
+21:27:48	PF047 Justin Bieber Barbarosa 2017-02-21
+21:27:53	Quitting MuzaMusic

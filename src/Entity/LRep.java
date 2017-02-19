@@ -13,4 +13,8 @@ public class LRep extends Person {
         super(ID, strFirstName, strLastName, strPasswd, userAuth);
         
     }
+    
+    public LRep(String ID){
+        super(ID);
+    }
 }

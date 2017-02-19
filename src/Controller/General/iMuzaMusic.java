@@ -20,11 +20,16 @@ import Entity.EAuth;
 import Boundary.Internal.SuccessExport;
 import Boundary.Internal.Agent.frmManageArtists;
 import Boundary.Main.iWindow;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -237,4 +242,35 @@ public class iMuzaMusic {
         return iMuzaMusic.getDB().query(qry);
     }
 
+    
+    public static void OpenURI(String link){
+        URI uri = null;
+        System.err.println("Before: "+link);
+        if(link.charAt(0)=='#'){
+            System.err.println("Subbing..");
+            link = link.substring(1);
+        }
+        System.err.println("After: "+link);
+         try {
+      URL url = new URL(link);
+      String nullFragment = null;
+      uri = new URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), nullFragment);
+      iMuzaMusic.log("Opening URL: " + uri.toString() + " OK!");
+    } catch (MalformedURLException e) {
+      iMuzaMusic.log("URL " + link + " is a malformed URL");
+    } catch (URISyntaxException e) {
+      iMuzaMusic.log("URI " + link + " is a malformed URL");
+    }
+         
+        if (Desktop.isDesktopSupported()) {
+      
+            try {
+                Desktop.getDesktop().browse(uri);
+            } catch (IOException ex) {
+                Logger.getLogger(iMuzaMusic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+     
+    }
+    
+}
 }
