@@ -5,6 +5,7 @@
  */
 package Boundary.Main;
 
+import Boundary.Customer.frmViewShows;
 import Entity.Artist;
 import Controller.General.XMLManager;
 import Controller.General.iMuzaMusic;
@@ -320,6 +321,7 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnViewReport1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport1MouseClicked
         // TODO add your handling code here:
+        iWindow.openWin(new frmViewShows());
     }//GEN-LAST:event_btnViewReport1MouseClicked
 
 
