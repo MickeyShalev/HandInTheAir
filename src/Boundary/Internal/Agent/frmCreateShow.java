@@ -5,10 +5,10 @@
  */
 package Boundary.Internal.Agent;
 
-import Controller.General.iMuzaMusic;
+import Controller.Main.iMuzaMusic;
 import Entity.Artist;
 import Entity.Person;
-import Controller.General.DBManager;
+import Controller.Main.DBManager;
 import Entity.EArtistStatus;
 import Entity.EAuth;
 import Boundary.Main.iWindow;

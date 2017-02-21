@@ -5,10 +5,10 @@
  */
 package Boundary.Main;
 
-import Boundary.Customer.frmViewShows;
+import Boundary.General.frmViewShows;
 import Entity.Artist;
-import Controller.General.XMLManager;
-import Controller.General.iMuzaMusic;
+import Controller.Main.XMLManager;
+import Controller.Main.iMuzaMusic;
 import java.sql.SQLException;
 import Entity.EAuth;
 import Boundary.Internal.Agent.frmCreateShow;
@@ -63,6 +63,8 @@ public class MainGui extends javax.swing.JFrame {
         btnAddShow2 = new javax.swing.JLabel();
         pnlRep = new javax.swing.JPanel();
         btnViewReport = new javax.swing.JLabel();
+        pnlLRep = new javax.swing.JPanel();
+        btnViewReport2 = new javax.swing.JLabel();
         pnlCustomer = new javax.swing.JPanel();
         btnViewReport1 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
@@ -179,37 +181,42 @@ public class MainGui extends javax.swing.JFrame {
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
         pnlRep.setOpaque(false);
+        pnlRep.setLayout(null);
 
         btnViewReport.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnViewReport.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewReport.setText("View Reports");
+        btnViewReport.setText("View Shows");
         btnViewReport.setToolTipText("");
         btnViewReport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnViewReportMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout pnlRepLayout = new javax.swing.GroupLayout(pnlRep);
-        pnlRep.setLayout(pnlRepLayout);
-        pnlRepLayout.setHorizontalGroup(
-            pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRepLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pnlRepLayout.setVerticalGroup(
-            pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRepLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnViewReport, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(347, Short.MAX_VALUE))
-        );
+        pnlRep.add(btnViewReport);
+        btnViewReport.setBounds(20, 11, 190, 50);
 
         getContentPane().add(pnlRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
+        pnlLRep.setOpaque(false);
+        pnlCustomer.setVisible(false);
+        pnlLRep.setLayout(null);
+
+        btnViewReport2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnViewReport2.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewReport2.setText("View Shows");
+        btnViewReport2.setToolTipText("");
+        btnViewReport2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewReport2MouseClicked(evt);
+            }
+        });
+        pnlLRep.add(btnViewReport2);
+        btnViewReport2.setBounds(0, 0, 0, 0);
+
+        getContentPane().add(pnlLRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+
         pnlCustomer.setOpaque(false);
+        pnlCustomer.setVisible(false);
 
         btnViewReport1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnViewReport1.setForeground(new java.awt.Color(255, 255, 255));
@@ -305,8 +312,7 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnViewReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReportMouseClicked
         // TODO add your handling code here:
-       frmViewReport add = new frmViewReport();
-       iWindow.openWin(add);
+        iWindow.openWin(new frmViewShows());
     }//GEN-LAST:event_btnViewReportMouseClicked
 
     private void btnAddShow1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow1MouseClicked
@@ -324,6 +330,10 @@ public class MainGui extends javax.swing.JFrame {
         iWindow.openWin(new frmViewShows());
     }//GEN-LAST:event_btnViewReport1MouseClicked
 
+    private void btnViewReport2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewReport2MouseClicked
+
 
     public void refreshVars() {
         lblTitle.setText("Homepage");
@@ -334,12 +344,12 @@ public class MainGui extends javax.swing.JFrame {
         switch (iMuzaMusic.getLoggedUser().getUserAuth()) {
             case Agent:
                 pnlAgent.setVisible(true);
-                break;
-                
             case Representative:
-                
                 pnlRep.setVisible(true);
-                break;
+            case Location_Representative:
+                pnlLRep.setVisible(true);
+            case Customer:
+                pnlCustomer.setVisible(true);
         }
 
     }
@@ -356,11 +366,13 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel btnManageArtists;
     private javax.swing.JLabel btnViewReport;
     private javax.swing.JLabel btnViewReport1;
+    private javax.swing.JLabel btnViewReport2;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserType;
     private javax.swing.JLabel lblUsernames;
     private javax.swing.JPanel pnlAgent;
     private javax.swing.JPanel pnlCustomer;
+    private javax.swing.JPanel pnlLRep;
     private javax.swing.JPanel pnlRep;
     // End of variables declaration//GEN-END:variables
 

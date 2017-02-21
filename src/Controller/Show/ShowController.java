@@ -5,8 +5,8 @@
  */
 package Controller.Show;
 
-import Controller.General.DBManager;
-import Controller.General.iMuzaMusic;
+import Controller.Main.DBManager;
+import Controller.Main.iMuzaMusic;
 import Entity.Agent;
 import Entity.Artist;
 import java.sql.ResultSet;

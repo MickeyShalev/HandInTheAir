@@ -8,7 +8,7 @@ package Boundary.Internal.Agent;
 
 import Boundary.Main.iWindow;
 import Controller.Agent.LocationsController;
-import Controller.General.iMuzaMusic;
+import Controller.Main.iMuzaMusic;
 import Entity.Location;
 import Entity.OpenLocation;
 import java.awt.Color;

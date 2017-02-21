@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Boundary.Customer;
+package Boundary.General;
 
-import Controller.General.iMuzaMusic;
+import Controller.Main.iMuzaMusic;
 import Entity.Person;
 import java.awt.Color;
 import java.text.DateFormat;
@@ -36,6 +36,7 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         months = months + " - " + df.format(month2);
         
         lblUpcoming.setText("Below are the 10 upcoming shows planned for "+months+".");
+        Controller.General.ViewShowController.fillShowTable(jTable1, lblErr);
     }
 
     /**
@@ -52,6 +53,7 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         lblUpcoming = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        lblErr = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
@@ -69,7 +71,7 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         lblUpcoming.setForeground(new java.awt.Color(255, 255, 255));
         lblUpcoming.setText("Below are the 10 upcoming shows planned for ");
         getContentPane().add(lblUpcoming);
-        lblUpcoming.setBounds(10, 63, 362, 14);
+        lblUpcoming.setBounds(10, 63, 540, 14);
 
         jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setBorder(null);
@@ -96,6 +98,13 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         jScrollPane1.getViewport().setBackground(new java.awt.Color(0,0,0,0));
         jScrollPane1.setBorder(createEmptyBorder());
 
+        lblErr.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblErr.setVisible(false);
+        lblErr.setForeground(new java.awt.Color(255, 255, 255));
+        lblErr.setText("We are sorry, there are no shows to dispaly.");
+        getContentPane().add(lblErr);
+        lblErr.setBounds(10, 150, 520, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -104,6 +113,7 @@ public class frmViewShows extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblErr;
     private javax.swing.JLabel lblGreeting;
     private javax.swing.JLabel lblUpcoming;
     // End of variables declaration//GEN-END:variables

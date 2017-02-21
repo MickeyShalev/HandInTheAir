@@ -5,7 +5,7 @@
  */
 package Boundary.Internal;
 
-import Controller.General.iMuzaMusic;
+import Controller.Main.iMuzaMusic;
 import Boundary.Main.iWindow;
 import java.awt.event.ItemEvent;
 import java.sql.Connection;

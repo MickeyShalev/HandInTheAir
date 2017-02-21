@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.General;
+package Controller.Main;
 
 import java.sql.*;
-import Controller.General.iMuzaMusic;
+import Controller.Main.iMuzaMusic;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +42,7 @@ public class DBManager {
     public static ResultSet query(String SQL){
         ResultSet result = null;
         try {
-            Statement stmt = conn.createStatement();
+            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             result = stmt.executeQuery(SQL);
             
         } catch (SQLException ex) {

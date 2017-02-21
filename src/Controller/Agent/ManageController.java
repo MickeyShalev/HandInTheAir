@@ -6,7 +6,7 @@
 package Controller.Agent;
 
 import Boundary.Internal.Agent.frmManageArtists;
-import Controller.General.iMuzaMusic;
+import Controller.Main.iMuzaMusic;
 import Entity.Agent;
 import Entity.Artist;
 import Entity.EAuth;

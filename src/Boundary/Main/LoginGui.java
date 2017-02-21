@@ -6,8 +6,8 @@
 package Boundary.Main;
 
 import Entity.Artist;
-import Controller.General.XMLManager;
-import Controller.General.iMuzaMusic;
+import Controller.Main.XMLManager;
+import Controller.Main.iMuzaMusic;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;

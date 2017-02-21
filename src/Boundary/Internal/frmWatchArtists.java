@@ -5,7 +5,7 @@
 */
 package Boundary.Internal;
 
-import Controller.General.iMuzaMusic;
+import Controller.Main.iMuzaMusic;
 import Entity.Artist;
 import Entity.Person;
 import Entity.EArtistStatus;

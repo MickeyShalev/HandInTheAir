@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package Controller.Agent;
-import Controller.General.DBManager;
-import Controller.General.iMuzaMusic;
+import Controller.Main.DBManager;
+import Controller.Main.iMuzaMusic;
 import Entity.Artist;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author nisan
  */
 public abstract class EvaluationsController{
-    DBManager DB = Controller.General.iMuzaMusic.getDB();
+    DBManager DB = Controller.Main.iMuzaMusic.getDB();
     
     public static void getEvaluatedArtist(Artist artist, List<Artist> list1, List<Artist> list2){
         

@@ -9,7 +9,7 @@ import Boundary.Internal.Agent.frmManageArtists;
 import Boundary.Main.iWindow;
 import java.sql.ResultSet;
 import javax.swing.JComboBox;
-import Controller.General.iMuzaMusic;
+import Controller.Main.iMuzaMusic;
 import Entity.LRep;
 import Entity.Location;
 import Entity.OpenLocation;
