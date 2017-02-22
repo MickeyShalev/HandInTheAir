@@ -1,0 +1,15 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 01:35:51 IST 2017 ==================
+01:35:51	Attempting connection to MS Access DB
+01:35:51	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+01:35:53	Successfully connected to MS Access DB.
+01:35:53	Opening Login Window through iWindow
+01:35:54	Submitted
+01:35:54	User: LR001 Password: 2ef92hf
+01:35:54	Attempting login using LR001/2ef92hf
+01:35:54	Location Represantative logged in
+01:35:54	Initiating main UI
+01:35:55	Added show to ShowList (PF045 Justin Bieber)
+01:35:55	Added show to ShowList (PF018 Shawn Mendes)
+01:35:55	Added show to ShowList (PF017 Justin Bieber)
+01:35:55	Added show to ShowList (PF019 Shawn Mendes)
+01:36:05	Quitting MuzaMusic

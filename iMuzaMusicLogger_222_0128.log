@@ -1,0 +1,15 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 01:28:32 IST 2017 ==================
+01:28:32	Attempting connection to MS Access DB
+01:28:32	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+01:28:35	Successfully connected to MS Access DB.
+01:28:35	Opening Login Window through iWindow
+01:28:36	Submitted
+01:28:36	User: LR001 Password: 2ef92hf
+01:28:36	Attempting login using LR001/2ef92hf
+01:28:36	Location Represantative logged in
+01:28:36	Initiating main UI
+01:28:37	Added show to ShowList (PF045 Justin Bieber)
+01:28:37	Added show to ShowList (PF018 Shawn Mendes)
+01:28:37	Added show to ShowList (PF017 Justin Bieber)
+01:28:37	Added show to ShowList (PF019 Shawn Mendes)
+01:28:39	Opening URL: https://www.google.co.il/maps/place/%25D7%25A9%25D7%2593%25D7%25A8%25D7%2595%25D7%25AA+%25D7%2590%25D7%2597%2522%25D7%2599+%25D7%2590%25D7%2599%25D7%259C%25D7%25AA+69,+%25D7%2597%25D7%2599%25D7%25A4%25D7%2594%25E2%2580%25AD/@32.8179253,35.0786693,17z/data=!3m1!4b1!4m5!3m4!1s0x151db72e956c7c69:0xf90b87f3d721c14d!8m2!3d32.8179253!4d35.0764806 OK!

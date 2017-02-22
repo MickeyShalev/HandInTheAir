@@ -1,0 +1,40 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 01:54:34 IST 2017 ==================
+01:54:34	Attempting connection to MS Access DB
+01:54:34	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+01:54:36	Successfully connected to MS Access DB.
+01:54:36	Opening Login Window through iWindow
+01:54:37	Submitted
+01:54:37	User: LR001 Password: 2ef92hf
+01:54:37	Attempting login using LR001/2ef92hf
+01:54:37	Location Represantative logged in
+01:54:37	Initiating main UI
+01:54:38	Added show to ShowList (PF045 Justin Bieber)
+01:54:38	Added show to ShowList (PF018 Shawn Mendes)
+01:54:38	Added show to ShowList (PF017 Justin Bieber)
+01:54:38	Added show to ShowList (PF019 Shawn Mendes)
+01:54:39	Refreshing show info (PF045)
+01:54:39	Starting to refresh show details..
+01:54:40	Refreshing show info (PF018)
+01:54:40	Starting to refresh show details..
+01:54:41	Refreshing show info (PF017)
+01:54:41	Starting to refresh show details..
+01:54:42	Refreshing show info (PF018)
+01:54:42	Starting to refresh show details..
+01:54:43	Refreshing show info (PF045)
+01:54:43	Starting to refresh show details..
+01:54:44	Refreshing show info (PF019)
+01:54:44	Starting to refresh show details..
+01:54:46	Refreshing show info (PF017)
+01:54:46	Starting to refresh show details..
+01:54:47	Refreshing show info (PF018)
+01:54:47	Starting to refresh show details..
+01:54:47	Refreshing show info (PF045)
+01:54:47	Starting to refresh show details..
+01:54:48	Refreshing show info (PF018)
+01:54:48	Starting to refresh show details..
+01:54:48	Refreshing show info (PF017)
+01:54:48	Starting to refresh show details..
+01:54:49	Refreshing show info (PF018)
+01:54:49	Starting to refresh show details..
+01:54:49	Refreshing show info (PF045)
+01:54:49	Starting to refresh show details..

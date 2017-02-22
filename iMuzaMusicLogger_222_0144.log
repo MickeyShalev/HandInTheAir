@@ -1,0 +1,58 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 01:44:13 IST 2017 ==================
+01:44:13	Attempting connection to MS Access DB
+01:44:13	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+01:44:16	Successfully connected to MS Access DB.
+01:44:16	Opening Login Window through iWindow
+01:44:16	Submitted
+01:44:16	User: LR001 Password: 2ef92hf
+01:44:16	Attempting login using LR001/2ef92hf
+01:44:16	Location Represantative logged in
+01:44:16	Initiating main UI
+01:44:17	Added show to ShowList (PF045 Justin Bieber)
+01:44:17	Added show to ShowList (PF018 Shawn Mendes)
+01:44:17	Added show to ShowList (PF017 Justin Bieber)
+01:44:17	Added show to ShowList (PF019 Shawn Mendes)
+01:44:18	Refreshing show info (PF045)
+01:44:19	Refreshing show info (PF018)
+01:44:20	Refreshing show info (PF017)
+01:44:20	Refreshing show info (PF019)
+01:44:21	Refreshing show info (PF017)
+01:44:22	Refreshing show info (PF018)
+01:44:23	Refreshing show info (PF045)
+01:44:27	Refreshing show info (PF018)
+01:44:29	Refreshing show info (PF017)
+01:44:30	Refreshing show info (PF018)
+01:44:30	Refreshing show info (PF017)
+01:44:30	Refreshing show info (PF018)
+01:44:30	Refreshing show info (PF017)
+01:44:30	Refreshing show info (PF018)
+01:44:31	Refreshing show info (PF017)
+01:44:31	Refreshing show info (PF018)
+01:44:31	Refreshing show info (PF017)
+01:44:31	Refreshing show info (PF018)
+01:44:32	Refreshing show info (PF019)
+01:44:32	Refreshing show info (PF018)
+01:44:32	Refreshing show info (PF019)
+01:44:33	Refreshing show info (PF018)
+01:44:33	Refreshing show info (PF019)
+01:44:33	Refreshing show info (PF017)
+01:44:34	Refreshing show info (PF018)
+01:44:36	Refreshing show info (PF017)
+01:44:36	Refreshing show info (PF018)
+01:44:37	Logging out..
+01:44:37	Successfully logged out
+01:44:37	Submitted
+01:44:37	User: LR001 Password: 2ef92hf
+01:44:37	Attempting login using LR001/2ef92hf
+01:44:37	Location Represantative logged in
+01:44:37	Initiating main UI
+01:44:37	Activating login screen
+01:44:46	Submitted
+01:44:46	User: CU0123 Password: eg2j0g
+01:44:46	Attempting login using CU0123/eg2j0g
+01:44:46	test
+01:44:46	Customer logged in
+01:44:46	Initiating main UI
+01:44:47	Added show to ShowList (PF030 Justin Bieber)
+01:44:48	Refreshing show info (PF030)
+01:45:03	Quitting MuzaMusic

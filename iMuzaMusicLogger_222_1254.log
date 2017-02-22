@@ -1,0 +1,11 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 00:54:11 IST 2017 ==================
+00:54:11	Attempting connection to MS Access DB
+00:54:11	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+00:54:13	Successfully connected to MS Access DB.
+00:54:13	Opening Login Window through iWindow
+00:54:14	Submitted
+00:54:14	User: LR001 Password: 2ef92hf
+00:54:14	Attempting login using LR001/2ef92hf
+00:54:14	Location Represantative logged in
+00:54:14	Initiating main UI
+00:55:05	Quitting MuzaMusic

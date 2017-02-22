@@ -1,0 +1,45 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 00:42:04 IST 2017 ==================
+00:42:04	Attempting connection to MS Access DB
+00:42:04	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+00:42:07	Successfully connected to MS Access DB.
+00:42:07	Opening Login Window through iWindow
+00:42:07	Submitted
+00:42:07	User: CU0123 Password: eg2j0g
+00:42:07	Attempting login using CU0123/eg2j0g
+00:42:07	test
+00:42:07	Customer logged in
+00:42:07	Initiating main UI
+00:42:08	Added show to ShowList (PF005 Sia)
+00:42:08	Added show to ShowList (PF001 Drake)
+00:42:08	Added show to ShowList (PF015 Rihanna)
+00:42:08	Added show to ShowList (PF006 Shawn Mendes)
+00:42:08	Added show to ShowList (PF010 Shawn Mendes)
+00:42:08	Added show to ShowList (PF039 Justin Bieber)
+00:42:08	Added show to ShowList (PF020 Shawn Mendes)
+00:42:08	Added show to ShowList (PF021 Shawn Mendes)
+00:42:08	Added show to ShowList (PF022 Shawn Mendes)
+00:42:08	Added show to ShowList (PF030 Justin Bieber)
+00:42:15	Logging out..
+00:42:15	Successfully logged out
+00:42:15	Submitted
+00:42:15	User: CU0123 Password: eg2j0g
+00:42:15	Attempting login using CU0123/eg2j0g
+00:42:15	test
+00:42:15	Customer logged in
+00:42:15	Initiating main UI
+00:42:15	Activating login screen
+00:42:28	Submitted
+00:42:28	User: LR001 Password: 2ef92hf
+00:42:28	Attempting login using LR001/2ef92hf
+00:42:28	Location Represantative logged in
+00:42:28	Initiating main UI
+00:42:29	Added show to ShowList (PF005 Sia)
+00:42:29	Added show to ShowList (PF002 Justin Bieber)
+00:42:29	Added show to ShowList (PF016 Rihanna)
+00:42:29	Added show to ShowList (PF015 Rihanna)
+00:42:29	Added show to ShowList (PF051 Justin Bieber)
+00:42:29	Added show to ShowList (PF048 Rihanna)
+00:42:29	Added show to ShowList (PF011 Shawn Mendes)
+00:42:29	Added show to ShowList (PF013 Shawn Mendes)
+00:42:29	Added show to ShowList (PF012 Shawn Mendes)
+00:42:29	Added show to ShowList (PF009 Shawn Mendes)

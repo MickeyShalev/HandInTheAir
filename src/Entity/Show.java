@@ -157,7 +157,7 @@ public class Show {
 
     @Override
     public String toString() {
-        return pID;
+        return iMainArtist;
     }
     
     
