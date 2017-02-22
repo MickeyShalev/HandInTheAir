@@ -5,7 +5,7 @@
  */
 package Controller.Agent;
 
-import Boundary.Internal.Agent.frmManageArtists;
+import Boundary.Agent.frmManageArtists;
 import Controller.Main.iMuzaMusic;
 import Entity.Agent;
 import Entity.Artist;
@@ -92,6 +92,33 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
             tc.setCellEditor(jTable1.getDefaultEditor(Boolean.class));
             tc.setCellRenderer(jTable1.getDefaultRenderer(Boolean.class));
             
+    }
+
+    public static String getNewArtistID() {
+        String qry = "select TOP 1 ArtistID from Artists order by ArtistID Desc";
+        ResultSet rs = iMuzaMusic.getDB().query(qry);
+        String recent = "";
+        try {
+            if(rs.next()){
+                recent = rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        recent = recent.substring(2, recent.length());
+        recent = "AR"+(Integer.parseInt(recent)+1);
+        iMuzaMusic.log("Returning next ID for Artist - "+recent);
+        
+        return recent;
+    }
+
+    public static void createArtist(Artist a) {
+        iMuzaMusic.log("Attempting to add Artist "+a.getStageName()+" to DB");
+        String qry = "INSERT INTO Artists VALUES (\""+a.getID()+"\",\""+a.getStageName()+"\",\""+a.getBiography()+"\",\""+a.getFbAddr()+"\",\""+iMuzaMusic.getLoggedUser().getID()+"\",\"Active\")";
+        iMuzaMusic.getDB().updateReturnID(qry);
+        
     }
         
 }

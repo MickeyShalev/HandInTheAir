@@ -7,6 +7,7 @@ package Controller.General;
 
 import Boundary.Main.iWindow;
 import Controller.Main.iMuzaMusic;
+import Entity.Agent;
 import Entity.Customer;
 import Entity.LRep;
 import Entity.Person;
@@ -78,6 +79,12 @@ public abstract class ViewShowController {
           "#","Artist","Date","Location","Tickets","Ticket Price"  
         };
         }
+         else if(iMuzaMusic.getLoggedUser() instanceof Agent){
+            clmns = new String[]{
+          "#","Artist","Date","Location","Tickets","Ticket Price", "Status"
+        };
+            objs = new Object[AL.size()][7];
+        }
             int i = 0;
             for (Show s : AL) {
                 
@@ -86,12 +93,13 @@ public abstract class ViewShowController {
                 objs[i][2] = (new SimpleDateFormat("dd/MM/Y hh:mm")).format(s.getpStartDate());
                  if(iMuzaMusic.getLoggedUser() instanceof LRep)
                      objs[i][3] = s.getpStatus();
-                     else  if(iMuzaMusic.getLoggedUser() instanceof Customer)
+                     else  
                              objs[i][3] = s.getiLocation();
                 
                 objs[i][4] = s.getNumPurchased()+"/"+s.getMaxCapacity();
                 objs[i][5] = "$"+s.getpTicketPrice();
-               
+                if(iMuzaMusic.getLoggedUser() instanceof Agent)
+                    objs[i][6] = s.getpStatus();
                     
                 
                 i++;
@@ -116,6 +124,11 @@ jtbl.setDefaultRenderer(Object.class, centerRenderer);
         qry = "SELECT TOP 10 Shows.*, Artists.strStageName, Locations.strName, Locations.strAddress, Locations.urlGoogleMap, Locations.iMaxCapacity, qryShowTicketPurchases.SumOfNumberofTickets\n" +
 "FROM Locations INNER JOIN (Artists INNER JOIN (qryShowTicketPurchases RIGHT JOIN Shows ON qryShowTicketPurchases.PerformenceID = Shows.pID) ON Artists.ArtistID = Shows.iMainArtist) ON Locations.LocationID = Shows.iLocation\n" +
 "WHERE (((Shows.pStartDate)>Now()) AND ((Shows.pStatus) In (\"Approved\")))\n" +
+"ORDER BY Shows.pStartDate;";
+        }else if(person instanceof Agent){
+            qry = "SELECT Shows.*, Artists.strStageName, Locations.strName, Locations.strAddress, Locations.urlGoogleMap, Locations.iMaxCapacity, qryShowTicketPurchases.SumOfNumberofTickets\n" +
+"FROM Locations INNER JOIN (Artists INNER JOIN (qryShowTicketPurchases RIGHT JOIN Shows ON qryShowTicketPurchases.PerformenceID = Shows.pID) ON Artists.ArtistID = Shows.iMainArtist) ON Locations.LocationID = Shows.iLocation\n" +
+"WHERE ((Shows.pStartDate)>Now())\n" +
 "ORDER BY Shows.pStartDate;";
         }else if(person instanceof LRep){
             qry = "SELECT TOP 10 Shows.*, Artists.strStageName, Locations.strName, Locations.strAddress, Locations.urlGoogleMap, Locations.iMaxCapacity, qryShowTicketPurchases.SumOfNumberofTickets\n" +

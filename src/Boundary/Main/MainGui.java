@@ -11,9 +11,9 @@ import Controller.Main.XMLManager;
 import Controller.Main.iMuzaMusic;
 import java.sql.SQLException;
 import Entity.EAuth;
-import Boundary.Internal.Agent.frmCreateShow;
-import Boundary.Internal.Agent.frmLocationManager;
-import Boundary.Internal.Agent.frmManageArtists;
+import Boundary.Agent.frmCreateShow;
+import Boundary.Agent.frmLocationManager;
+import Boundary.Agent.frmManageArtists;
 import Boundary.Internal.frmViewReport;
 import Boundary.Internal.frmWatchArtists;
 import java.awt.Color;
@@ -135,7 +135,7 @@ public class MainGui extends javax.swing.JFrame {
 
         btnAddShow1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnAddShow1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddShow1.setText("Export XML");
+        btnAddShow1.setText("View Shows");
         btnAddShow1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAddShow1MouseClicked(evt);
@@ -173,9 +173,9 @@ public class MainGui extends javax.swing.JFrame {
                 .addComponent(btnAddShow, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddShow2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddShow1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
@@ -217,6 +217,7 @@ public class MainGui extends javax.swing.JFrame {
 
         pnlCustomer.setOpaque(false);
         pnlCustomer.setVisible(false);
+        pnlCustomer.setLayout(null);
 
         btnViewReport1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnViewReport1.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,23 +228,8 @@ public class MainGui extends javax.swing.JFrame {
                 btnViewReport1MouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout pnlCustomerLayout = new javax.swing.GroupLayout(pnlCustomer);
-        pnlCustomer.setLayout(pnlCustomerLayout);
-        pnlCustomerLayout.setHorizontalGroup(
-            pnlCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomerLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(btnViewReport1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pnlCustomerLayout.setVerticalGroup(
-            pnlCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCustomerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnViewReport1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(347, Short.MAX_VALUE))
-        );
+        pnlCustomer.add(btnViewReport1);
+        btnViewReport1.setBounds(20, 11, 190, 50);
 
         getContentPane().add(pnlCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
@@ -316,7 +302,7 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewReportMouseClicked
 
     private void btnAddShow1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow1MouseClicked
-        // TODO add your handling code here:
+        iWindow.openWin(new frmViewShows());
         
     }//GEN-LAST:event_btnAddShow1MouseClicked
 

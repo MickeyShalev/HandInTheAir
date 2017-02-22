@@ -1,0 +1,15 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 05:49:51 IST 2017 ==================
+05:49:51	Attempting connection to MS Access DB
+05:49:51	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+05:49:53	Successfully connected to MS Access DB.
+05:49:53	Opening Login Window through iWindow
+05:49:53	Submitted
+05:49:53	User: AG001 Password: asf230g2
+05:49:53	Attempting login using AG001/asf230g2
+05:49:53	Agent logged in
+05:49:53	Initiating main UI
+05:49:56	Returning next ID for Artist - AR232
+05:50:13	Attempting to add Artist asd to DB
+05:50:13	Sending UPDATE Query: INSERT INTO Artists VALUES ("AR232","asd","Decription","Facebook URL","AG001","Active")
+05:50:15	Attempting to add Artist asd to DB
+05:50:15	Sending UPDATE Query: INSERT INTO Artists VALUES ("AR232","asd","Decription","Facebook URL","AG001","Active")

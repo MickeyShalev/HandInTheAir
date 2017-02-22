@@ -1,0 +1,19 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 05:48:56 IST 2017 ==================
+05:48:56	Attempting connection to MS Access DB
+05:48:56	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+05:48:58	Successfully connected to MS Access DB.
+05:48:58	Opening Login Window through iWindow
+05:48:59	Submitted
+05:48:59	User: AG001 Password: asf230g2
+05:48:59	Attempting login using AG001/asf230g2
+05:48:59	Agent logged in
+05:48:59	Initiating main UI
+05:49:15	Returning next ID for Artist - AR232
+05:49:36	Attempting to upload file size: 111KB
+05:49:36	Upload dir: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\.\src\sources\uploads
+05:49:36	Tmp file: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\.\src\sources\uploads\AR232.png
+05:49:36	Finished uploading. Short path: .\src\sources\uploads\AR232.png
+05:49:36	Short Icon Path: /sources/uploads/AR232.png
+05:49:38	Attempting to add Artist test to DB
+05:49:38	Sending UPDATE Query: INSERT INTO Artist VALUES ("AR232","test","Decription","Facebook URL","AG001","Active")
+05:49:48	Quitting MuzaMusic

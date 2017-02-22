@@ -5,7 +5,7 @@
  */
 package Controller.Agent;
 
-import Boundary.Internal.Agent.frmManageArtists;
+import Boundary.Agent.frmManageArtists;
 import Boundary.Main.iWindow;
 import java.sql.ResultSet;
 import javax.swing.JComboBox;

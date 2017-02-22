@@ -102,7 +102,6 @@ public class frmViewShows extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         lblGreeting = new javax.swing.JLabel();
         lblUpcoming = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -130,21 +129,16 @@ public class frmViewShows extends javax.swing.JInternalFrame {
 
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("View Shows");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 11, 195, 26);
-
+        lblGreeting.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblGreeting.setForeground(new java.awt.Color(255, 255, 255));
         lblGreeting.setText("Greeting");
         getContentPane().add(lblGreeting);
-        lblGreeting.setBounds(10, 43, 200, 16);
+        lblGreeting.setBounds(10, 20, 200, 14);
 
         lblUpcoming.setForeground(new java.awt.Color(255, 255, 255));
         lblUpcoming.setText("Below are the 10 upcoming shows planned for ");
         getContentPane().add(lblUpcoming);
-        lblUpcoming.setBounds(10, 63, 540, 16);
+        lblUpcoming.setBounds(10, 40, 540, 14);
 
         jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setBorder(null);
@@ -185,12 +179,12 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         lblWormup.setForeground(new java.awt.Color(255, 255, 255));
         lblWormup.setText("List");
         pnlShowDetails.add(lblWormup);
-        lblWormup.setBounds(110, 150, 340, 16);
+        lblWormup.setBounds(110, 150, 340, 14);
 
         lblArtist.setForeground(new java.awt.Color(255, 255, 255));
         lblArtist.setText("Address:");
         pnlShowDetails.add(lblArtist);
-        lblArtist.setBounds(110, 50, 270, 16);
+        lblArtist.setBounds(110, 50, 270, 14);
 
         lblShowTitle.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblShowTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,52 +195,52 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Artist:");
         pnlShowDetails.add(jLabel5);
-        jLabel5.setBounds(10, 50, 80, 16);
+        jLabel5.setBounds(10, 50, 80, 14);
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Tickets Sold:");
         pnlShowDetails.add(jLabel7);
-        jLabel7.setBounds(10, 70, 90, 16);
+        jLabel7.setBounds(10, 70, 90, 14);
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Show Price:");
         pnlShowDetails.add(jLabel8);
-        jLabel8.setBounds(10, 90, 90, 16);
+        jLabel8.setBounds(10, 90, 90, 14);
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("VIP Price:");
         pnlShowDetails.add(jLabel9);
-        jLabel9.setBounds(10, 110, 90, 16);
+        jLabel9.setBounds(10, 110, 90, 14);
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Address:");
         pnlShowDetails.add(jLabel4);
-        jLabel4.setBounds(10, 30, 80, 16);
+        jLabel4.setBounds(10, 30, 80, 14);
 
         lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Address:");
         pnlShowDetails.add(lblAddress);
-        lblAddress.setBounds(110, 30, 260, 16);
+        lblAddress.setBounds(110, 30, 260, 14);
 
         lblTickets.setForeground(new java.awt.Color(255, 255, 255));
         lblTickets.setText("Address:");
         pnlShowDetails.add(lblTickets);
-        lblTickets.setBounds(110, 70, 290, 16);
+        lblTickets.setBounds(110, 70, 290, 14);
 
         lblPrice.setForeground(new java.awt.Color(255, 255, 255));
         lblPrice.setText("Address:");
         pnlShowDetails.add(lblPrice);
-        lblPrice.setBounds(110, 90, 300, 16);
+        lblPrice.setBounds(110, 90, 300, 14);
 
         lblCurrentPrice.setForeground(new java.awt.Color(255, 255, 255));
         lblCurrentPrice.setText("Address:");
         pnlShowDetails.add(lblCurrentPrice);
-        lblCurrentPrice.setBounds(110, 110, 290, 16);
+        lblCurrentPrice.setBounds(110, 110, 290, 14);
 
         lblMinAge.setForeground(new java.awt.Color(255, 255, 255));
         lblMinAge.setText("Address:");
         pnlShowDetails.add(lblMinAge);
-        lblMinAge.setBounds(110, 130, 300, 16);
+        lblMinAge.setBounds(110, 130, 300, 14);
 
         addTickets.setForeground(new java.awt.Color(51, 51, 255));
         addTickets.setVisible(false);
@@ -271,12 +265,12 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Minimum Age:");
         pnlShowDetails.add(jLabel3);
-        jLabel3.setBounds(10, 130, 80, 16);
+        jLabel3.setBounds(10, 130, 80, 14);
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Wormup Artists:");
         pnlShowDetails.add(jLabel6);
-        jLabel6.setBounds(10, 150, 140, 16);
+        jLabel6.setBounds(10, 150, 140, 14);
 
         getContentPane().add(pnlShowDetails);
         pnlShowDetails.setBounds(10, 360, 790, 220);
@@ -307,7 +301,6 @@ public class frmViewShows extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addTickets;
     private javax.swing.JLabel gmaps;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

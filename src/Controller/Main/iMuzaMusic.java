@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Entity.EAuth;
 import Boundary.Internal.SuccessExport;
-import Boundary.Internal.Agent.frmManageArtists;
+import Boundary.Agent.frmManageArtists;
 import Boundary.Main.iWindow;
 import java.awt.Desktop;
 import java.io.File;
@@ -57,6 +57,7 @@ public class iMuzaMusic {
             SimpleDateFormat sdfDate = new SimpleDateFormat("ddM_hhmm");
             Date now = new Date();
             String strDate = sdfDate.format(now);
+            
             logWriter = new PrintStream(new File(fileName+"_"+strDate+".log"));
             //System.setErr(logWriter);
             //System.setOut(logWriter);
