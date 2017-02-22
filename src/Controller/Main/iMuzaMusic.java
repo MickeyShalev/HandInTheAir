@@ -254,6 +254,7 @@ public class iMuzaMusic {
         }
         System.err.println("After: "+link);
          try {
+             
       URL url = new URL(link);
       String nullFragment = null;
       uri = new URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), nullFragment);

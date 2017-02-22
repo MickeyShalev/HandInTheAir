@@ -16,6 +16,7 @@ import Boundary.Agent.frmLocationManager;
 import Boundary.Agent.frmManageArtists;
 import Boundary.Internal.frmViewReport;
 import Boundary.Internal.frmWatchArtists;
+import Boundry.Customer.frmFanArtist;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.sql.ResultSet;
@@ -67,6 +68,7 @@ public class MainGui extends javax.swing.JFrame {
         btnViewReport2 = new javax.swing.JLabel();
         pnlCustomer = new javax.swing.JPanel();
         btnViewReport1 = new javax.swing.JLabel();
+        btnViewReport3 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -222,7 +224,7 @@ public class MainGui extends javax.swing.JFrame {
 
         btnViewReport1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnViewReport1.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewReport1.setText("View Shows");
+        btnViewReport1.setText("Fan Your Artists");
         btnViewReport1.setToolTipText("");
         btnViewReport1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -230,7 +232,19 @@ public class MainGui extends javax.swing.JFrame {
             }
         });
         pnlCustomer.add(btnViewReport1);
-        btnViewReport1.setBounds(20, 20, 190, 50);
+        btnViewReport1.setBounds(20, 80, 190, 50);
+
+        btnViewReport3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnViewReport3.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewReport3.setText("View Shows");
+        btnViewReport3.setToolTipText("");
+        btnViewReport3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewReport3MouseClicked(evt);
+            }
+        });
+        pnlCustomer.add(btnViewReport3);
+        btnViewReport3.setBounds(20, 20, 190, 50);
 
         getContentPane().add(pnlCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
@@ -314,12 +328,17 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnViewReport1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport1MouseClicked
         // TODO add your handling code here:
-        iWindow.openWin(new frmViewShows());
+        iWindow.openWin(new frmFanArtist());
     }//GEN-LAST:event_btnViewReport1MouseClicked
 
     private void btnViewReport2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewReport2MouseClicked
+
+    private void btnViewReport3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport3MouseClicked
+        // TODO add your handling code here:
+        iWindow.openWin(new frmViewShows());
+    }//GEN-LAST:event_btnViewReport3MouseClicked
 
 
     public void refreshVars() {
@@ -354,6 +373,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel btnViewReport;
     private javax.swing.JLabel btnViewReport1;
     private javax.swing.JLabel btnViewReport2;
+    private javax.swing.JLabel btnViewReport3;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserType;
     private javax.swing.JLabel lblUsernames;

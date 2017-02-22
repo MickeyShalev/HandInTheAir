@@ -5,8 +5,14 @@
  */
 package Entity;
 
+import Controller.Main.iMuzaMusic;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -159,6 +165,73 @@ public class Show {
     public String toString() {
         return iMainArtist;
     }
+    
+    
+    public boolean isPresale(String CustomerID){
+        Date showDate = getpStartDate();
+        Date createDate = getpDateCreated();
+        long days = TimeUnit.MILLISECONDS.toDays(showDate.getTime() - createDate.getTime());
+        
+        
+        iMuzaMusic.log("Difference between "+showDate+" and "+createDate+" is "+days+" days");
+        if(days<21) //3 weeks 
+            return false;
+        
+        
+        //Checks if customer even admires the main artist
+        String qry = "SELECT Count(*) AS Expr1\n" +
+"FROM Shows INNER JOIN CustomerAdmires ON Shows.iMainArtist = CustomerAdmires.ArtistID\n" +
+"WHERE (((CustomerAdmires.ClientID) In (\""+CustomerID+"\")) AND ((Shows.pID) In (\""+getpID()+"\")));";
+        
+        ResultSet rs = iMuzaMusic.getDB().query(qry);
+        
+        try {
+            if(rs.next()){
+                if(rs.getInt(1)<=0){
+                    return false;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Show.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        
+        
+        return true;
+    }
+    
+    /**
+     * Checks how many tickets left of presale to sell the customer
+     * MAXIMUM : 4
+     * @param CustomerID
+     * @return 
+     */
+    
+    public int getTicketsLeft(String CustomerID){
+        Integer toPurchase = 4;
+        String qry = "SELECT Sum(ClientPurchases.NumberofTickets) AS SumOfNumberofTickets, ClientPurchases.ClientID, ClientPurchases.PerformenceID\n" +
+"FROM ClientPurchases\n" +
+"GROUP BY ClientPurchases.ClientID, ClientPurchases.PerformenceID\n" +
+"HAVING (((ClientPurchases.ClientID) In (\""+CustomerID+"\")) AND ((ClientPurchases.PerformenceID) In (\""+pID+"\")));";
+        ResultSet rs = iMuzaMusic.getDB().query(qry);
+        
+        try {
+            if(rs.next()){
+                //Customer has tickets
+                Integer amount = rs.getInt(1);
+                toPurchase-=amount;
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Show.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        iMuzaMusic.log("Client has "+toPurchase+" tickets left to purchase on Presale");
+        return toPurchase;
+
+    } 
     
     
     

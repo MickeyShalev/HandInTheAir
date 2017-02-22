@@ -1,0 +1,69 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 18:32:22 IST 2017 ==================
+18:32:22	Attempting connection to MS Access DB
+18:32:22	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+18:32:24	Successfully connected to MS Access DB.
+18:32:24	Opening Login Window through iWindow
+18:32:24	Submitted
+18:32:24	User: CU0123 Password: eg2j0g
+18:32:24	Attempting login using CU0123/eg2j0g
+18:32:24	test
+18:32:24	Customer logged in
+18:32:24	Initiating main UI
+18:32:25	Artist FB: #https://www.facebook.com/justin.bib#
+18:32:25	Artist FB: #https://www.facebook.com/shawnm#
+18:32:25	Artist FB: #https://www.facebook.com/rihanna#
+18:32:25	Artist FB: #https://www.facebook.com/sia#
+18:32:25	Artist FB: #https://www.facebook.com/pita#
+18:32:25	Artist FB: #https://www.facebook.com/drake#
+18:32:25	Artist FB: facebook.com/url
+18:32:25	Artist FB: facebook.com
+18:32:25	Artist FB: facebook.com
+18:32:25	Artist FB: facebook.com
+18:32:25	Artist FB: facebook.com
+18:32:25	Artist FB: facebook.com/last.aspx
+18:32:25	Removing Justin Bieber from favorited list
+18:32:25	Removing nis from favorited list
+18:32:25	Found 2 favorited artists
+18:32:27	Added show to ShowList (PF030 Justin Bieber)
+18:32:29	Artist FB: #https://www.facebook.com/justin.bib#
+18:32:29	Artist FB: #https://www.facebook.com/shawnm#
+18:32:29	Artist FB: #https://www.facebook.com/rihanna#
+18:32:29	Artist FB: #https://www.facebook.com/sia#
+18:32:29	Artist FB: #https://www.facebook.com/pita#
+18:32:29	Artist FB: #https://www.facebook.com/drake#
+18:32:29	Artist FB: facebook.com/url
+18:32:29	Artist FB: facebook.com
+18:32:29	Artist FB: facebook.com
+18:32:29	Artist FB: facebook.com
+18:32:29	Artist FB: facebook.com
+18:32:29	Artist FB: facebook.com/last.aspx
+18:32:29	Removing Justin Bieber from favorited list
+18:32:29	Removing nis from favorited list
+18:32:29	Found 2 favorited artists
+18:32:29	Added show to ShowList (PF030 Justin Bieber)
+18:32:31	Refreshing show info (PF030)
+18:32:31	Starting to refresh show details..
+18:32:31	TEXT BEFORE: 
+18:32:31	TEXT AFTER: None
+18:32:34	Purchasing 4 tickets to show PF030 for customer Rafi Ben Shushan
+18:32:34	Sending UPDATE Query: INSERT INTO ClientPurchases (ClientID, PerformenceID, NumberofTickets, datePurchased) values ("CU0123","PF030",4, "2017-02-22 18:32:34.316")
+18:32:35	Artist FB: #https://www.facebook.com/justin.bib#
+18:32:35	Artist FB: #https://www.facebook.com/shawnm#
+18:32:35	Artist FB: #https://www.facebook.com/rihanna#
+18:32:35	Artist FB: #https://www.facebook.com/sia#
+18:32:35	Artist FB: #https://www.facebook.com/pita#
+18:32:35	Artist FB: #https://www.facebook.com/drake#
+18:32:35	Artist FB: facebook.com/url
+18:32:35	Artist FB: facebook.com
+18:32:35	Artist FB: facebook.com
+18:32:35	Artist FB: facebook.com
+18:32:35	Artist FB: facebook.com
+18:32:35	Artist FB: facebook.com/last.aspx
+18:32:35	Removing Justin Bieber from favorited list
+18:32:35	Removing nis from favorited list
+18:32:35	Found 2 favorited artists
+18:32:37	Added show to ShowList (PF030 Justin Bieber)
+18:32:38	Refreshing show info (PF030)
+18:32:38	Starting to refresh show details..
+18:32:38	TEXT BEFORE: 
+18:32:38	TEXT AFTER: None

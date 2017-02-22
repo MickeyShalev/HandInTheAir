@@ -1,0 +1,34 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 18:55:26 IST 2017 ==================
+18:55:26	Attempting connection to MS Access DB
+18:55:26	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+18:55:27	Successfully connected to MS Access DB.
+18:55:27	Opening Login Window through iWindow
+18:55:28	Submitted
+18:55:28	User: CU0123 Password: eg2j0g
+18:55:28	Attempting login using CU0123/eg2j0g
+18:55:28	test
+18:55:28	Customer logged in
+18:55:28	Initiating main UI
+18:55:29	Added show to ShowList (PF030 Justin Bieber)
+18:55:31	Artist FB: #https://www.facebook.com/justin.bib#
+18:55:31	Artist FB: #https://www.facebook.com/shawnm#
+18:55:31	Artist FB: #https://www.facebook.com/rihanna#
+18:55:31	Artist FB: #https://www.facebook.com/sia#
+18:55:31	Artist FB: #https://www.facebook.com/pita#
+18:55:31	Artist FB: #https://www.facebook.com/drake#
+18:55:31	Artist FB: facebook.com/url
+18:55:31	Artist FB: facebook.com
+18:55:31	Artist FB: facebook.com
+18:55:31	Artist FB: facebook.com
+18:55:31	Artist FB: facebook.com
+18:55:31	Artist FB: facebook.com/last.aspx
+18:55:31	Removing Justin Bieber from favorited list
+18:55:31	Removing nis from favorited list
+18:55:31	Found 2 favorited artists
+18:55:34	Added show to ShowList (PF030 Justin Bieber)
+18:55:34	Refreshing show info (PF030)
+18:55:34	Starting to refresh show details..
+18:55:34	TEXT BEFORE: 
+18:55:34	TEXT AFTER: None
+18:55:35	Difference between 2017-03-17 and 2017-02-18 is 27 days
+18:55:36	Difference between 2017-03-17 and 2017-02-18 is 27 days

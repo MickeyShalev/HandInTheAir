@@ -1,0 +1,47 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 19:13:39 IST 2017 ==================
+19:13:39	Attempting connection to MS Access DB
+19:13:39	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+19:13:40	Successfully connected to MS Access DB.
+19:13:40	Opening Login Window through iWindow
+19:13:40	Submitted
+19:13:40	User: CU0124 Password: 2eg2eg2
+19:13:40	Attempting login using CU0124/2eg2eg2
+19:13:40	test
+19:13:40	Customer logged in
+19:13:40	Initiating main UI
+19:13:41	Artist FB: #https://www.facebook.com/justin.bib#
+19:13:41	Artist FB: #https://www.facebook.com/shawnm#
+19:13:41	Artist FB: #https://www.facebook.com/rihanna#
+19:13:41	Artist FB: #https://www.facebook.com/sia#
+19:13:41	Artist FB: #https://www.facebook.com/pita#
+19:13:41	Artist FB: #https://www.facebook.com/drake#
+19:13:41	Artist FB: facebook.com/url
+19:13:41	Artist FB: facebook.com
+19:13:41	Artist FB: facebook.com
+19:13:41	Artist FB: facebook.com
+19:13:41	Artist FB: facebook.com
+19:13:41	Artist FB: facebook.com/last.aspx
+19:13:41	Removing Justin Bieber from favorited list
+19:13:41	Found 1 favorited artists
+19:13:44	Added show to ShowList (PF030 Justin Bieber)
+19:13:45	Refreshing show info (PF030)
+19:13:45	Starting to refresh show details..
+19:13:45	TEXT BEFORE: 
+19:13:45	TEXT AFTER: None
+19:13:46	Difference between 2017-03-17 and 2017-02-18 is 27 days
+19:13:46	Difference between 2017-03-17 and 2017-02-18 is 27 days
+19:13:46	Client has 4 tickets left to purchase on Presale
+19:13:46	Show PF030 is on PreSale!
+19:13:46	Client can purchase presale tickets
+19:13:50	Purchasing 4 tickets to show PF030 for customer David Hachmon
+19:13:50	Sending UPDATE Query: INSERT INTO ClientPurchases (ClientID, PerformenceID, NumberofTickets, datePurchased) values ("CU0124","PF030",4, "2017-02-22 19:13:50.61")
+19:13:51	Added show to ShowList (PF030 Justin Bieber)
+19:13:52	Refreshing show info (PF030)
+19:13:52	Starting to refresh show details..
+19:13:52	TEXT BEFORE: 
+19:13:52	TEXT AFTER: None
+19:13:53	Difference between 2017-03-17 and 2017-02-18 is 27 days
+19:13:53	Difference between 2017-03-17 and 2017-02-18 is 27 days
+19:13:53	Client has 0 tickets left to purchase on Presale
+19:13:53	Show PF030 is on PreSale!
+19:13:56	Quitting MuzaMusic

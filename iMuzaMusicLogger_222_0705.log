@@ -1,0 +1,21 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 19:05:38 IST 2017 ==================
+19:05:38	Attempting connection to MS Access DB
+19:05:38	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+19:05:39	Successfully connected to MS Access DB.
+19:05:39	Opening Login Window through iWindow
+19:05:40	Submitted
+19:05:40	User: CU0124 Password: 2eg2eg2
+19:05:40	Attempting login using CU0124/2eg2eg2
+19:05:40	test
+19:05:40	Customer logged in
+19:05:40	Initiating main UI
+19:05:41	Added show to ShowList (PF030 Justin Bieber)
+19:05:41	Refreshing show info (PF030)
+19:05:41	Starting to refresh show details..
+19:05:41	TEXT BEFORE: 
+19:05:41	TEXT AFTER: None
+19:05:42	Difference between 2017-03-17 and 2017-02-18 is 27 days
+19:05:42	Difference between 2017-03-17 and 2017-02-18 is 27 days
+19:05:42	Client has 4 tickets left to purchase on Presale
+19:05:42	Show PF030 is on PreSale!
+19:05:42	Client can purchase presale tickets

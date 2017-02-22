@@ -1,0 +1,13 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 18:21:12 IST 2017 ==================
+18:21:12	Attempting connection to MS Access DB
+18:21:12	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+18:21:14	Successfully connected to MS Access DB.
+18:21:14	Opening Login Window through iWindow
+18:21:14	Submitted
+18:21:14	User: CU0123 Password: eg2j0g
+18:21:14	Attempting login using CU0123/eg2j0g
+18:21:14	test
+18:21:14	Customer logged in
+18:21:14	Initiating main UI
+18:21:16	Found 0 favorited artists
+18:21:23	URL www.facebook.com/drake#http://www.facebook.com/drake# is a malformed URL

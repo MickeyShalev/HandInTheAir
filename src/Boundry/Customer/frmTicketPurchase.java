@@ -41,11 +41,28 @@ public class frmTicketPurchase extends javax.swing.JFrame {
         this.frm = frm;
         setUndecorated(true);
         setLocationRelativeTo(null);
+        show.isPresale(iMuzaMusic.getLoggedUser().getID());
         initComponents();
         lblShowDetail1.setText("Tickets purchase for "+show.getiMainArtist()+" Performence on "+(new SimpleDateFormat("dd/M/Y hh:mm")).format(show.getpStartDate()));
         lblShowDetail3.setText("Ticket price: $"+show.getpTicketPrice()+"ea");
         lblTotalPrice.setText("$"+Integer.parseInt(jSpinner1.getValue().toString())*show.getpTicketPrice());
-        
+        Boolean isPresale = show.isPresale(iMuzaMusic.getLoggedUser().getID());
+        Integer ticketsLeft = show.getTicketsLeft(iMuzaMusic.getLoggedUser().getID());
+        Double priceCalc = show.getpTicketPrice()*0.9;
+        lblPriceAfter.setText("$"+priceCalc.intValue());
+        if(isPresale){
+            iMuzaMusic.log("Show "+show.getpID()+" is on PreSale!");
+            if(ticketsLeft > 0){
+                iMuzaMusic.log("Client can purchase presale tickets");
+                lblPresale.setText("You can purchase "+ticketsLeft+" more tickets with 10% Discount");
+                lblDiscount.setVisible(true);
+                lblTotalPrice.setVisible(true);
+                lblPriceAfter.setVisible(true);
+                int max = (int) ticketsLeft;
+                jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, max, 1));
+                
+            }
+        } else iMuzaMusic.log("Show "+show.getpID()+" is not on Presale.");
         
         JComponent comp = jSpinner1.getEditor();
     JFormattedTextField field = (JFormattedTextField) comp.getComponent(0);
@@ -55,7 +72,13 @@ public class frmTicketPurchase extends javax.swing.JFrame {
 
         @Override
         public void stateChanged(ChangeEvent e) {
-           lblTotalPrice.setText("$"+Integer.parseInt(jSpinner1.getValue().toString())*show.getpTicketPrice());
+            Double totalPrice = Double.parseDouble(jSpinner1.getValue().toString());
+            totalPrice = totalPrice * show.getpTicketPrice();
+            lblTotalPrice.setText("$"+totalPrice.intValue());
+            totalPrice = totalPrice * 0.9;
+            lblPriceAfter.setText("$"+totalPrice.intValue());
+            
+          
         }
 
     });
@@ -85,6 +108,8 @@ public class frmTicketPurchase extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblDiscount = new javax.swing.JLabel();
         lblTotalPrice = new javax.swing.JLabel();
+        lblPresale = new javax.swing.JLabel();
+        lblPriceAfter = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,7 +163,7 @@ public class frmTicketPurchase extends javax.swing.JFrame {
 
         lblDiscount.setForeground(new java.awt.Color(255, 255, 255));
         lblDiscount.setVisible(false);
-        lblDiscount.setText("lblDiscount");
+        lblDiscount.setText("Total Price (After Discount): ");
         getContentPane().add(lblDiscount);
         lblDiscount.setBounds(60, 300, 190, 16);
 
@@ -146,6 +171,16 @@ public class frmTicketPurchase extends javax.swing.JFrame {
         lblTotalPrice.setText("jLabel2");
         getContentPane().add(lblTotalPrice);
         lblTotalPrice.setBounds(250, 280, 41, 16);
+
+        lblPresale.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblPresale);
+        lblPresale.setBounds(60, 190, 310, 0);
+
+        lblPriceAfter.setForeground(new java.awt.Color(255, 255, 255));
+        lblPriceAfter.setVisible(false);
+        lblPriceAfter.setText("jLabel2");
+        getContentPane().add(lblPriceAfter);
+        lblPriceAfter.setBounds(250, 300, 41, 16);
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/ticket_purchase.png"))); // NOI18N
         getContentPane().add(bg);
@@ -180,6 +215,8 @@ public class frmTicketPurchase extends javax.swing.JFrame {
     private javax.swing.JLabel lblCancel;
     private javax.swing.JLabel lblDiscount;
     private javax.swing.JLabel lblNum;
+    private javax.swing.JLabel lblPresale;
+    private javax.swing.JLabel lblPriceAfter;
     private javax.swing.JLabel lblShowDetail1;
     private javax.swing.JLabel lblShowDetail2;
     private javax.swing.JLabel lblShowDetail3;

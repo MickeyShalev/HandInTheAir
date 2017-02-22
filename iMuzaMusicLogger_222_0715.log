@@ -1,0 +1,39 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 19:15:48 IST 2017 ==================
+19:15:48	Attempting connection to MS Access DB
+19:15:48	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+19:15:49	Successfully connected to MS Access DB.
+19:15:49	Opening Login Window through iWindow
+19:15:50	Submitted
+19:15:50	User: LR001 Password: 2ef92hf
+19:15:50	Attempting login using LR001/2ef92hf
+19:15:50	Location Represantative logged in
+19:15:50	Initiating main UI
+19:15:51	Added show to ShowList (PF045 Justin Bieber)
+19:15:51	Added show to ShowList (PF018 Shawn Mendes)
+19:15:51	Added show to ShowList (PF017 Justin Bieber)
+19:15:51	Added show to ShowList (PF019 Shawn Mendes)
+19:15:52	Refreshing show info (PF017)
+19:15:52	Starting to refresh show details..
+19:15:52	TEXT BEFORE: 
+19:15:52	TEXT AFTER: None
+19:15:53	Refreshing show info (PF018)
+19:15:53	Starting to refresh show details..
+19:15:53	TEXT BEFORE: 
+19:15:53	TEXT AFTER: None
+19:15:53	Refreshing show info (PF019)
+19:15:53	Starting to refresh show details..
+19:15:53	TEXT BEFORE: 
+19:15:53	TEXT AFTER: None
+19:15:54	Artist FB: #https://www.facebook.com/justin.bib#
+19:15:54	Artist FB: #https://www.facebook.com/shawnm#
+19:15:54	Artist FB: #https://www.facebook.com/rihanna#
+19:15:54	Artist FB: #https://www.facebook.com/sia#
+19:15:54	Artist FB: #https://www.facebook.com/pita#
+19:15:54	Artist FB: #https://www.facebook.com/drake#
+19:15:54	Artist FB: facebook.com/url
+19:15:54	Artist FB: facebook.com
+19:15:54	Artist FB: facebook.com
+19:15:54	Artist FB: facebook.com
+19:15:54	Artist FB: facebook.com
+19:15:54	Artist FB: facebook.com/last.aspx
+19:15:54	Found 0 favorited artists
