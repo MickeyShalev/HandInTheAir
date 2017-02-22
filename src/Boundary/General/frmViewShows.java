@@ -9,6 +9,7 @@ import Boundary.Main.iWindow;
 import Controller.General.ViewShowController;
 import Controller.Main.iMuzaMusic;
 import Entity.Artist;
+import Entity.Customer;
 import Entity.Person;
 import Entity.Show;
 import java.awt.Color;
@@ -79,6 +80,8 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         lblTickets.setText(showChosed.getNumPurchased()+"/"+showChosed.getMaxCapacity());
         lblPrice.setText("$"+showChosed.getpTicketPrice());
         lblWormup.setText(ViewShowController.fillSubArtistsTable(showChosed.getpID()));
+        if(iMuzaMusic.getLoggedUser() instanceof Customer)
+            addTickets.setVisible(true);
         //lblWormup.setText("TEST");
         pnlShowDetails.setVisible(false);
         pnlShowDetails.repaint();
@@ -245,7 +248,7 @@ public class frmViewShows extends javax.swing.JInternalFrame {
         addTickets.setVisible(false);
         addTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/ticketadd.png"))); // NOI18N
         pnlShowDetails.add(addTickets);
-        addTickets.setBounds(530, 20, 80, 60);
+        addTickets.setBounds(490, 110, 80, 60);
 
         gmaps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/mapsIcon.png"))); // NOI18N
         gmaps.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -254,7 +257,7 @@ public class frmViewShows extends javax.swing.JInternalFrame {
             }
         });
         pnlShowDetails.add(gmaps);
-        gmaps.setBounds(430, 10, 100, 60);
+        gmaps.setBounds(490, 30, 100, 60);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Minimum Age:");
