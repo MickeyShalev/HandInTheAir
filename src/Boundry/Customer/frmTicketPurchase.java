@@ -167,9 +167,7 @@ public class frmTicketPurchase extends javax.swing.JFrame {
        dispose();
        Integer numOfTickets = Integer.parseInt(jSpinner1.getValue().toString());
        ViewShowController.purchaseTickets(show, (Customer) iMuzaMusic.getLoggedUser(), numOfTickets);
-       frm.lblSuccess.setText("You have successfully purchased "+numOfTickets+" for show "+show.getpID());
-       frm.lblSuccess.setVisible(true);
-       frm.refreshShow();
+       iMuzaMusic.Success("You have successfully purchased "+numOfTickets+" for show "+show.getiMainArtist()+" at "+new SimpleDateFormat("dd/MM/Y hh:mm").format(show.getpStartDate())+".");
     }//GEN-LAST:event_lblApplyMouseClicked
 
  

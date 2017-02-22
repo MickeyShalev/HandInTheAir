@@ -1,13 +1,18 @@
-=================  iMuzaMusic v1.0 - Wed Feb 22 05:08:49 IST 2017 ==================
-05:08:49	Attempting connection to MS Access DB
-05:08:49	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
-05:08:51	Successfully connected to MS Access DB.
-05:08:51	Opening Login Window through iWindow
-05:08:51	Submitted
-05:08:51	User: AG001 Password: asf230g2
-05:08:51	Attempting login using AG001/asf230g2
-05:08:51	Agent logged in
-05:08:51	Initiating main UI
-05:08:53	Returning next ID for Artist - AR232
-05:08:58	Upload dir: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\.\sources\uploads
-05:08:58	Tmp file: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\.\sources\uploads\AG001.png
+=================  iMuzaMusic v1.0 - Wed Feb 22 17:08:03 IST 2017 ==================
+17:08:03	Attempting connection to MS Access DB
+17:08:03	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+17:08:04	Successfully connected to MS Access DB.
+17:08:04	Opening Login Window through iWindow
+17:08:04	Submitted
+17:08:04	User: AG001 Password: asf230g2
+17:08:04	Attempting login using AG001/asf230g2
+17:08:04	Agent logged in
+17:08:04	Initiating main UI
+17:08:17	Returning next ID for Artist - AR237
+17:08:39	Attempting to upload file size: 42KB
+17:08:39	Upload dir: C:\Users\nisan\Documents\Git\HandsInAirLatest\.\src\sources\uploads
+17:08:39	Tmp file: C:\Users\nisan\Documents\Git\HandsInAirLatest\.\src\sources\uploads\AR237.jpg
+17:08:39	Finished uploading. Short path: .\src\sources\uploads\AR237.jpg
+17:08:39	Short Icon Path: /sources/uploads/AR237.jpg
+17:08:41	Attempting to add Artist Last to DB
+17:08:41	Sending UPDATE Query: INSERT INTO Artists VALUES ("AR237","Last","last description for this artist", "last@last.com","facebook.com/last.aspx","AG001",1, "/sources/uploads/AR237.jpg")

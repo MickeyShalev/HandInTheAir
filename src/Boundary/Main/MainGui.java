@@ -216,6 +216,7 @@ public class MainGui extends javax.swing.JFrame {
         getContentPane().add(pnlLRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
         pnlCustomer.setOpaque(false);
+        pnlCustomer.setPreferredSize(new java.awt.Dimension(222, 413));
         pnlCustomer.setVisible(false);
         pnlCustomer.setLayout(null);
 
@@ -229,7 +230,7 @@ public class MainGui extends javax.swing.JFrame {
             }
         });
         pnlCustomer.add(btnViewReport1);
-        btnViewReport1.setBounds(20, 11, 190, 50);
+        btnViewReport1.setBounds(20, 20, 190, 50);
 
         getContentPane().add(pnlCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 

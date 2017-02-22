@@ -1,0 +1,19 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 17:17:59 IST 2017 ==================
+17:17:59	Attempting connection to MS Access DB
+17:17:59	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+17:18:01	Successfully connected to MS Access DB.
+17:18:01	Opening Login Window through iWindow
+17:18:01	Submitted
+17:18:01	User: CU0123 Password: eg2j0g
+17:18:01	Attempting login using CU0123/eg2j0g
+17:18:01	test
+17:18:01	Customer logged in
+17:18:01	Initiating main UI
+17:18:02	Added show to ShowList (PF030 Justin Bieber)
+17:18:03	Refreshing show info (PF030)
+17:18:03	Starting to refresh show details..
+17:18:03	TEXT BEFORE: 
+17:18:03	TEXT AFTER: None
+17:18:06	Purchasing 3 tickets to show PF030 for customer Rafi Ben Shushan
+17:18:06	Sending UPDATE Query: INSERT INTO ClientPurchases (ClientID, PerformenceID, NumberofTickets, datePurchased) values ("CU0123","PF030",3, "2017-02-22 17:18:06.605")
+17:18:09	Quitting MuzaMusic

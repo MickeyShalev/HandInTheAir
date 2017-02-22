@@ -1,0 +1,16 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 17:01:32 IST 2017 ==================
+17:01:32	Attempting connection to MS Access DB
+17:01:32	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+17:01:34	Successfully connected to MS Access DB.
+17:01:34	Opening Login Window through iWindow
+17:01:34	Submitted
+17:01:34	User: AG001 Password: asf230g2
+17:01:34	Attempting login using AG001/asf230g2
+17:01:34	Agent logged in
+17:01:34	Initiating main UI
+17:01:38	Returning next ID for Artist - AR236
+17:01:54	Attempting to upload file size: 103KB
+17:01:54	Upload dir: C:\Users\nisan\Documents\Git\HandsInAirLatest\.\src\sources\uploads
+17:01:54	Tmp file: C:\Users\nisan\Documents\Git\HandsInAirLatest\.\src\sources\uploads\AR236.jpg
+17:01:54	Finished uploading. Short path: .\src\sources\uploads\AR236.jpg
+17:01:54	Short Icon Path: /sources/uploads/AR236.jpg

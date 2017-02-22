@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 import Entity.EAuth;
 import Boundary.Internal.SuccessExport;
 import Boundary.Agent.frmManageArtists;
+import Boundary.General.frmSuccess;
 import Boundary.Main.iWindow;
 import java.awt.Desktop;
 import java.io.File;
@@ -274,4 +275,8 @@ public class iMuzaMusic {
     }
     
 }
+    
+    public static void Success(String var){
+        iWindow.openWin(new frmSuccess(var));
+    }
 }

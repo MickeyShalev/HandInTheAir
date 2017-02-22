@@ -23,14 +23,15 @@ public class Artist extends Person {
     private String fbAddr = "";
     private EArtistStatus arStatus = null;
     private String emailAddr = "";
-
-    public Artist(String ID, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr) {
+    private String iconPath = "";
+    public Artist(String ID, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr, String iconPath) {
         super(ID, stageName, "", EAuth.Artist);
         this.biography = biography;
         this.stageName = stageName;
         this.fbAddr = fbAddr;
         this.arStatus = arStatus;
         this.emailAddr = emailAddr;
+        this.iconPath = iconPath;
     }
 
     public Artist(String ID) {
@@ -38,6 +39,14 @@ public class Artist extends Person {
         if (ID.equals("0000")) {
             setStageName("Select an artist");
         }
+    }
+
+    public String getIconPath() {
+        return iconPath;
+    }
+
+    public void setIconPath(String iconPath) {
+        this.iconPath = iconPath;
     }
 
     public String getFbAddr() {

@@ -1,13 +1,65 @@
-=================  iMuzaMusic v1.0 - Wed Feb 22 05:02:21 IST 2017 ==================
-05:02:21	Attempting connection to MS Access DB
-05:02:21	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
-05:02:23	Successfully connected to MS Access DB.
-05:02:23	Opening Login Window through iWindow
-05:02:24	Submitted
-05:02:24	User: AG001 Password: asf230g2
-05:02:24	Attempting login using AG001/asf230g2
-05:02:24	Agent logged in
-05:02:24	Initiating main UI
-05:02:26	Returning next ID for Artist - AR232
-05:02:31	Upload dir: C:\sources\uploads
-05:02:31	Tmp file: C:\sources\uploads\AG001.png
+=================  iMuzaMusic v1.0 - Wed Feb 22 17:02:30 IST 2017 ==================
+17:02:30	Attempting connection to MS Access DB
+17:02:30	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+17:02:32	Successfully connected to MS Access DB.
+17:02:32	Opening Login Window through iWindow
+17:02:32	Submitted
+17:02:32	User: AG001 Password: asf230g2
+17:02:32	Attempting login using AG001/asf230g2
+17:02:32	Agent logged in
+17:02:32	Initiating main UI
+17:02:35	Returning next ID for Artist - AR236
+17:03:03	Attempting to upload file size: 42KB
+17:03:03	Upload dir: C:\Users\nisan\Documents\Git\HandsInAirLatest\.\src\sources\uploads
+17:03:03	Tmp file: C:\Users\nisan\Documents\Git\HandsInAirLatest\.\src\sources\uploads\AR236.jpg
+17:03:03	Finished uploading. Short path: .\src\sources\uploads\AR236.jpg
+17:03:03	Short Icon Path: /sources/uploads/AR236.jpg
+17:03:07	Attempting to add Artist stage nnn to DB
+17:03:07	Sending UPDATE Query: INSERT INTO Artists VALUES ("AR236","stage nnn","Not Available", "nis@nis.com","http://test.facebook.com","AG001",1)
+17:03:37	Removing Rotshild from favorited list
+17:03:37	Removing Ha Beer from favorited list
+17:03:37	Removing Sleek from favorited list
+17:03:37	Found 3 favorited locations
+17:03:38	Added show to ShowList (PF045 Justin Bieber)
+17:03:38	Added show to ShowList (PF050 Justin Bieber)
+17:03:38	Added show to ShowList (PF032 Justin Bieber)
+17:03:38	Added show to ShowList (PF018 Shawn Mendes)
+17:03:38	Added show to ShowList (PF017 Justin Bieber)
+17:03:38	Added show to ShowList (PF030 Justin Bieber)
+17:03:38	Added show to ShowList (PF019 Shawn Mendes)
+17:03:38	Added show to ShowList (PF031 Justin Bieber)
+17:03:38	Added show to ShowList (PF033 Justin Bieber)
+17:03:41	Added show to ShowList (PF045 Justin Bieber)
+17:03:41	Added show to ShowList (PF050 Justin Bieber)
+17:03:41	Added show to ShowList (PF032 Justin Bieber)
+17:03:41	Added show to ShowList (PF018 Shawn Mendes)
+17:03:41	Added show to ShowList (PF017 Justin Bieber)
+17:03:41	Added show to ShowList (PF030 Justin Bieber)
+17:03:41	Added show to ShowList (PF019 Shawn Mendes)
+17:03:41	Added show to ShowList (PF031 Justin Bieber)
+17:03:41	Added show to ShowList (PF033 Justin Bieber)
+17:03:41	Refreshing show info (PF018)
+17:03:41	Starting to refresh show details..
+17:03:41	TEXT BEFORE: 
+17:03:41	TEXT AFTER: None
+17:03:42	Refreshing show info (PF045)
+17:03:42	Starting to refresh show details..
+17:03:42	TEXT BEFORE: Shawn Mendes, Rihanna, Sia, 
+17:03:42	TEXT AFTER: Shawn Mendes, Rihanna, Sia.
+17:03:42	Refreshing show info (PF032)
+17:03:42	Starting to refresh show details..
+17:03:42	TEXT BEFORE: 
+17:03:42	TEXT AFTER: None
+17:03:43	Refreshing show info (PF019)
+17:03:43	Starting to refresh show details..
+17:03:43	TEXT BEFORE: 
+17:03:43	TEXT AFTER: None
+17:03:43	Refreshing show info (PF031)
+17:03:43	Starting to refresh show details..
+17:03:43	TEXT BEFORE: 
+17:03:43	TEXT AFTER: None
+17:03:44	Refreshing show info (PF045)
+17:03:44	Starting to refresh show details..
+17:03:44	TEXT BEFORE: Shawn Mendes, Rihanna, Sia, 
+17:03:44	TEXT AFTER: Shawn Mendes, Rihanna, Sia.
+17:03:46	Quitting MuzaMusic

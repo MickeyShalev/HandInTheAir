@@ -26,7 +26,7 @@ import javax.swing.JFileChooser;
  * @author Administrator
  */
 public class frmNewArtist extends javax.swing.JInternalFrame {
-
+    String iconPath = "";
     /**
      * Creates new form frmNewArtist
      */
@@ -74,6 +74,8 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         xIcon = new javax.swing.JLabel();
         lblGreeting = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        errSubmit = new javax.swing.JLabel();
+        lblSubmit = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
@@ -189,7 +191,7 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         pnlAdd.add(stEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 40, 20));
         pnlAdd.add(stFB, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 40, 20));
 
-        jButton1.setText("Upload Image");
+        jButton1.setText("Upload Signarture");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -198,8 +200,8 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         pnlAdd.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         lblPath.setForeground(new java.awt.Color(255, 255, 255));
-        pnlAdd.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 570, 20));
-        pnlAdd.add(errFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 30, 20));
+        pnlAdd.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 570, 20));
+        pnlAdd.add(errFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 30, 20));
         pnlAdd.add(imgDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 190, 120));
 
         getContentPane().add(pnlAdd);
@@ -218,7 +220,7 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         lblGreeting.setForeground(new java.awt.Color(255, 255, 255));
         lblGreeting.setText("greetingtext");
         getContentPane().add(lblGreeting);
-        lblGreeting.setBounds(20, 10, 700, 14);
+        lblGreeting.setBounds(20, 10, 700, 16);
 
         jButton2.setText("Add Artist");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +229,13 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(20, 460, 100, 23);
+        jButton2.setBounds(20, 460, 100, 25);
+        getContentPane().add(errSubmit);
+        errSubmit.setBounds(130, 456, 40, 30);
+
+        lblSubmit.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblSubmit);
+        lblSubmit.setBounds(180, 456, 290, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -361,7 +369,7 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         try {
            Files.copy(f.toPath(), tmp.toPath(), REPLACE_EXISTING);
            errFile.setIcon(vIcon.getIcon());
-           lblPath.setText("File successfully saved.");
+           lblPath.setText("Signarture successfully saved.");
         } catch (IOException ex) {
             Logger.getLogger(frmNewArtist.class.getName()).log(Level.SEVERE, null, ex);
             errFile.setIcon(xIcon.getIcon());
@@ -371,8 +379,12 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         String shortIconPath = tmp.toPath().toString().replace("\\", "/").replace("/src", "");
         shortIconPath = shortIconPath.substring(1);
         iMuzaMusic.log("Short Icon Path: "+shortIconPath);
+        this.iconPath = shortIconPath;
+        try{
         imgDisplay.setIcon(new javax.swing.ImageIcon(getClass().getResource(shortIconPath))); // NOI18N
-         
+        } catch(Exception e){
+            imgDisplay.setVisible(false);
+        }
         iWindow.update();
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -380,13 +392,30 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         //Attempt to add an artist
-        Artist a = new Artist(lblID.getText(), lbldesc.getText(), tfFirstName.getText(), lblAddr.getText() ,EArtistStatus.Active, lblEmail.getText());
+        if(!lblPath.getText().equals("Signarture successfully saved.") || lblNameError.getText().length()>0 || lblMailError.getText().length()>0 || lblAddrError.getText().length()>0 || lblPhoneError.getText().length()>0){
+            errSubmit.setIcon(xIcon.getIcon());
+            lblSubmit.setText("Please fill all the fields before submitting.");
+            
+            if(this.iconPath.length()==0){
+                errFile.setIcon(xIcon.getIcon());
+                lblPath.setText("Please submit a signarture file.");
+            }
+            iWindow.update();
+            return;
+        }
+        errSubmit.setIcon(null);
+        lblSubmit.setText("");
+        
+        Artist a = new Artist(lblID.getText(), jTextArea1.getText(), tfFirstName.getText(), tfaddr.getText() ,EArtistStatus.Active, tfEmail.getText(), this.iconPath);
         ManageController.createArtist(a);
+        iMuzaMusic.Success("You have successfully added artist "+tfFirstName.getText()+".");
+        iWindow.update();
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel errFile;
+    private javax.swing.JLabel errSubmit;
     private javax.swing.JLabel imgDisplay;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -403,6 +432,7 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblPhoneError;
     private javax.swing.JLabel lblStudioID;
     private javax.swing.JLabel lblStudioName;
+    private javax.swing.JLabel lblSubmit;
     private javax.swing.JLabel lbldesc;
     private javax.swing.JPanel pnlAdd;
     private javax.swing.JLabel stDesc;

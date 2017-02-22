@@ -20,6 +20,8 @@ public enum EArtistStatus {
         if (i == 2) {
             toReturn = EArtistStatus.Inactive;
         }
+        
+        
 
         return toReturn;
 

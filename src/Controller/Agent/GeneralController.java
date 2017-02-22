@@ -5,6 +5,7 @@
  */
 package Controller.Agent;
 
+import Controller.Main.iMuzaMusic;
 import Entity.Artist;
 import Entity.EArtistStatus;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ import java.util.logging.Logger;
 public abstract class GeneralController {
     public static Artist generateArtistEntity(ResultSet rs){
         Artist art = null;
+        String iStatus = null;
         try {
             String ArtistID = rs.getString("ArtistID");
             String strStageName = rs.getString("strStageName");
@@ -26,14 +28,17 @@ public abstract class GeneralController {
             String strEmailAddr = rs.getString("strEmailAddr");
             String strFaceBook = rs.getString("strFaceBook");
             String AgentID = rs.getString("AgentID");
-            String iStatus = rs.getString("iStatus");
-            
-            art = new Artist(ArtistID, strBio, strStageName, strFaceBook, EArtistStatus.getStatus(iStatus), strEmailAddr);
+            iStatus = rs.getString("iStatus");
+            String iconPath = rs.getString("Signarture");
+           
+            art = new Artist(ArtistID, strBio, strStageName, strFaceBook, EArtistStatus.getStatus(iStatus), strEmailAddr, iconPath);
             
             
             
         } catch (SQLException ex) {
             Logger.getLogger(GeneralController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(NumberFormatException ex){
+            iMuzaMusic.log("Can't add artist with status "+iStatus);
         }
         
         return art;

@@ -1,13 +1,19 @@
-=================  iMuzaMusic v1.0 - Wed Feb 22 05:05:07 IST 2017 ==================
-05:05:07	Attempting connection to MS Access DB
-05:05:07	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
-05:05:10	Successfully connected to MS Access DB.
-05:05:10	Opening Login Window through iWindow
-05:05:11	Submitted
-05:05:11	User: AG001 Password: asf230g2
-05:05:11	Attempting login using AG001/asf230g2
-05:05:11	Agent logged in
-05:05:11	Initiating main UI
-05:05:14	Returning next ID for Artist - AR232
-05:05:21	Upload dir: C:\sources\uploads
-05:05:21	Tmp file: C:\sources\uploads\AG001.png
+=================  iMuzaMusic v1.0 - Wed Feb 22 17:05:54 IST 2017 ==================
+17:05:54	Attempting connection to MS Access DB
+17:05:54	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+17:05:55	Successfully connected to MS Access DB.
+17:05:55	Opening Login Window through iWindow
+17:05:56	Submitted
+17:05:56	User: AG001 Password: asf230g2
+17:05:56	Attempting login using AG001/asf230g2
+17:05:56	Agent logged in
+17:05:56	Initiating main UI
+17:05:57	Returning next ID for Artist - AR236
+17:06:02	Returning next ID for Artist - AR236
+17:06:17	Attempting to upload file size: 15KB
+17:06:17	Upload dir: C:\Users\nisan\Documents\Git\HandsInAirLatest\.\src\sources\uploads
+17:06:17	Tmp file: C:\Users\nisan\Documents\Git\HandsInAirLatest\.\src\sources\uploads\AR236.png
+17:06:17	Finished uploading. Short path: .\src\sources\uploads\AR236.png
+17:06:17	Short Icon Path: /sources/uploads/AR236.png
+17:06:18	Attempting to add Artist adsad to DB
+17:06:18	Sending UPDATE Query: INSERT INTO Artists VALUES ("AR236","adsad","test", "asdad@asds.com","facebook.com","AG001",1, "Signarture successfully saved.")

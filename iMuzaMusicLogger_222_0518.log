@@ -1,15 +1,19 @@
-=================  iMuzaMusic v1.0 - Wed Feb 22 05:18:42 IST 2017 ==================
-05:18:42	Attempting connection to MS Access DB
-05:18:42	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
-05:18:45	Successfully connected to MS Access DB.
-05:18:45	Opening Login Window through iWindow
-05:18:45	Submitted
-05:18:45	User: AG001 Password: asf230g2
-05:18:45	Attempting login using AG001/asf230g2
-05:18:45	Agent logged in
-05:18:45	Initiating main UI
-05:18:51	Returning next ID for Artist - AR232
-05:18:57	Attempting to upload file size: 48KB
-05:19:06	Attempting to upload file size: 344KB
-05:19:15	Attempting to upload file size: 140KB
-05:19:55	Attempting to upload file size: 563KB
+=================  iMuzaMusic v1.0 - Wed Feb 22 17:18:18 IST 2017 ==================
+17:18:18	Attempting connection to MS Access DB
+17:18:18	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+17:18:20	Successfully connected to MS Access DB.
+17:18:20	Opening Login Window through iWindow
+17:18:20	Submitted
+17:18:20	User: CU0123 Password: eg2j0g
+17:18:20	Attempting login using CU0123/eg2j0g
+17:18:20	test
+17:18:20	Customer logged in
+17:18:20	Initiating main UI
+17:18:21	Added show to ShowList (PF030 Justin Bieber)
+17:18:23	Refreshing show info (PF030)
+17:18:23	Starting to refresh show details..
+17:18:23	TEXT BEFORE: 
+17:18:23	TEXT AFTER: None
+17:18:26	Purchasing 4 tickets to show PF030 for customer Rafi Ben Shushan
+17:18:26	Sending UPDATE Query: INSERT INTO ClientPurchases (ClientID, PerformenceID, NumberofTickets, datePurchased) values ("CU0123","PF030",4, "2017-02-22 17:18:26.514")
+17:18:39	Quitting MuzaMusic

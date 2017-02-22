@@ -127,7 +127,7 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Please use the below form to favorite new locations, or unfavorite locations you already favorited.");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(43, 48, 574, 14);
+        jLabel2.setBounds(43, 48, 574, 16);
 
         slctLocation.setModel(new javax.swing.DefaultComboBoxModel<>());
         slctLocation.addItemListener(new java.awt.event.ItemListener() {
@@ -136,7 +136,7 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(slctLocation);
-        slctLocation.setBounds(40, 100, 200, 20);
+        slctLocation.setBounds(40, 100, 200, 22);
 
         btnFavorite.setText("Favorite");
         btnFavorite.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +145,7 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnFavorite);
-        btnFavorite.setBounds(260, 95, 73, 30);
+        btnFavorite.setBounds(260, 95, 120, 30);
 
         pnlLocationDetails.setVisible(false);
         pnlLocationDetails.setOpaque(false);
@@ -154,12 +154,12 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Max Capacity:");
         pnlLocationDetails.add(jLabel3);
-        jLabel3.setBounds(10, 90, 110, 14);
+        jLabel3.setBounds(10, 90, 110, 16);
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Location Name:");
         pnlLocationDetails.add(jLabel4);
-        jLabel4.setBounds(10, 10, 110, 14);
+        jLabel4.setBounds(10, 10, 110, 16);
 
         lblPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNum.setText("jLabel5");
@@ -169,7 +169,7 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Location Address: ");
         pnlLocationDetails.add(jLabel5);
-        jLabel5.setBounds(10, 30, 110, 14);
+        jLabel5.setBounds(10, 30, 110, 16);
 
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("jLabel5");
@@ -189,12 +189,12 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Location Contact: ");
         pnlLocationDetails.add(jLabel6);
-        jLabel6.setBounds(10, 50, 110, 14);
+        jLabel6.setBounds(10, 50, 110, 16);
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Location Phone:");
         pnlLocationDetails.add(jLabel7);
-        jLabel7.setBounds(10, 70, 110, 14);
+        jLabel7.setBounds(10, 70, 110, 16);
 
         lblMaxCapacity.setForeground(new java.awt.Color(255, 255, 255));
         lblMaxCapacity.setText("jLabel5");
@@ -217,42 +217,42 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Stage Top: ");
         pnlOpenLocationDetails.add(jLabel11);
-        jLabel11.setBounds(10, 10, 85, 14);
+        jLabel11.setBounds(10, 10, 85, 16);
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Existing Sits: ");
         pnlOpenLocationDetails.add(jLabel12);
-        jLabel12.setBounds(10, 30, 85, 14);
+        jLabel12.setBounds(10, 30, 85, 16);
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Stage Lifted: ");
         pnlOpenLocationDetails.add(jLabel13);
-        jLabel13.setBounds(10, 50, 85, 14);
+        jLabel13.setBounds(10, 50, 85, 16);
 
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Existing Amplifiers: ");
         pnlOpenLocationDetails.add(jLabel14);
-        jLabel14.setBounds(10, 70, 93, 14);
+        jLabel14.setBounds(10, 70, 113, 16);
 
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Including toilets: ");
         pnlOpenLocationDetails.add(jLabel15);
-        jLabel15.setBounds(10, 90, 82, 14);
+        jLabel15.setBounds(10, 90, 98, 16);
 
         lblStageTop.setForeground(new java.awt.Color(255, 255, 255));
         lblStageTop.setText(" ");
         pnlOpenLocationDetails.add(lblStageTop);
-        lblStageTop.setBounds(160, 10, 78, 14);
+        lblStageTop.setBounds(160, 10, 78, 16);
 
         lblExistingSits.setForeground(new java.awt.Color(255, 255, 255));
         lblExistingSits.setText(" ");
         pnlOpenLocationDetails.add(lblExistingSits);
-        lblExistingSits.setBounds(160, 30, 95, 14);
+        lblExistingSits.setBounds(160, 30, 95, 16);
 
         lblStageLifted.setForeground(new java.awt.Color(255, 255, 255));
         lblStageLifted.setText(" ");
         pnlOpenLocationDetails.add(lblStageLifted);
-        lblStageLifted.setBounds(160, 50, 95, 14);
+        lblStageLifted.setBounds(160, 50, 95, 16);
 
         lblExistingAmp.setForeground(new java.awt.Color(255, 255, 255));
         pnlOpenLocationDetails.add(lblExistingAmp);
@@ -269,7 +269,7 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Launch Google Maps");
         pnlLocationDetails.add(jLabel16);
-        jLabel16.setBounds(410, 10, 180, 14);
+        jLabel16.setBounds(410, 10, 180, 16);
 
         getContentPane().add(pnlLocationDetails);
         pnlLocationDetails.setBounds(40, 130, 560, 260);
@@ -295,7 +295,7 @@ public class frmLocationManager extends javax.swing.JInternalFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Your favorited places");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(50, 380, 210, 14);
+        jLabel10.setBounds(50, 380, 210, 16);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
