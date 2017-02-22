@@ -1,0 +1,16 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 03:18:34 IST 2017 ==================
+03:18:34	Attempting connection to MS Access DB
+03:18:34	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+03:18:35	Successfully connected to MS Access DB.
+03:18:35	Opening Login Window through iWindow
+03:18:36	Submitted
+03:18:36	User: CU0123 Password: eg2j0g
+03:18:36	Attempting login using CU0123/eg2j0g
+03:18:36	test
+03:18:36	Customer logged in
+03:18:36	Initiating main UI
+03:18:37	Added show to ShowList (PF030 Justin Bieber)
+03:18:38	Refreshing show info (PF030)
+03:18:38	Starting to refresh show details..
+03:18:38	TEXT BEFORE: 
+03:18:38	TEXT AFTER: None

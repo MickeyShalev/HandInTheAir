@@ -1,0 +1,18 @@
+=================  iMuzaMusic v1.0 - Wed Feb 22 02:52:44 IST 2017 ==================
+02:52:44	Attempting connection to MS Access DB
+02:52:44	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+02:52:45	Successfully connected to MS Access DB.
+02:52:45	Opening Login Window through iWindow
+02:52:46	Submitted
+02:52:46	User: LR001 Password: 2ef92hf
+02:52:46	Attempting login using LR001/2ef92hf
+02:52:46	Location Represantative logged in
+02:52:46	Initiating main UI
+03:26:06	Added show to ShowList (PF045 Justin Bieber)
+03:26:06	Added show to ShowList (PF018 Shawn Mendes)
+03:26:06	Added show to ShowList (PF017 Justin Bieber)
+03:26:06	Added show to ShowList (PF019 Shawn Mendes)
+03:26:07	Refreshing show info (PF045)
+03:26:07	Starting to refresh show details..
+03:26:07	TEXT BEFORE: Shawn Mendes, Rihanna, Sia, 
+03:26:07	TEXT AFTER: Shawn Mendes, Rihanna, Sia.

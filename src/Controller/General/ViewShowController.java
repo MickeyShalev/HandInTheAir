@@ -14,6 +14,7 @@ import Entity.Show;
 import Entity.ShowsToArtists;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -133,15 +134,31 @@ jtbl.setDefaultRenderer(Object.class, centerRenderer);
        String txt = "";
         try {
             while(rs.next()){
-                txt = txt + rs.getString(1)+" ";
+                txt = txt + rs.getString(1)+", ";
             }
         } catch (SQLException ex) {
             Logger.getLogger(ViewShowController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    
+       iMuzaMusic.log("TEXT BEFORE: "+txt);
+       try{
+        txt = txt.substring(0, txt.length()-2)+".";
+       }
+       catch(Exception e){
+           txt = "None";
+       }
+        iMuzaMusic.log("TEXT AFTER: "+txt);
        return txt;
         
+        
+    }
+
+    public static void purchaseTickets(Show show, Customer customer, Integer numOfTickets) {
+        Timestamp tsNow = new Timestamp(new Date().getTime());
+        iMuzaMusic.log("Purchasing "+numOfTickets+" tickets to show "+show.getpID()+" for customer "+customer.getFirstName()+" "+customer.getLastName());
+        String qry = "INSERT INTO ClientPurchases (ClientID, PerformenceID, NumberofTickets, datePurchased) values (\""+customer.getID()+"\",\""+show.getpID()+"\","+numOfTickets+", \""+tsNow+"\")";
+        iMuzaMusic.getDB().updateReturnID(qry);
+        iWindow.update();
         
     }
 }
