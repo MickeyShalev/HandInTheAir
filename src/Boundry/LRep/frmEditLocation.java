@@ -11,6 +11,7 @@ import Controller.Agent.ManageController;
 import Controller.Main.iMuzaMusic;
 import Entity.Artist;
 import Entity.EArtistStatus;
+import Entity.LRep;
 import Entity.Location;
 import Entity.OpenLocation;
 import java.awt.Color;
@@ -54,7 +55,7 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
     public void refreshData(){
         isOpenLocation.setEnabled(false);
         fldEmailAddr.setText(loc.getStrAddress());
-        fldEmail.setText(loc.getStrEmail());
+        fldAddress.setText(loc.getStrEmail());
         fldGoogleMap.setText(loc.getUrlGoogleMaps());
         fldPhone.setText(loc.getiPhoneNum());
         fldStageName.setText(loc.getStrName());
@@ -95,16 +96,16 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         lblMailError = new javax.swing.JLabel();
         fldStageName = new javax.swing.JTextField();
         fldEmailAddr = new javax.swing.JTextField();
-        lblAddrError = new javax.swing.JLabel();
+        lblMapError = new javax.swing.JLabel();
         lblNameError = new javax.swing.JLabel();
         fldGoogleMap = new javax.swing.JTextField();
-        lblErrEmail = new javax.swing.JLabel();
-        errEmail = new javax.swing.JLabel();
+        lblErrAddress = new javax.swing.JLabel();
+        errAddress = new javax.swing.JLabel();
         stStage = new javax.swing.JLabel();
-        stEmail = new javax.swing.JLabel();
+        errEmail = new javax.swing.JLabel();
         stFB = new javax.swing.JLabel();
         lblAddr1 = new javax.swing.JLabel();
-        fldEmail = new javax.swing.JTextField();
+        fldAddress = new javax.swing.JTextField();
         stFB1 = new javax.swing.JLabel();
         lblAddrError1 = new javax.swing.JLabel();
         lblAddr2 = new javax.swing.JLabel();
@@ -165,6 +166,7 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         pnlAdd.add(lblMailError, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 360, 20));
 
         fldStageName.setText("Enter Stage Name");
+        fldStageName.setCaretPosition(0);
         fldStageName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 fldStageNameFocusGained(evt);
@@ -176,6 +178,11 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         fldStageName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fldStageNameActionPerformed(evt);
+            }
+        });
+        fldStageName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fldStageNameKeyPressed(evt);
             }
         });
         pnlAdd.add(fldStageName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 190, -1));
@@ -191,9 +198,9 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         });
         pnlAdd.add(fldEmailAddr, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 190, -1));
 
-        lblAddrError.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        lblAddrError.setForeground(new java.awt.Color(255, 0, 51));
-        pnlAdd.add(lblAddrError, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 370, 20));
+        lblMapError.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lblMapError.setForeground(new java.awt.Color(255, 0, 51));
+        pnlAdd.add(lblMapError, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 370, 20));
 
         lblNameError.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         lblNameError.setForeground(new java.awt.Color(255, 0, 51));
@@ -210,12 +217,12 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         });
         pnlAdd.add(fldGoogleMap, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 190, -1));
 
-        lblErrEmail.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        lblErrEmail.setForeground(new java.awt.Color(255, 0, 51));
-        pnlAdd.add(lblErrEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 370, 20));
-        pnlAdd.add(errEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 40, 20));
+        lblErrAddress.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        lblErrAddress.setForeground(new java.awt.Color(255, 0, 51));
+        pnlAdd.add(lblErrAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 370, 20));
+        pnlAdd.add(errAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 40, 20));
         pnlAdd.add(stStage, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 50, 20));
-        pnlAdd.add(stEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 40, 20));
+        pnlAdd.add(errEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 40, 20));
         pnlAdd.add(stFB, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 40, 20));
 
         lblAddr1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -223,16 +230,16 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         lblAddr1.setText("Location Address");
         pnlAdd.add(lblAddr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 300, -1));
 
-        fldEmail.setText("Enter Location Address");
-        fldEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+        fldAddress.setText("Enter Location Address");
+        fldAddress.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                fldEmailFocusGained(evt);
+                fldAddressFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                fldEmailFocusLost(evt);
+                fldAddressFocusLost(evt);
             }
         });
-        pnlAdd.add(fldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 190, -1));
+        pnlAdd.add(fldAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 190, -1));
         pnlAdd.add(stFB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 40, 20));
 
         lblAddrError1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
@@ -429,12 +436,16 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void fldStageNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldStageNameFocusGained
-        if (fldStageName.getText().equals("Enter Stage Name"))
-        fldStageName.setText("");
+//        if (fldStageName.getText().equals("Enter Stage Name"))
+     //   fldStageName.setText("");
     }//GEN-LAST:event_fldStageNameFocusGained
 
     private void fldStageNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldStageNameFocusLost
         String sn = fldStageName.getText();
+        if(sn.equals("Enter Stage Name")){
+            lblNameError.setText("Please enter stage name");
+            
+        }else
         if (sn.length() < 3)
             lblNameError.setText("Name is too short");
         else  if (!Controller.Validators.CharValidator.isWord(sn))
@@ -451,37 +462,45 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_fldStageNameFocusLost
 
     private void fldEmailAddrFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldEmailAddrFocusGained
-        if (fldEmailAddr.getText().equals("Enter Email"))
+        if (fldEmailAddr.getText().equals("Enter Email Address"))
         fldEmailAddr.setText("");
     }//GEN-LAST:event_fldEmailAddrFocusGained
 
     private void fldEmailAddrFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldEmailAddrFocusLost
         String mail = fldEmailAddr.getText();
+        if(mail.length()==0){
+            fldEmailAddr.setText("Enter Email Address");
+
+        }
         if (!Controller.Validators.EmailValidator.validateEmail(mail))
             lblMailError.setText("Please enter valid email - username@domain.host");
          else lblMailError.setText("");
 
         if(lblMailError.getText().equals("")) //no error
-            stEmail.setIcon(vIcon.getIcon());
-        else stEmail.setIcon(xIcon.getIcon());
+            errEmail.setIcon(vIcon.getIcon());
+        else errEmail.setIcon(xIcon.getIcon());
         iWindow.update();
 
     }//GEN-LAST:event_fldEmailAddrFocusLost
 
     private void fldGoogleMapFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldGoogleMapFocusGained
-        if (fldGoogleMap.getText().equals("Facebook Profile URL"))
+        if (fldGoogleMap.getText().equals("Google Map URL"))
         fldGoogleMap.setText("");
     }//GEN-LAST:event_fldGoogleMapFocusGained
 
     private void fldGoogleMapFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldGoogleMapFocusLost
         String sn = fldGoogleMap.getText();
-        if(!sn.contains("http://") || !sn.contains("google"))
-            lblAddrError.setText("URL is Invalid.");
-        else if (sn.length() < 5)
-            lblAddrError.setText("Address is too short");
-        else lblAddrError.setText("");
+        if(sn.length()==0){
+            fldGoogleMap.setText("Google Map URL");
+        }
         
-        if(lblAddrError.getText().equals("")) //no error
+        if((!sn.contains("http://") && !sn.contains("https://")) || !sn.contains("google"))
+            lblMapError.setText("URL is Invalid.");
+        else if (sn.length() < 5)
+            lblMapError.setText("Address is too short");
+        else lblMapError.setText("");
+        
+        if(lblMapError.getText().equals("")) //no error
             stFB.setIcon(vIcon.getIcon());
         else stFB.setIcon(xIcon.getIcon());
         
@@ -495,37 +514,94 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         //Attempt to add an artist
-        if(lblNameError.getText().length()>0 || lblMailError.getText().length()>0 || lblAddrError.getText().length()>0 || lblErrEmail.getText().length()>0){
+        
+        if(lblNameError.getText().length()>0 || lblMailError.getText().length()>0 || lblMapError.getText().length()>0 || lblErrAddress.getText().length()>0 || lblErrPhone.getText().length()>0){
             errSubmit.setIcon(xIcon.getIcon());
             lblSubmit.setText("Please fill all the fields before submitting.");
-            
-        
+
             iWindow.update();
             return;
         }
         errSubmit.setIcon(null);
         lblSubmit.setText("");
         
-      //  Artist a = new Artist(lblID.getText(), jTextArea1.getText(), fldStageName.getText(), fldGoogleMap.getText() ,EArtistStatus.Active, fldAddress.getText(), this.iconPath);
-        //ManageController.createArtist(a);
+        if(this.loc!=null)
         iMuzaMusic.Success("You have successfully edited location "+fldStageName.getText()+".");
+        else iMuzaMusic.Success("You have successfully created location "+fldStageName.getText()+".");
+        
+        String StageName = fldStageName.getText();
+        String URL = fldGoogleMap.getText();
+        String Address = fldAddress.getText();
+        String Phone = fldPhone.getText();
+        String Email = fldEmailAddr.getText();
+        Integer cap = (Integer) spnCapacity.getValue();
+        Location toAdd = null;
+        if(isOpenLocation.isEnabled()){
+            toAdd = new OpenLocation(slctStage.getSelectedItem().toString(), isSits.isEnabled(), isLifted.isEnabled(), isAmp.isEnabled(), isToilets.isEnabled(), lblID.getText(), StageName, Address, Email, URL, Phone, (LRep) iMuzaMusic.getLoggedUser(), cap);
+                    
+        }
+        else toAdd = new Location(lblID.getText(), StageName, Address, Email, URL, Phone, (LRep) iMuzaMusic.getLoggedUser(), cap);
+        
+        Controller.LRep.LocationManager.update(toAdd);
         iWindow.update();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void fldEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldEmailFocusGained
+    private void fldAddressFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldAddressFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_fldEmailFocusGained
+        if(fldAddress.getText().equals("Enter Location Address")){
+            fldAddress.setText("");
+        }
+    }//GEN-LAST:event_fldAddressFocusGained
 
-    private void fldEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldEmailFocusLost
+    private void fldAddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldAddressFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_fldEmailFocusLost
+        if(fldAddress.getText().length()==0){
+            fldAddress.setText("Enter Location Address");
+            lblErrAddress.setText("Please enter a location.");
+        }else
+        if(fldAddress.getText().length()<5){
+            lblErrAddress.setText("Address is too short.");
+        }else
+        lblErrAddress.setText("");
+        
+        if(lblErrAddress.getText().length()>0)
+            errAddress.setIcon(xIcon.getIcon());
+        else errAddress.setIcon(vIcon.getIcon());
+        
+        
+        iWindow.update();
+    }//GEN-LAST:event_fldAddressFocusLost
 
     private void fldPhoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldPhoneFocusGained
         // TODO add your handling code here:
+        if(fldPhone.getText().equals("Enter Phone Number")){
+            fldPhone.setText("");
+        }
     }//GEN-LAST:event_fldPhoneFocusGained
 
     private void fldPhoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldPhoneFocusLost
         // TODO add your handling code here:
+        if(fldPhone.getText().length()==0){
+            fldPhone.setText("Enter Phone Number");
+            lblErrPhone.setText("Please enter Phone Number");
+        }
+        try{
+        if(String.valueOf(Integer.parseInt(fldPhone.getText())).length()!=fldPhone.getText().length()){
+            String checkzero = "0"+String.valueOf(Integer.parseInt(fldPhone.getText()));
+            if(checkzero.length()!=fldPhone.getText().length())
+            lblErrPhone.setText("Please use numbers only.");
+        }
+        else lblErrPhone.setText("");
+        } catch(NumberFormatException e){
+            lblErrPhone.setText("Please use numbers only.");
+        }
+        
+        
+        if(lblErrPhone.getText().length()>0)
+            errPhone.setIcon(xIcon.getIcon());
+        else errPhone.setIcon(vIcon.getIcon());
+        
+        iWindow.update();
     }//GEN-LAST:event_fldPhoneFocusLost
 
     private void isToiletsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isToiletsActionPerformed
@@ -601,12 +677,20 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         iWindow.update();
     }//GEN-LAST:event_isOpenLocationActionPerformed
 
+    private void fldStageNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fldStageNameKeyPressed
+        // TODO add your handling code here:
+        if(fldStageName.getText().equals("Enter Stage Name")){
+            fldStageName.setText("");
+        }
+    }//GEN-LAST:event_fldStageNameKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel errAddress;
     private javax.swing.JLabel errEmail;
     private javax.swing.JLabel errPhone;
     private javax.swing.JLabel errSubmit;
-    private javax.swing.JTextField fldEmail;
+    private javax.swing.JTextField fldAddress;
     private javax.swing.JTextField fldEmailAddr;
     private javax.swing.JTextField fldGoogleMap;
     private javax.swing.JTextField fldPhone;
@@ -623,14 +707,14 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblAddr1;
     private javax.swing.JLabel lblAddr2;
     private javax.swing.JLabel lblAddr3;
-    private javax.swing.JLabel lblAddrError;
     private javax.swing.JLabel lblAddrError1;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblErrEmail;
+    private javax.swing.JLabel lblErrAddress;
     private javax.swing.JLabel lblErrPhone;
     private javax.swing.JLabel lblGreeting;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblMailError;
+    private javax.swing.JLabel lblMapError;
     private javax.swing.JLabel lblNameError;
     private javax.swing.JLabel lblStudioID;
     private javax.swing.JLabel lblStudioName;
@@ -639,7 +723,6 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlOpenLocation;
     private javax.swing.JComboBox<String> slctStage;
     private javax.swing.JSpinner spnCapacity;
-    private javax.swing.JLabel stEmail;
     private javax.swing.JLabel stFB;
     private javax.swing.JLabel stFB1;
     private javax.swing.JLabel stStage;

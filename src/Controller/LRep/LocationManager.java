@@ -95,4 +95,17 @@ public abstract class LocationManager {
         
         return recent;
     }
+
+    public static void update(Location toAdd) {
+        
+        //Test if there is a location exists in the system
+        String qry = "select count(*) from Locations where LocationID in (\""+toAdd.getLocationID()+"\")";
+        ResultSet rs = iMuzaMusic.getDB().query(qry);
+        Integer num = 0;
+        if(rs.next()){
+            num = rs.getInt(1);
+        }
+        //TO CONTINUE
+        
+    }
 }

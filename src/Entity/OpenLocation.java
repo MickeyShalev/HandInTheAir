@@ -26,6 +26,19 @@ public class OpenLocation extends Location {
         if(isExistingToilets==1)
         this.isExistingToilets = true;
     }
+     public OpenLocation(String StageTop, Boolean isExistingSits, Boolean isStageLifted, Boolean isExistingAmp, Boolean isExistingToilets, String LocationID, String strName, String strAddress, String strEmail, String urlGoogleMaps, String iPhoneNum, LRep Owner, Integer maxCapacity) {
+        super(LocationID, strName, strAddress, strEmail, urlGoogleMaps, iPhoneNum, Owner, maxCapacity);
+        this.StageTop = StageTop;
+        
+  
+        this.isExistingSits = isExistingSits;
+
+        this.isStageLifted = isStageLifted;
+
+        this.isExistingAmp = isExistingAmp;
+ 
+        this.isExistingToilets = isExistingToilets;
+    }
     
     public OpenLocation(String LocationID){
         super(LocationID);
