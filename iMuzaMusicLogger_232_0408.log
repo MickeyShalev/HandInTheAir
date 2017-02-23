@@ -1,0 +1,13 @@
+=================  iMuzaMusic v1.0 - Thu Feb 23 16:08:23 IST 2017 ==================
+16:08:23	Attempting connection to MS Access DB
+16:08:23	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+16:08:25	Successfully connected to MS Access DB.
+16:08:25	Opening Login Window through iWindow
+16:08:25	Submitted
+16:08:25	User: LR001 Password: 2ef92hf
+16:08:25	Attempting login using LR001/2ef92hf
+16:08:25	Location Represantative logged in
+16:08:25	Initiating main UI
+16:08:25	Aquiring menu for LR001 Auth: Location Representative
+16:08:26	Aquiring location details for LRep LR001
+16:08:26	Found open location Barbarosa
