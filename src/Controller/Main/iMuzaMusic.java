@@ -17,7 +17,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Entity.EAuth;
-import Boundary.Internal.SuccessExport;
+import Boundary.General.SuccessExport;
 import Boundary.Agent.frmManageArtists;
 import Boundary.General.frmSuccess;
 import Boundary.Main.iWindow;

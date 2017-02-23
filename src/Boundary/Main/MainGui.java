@@ -14,8 +14,7 @@ import Entity.EAuth;
 import Boundary.Agent.frmCreateShow;
 import Boundary.Agent.frmLocationManager;
 import Boundary.Agent.frmManageArtists;
-import Boundary.Internal.frmViewReport;
-import Boundary.Internal.frmWatchArtists;
+import Boundary.General.frmViewReport;
 import Boundry.Customer.frmFanArtist;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -57,18 +56,20 @@ public class MainGui extends javax.swing.JFrame {
         lblUsernames = new javax.swing.JLabel();
         lblUserType = new javax.swing.JLabel();
         ContentFrame = new javax.swing.JPanel();
+        pnlRep = new javax.swing.JPanel();
+        btnManageArtists3 = new javax.swing.JLabel();
+        btnAddShow5 = new javax.swing.JLabel();
+        pnlLRep = new javax.swing.JPanel();
+        btnManageArtists2 = new javax.swing.JLabel();
+        btnAddShow4 = new javax.swing.JLabel();
+        pnlCustomer = new javax.swing.JPanel();
+        btnManageArtists1 = new javax.swing.JLabel();
+        btnAddShow3 = new javax.swing.JLabel();
         pnlAgent = new javax.swing.JPanel();
         btnManageArtists = new javax.swing.JLabel();
         btnAddShow = new javax.swing.JLabel();
         btnAddShow1 = new javax.swing.JLabel();
         btnAddShow2 = new javax.swing.JLabel();
-        pnlRep = new javax.swing.JPanel();
-        btnViewReport = new javax.swing.JLabel();
-        pnlLRep = new javax.swing.JPanel();
-        btnViewReport2 = new javax.swing.JLabel();
-        pnlCustomer = new javax.swing.JPanel();
-        btnViewReport1 = new javax.swing.JLabel();
-        btnViewReport3 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -114,7 +115,143 @@ public class MainGui extends javax.swing.JFrame {
 
         getContentPane().add(ContentFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 830, 690));
 
+        pnlRep.setOpaque(false);
+        pnlRep.setVisible(false);
+
+        btnManageArtists3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnManageArtists3.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageArtists3.setText("Edit Global Settings");
+        btnManageArtists3.setToolTipText("");
+        btnManageArtists3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageArtists3MouseClicked(evt);
+            }
+        });
+
+        btnAddShow5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnAddShow5.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddShow5.setText("Generate Report");
+        btnAddShow5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddShow5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlRepLayout = new javax.swing.GroupLayout(pnlRep);
+        pnlRep.setLayout(pnlRepLayout);
+        pnlRepLayout.setHorizontalGroup(
+            pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRepLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddShow5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageArtists3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        pnlRepLayout.setVerticalGroup(
+            pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRepLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnManageArtists3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAddShow5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(277, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnlRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+
+        pnlLRep.setOpaque(false);
+        pnlLRep.setVisible(false);
+
+        btnManageArtists2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnManageArtists2.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageArtists2.setText("View Shows");
+        btnManageArtists2.setToolTipText("");
+        btnManageArtists2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageArtists2MouseClicked(evt);
+            }
+        });
+
+        btnAddShow4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnAddShow4.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddShow4.setText("Edit Location Details");
+        btnAddShow4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddShow4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlLRepLayout = new javax.swing.GroupLayout(pnlLRep);
+        pnlLRep.setLayout(pnlLRepLayout);
+        pnlLRepLayout.setHorizontalGroup(
+            pnlLRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLRepLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlLRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddShow4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageArtists2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        pnlLRepLayout.setVerticalGroup(
+            pnlLRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLRepLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnManageArtists2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAddShow4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(277, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnlLRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+
+        pnlCustomer.setOpaque(false);
+        pnlCustomer.setVisible(false);
+
+        btnManageArtists1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnManageArtists1.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageArtists1.setText("View Shows");
+        btnManageArtists1.setToolTipText("");
+        btnManageArtists1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageArtists1MouseClicked(evt);
+            }
+        });
+
+        btnAddShow3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnAddShow3.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddShow3.setText("Fan Your Artists!");
+        btnAddShow3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddShow3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlCustomerLayout = new javax.swing.GroupLayout(pnlCustomer);
+        pnlCustomer.setLayout(pnlCustomerLayout);
+        pnlCustomerLayout.setHorizontalGroup(
+            pnlCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCustomerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddShow3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageArtists1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        pnlCustomerLayout.setVerticalGroup(
+            pnlCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomerLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnManageArtists1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAddShow3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(277, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pnlCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+
         pnlAgent.setOpaque(false);
+        pnlAgent.setVisible(false);
 
         btnManageArtists.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnManageArtists.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,72 +319,6 @@ public class MainGui extends javax.swing.JFrame {
 
         getContentPane().add(pnlAgent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
-        pnlRep.setOpaque(false);
-        pnlRep.setLayout(null);
-
-        btnViewReport.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnViewReport.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewReport.setText("View Shows");
-        btnViewReport.setToolTipText("");
-        btnViewReport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnViewReportMouseClicked(evt);
-            }
-        });
-        pnlRep.add(btnViewReport);
-        btnViewReport.setBounds(20, 11, 190, 50);
-
-        getContentPane().add(pnlRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
-
-        pnlLRep.setOpaque(false);
-        pnlCustomer.setVisible(false);
-        pnlLRep.setLayout(null);
-
-        btnViewReport2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnViewReport2.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewReport2.setText("View Shows");
-        btnViewReport2.setToolTipText("");
-        btnViewReport2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnViewReport2MouseClicked(evt);
-            }
-        });
-        pnlLRep.add(btnViewReport2);
-        btnViewReport2.setBounds(0, 0, 0, 0);
-
-        getContentPane().add(pnlLRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
-
-        pnlCustomer.setOpaque(false);
-        pnlCustomer.setPreferredSize(new java.awt.Dimension(222, 413));
-        pnlCustomer.setVisible(false);
-        pnlCustomer.setLayout(null);
-
-        btnViewReport1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnViewReport1.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewReport1.setText("Fan Your Artists");
-        btnViewReport1.setToolTipText("");
-        btnViewReport1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnViewReport1MouseClicked(evt);
-            }
-        });
-        pnlCustomer.add(btnViewReport1);
-        btnViewReport1.setBounds(20, 80, 190, 50);
-
-        btnViewReport3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnViewReport3.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewReport3.setText("View Shows");
-        btnViewReport3.setToolTipText("");
-        btnViewReport3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnViewReport3MouseClicked(evt);
-            }
-        });
-        pnlCustomer.add(btnViewReport3);
-        btnViewReport3.setBounds(20, 20, 190, 50);
-
-        getContentPane().add(pnlCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
-
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/muzagui.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 1020, 770));
 
@@ -311,11 +382,6 @@ public class MainGui extends javax.swing.JFrame {
         iWindow.openWin(add);
     }//GEN-LAST:event_btnAddShowMouseClicked
 
-    private void btnViewReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReportMouseClicked
-        // TODO add your handling code here:
-        iWindow.openWin(new frmViewShows());
-    }//GEN-LAST:event_btnViewReportMouseClicked
-
     private void btnAddShow1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow1MouseClicked
         iWindow.openWin(new frmViewShows());
         
@@ -326,36 +392,55 @@ public class MainGui extends javax.swing.JFrame {
         iWindow.openWin(new frmLocationManager());
     }//GEN-LAST:event_btnAddShow2MouseClicked
 
-    private void btnViewReport1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport1MouseClicked
-        // TODO add your handling code here:
-        iWindow.openWin(new frmFanArtist());
-    }//GEN-LAST:event_btnViewReport1MouseClicked
-
-    private void btnViewReport2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewReport2MouseClicked
-
-    private void btnViewReport3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewReport3MouseClicked
+    private void btnManageArtists1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageArtists1MouseClicked
         // TODO add your handling code here:
         iWindow.openWin(new frmViewShows());
-    }//GEN-LAST:event_btnViewReport3MouseClicked
+    }//GEN-LAST:event_btnManageArtists1MouseClicked
+
+    private void btnAddShow3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow3MouseClicked
+        // TODO add your handling code here:
+        iWindow.openWin(new frmFanArtist());
+    }//GEN-LAST:event_btnAddShow3MouseClicked
+
+    private void btnManageArtists2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageArtists2MouseClicked
+        // TODO add your handling code here:
+        iWindow.openWin(new frmViewShows());
+    }//GEN-LAST:event_btnManageArtists2MouseClicked
+
+    private void btnAddShow4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddShow4MouseClicked
+
+    private void btnManageArtists3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageArtists3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageArtists3MouseClicked
+
+    private void btnAddShow5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow5MouseClicked
+        // TODO add your handling code here:
+        iWindow.openWin(new frmViewReport());
+    }//GEN-LAST:event_btnAddShow5MouseClicked
 
 
     public void refreshVars() {
         lblTitle.setText("Homepage");
         lblUserType.setText("" + iMuzaMusic.getLoggedUser().getUserAuth());
         lblUsernames.setText(iMuzaMusic.getLoggedUser().getFirstName() + " " + iMuzaMusic.getLoggedUser().getLastName());
-        pnlAgent.setVisible(false);
-        pnlRep.setVisible(false);
+      
+        
+        iMuzaMusic.log("Aquiring menu for "+iMuzaMusic.getLoggedUser().getID()+" Auth: "+iMuzaMusic.getLoggedUser().getUserAuth());
         switch (iMuzaMusic.getLoggedUser().getUserAuth()) {
             case Agent:
                 pnlAgent.setVisible(true);
+                break;
             case Representative:
                 pnlRep.setVisible(true);
+                break;
             case Location_Representative:
                 pnlLRep.setVisible(true);
+                break;
             case Customer:
                 pnlCustomer.setVisible(true);
+                break;
         }
 
     }
@@ -367,13 +452,15 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel btnAddShow;
     private javax.swing.JLabel btnAddShow1;
     private javax.swing.JLabel btnAddShow2;
+    private javax.swing.JLabel btnAddShow3;
+    private javax.swing.JLabel btnAddShow4;
+    private javax.swing.JLabel btnAddShow5;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;
-    private javax.swing.JLabel btnViewReport;
-    private javax.swing.JLabel btnViewReport1;
-    private javax.swing.JLabel btnViewReport2;
-    private javax.swing.JLabel btnViewReport3;
+    private javax.swing.JLabel btnManageArtists1;
+    private javax.swing.JLabel btnManageArtists2;
+    private javax.swing.JLabel btnManageArtists3;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserType;
     private javax.swing.JLabel lblUsernames;
