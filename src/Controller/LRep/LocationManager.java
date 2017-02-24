@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jdesktop.swingx.JXDatePicker;
 
 /**
  *
@@ -102,10 +103,40 @@ public abstract class LocationManager {
         String qry = "select count(*) from Locations where LocationID in (\""+toAdd.getLocationID()+"\")";
         ResultSet rs = iMuzaMusic.getDB().query(qry);
         Integer num = 0;
-        if(rs.next()){
-            num = rs.getInt(1);
+        try {
+            if(rs.next()){
+                num = rs.getInt(1);
+            }
+            //TO CONTINUE
+        } catch (SQLException ex) {
+            Logger.getLogger(LocationManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //TO CONTINUE
+        
+        if(num==0){
+            //Create new one!
+            qry = "INSERT INTO Locations(LocationID, strName, strAddress, strEmail, urlGoogleMap, iPhoneNumber, iMaxCapacity, RepID)\n "
+                    + "VALUES (\""+toAdd.getLocationID()+"\",\""+toAdd.getStrAddress()+"\",\""+toAdd.getStrEmail()+"\", \""+toAdd.getUrlGoogleMaps()+"\", \""+toAdd.getiPhoneNum()+"\", "+toAdd.getMaxCapacity()+", \""+toAdd.getOwner().getID()+"\")";
+            iMuzaMusic.log("Inserting new location: "+toAdd.getLocationID());
+            iMuzaMusic.log(qry);
+            iMuzaMusic.getDB().updateReturnID(qry);
+            return;
+        }
+        
+        //Update location details
+        qry = "UPDATE Locations SET strName=\""+toAdd.getStrName()+"\", strAddress=\""+toAdd.getStrAddress()+"\", strEmail=\""+toAdd.getStrEmail()+"\", urlGoogleMap=\""+toAdd.getUrlGoogleMaps()+"\", iPhoneNumber="+toAdd.getiPhoneNum()+", iMaxCapacity=\""+toAdd.getMaxCapacity()+"\" WHERE LocationID=\""+toAdd.getLocationID()+"\"";
+        iMuzaMusic.log("Updating existing location: "+toAdd.getLocationID());
+        iMuzaMusic.getDB().updateReturnID(qry);
+        
+        //Test if open location
+        Boolean isOpenInDB = false;
+        qry = "SELECT count(*) from OpenLocations where LocationID in(\""+toAdd.getLocationID()+"\")";
+        rs = iMuzaMusic.getDB().query(qry);
+        
+        if(toAdd instanceof OpenLocation){
+            //is open location
+            //check if was already opened
+            
+        }
         
     }
 }

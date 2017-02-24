@@ -300,6 +300,12 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         iWindow.update();
     }//GEN-LAST:event_tfaddrFocusLost
 
+    
+    
+    
+    
+    
+    
     private void jTextArea1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextArea1FocusGained
         if (jTextArea1.getText().equals("Please describe the artists' Biography here"))
         jTextArea1.setText("");
