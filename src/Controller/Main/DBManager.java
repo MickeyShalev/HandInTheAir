@@ -10,6 +10,7 @@ import Controller.Main.iMuzaMusic;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import net.ucanaccess.jdbc.UcanaccessSQLException;
 
 /**
  * DB Connection Manager
@@ -30,7 +31,8 @@ public class DBManager {
         catch(Exception e){
             dbFile = (new File("src/sources/MM_DB.accdb")).getAbsolutePath();
             conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);
-        }
+
+        } 
         
     }
     
@@ -47,6 +49,21 @@ public class DBManager {
             
         } catch (SQLException ex) {
             Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+            if(ex instanceof UcanaccessSQLException){
+                try {
+                    //Try to create new db
+                    iMuzaMusic.log("DB Error, possibly closed by jasper reports?");
+                    iMuzaMusic.log("Recreating connection");
+                    DBManager newDB = new DBManager();
+                    iMuzaMusic.setDB(newDB);
+                    newDB.query(SQL);
+                } catch (ClassNotFoundException ex1) {
+                    Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex1);
+                } catch (SQLException ex1) {
+                    Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex1);
+                }
+                
+            }
         }
         return result;
     }
@@ -102,7 +119,9 @@ public class DBManager {
     public static void setConn(Connection conn) {
         DBManager.conn = conn;
     }
-    
+    public Connection getConnection(){
+        return conn;
+    }
     
 }
 
