@@ -1,0 +1,20 @@
+=================  iMuzaMusic v1.0 - Sat Feb 25 22:14:35 IST 2017 ==================
+22:14:35	Attempting connection to MS Access DB
+22:14:35	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+22:14:36	Successfully connected to MS Access DB.
+22:14:36	Opening Login Window through iWindow
+22:14:36	Submitted
+22:14:36	User: LR006 Password: admin
+22:14:36	Attempting login using LR006/admin
+22:14:36	Location Represantative logged in
+22:14:36	Initiating main UI
+22:14:36	Aquiring menu for LR006 Auth: Location Representative
+22:14:38	Aquiring location details for LRep LR006
+22:14:38	Found open location New Location
+22:14:38	Returning next ID for Location - LC007
+22:14:40	isSits: true
+22:14:40	Inserting new location: LC007
+22:14:40	INSERT INTO Locations(LocationID, strName, strAddress, strEmail, urlGoogleMap, iPhoneNumber, iMaxCapacity, RepID)
+ VALUES ("LC007","New Location","nis@new.com","tlv tlv tlv55", "https://google.new", "49529352", 180, "LR006")
+22:14:40	Sending UPDATE Query: INSERT INTO Locations(LocationID, strName, strAddress, strEmail, urlGoogleMap, iPhoneNumber, iMaxCapacity, RepID)
+ VALUES ("LC007","New Location","nis@new.com","tlv tlv tlv55", "https://google.new", "49529352", 180, "LR006")

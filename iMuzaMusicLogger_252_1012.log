@@ -1,0 +1,26 @@
+=================  iMuzaMusic v1.0 - Sat Feb 25 22:12:11 IST 2017 ==================
+22:12:11	Attempting connection to MS Access DB
+22:12:11	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+22:12:12	Successfully connected to MS Access DB.
+22:12:12	Opening Login Window through iWindow
+22:12:12	Submitted
+22:12:12	User: LR006 Password: admin
+22:12:12	Attempting login using LR006/admin
+22:12:12	Location Represantative logged in
+22:12:12	Initiating main UI
+22:12:12	Aquiring menu for LR006 Auth: Location Representative
+22:12:15	Aquiring location details for LRep LR006
+22:12:15	Returning next ID for Location - LC006
+22:12:15	Aquiring location details for LRep LR006
+22:12:15	Returning next ID for Location - LC006
+22:12:42	Inserting new location: LC006
+22:12:42	INSERT INTO Locations(LocationID, strName, strAddress, strEmail, urlGoogleMap, iPhoneNumber, iMaxCapacity, RepID)
+ VALUES ("LC006","New Location","tlv tlv tlv55","nis@new.com", "https://google.new", "049529352", 180, "LR006")
+22:12:42	Sending UPDATE Query: INSERT INTO Locations(LocationID, strName, strAddress, strEmail, urlGoogleMap, iPhoneNumber, iMaxCapacity, RepID)
+ VALUES ("LC006","New Location","tlv tlv tlv55","nis@new.com", "https://google.new", "049529352", 180, "LR006")
+22:12:42	Adding OpenLocations Details for Location #LC006
+22:12:42	Sending UPDATE Query: INSERT INTO OpenLocations (iLocation, StageTop, isExistingSits, isStageLifted, isExistingAmp, isExistingToilets) VALUES("LC006", "Full",1, 1, 1, 1)
+22:12:47	Aquiring location details for LRep LR006
+22:12:47	Found open location New Location
+22:12:47	Returning next ID for Location - LC007
+22:16:31	Quitting MuzaMusic

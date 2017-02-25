@@ -1,0 +1,20 @@
+=================  iMuzaMusic v1.0 - Sat Feb 25 22:10:01 IST 2017 ==================
+22:10:01	Attempting connection to MS Access DB
+22:10:01	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+22:10:02	Successfully connected to MS Access DB.
+22:10:02	Opening Login Window through iWindow
+22:10:03	Submitted
+22:10:03	User: LR006 Password: admin
+22:10:03	Attempting login using LR006/admin
+22:10:03	Location Represantative logged in
+22:10:03	Initiating main UI
+22:10:03	Aquiring menu for LR006 Auth: Location Representative
+22:10:04	Aquiring location details for LRep LR006
+22:10:04	Returning next ID for Location - LC006
+22:10:25	Inserting new location: LC006
+22:10:25	INSERT INTO Locations(LocationID, strName, strAddress, strEmail, urlGoogleMap, iPhoneNumber, iMaxCapacity, RepID)
+ VALUES ("LC006","New Stage","Hanavi 6, TLV","nis@new.com", "http://google.com/new", "0508557689", 99, "LR006")
+22:10:25	Sending UPDATE Query: INSERT INTO Locations(LocationID, strName, strAddress, strEmail, urlGoogleMap, iPhoneNumber, iMaxCapacity, RepID)
+ VALUES ("LC006","New Stage","Hanavi 6, TLV","nis@new.com", "http://google.com/new", "0508557689", 99, "LR006")
+22:10:25	Adding OpenLocation Details for Location #LC006
+22:10:25	Sending UPDATE Query: INSERT INTO OpenLocation (iLocation, StageTop, isExistingSits, isStageLifted, isExistingAmp, isExistingToilets)VALUES("LC006", "Partial",1, 1, 1, 1)

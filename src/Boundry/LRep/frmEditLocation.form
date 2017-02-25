@@ -135,8 +135,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="fldStageName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Enter Stage Name"/>
-            <Property name="caretPosition" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Enter Location Name"/>
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="fldStageNameFocusGained"/>

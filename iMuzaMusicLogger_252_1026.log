@@ -1,0 +1,38 @@
+=================  iMuzaMusic v1.0 - Sat Feb 25 22:26:52 IST 2017 ==================
+22:26:52	Attempting connection to MS Access DB
+22:26:52	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+22:26:53	Successfully connected to MS Access DB.
+22:26:53	Opening Login Window through iWindow
+22:26:53	Submitted
+22:26:53	User: LR006 Password: admin
+22:26:53	Attempting login using LR006/admin
+22:26:54	Location Represantative logged in
+22:26:54	Initiating main UI
+22:26:54	Aquiring menu for LR006 Auth: Location Representative
+22:26:54	Aquiring location details for LRep LR006
+22:26:54	Found open location aosghaog
+22:26:54	Refreshing data for location #LC006
+22:26:57	isSits: true
+22:26:57	Updating existing location: LC006
+22:26:57	Sending UPDATE Query: UPDATE Locations SET strName="aosghaog", strAddress="aoghasj", strEmail="oo@oagas.com", urlGoogleMap="http://google", iPhoneNumber=0650505050, iMaxCapacity="10" WHERE LocationID="LC006"
+22:26:57	Updating OpenLocations Details for Location #LC006
+22:26:57	Sending UPDATE Query: UPDATE OpenLocations SET StageTop="Partial", isExistingSits=0, isStageLifted=0, isExistingAmp=0, isExistingToilets=0 WHERE iLocation="LC006"
+22:26:58	Aquiring location details for LRep LR006
+22:26:58	Found open location aosghaog
+22:26:58	Refreshing data for location #LC006
+22:27:01	isSits: true
+22:27:01	Updating existing location: LC006
+22:27:01	Sending UPDATE Query: UPDATE Locations SET strName="aosghaog", strAddress="aoghasj", strEmail="oo@oagas.com", urlGoogleMap="http://google", iPhoneNumber=0650505050, iMaxCapacity="10" WHERE LocationID="LC006"
+22:27:01	Updating OpenLocations Details for Location #LC006
+22:27:01	Sending UPDATE Query: UPDATE OpenLocations SET StageTop="Partial", isExistingSits=1, isStageLifted=1, isExistingAmp=1, isExistingToilets=0 WHERE iLocation="LC006"
+22:27:02	Aquiring location details for LRep LR006
+22:27:02	Found open location aosghaog
+22:27:02	Refreshing data for location #LC006
+22:27:05	isSits: true
+22:27:05	Updating existing location: LC006
+22:27:05	Sending UPDATE Query: UPDATE Locations SET strName="aosghaog", strAddress="aoghasj", strEmail="oo@oagas.com", urlGoogleMap="http://google", iPhoneNumber=0650505050, iMaxCapacity="10" WHERE LocationID="LC006"
+22:27:05	Updating OpenLocations Details for Location #LC006
+22:27:05	Sending UPDATE Query: UPDATE OpenLocations SET StageTop="None", isExistingSits=1, isStageLifted=0, isExistingAmp=1, isExistingToilets=1 WHERE iLocation="LC006"
+22:27:05	Aquiring location details for LRep LR006
+22:27:05	Found open location aosghaog
+22:27:05	Refreshing data for location #LC006

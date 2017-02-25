@@ -46,19 +46,24 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         
         if(loc!=null)
             refreshData();
-        }else lblGreeting.setText("Dear "+iMuzaMusic.getLoggedUser().getFirstName()+", please use the form below to create your location details.");
+        }else {
+            lblGreeting.setText("Dear "+iMuzaMusic.getLoggedUser().getFirstName()+", please use the form below to create your location details.");
+            lblID.setText(Controller.LRep.LocationManager.getNextIndex());
+        }
         
-        lblID.setText(Controller.LRep.LocationManager.getNextIndex());
+        
         
     }
     
     public void refreshData(){
         isOpenLocation.setEnabled(false);
-        fldEmailAddr.setText(loc.getStrAddress());
-        fldAddress.setText(loc.getStrEmail());
+        fldAddress.setText(loc.getStrAddress());
+        fldEmailAddr.setText(loc.getStrEmail());
         fldGoogleMap.setText(loc.getUrlGoogleMaps());
-        fldPhone.setText(loc.getiPhoneNum());
+        fldPhone.setText("0"+loc.getiPhoneNum());
         fldStageName.setText(loc.getStrName());
+        iMuzaMusic.log("Refreshing data for location #"+loc.getLocationID());
+        isOpenLocation.setEnabled(false);
         spnCapacity.setModel(new javax.swing.SpinnerNumberModel((int)loc.getMaxCapacity(), 1, null, 1));
         if(loc instanceof OpenLocation){
             isOpenLocation.setSelected(true);
@@ -165,8 +170,7 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         lblMailError.setForeground(new java.awt.Color(255, 0, 51));
         pnlAdd.add(lblMailError, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 360, 20));
 
-        fldStageName.setText("Enter Stage Name");
-        fldStageName.setCaretPosition(0);
+        fldStageName.setText("Enter Location Name");
         fldStageName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 fldStageNameFocusGained(evt);
@@ -442,8 +446,8 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
 
     private void fldStageNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldStageNameFocusLost
         String sn = fldStageName.getText();
-        if(sn.equals("Enter Stage Name")){
-            lblNameError.setText("Please enter stage name");
+        if(sn.equals("Enter Location Name")){
+            lblNameError.setText("Please enter location name");
             
         }else
         if (sn.length() < 3)
@@ -529,6 +533,7 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         iMuzaMusic.Success("You have successfully edited location "+fldStageName.getText()+".");
         else iMuzaMusic.Success("You have successfully created location "+fldStageName.getText()+".");
         
+        iMuzaMusic.log("isSits: "+isSits.isEnabled());
         String StageName = fldStageName.getText();
         String URL = fldGoogleMap.getText();
         String Address = fldAddress.getText();
@@ -536,8 +541,8 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
         String Email = fldEmailAddr.getText();
         Integer cap = (Integer) spnCapacity.getValue();
         Location toAdd = null;
-        if(isOpenLocation.isEnabled()){
-            toAdd = new OpenLocation(slctStage.getSelectedItem().toString(), isSits.isEnabled(), isLifted.isEnabled(), isAmp.isEnabled(), isToilets.isEnabled(), lblID.getText(), StageName, Address, Email, URL, Phone, (LRep) iMuzaMusic.getLoggedUser(), cap);
+        if(isOpenLocation.isSelected()){
+            toAdd = new OpenLocation(slctStage.getSelectedItem().toString(), isSits.isSelected(), isLifted.isSelected(), isAmp.isSelected(), isToilets.isSelected(), lblID.getText(), StageName, Address, Email, URL, Phone, (LRep) iMuzaMusic.getLoggedUser(), cap);
                     
         }
         else toAdd = new Location(lblID.getText(), StageName, Address, Email, URL, Phone, (LRep) iMuzaMusic.getLoggedUser(), cap);
@@ -650,6 +655,7 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
 
     private void isSitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isSitsActionPerformed
         // TODO add your handling code here:
+        
         iWindow.update();
     }//GEN-LAST:event_isSitsActionPerformed
 
@@ -679,7 +685,7 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
 
     private void fldStageNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fldStageNameKeyPressed
         // TODO add your handling code here:
-        if(fldStageName.getText().equals("Enter Stage Name")){
+        if(fldStageName.getText().equals("Enter Location Name")){
             fldStageName.setText("");
         }
     }//GEN-LAST:event_fldStageNameKeyPressed

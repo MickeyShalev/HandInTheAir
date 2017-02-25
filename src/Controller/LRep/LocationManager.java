@@ -25,8 +25,9 @@ public abstract class LocationManager {
         Location loc = null;
         Boolean openLoc = false;
         ResultSet rs = iMuzaMusic.getDB().query("SELECT Locations.*, OpenLocations.StageTop, OpenLocations.isExistingSits, OpenLocations.isStageLifted, OpenLocations.isExistingAmp, OpenLocations.isExistingToilets\n" +
-"FROM Locations INNER JOIN OpenLocations ON Locations.LocationID = OpenLocations.iLocation\n" +
+"FROM Locations LEFT JOIN OpenLocations ON Locations.LocationID = OpenLocations.iLocation\n" +
 "WHERE (((Locations.RepID) In (\""+iMuzaMusic.getLoggedUser().getID()+"\")));");
+
         iMuzaMusic.log("Aquiring location details for LRep "+iMuzaMusic.getLoggedUser().getID());
         try {
             while(rs.next()){
@@ -113,12 +114,30 @@ public abstract class LocationManager {
         }
         
         if(num==0){
-            //Create new one!
+            //Location not found, Create new one!
             qry = "INSERT INTO Locations(LocationID, strName, strAddress, strEmail, urlGoogleMap, iPhoneNumber, iMaxCapacity, RepID)\n "
-                    + "VALUES (\""+toAdd.getLocationID()+"\",\""+toAdd.getStrAddress()+"\",\""+toAdd.getStrEmail()+"\", \""+toAdd.getUrlGoogleMaps()+"\", \""+toAdd.getiPhoneNum()+"\", "+toAdd.getMaxCapacity()+", \""+toAdd.getOwner().getID()+"\")";
+                    + "VALUES (\""+toAdd.getLocationID()+"\",\""+toAdd.getStrName()+"\",\""+toAdd.getStrAddress()+"\",\""+toAdd.getStrEmail()+"\", \""+toAdd.getUrlGoogleMaps()+"\", \""+toAdd.getiPhoneNum()+"\", "+toAdd.getMaxCapacity()+", \""+toAdd.getOwner().getID()+"\")";
             iMuzaMusic.log("Inserting new location: "+toAdd.getLocationID());
             iMuzaMusic.log(qry);
             iMuzaMusic.getDB().updateReturnID(qry);
+            
+            if(toAdd instanceof OpenLocation){
+                //Is open location
+                //Add Details
+                OpenLocation loc = (OpenLocation) toAdd;
+                Integer isExistingSits=0, isStageLifted=0, isExistingAmp=0, isExistingToilets=0;
+                isExistingSits = (loc.getIsExistingSits()==true) ? 1 : 0;
+                isStageLifted = (loc.getIsStageLifted()==true) ? 1 : 0;
+                isExistingAmp = (loc.getIsExistingAmp()==true) ? 1 : 0;
+                isExistingToilets = (loc.getIsExistingToilets()==true) ? 1 : 0;
+                
+                iMuzaMusic.log("Adding OpenLocations Details for Location #"+toAdd.getLocationID());
+                qry = "INSERT INTO OpenLocations (iLocation, StageTop, isExistingSits, isStageLifted, isExistingAmp, isExistingToilets) VALUES(\""+toAdd.getLocationID()+"\", \""+loc.getStageTop()+"\","+isExistingSits+", "+isStageLifted+", "+isExistingAmp+", "+isExistingToilets+")";
+                iMuzaMusic.getDB().updateReturnID(qry);
+                
+                
+            }
+            
             return;
         }
         
@@ -127,16 +146,23 @@ public abstract class LocationManager {
         iMuzaMusic.log("Updating existing location: "+toAdd.getLocationID());
         iMuzaMusic.getDB().updateReturnID(qry);
         
-        //Test if open location
-        Boolean isOpenInDB = false;
-        qry = "SELECT count(*) from OpenLocations where LocationID in(\""+toAdd.getLocationID()+"\")";
-        rs = iMuzaMusic.getDB().query(qry);
-        
+      
         if(toAdd instanceof OpenLocation){
-            //is open location
-            //check if was already opened
-            
-        }
+                //Is open location
+                //Add Details
+                OpenLocation loc = (OpenLocation) toAdd;
+                Integer isExistingSits=0, isStageLifted=0, isExistingAmp=0, isExistingToilets=0;
+                isExistingSits = (loc.getIsExistingSits()==true) ? 1 : 0;
+                isStageLifted = (loc.getIsStageLifted()==true) ? 1 : 0;
+                isExistingAmp = (loc.getIsExistingAmp()==true) ? 1 : 0;
+                isExistingToilets = (loc.getIsExistingToilets()==true) ? 1 : 0;
+                
+                iMuzaMusic.log("Updating OpenLocations Details for Location #"+toAdd.getLocationID());
+                qry = "UPDATE OpenLocations SET StageTop=\""+loc.getStageTop()+"\", isExistingSits="+isExistingSits+", isStageLifted="+isStageLifted+", isExistingAmp="+isExistingAmp+", isExistingToilets="+isExistingToilets+" WHERE iLocation=\""+toAdd.getLocationID()+"\"";
+                iMuzaMusic.getDB().updateReturnID(qry);
+                
+                
+            }
         
     }
 }
