@@ -1,0 +1,29 @@
+=================  iMuzaMusic v1.0 - Sat Feb 25 22:56:55 IST 2017 ==================
+22:56:55	Attempting connection to MS Access DB
+22:56:55	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+22:56:56	Successfully connected to MS Access DB.
+22:56:56	Opening Login Window through iWindow
+22:56:56	Submitted
+22:56:56	User: RE001 Password: admin
+22:56:56	Attempting login using RE001/admin
+22:56:56	Artist logged in
+22:56:56	Initiating main UI
+22:56:56	Aquiring menu for RE001 Auth: Representative
+22:56:59	Aquiring location details for LRep RE001
+22:56:59	Returning next ID for Location - LC007
+22:57:29	Aquiring location details for LRep RE001
+22:57:29	Returning next ID for Location - LC007
+22:57:32	Aquiring location details for LRep RE001
+22:57:32	Returning next ID for Location - LC007
+22:57:32	Aquiring location details for LRep RE001
+22:57:32	Returning next ID for Location - LC007
+22:57:32	Aquiring location details for LRep RE001
+22:57:32	Returning next ID for Location - LC007
+22:57:32	Aquiring location details for LRep RE001
+22:57:32	Returning next ID for Location - LC007
+22:57:32	Aquiring location details for LRep RE001
+22:57:32	Returning next ID for Location - LC007
+22:57:32	Aquiring location details for LRep RE001
+22:57:32	Returning next ID for Location - LC007
+22:57:33	Aquiring location details for LRep RE001
+22:57:33	Returning next ID for Location - LC007

@@ -6,7 +6,7 @@
 package Boundary.General;
 
 import Boundary.Main.iWindow;
-import Boundry.Customer.frmTicketPurchase;
+import Boundary.Customer.frmTicketPurchase;
 import Controller.General.ViewShowController;
 import Controller.Main.iMuzaMusic;
 import Entity.Artist;

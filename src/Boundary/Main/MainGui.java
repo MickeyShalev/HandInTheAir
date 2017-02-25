@@ -14,9 +14,9 @@ import Entity.EAuth;
 import Boundary.Agent.frmCreateShow;
 import Boundary.Agent.frmLocationManager;
 import Boundary.Agent.frmManageArtists;
-import Boundary.General.frmViewReport;
-import Boundry.Customer.frmFanArtist;
-import Boundry.LRep.frmEditLocation;
+import Boundary.Reports.frmViewReport;
+import Boundary.Customer.frmFanArtist;
+import Boundary.LRep.frmEditLocation;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.sql.ResultSet;
@@ -437,20 +437,8 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btnManageArtists3MouseClicked
 
     private void btnAddShow5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow5MouseClicked
-//        // TODO add your handling code here:
-//        ResultSet rs = iMuzaMusic.getDB().query("select count(*) from Locations where RepID in(\""+iMuzaMusic.getLoggedUser().getID()+"\")");
-//        Integer num=0;
-//        iMuzaMusic.log("Checking if LRep has a location set up already");
-//        try {
-//            if(rs.next()){
-//                num = rs.getInt(1);
-//                iMuzaMusic.log("Yep! has "+num+" location.");
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(MainGui.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        if(num>0) iWindow.openWin(new frmEditLocation());
-        iWindow.openWin(new frmEditLocation());
+
+        iWindow.openWin(new frmViewReport());
         //else iWindow.openWin(new frmCreateLocation());
     }//GEN-LAST:event_btnAddShow5MouseClicked
 

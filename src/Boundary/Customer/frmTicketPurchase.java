@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Boundry.Customer;
+package Boundary.Customer;
 
 import Boundary.General.frmViewShows;
 import Boundary.Main.iWindow;

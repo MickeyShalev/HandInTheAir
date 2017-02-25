@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Boundary.General;
+package Boundary.Reports;
 
+import Boundary.General.SuccessExport;
 import Controller.Main.iMuzaMusic;
 import Boundary.Main.iWindow;
 import java.awt.event.ItemEvent;
@@ -51,7 +52,7 @@ public class frmViewReport extends javax.swing.JInternalFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        slctYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2016", "2015", "2014"}));
+        slctYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Year", "2017", "2016", "2015", "2014"}));
         slctYear.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 slctYearItemStateChanged(evt);
@@ -89,8 +90,9 @@ public class frmViewReport extends javax.swing.JInternalFrame {
                 Map<String, Object> n = new HashMap<String, Object>();
                 n.put("year",item.toString());
                 iMuzaMusic.log("Sending Report Query with Year: "+n.get("year"));
+                System.err.println("Aquiring report jasper: "+getClass().getResourceAsStream("annualReport.jasper").toString());
                 JasperPrint print = JasperFillManager.fillReport(getClass()
-                        .getResourceAsStream("/ex2design/reports/annualReport.jasper"), 
+                        .getResourceAsStream("annualReport.jasper"), 
                         n, conn);
                 JFrame frame = new JFrame("iMuzaMusic - Annual Report "+n.get("year"));
                 frame.getContentPane().add(new JRViewer(print));
