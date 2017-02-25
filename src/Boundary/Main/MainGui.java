@@ -369,6 +369,9 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         // TODO add your handling code here:
+        iMuzaMusic.log("Exit command identified");
+        iMuzaMusic.log("Exporting XML for iRecord");
+        XMLManager.ExportXML();
         iMuzaMusic.log("Quitting MuzaMusic");
         System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked

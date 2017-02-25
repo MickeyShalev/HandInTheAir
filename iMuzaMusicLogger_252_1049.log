@@ -1,0 +1,17 @@
+=================  iMuzaMusic v1.0 - Sat Feb 25 22:49:16 IST 2017 ==================
+22:49:16	Attempting connection to MS Access DB
+22:49:16	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+22:49:17	Successfully connected to MS Access DB.
+22:49:17	Opening Login Window through iWindow
+22:49:18	Submitted
+22:49:18	User: LR006 Password: admin
+22:49:18	Attempting login using LR006/admin
+22:49:18	Location Represantative logged in
+22:49:18	Initiating main UI
+22:49:18	Aquiring menu for LR006 Auth: Location Representative
+22:49:20	Exit command identified
+22:49:20	Exporting XML for iRecord
+22:49:20	Aquiring stream result
+22:49:20	Transforming result
+22:49:20	Successfully exported HIA-Artist-Sessions.xml file for iRecord System.
+22:49:20	Quitting MuzaMusic

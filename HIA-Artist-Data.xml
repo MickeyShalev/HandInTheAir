@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HandsInAirXML>
+  <DateCreated>Sat Feb 25 22:54:54 IST 2017</DateCreated>
+  <Artist ID="AR002">
+    <ArtistID>AR002</ArtistID>
+    <strStageName>Justin Bieber</strStageName>
+    <strShortBio>Canadian pop singer Justin Bieber was barely into his teens when he released his 2009 debut, My World, and became one of the youngest success stories in contemporary pop when it went either platinum or double platinum in several countries.</strShortBio>
+    <strEmailAddr>bieber@gmail.com</strEmailAddr>
+    <strFaceBook>#https://www.facebook.com/justin.bib#</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>2</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR003">
+    <ArtistID>AR003</ArtistID>
+    <strStageName>Shawn Mendes</strStageName>
+    <strShortBio> pop singer/songwriter who broke records with his debut single, Shawn Mendes was born and raised in Toronto, Canada. After posting a series of his cover versions to various video-sharing sites, Mendes earned himself a dedicated following of viewers.</strShortBio>
+    <strEmailAddr>shawn@gmail.com</strEmailAddr>
+    <strFaceBook>#https://www.facebook.com/shawnm#</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>2</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR004">
+    <ArtistID>AR004</ArtistID>
+    <strStageName>Rihanna</strStageName>
+    <strShortBio>Rihanna established her dance-pop credentials in summer 2005 with her debut smash hit, "Pon de Replay," and continued to demonstrate hit potential in subsequent years ("S.O.S." in 2006; "Umbrella" in 2007; "Disturbia" in 2008).</strShortBio>
+    <strEmailAddr>rihanna@gmail.com</strEmailAddr>
+    <strFaceBook>#https://www.facebook.com/rihanna#</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR005">
+    <ArtistID>AR005</ArtistID>
+    <strStageName>Sia</strStageName>
+    <strShortBio>In a career filled with ups and downs, Sia Furler has been an in-demand guest vocalist; a quirky singer/songwriter; a hitmaker for the likes of Rihanna and Beyoncé, and more popular than ever as an artist in her own right in the 2010s</strShortBio>
+    <strEmailAddr>sia@gmail.com</strEmailAddr>
+    <strFaceBook>#https://www.facebook.com/sia#</strFaceBook>
+    <AgentID>AG005</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR007">
+    <ArtistID>AR007</ArtistID>
+    <strStageName>Pita</strStageName>
+    <strShortBio>was mixed with water and baked for 10 minutes</strShortBio>
+    <strEmailAddr>pita@drozit.com</strEmailAddr>
+    <strFaceBook>#https://www.facebook.com/pita#</strFaceBook>
+    <AgentID>AG002</AgentID>
+    <iStatus>2</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR231">
+    <ArtistID>AR231</ArtistID>
+    <strStageName>Drake</strStageName>
+    <strShortBio>Drake was a cross-platform cultural phenomenon in the 2010s. The songwriter, producer, rapper, and singer sustained a high-level commercial presence shortly after he turned to rapping in 2006, whether on his own chart-topping releases or through a long string of guest appearances on hits by the likes of Lil Wayne, Rihanna, and A$AP Rocky.</strShortBio>
+    <strEmailAddr>drake@gmail.com</strEmailAddr>
+    <strFaceBook>#https://www.facebook.com/drake#</strFaceBook>
+    <AgentID>AG003</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR232">
+    <ArtistID>AR232</ArtistID>
+    <strStageName>Stage Name</strStageName>
+    <strShortBio>test desc
+test</strShortBio>
+    <strEmailAddr>Email@email.com</strEmailAddr>
+    <strFaceBook>facebook.com/url</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR233">
+    <ArtistID>AR233</ArtistID>
+    <strStageName>nints</strStageName>
+    <strShortBio>sadsad
+asd
+asd
+sad
+sa
+d</strShortBio>
+    <strEmailAddr>nist@nist.com</strEmailAddr>
+    <strFaceBook>facebook.com</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR234">
+    <ArtistID>AR234</ArtistID>
+    <strStageName>stgname</strStageName>
+    <strShortBio>asfsafsfas
+fas
+fs
+af
+</strShortBio>
+    <strEmailAddr>asmfs@msaga.com</strEmailAddr>
+    <strFaceBook>facebook.com</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR235">
+    <ArtistID>AR235</ArtistID>
+    <strStageName>nis</strStageName>
+    <strShortBio>asfsafsaf</strShortBio>
+    <strEmailAddr>nis@nis.com</strEmailAddr>
+    <strFaceBook>facebook.com</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR236">
+    <ArtistID>AR236</ArtistID>
+    <strStageName>adsad</strStageName>
+    <strShortBio>test</strShortBio>
+    <strEmailAddr>asdad@asds.com</strEmailAddr>
+    <strFaceBook>facebook.com</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/Boundry/Images/default.png</Signarture>
+  </Artist>
+  <Artist ID="AR237">
+    <ArtistID>AR237</ArtistID>
+    <strStageName>Last</strStageName>
+    <strShortBio>last description for this artist</strShortBio>
+    <strEmailAddr>last@last.com</strEmailAddr>
+    <strFaceBook>facebook.com/last.aspx</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/sources/uploads/AR237.jpg</Signarture>
+  </Artist>
+  <Artist ID="AR238">
+    <ArtistID>AR238</ArtistID>
+    <strStageName>sasgfoasjf</strStageName>
+    <strShortBio>asdasdasdasd</strShortBio>
+    <strEmailAddr>asdiansd@asdasd.com</strEmailAddr>
+    <strFaceBook>facebook.com</strFaceBook>
+    <AgentID>AG001</AgentID>
+    <iStatus>1</iStatus>
+    <Signarture>/sources/uploads/AR238.png</Signarture>
+  </Artist>
+</HandsInAirXML>
