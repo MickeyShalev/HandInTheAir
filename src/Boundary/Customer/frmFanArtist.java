@@ -10,6 +10,7 @@ import Boundary.Agent.*;
 import Boundary.Main.iWindow;
 import Controller.Agent.LocationsController;
 import Controller.Customer.FanController;
+import Controller.Main.FileManager;
 import Controller.Main.iMuzaMusic;
 import Entity.Artist;
 import Entity.Location;
@@ -81,6 +82,7 @@ public class frmFanArtist extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         lblBio = new javax.swing.JLabel();
+        lblAvatar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable(){
             @Override
@@ -115,7 +117,7 @@ public class frmFanArtist extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Please use the below form to fan new artists, or unfan artists you already fan.");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(43, 48, 574, 16);
+        jLabel2.setBounds(43, 48, 574, 14);
 
         slctArtist.setModel(new javax.swing.DefaultComboBoxModel<>());
         slctArtist.addItemListener(new java.awt.event.ItemListener() {
@@ -124,7 +126,7 @@ public class frmFanArtist extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(slctArtist);
-        slctArtist.setBounds(40, 100, 200, 22);
+        slctArtist.setBounds(40, 100, 200, 20);
 
         btnFavorite.setText("Fan");
         btnFavorite.addActionListener(new java.awt.event.ActionListener() {
@@ -142,12 +144,12 @@ public class frmFanArtist extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Artist:");
         pnlLocationDetails.add(jLabel4);
-        jLabel4.setBounds(10, 10, 110, 16);
+        jLabel4.setBounds(10, 10, 110, 14);
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Artist Email:");
         pnlLocationDetails.add(jLabel5);
-        jLabel5.setBounds(10, 30, 110, 16);
+        jLabel5.setBounds(10, 30, 110, 14);
 
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("jLabel5");
@@ -179,12 +181,14 @@ public class frmFanArtist extends javax.swing.JInternalFrame {
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Artist Biography:");
         pnlLocationDetails.add(jLabel17);
-        jLabel17.setBounds(10, 50, 130, 16);
+        jLabel17.setBounds(10, 50, 130, 14);
 
         lblBio.setForeground(new java.awt.Color(255, 255, 255));
         lblBio.setText("jLabel3");
         pnlLocationDetails.add(lblBio);
-        lblBio.setBounds(10, 70, 530, 16);
+        lblBio.setBounds(10, 70, 530, 14);
+        pnlLocationDetails.add(lblAvatar);
+        lblAvatar.setBounds(370, 80, 170, 140);
 
         getContentPane().add(pnlLocationDetails);
         pnlLocationDetails.setBounds(40, 130, 560, 260);
@@ -210,7 +214,7 @@ public class frmFanArtist extends javax.swing.JInternalFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Your favorited places");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(50, 380, 210, 16);
+        jLabel10.setBounds(50, 380, 210, 14);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 3, 10)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -299,7 +303,7 @@ public class frmFanArtist extends javax.swing.JInternalFrame {
         lblName.setText(formArtist.getStageName());
         lblAddress.setText(formArtist.getEmailAddr());
         lblBio.setText(formArtist.getBiography());
-        
+        lblAvatar.setIcon(FileManager.fileToIcon(FileManager.fromBase64(formArtist.getSig())));
         
         iWindow.update();
     }
@@ -326,6 +330,7 @@ public class frmFanArtist extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblBio;
     private javax.swing.JLabel lblName;
     private javax.swing.JPanel pnlLocationDetails;

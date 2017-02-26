@@ -54,7 +54,7 @@ public abstract class FileManager {
      * @return 
      */
     public static File fromBase64(String str) {
-        
+        if(str==null) str="";
         byte arr[] = Base64.getDecoder().decode(str);
         File f = new File(uploadDir+new Date().getTime()+".tmp");
         

@@ -377,7 +377,7 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         errSubmit.setIcon(null);
         lblSubmit.setText("");
         
-        Artist a = new Artist(lblID.getText(), jTextArea1.getText(), tfFirstName.getText(), tfaddr.getText() ,EArtistStatus.Active, tfEmail.getText(), fileChosen);
+        Artist a = new Artist(lblID.getText(), jTextArea1.getText(), tfFirstName.getText(), tfaddr.getText() ,EArtistStatus.Active, tfEmail.getText(), FileManager.toBase64(fileChosen));
         ManageController.createArtist(a);
         iMuzaMusic.Success("You have successfully added artist "+tfFirstName.getText()+".");
         iWindow.update();

@@ -21,8 +21,8 @@ import java.util.logging.Logger;
 public class LoginGui extends javax.swing.JFrame {
 
     public static boolean skipLogin = true;
-    public static String skipID = "AG001";
-    public static String skipPW = "admin";
+    public static String skipID = "CU0123";
+    public static String skipPW = "eg2j0g";
 
     /**
      * Creates new form LoginGui

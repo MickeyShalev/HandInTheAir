@@ -117,7 +117,7 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
 
     public static void createArtist(Artist a) {
         iMuzaMusic.log("Attempting to add Artist "+a.getStageName()+" to DB");
-        String qry = "INSERT INTO Artists VALUES (\""+a.getID()+"\",\""+a.getStageName()+"\",\""+a.getBiography()+"\", \""+a.getEmailAddr()+"\",\""+a.getFbAddr()+"\",\""+iMuzaMusic.getLoggedUser().getID()+"\",1, \""+FileManager.toBase64(a.getSig())+"\")";
+        String qry = "INSERT INTO Artists VALUES (\""+a.getID()+"\",\""+a.getStageName()+"\",\""+a.getBiography()+"\", \""+a.getEmailAddr()+"\",\""+a.getFbAddr()+"\",\""+iMuzaMusic.getLoggedUser().getID()+"\",1, \""+a.getSig()+"\")";
         iMuzaMusic.getDB().updateReturnID(qry);
         
     }

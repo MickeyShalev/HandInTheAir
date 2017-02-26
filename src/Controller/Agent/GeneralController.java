@@ -31,10 +31,8 @@ public abstract class GeneralController {
             String strFaceBook = rs.getString("strFaceBook");
             String AgentID = rs.getString("AgentID");
             iStatus = rs.getString("iStatus");
-            File sig = null;
-            if(rs.getString("sig")!=null)
-                sig = FileManager.fromBase64(rs.getString("sig"));
-           
+            String sig = rs.getString("sig");
+            
             art = new Artist(ArtistID, strBio, strStageName, strFaceBook, EArtistStatus.getStatus(iStatus), strEmailAddr, sig);
             
             

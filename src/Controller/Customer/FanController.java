@@ -43,9 +43,7 @@ public abstract class FanController {
                     String strEmail = rs.getString(4);
                     String strFacebook = rs.getString(5);
                     String strAgent = rs.getString(6);
-                    File sig = null;
-                    if(rs.getString(8)!=null)
-                        sig = FileManager.fromBase64(rs.getString(8));
+                    String sig = rs.getString(8);
                     iMuzaMusic.log("Artist FB: "+rs.getObject(5));
                
                 

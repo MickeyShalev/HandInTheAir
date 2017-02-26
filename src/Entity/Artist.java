@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import Controller.Main.FileManager;
 import java.io.File;
 
 /**
@@ -25,8 +26,9 @@ public class Artist extends Person {
     private String fbAddr = "";
     private EArtistStatus arStatus = null;
     private String emailAddr = "";
-    private File sig = null;
-    public Artist(String ID, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr, File sig) {
+    private String sig = null;
+    
+    public Artist(String ID, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr, String sig) {
         super(ID, stageName, "", EAuth.Artist);
         this.biography = biography;
         this.stageName = stageName;
@@ -43,11 +45,11 @@ public class Artist extends Person {
         }
     }
 
-    public File getSig() {
+    public String getSig() {
         return sig;
     }
 
-    public void setSig(File f) {
+    public void setSig(String sig) {
         this.sig = sig;
     }
 
@@ -83,6 +85,10 @@ public class Artist extends Person {
         this.stageName = stageName;
     }
 
+    public File getAvatar(String sig){
+        return FileManager.fromBase64(sig);
+    }
+    
     @Override
     public String toString() {
         return getStageName();

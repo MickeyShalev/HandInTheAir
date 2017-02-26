@@ -1,0 +1,30 @@
+=================  iMuzaMusic v1.0 - Sun Feb 26 14:08:30 IST 2017 ==================
+14:08:30	Attempting connection to MS Access DB
+14:08:30	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+14:08:32	Successfully connected to MS Access DB.
+14:08:32	Opening Login Window through iWindow
+14:08:33	Submitted
+14:08:33	User: CU0123 Password: eg2j0g
+14:08:33	Attempting login using CU0123/eg2j0g
+14:08:33	test
+14:08:33	Customer logged in
+14:08:33	Initiating main UI
+14:08:33	Aquiring menu for CU0123 Auth: Customer
+14:08:34	Exit command identified
+14:08:34	Exporting XML for iRecord
+14:08:34	Column: ArtistID
+14:08:34	Data: AR002
+14:08:34	Column: strStageName
+14:08:34	Data: Justin Bieber
+14:08:34	Column: strShortBio
+14:08:34	Data: Canadian pop singer Justin Bieber was barely into his teens when he released his 2009 debut, My World, and became one of the youngest success stories in contemporary pop when it went either platinum or double platinum in several countries.
+14:08:34	Column: strEmailAddr
+14:08:34	Data: bieber@gmail.com
+14:08:34	Column: strFaceBook
+14:08:34	Data: #https://www.facebook.com/justin.bib#
+14:08:34	Column: AgentID
+14:08:34	Data: AG001
+14:08:34	Column: iStatus
+14:08:34	Data: 2
+14:08:34	Column: sig
+14:08:34	Data: null

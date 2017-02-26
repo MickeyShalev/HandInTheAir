@@ -91,7 +91,12 @@ public abstract class XMLManager {
                     Integer columnCount = qry.getMetaData().getColumnCount();
                     for(int i=1; i<=columnCount;i++){
                         String columnName = qry.getMetaData().getColumnName(i);
-                        String columnData = qry.getObject(i).toString();
+                        iMuzaMusic.log("Column: "+columnName);
+                        iMuzaMusic.log("Data Type: "+qry.getMetaData().getColumnType(i));
+                        String columnData = "";
+                        if(qry.getObject(i)!=null)
+                            columnData = qry.getObject(i).toString();
+                        
                         Element tmp = doc.createElement(columnName);
                         tmp.appendChild(doc.createTextNode(columnData));
                         artistXML.appendChild(tmp);
