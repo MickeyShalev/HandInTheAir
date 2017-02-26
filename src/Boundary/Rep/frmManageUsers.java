@@ -8,6 +8,7 @@ package Boundary.Rep;
 import Boundary.Main.iWindow;
 import Boundary.Rep.Create.createAgent;
 import Boundary.Rep.Create.createCustomer;
+import Boundary.Rep.Create.createLRep;
 import Boundary.Rep.Create.createRep;
 import Controller.Main.iMuzaMusic;
 
@@ -48,12 +49,12 @@ public class frmManageUsers extends javax.swing.JInternalFrame {
         lblGreeting.setForeground(new java.awt.Color(255, 255, 255));
         lblGreeting.setText("jLabel1");
         getContentPane().add(lblGreeting);
-        lblGreeting.setBounds(20, 20, 570, 14);
+        lblGreeting.setBounds(20, 20, 570, 16);
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Please note that at this version you may only create new users.");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 40, 580, 14);
+        jLabel1.setBounds(20, 40, 580, 16);
 
         btnAgent.setText("Create Agent");
         btnAgent.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +84,11 @@ public class frmManageUsers extends javax.swing.JInternalFrame {
         btnCustomer.setBounds(240, 150, 160, 40);
 
         btnLRep.setText("Create Location Rep");
+        btnLRep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLRepActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLRep);
         btnLRep.setBounds(430, 150, 160, 40);
 
@@ -103,6 +109,11 @@ public class frmManageUsers extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         iWindow.openWin(new createCustomer());
     }//GEN-LAST:event_btnCustomerActionPerformed
+
+    private void btnLRepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLRepActionPerformed
+        // TODO add your handling code here:
+        iWindow.openWin(new createLRep());
+    }//GEN-LAST:event_btnLRepActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

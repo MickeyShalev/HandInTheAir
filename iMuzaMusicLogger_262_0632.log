@@ -1,0 +1,326 @@
+=================  iMuzaMusic v1.0 - Sun Feb 26 18:32:13 IST 2017 ==================
+18:32:13	Attempting connection to MS Access DB
+18:32:13	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+18:32:14	Successfully connected to MS Access DB.
+18:32:14	Opening Login Window through iWindow
+18:32:14	Submitted
+18:32:14	User: RE001 Password: admin
+18:32:14	Attempting login using RE001/admin
+18:32:14	Artist logged in
+18:32:14	Initiating main UI
+18:32:14	Aquiring menu for RE001 Auth: Representative
+18:32:15	DF: 2/26/2017 06:32:15 PM
+18:32:15	TS: 2017-02-26 18:32:15.634 TST: 1488126735634 dd: 2017-02-26 ddt: 1488126735634
+18:32:15	Pulling data for Max_Allowed_Showtime
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Allowed_Showtime")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Location_Commission
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Location_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Show_Approval_Timeout
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Show_Approval_Timeout")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Show_Addon_Commission
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Show_Addon_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Artist_Commission
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Artist_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Birthday_Card
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Birthday_Card")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Max_Addon_Commission
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Addon_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Presale_Discount
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Presale_Discount")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Regular_Tickets_Sale
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Regular_Tickets_Sale")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Max_Presale_Tickets
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Presale_Tickets")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Pulling data for Minimum_Days_Before_Presale
+18:32:15	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Minimum_Days_Before_Presale")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 06:32:15 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+18:32:15	Max_Allowed_Showtime: 3
+18:32:15	Location_Commission: 25
+18:32:15	Show_Approval_Timeout: 8
+18:32:15	Show_Addon_Commission: 15
+18:32:15	Artist_Commission: 17
+18:32:15	Birthday_Card: test
+bday
+18:32:15	Max_Addon_Commission: 13
+18:32:15	Presale_Discount: 15
+18:32:15	Regular_Tickets_Sale: 15
+18:32:15	Max_Presale_Tickets: 5
+18:32:15	Minimum_Days_Before_Presale: 22
+18:32:20	Getting Next ID for Customer
+18:32:20	Current last ID is: Cust012
+18:32:23	Exit command identified
+18:32:23	Exporting XML for iRecord
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Column: ArtistID
+18:32:23	Data Type: 12
+18:32:23	Column: strStageName
+18:32:23	Data Type: 12
+18:32:23	Column: strShortBio
+18:32:23	Data Type: 12
+18:32:23	Column: strEmailAddr
+18:32:23	Data Type: 12
+18:32:23	Column: strFaceBook
+18:32:23	Data Type: 12
+18:32:23	Column: AgentID
+18:32:23	Data Type: 12
+18:32:23	Column: iStatus
+18:32:23	Data Type: 12
+18:32:23	Column: sig
+18:32:23	Data Type: 12
+18:32:23	Aquiring stream result
+18:32:23	Transforming result
+18:32:23	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+18:32:23	Aquiring stream result
+18:32:23	Transforming result
+18:32:23	Successfully exported HIA-Artist-Sessions.xml file for iRecord System.
+18:32:23	Quitting MuzaMusic

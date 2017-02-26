@@ -1,0 +1,94 @@
+=================  iMuzaMusic v1.0 - Sun Feb 26 19:05:25 IST 2017 ==================
+19:05:25	Attempting connection to MS Access DB
+19:05:25	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+19:05:26	Successfully connected to MS Access DB.
+19:05:26	Opening Login Window through iWindow
+19:05:26	Submitted
+19:05:26	User: RE001 Password: admin
+19:05:26	Attempting login using RE001/admin
+19:05:26	Artist logged in
+19:05:26	Initiating main UI
+19:05:26	Aquiring menu for RE001 Auth: Representative
+19:05:27	DF: 2/26/2017 07:05:27 PM
+19:05:27	TS: 2017-02-26 19:05:27.586 TST: 1488128727586 dd: 2017-02-26 ddt: 1488128727586
+19:05:27	Pulling data for Max_Allowed_Showtime
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Allowed_Showtime")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Location_Commission
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Location_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Show_Approval_Timeout
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Show_Approval_Timeout")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Show_Addon_Commission
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Show_Addon_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Artist_Commission
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Artist_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Birthday_Card
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Birthday_Card")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Max_Addon_Commission
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Addon_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Presale_Discount
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Presale_Discount")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Regular_Tickets_Sale
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Regular_Tickets_Sale")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Max_Presale_Tickets
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Presale_Tickets")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Pulling data for Minimum_Days_Before_Presale
+19:05:27	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Minimum_Days_Before_Presale")) AND (LAST(GlobalSettings.dateUpdated<=#2/26/2017 07:05:27 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+19:05:27	Max_Allowed_Showtime: 3
+19:05:27	Location_Commission: 25
+19:05:27	Show_Approval_Timeout: 8
+19:05:27	Show_Addon_Commission: 15
+19:05:27	Artist_Commission: 17
+19:05:27	Birthday_Card: test
+bday
+19:05:27	Max_Addon_Commission: 13
+19:05:27	Presale_Discount: 15
+19:05:27	Regular_Tickets_Sale: 15
+19:05:27	Max_Presale_Tickets: 5
+19:05:27	Minimum_Days_Before_Presale: 22
+19:05:29	Getting Next ID for Location Representative
+19:05:29	Current last ID is: LR008
+19:05:29	Returning next ID for Location_Representative - LR009

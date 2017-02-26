@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Controller.Main.FileManager;
+import Entity.LRep;
 
 /**
  *
@@ -105,6 +106,11 @@ public abstract class createManager {
         String qry = "INSERT INTO Customers (ClientID, strFirstName, strLastName, strNickname, strEmail, BirthDate, strPasswd, avatar) VALUES (\""+cust.getID()+"\",\""+cust.getFirstName()+"\",\""+cust.getLastName()+"\",\""+cust.getNickName()+"\",\""+cust.getEmail()+"\",\""+ts+"\",\""+cust.getPassword()+"\",\""+avatar+"\")";
         iMuzaMusic.getDB().updateReturnID(qry);
         
-        
+    }
+    
+    public static void create(LRep rep){
+        Timestamp ts = new Timestamp(rep.getBirthDate().getTime()); 
+        String qry = "INSERT INTO LReps (LRepID, FirstName, LastName, Email, birthDate, PhoneNumber, strPasswd) VALUES (\""+rep.getID()+"\",\""+rep.getFirstName()+"\",\""+rep.getLastName()+"\",\""+rep.getEmail()+"\",\""+ts+"\",\""+rep.getPhoneNumber()+"\",\""+rep.getPassword()+"\")";
+        iMuzaMusic.getDB().updateReturnID(qry);
     }
 }
