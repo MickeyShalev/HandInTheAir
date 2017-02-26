@@ -17,6 +17,7 @@ import Boundary.Agent.frmManageArtists;
 import Boundary.Rep.frmViewReport;
 import Boundary.Customer.frmFanArtist;
 import Boundary.LRep.frmEditLocation;
+import Boundary.Rep.frmEditSettings;
 import Boundary.Rep.frmManageUsers;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -448,6 +449,7 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnManageArtists3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageArtists3MouseClicked
         // TODO add your handling code here:
+        iWindow.openWin(new frmEditSettings());
     }//GEN-LAST:event_btnManageArtists3MouseClicked
 
     private void btnAddShow5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow5MouseClicked
