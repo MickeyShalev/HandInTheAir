@@ -110,7 +110,7 @@ public class createAgent extends javax.swing.JInternalFrame {
 
         lblerrFirstName.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrFirstName);
-        lblerrFirstName.setBounds(280, 70, 300, 20);
+        lblerrFirstName.setBounds(300, 70, 300, 20);
 
         xIcon.setVisible(false);
         xIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/x.png"))); // NOI18N
@@ -142,7 +142,7 @@ public class createAgent extends javax.swing.JInternalFrame {
 
         lblerrLastName.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrLastName);
-        lblerrLastName.setBounds(280, 90, 310, 20);
+        lblerrLastName.setBounds(300, 90, 310, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,7 +156,7 @@ public class createAgent extends javax.swing.JInternalFrame {
 
         lblerrPassword.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrPassword);
-        lblerrPassword.setBounds(280, 110, 370, 20);
+        lblerrPassword.setBounds(300, 110, 370, 20);
 
         jButton1.setText("Create Agent");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +195,7 @@ public class createAgent extends javax.swing.JInternalFrame {
 
         lblerrEmail.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrEmail);
-        lblerrEmail.setBounds(280, 130, 370, 20);
+        lblerrEmail.setBounds(300, 130, 370, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -365,7 +365,6 @@ public class createAgent extends javax.swing.JInternalFrame {
     private void fldPhoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldPhoneFocusLost
                 // TODO add your handling code here:
         if(fldPhone.getText().length()==0){
-            fldPhone.setText("Enter Phone Number");
             lblerrPhone.setText("Please enter Phone Number");
         }
         try{
