@@ -6,6 +6,7 @@
 package Controller.Agent;
 
 import Boundary.Agent.frmManageArtists;
+import Controller.Main.FileManager;
 import Controller.Main.iMuzaMusic;
 import Entity.Agent;
 import Entity.Artist;
@@ -116,7 +117,7 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
 
     public static void createArtist(Artist a) {
         iMuzaMusic.log("Attempting to add Artist "+a.getStageName()+" to DB");
-        String qry = "INSERT INTO Artists VALUES (\""+a.getID()+"\",\""+a.getStageName()+"\",\""+a.getBiography()+"\", \""+a.getEmailAddr()+"\",\""+a.getFbAddr()+"\",\""+iMuzaMusic.getLoggedUser().getID()+"\",1, \""+a.getIconPath()+"\")";
+        String qry = "INSERT INTO Artists VALUES (\""+a.getID()+"\",\""+a.getStageName()+"\",\""+a.getBiography()+"\", \""+a.getEmailAddr()+"\",\""+a.getFbAddr()+"\",\""+iMuzaMusic.getLoggedUser().getID()+"\",1, \""+FileManager.toBase64(a.getSig())+"\")";
         iMuzaMusic.getDB().updateReturnID(qry);
         
     }

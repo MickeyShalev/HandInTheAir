@@ -6,12 +6,16 @@
 package Controller.Rep;
 
 import Controller.Main.iMuzaMusic;
+import Entity.Agent;
+import Entity.Customer;
 import Entity.EAuth;
 import Entity.Rep;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Controller.Main.FileManager;
 
 /**
  *
@@ -23,28 +27,34 @@ public abstract class createManager {
         String prefix = "";
         String tblName = "";
         String clmName = "";
+        iMuzaMusic.log("Getting Next ID for "+e.toString());
         
         switch(e){
             case Customer:
-                prefix = "Cust";
+                prefix = "CU";
                 tblName = "Customers";
                 clmName = "ClientID";
+                break;
             case Artist:
                 prefix = "AR";
                 tblName = "Artists";
                 clmName = "ArtistID";
+                break;
             case Location_Representative:
                 prefix = "LR";
                 tblName = "LReps";
                 clmName = "LRepID";
+                break;
             case Agent:
                 prefix = "AG";
                 tblName = "Agents";
                 clmName = "AgentID";
+                break;
             case Representative:
                 prefix = "RE";
                 tblName = "Reps";
                 clmName = "RepID";
+                break;
 
         }
         
@@ -80,5 +90,21 @@ public abstract class createManager {
     public static void create(Rep rep) {
         String qry = "INSERT INTO Reps (RepID, stRPasswd, FirstName, LastName) values (\""+rep.getID()+"\", \""+rep.getPassword()+"\",\""+rep.getFirstName()+"\",\""+rep.getLastName()+"\")";
         iMuzaMusic.getDB().updateReturnID(qry);
+    }
+    
+    public static void create(Agent ag) {
+        Timestamp ts = new Timestamp(ag.getBirthDate().getTime());
+
+        String qry = "INSERT INTO Agents (AgentID, FirstName, LastName, strEmail, BirthDate, PhoneNumber, strPasswd) VALUES (\""+ag.getID()+"\",\""+ag.getFirstName()+"\",\""+ag.getLastName()+"\",\""+ag.getEmail()+"\",\""+ts+"\",\""+ag.getPhoneNumber()+"\",\""+ag.getPassword()+"\")";
+        iMuzaMusic.getDB().updateReturnID(qry);
+    }
+    
+    public static void create(Customer cust){
+        Timestamp ts = new Timestamp(cust.getBirthDate().getTime());
+        String avatar = FileManager.toBase64(cust.getAvatar());
+        String qry = "INSERT INTO Customers (ClientID, strFirstName, strLastName, strNickname, strEmail, BirthDate, strPasswd, avatar) VALUES (\""+cust.getID()+"\",\""+cust.getFirstName()+"\",\""+cust.getLastName()+"\",\""+cust.getNickName()+"\",\""+cust.getEmail()+"\",\""+ts+"\",\""+cust.getPassword()+"\",\""+avatar+"\")";
+        iMuzaMusic.getDB().updateReturnID(qry);
+        
+        
     }
 }

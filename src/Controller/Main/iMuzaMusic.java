@@ -32,6 +32,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
@@ -58,8 +59,8 @@ public class iMuzaMusic {
             SimpleDateFormat sdfDate = new SimpleDateFormat("ddM_hhmm");
             Date now = new Date();
             String strDate = sdfDate.format(now);
-            
-            logWriter = new PrintStream(new File(fileName+"_"+strDate+".log"));
+
+            logWriter = new PrintStream(new File(fileName + "_" + strDate + ".log"));
             //System.setErr(logWriter);
             //System.setOut(logWriter);
             logWriter.print("=================  iMuzaMusic v1.0 - " + new Date() + " ==================" + System.getProperty("line.separator"));
@@ -138,7 +139,15 @@ public class iMuzaMusic {
                 String ID = tmp.getString("ClientID");
                 String strFirstName = tmp.getString("strFirstName");
                 String strLastName = tmp.getString("strLastName");
-                Person p = new Customer(ID, strFirstName, strLastName, pass, EAuth.Customer);
+                Date birthDate = tmp.getDate("BirthDate");
+                String nickName = tmp.getString("strNickname");
+                File avatar = null;
+                if (tmp.getString("avatar") != null) 
+                    avatar = FileManager.fromBase64(tmp.getString("avatar"));
+                
+                String email = tmp.getString("strEmail");
+
+                Person p = new Customer(ID, strFirstName, strLastName, pass, EAuth.Customer, birthDate, nickName, avatar, email);
                 loggedUser = p;
                 log("Customer logged in");
                 return true;
@@ -193,8 +202,6 @@ public class iMuzaMusic {
 
     }
 
-
-
     /**
      * This method generates an annual report given a specified year
      *
@@ -220,7 +227,7 @@ public class iMuzaMusic {
          * SuccessExport(); iWindow.openWin(t); } catch (SQLException |
          * JRException | NullPointerException e) { e.printStackTrace(); } }
          * catch (ClassNotFoundException e) { e.printStackTrace(); }
-        *
+         *
          */
     }
 
@@ -230,9 +237,11 @@ public class iMuzaMusic {
 
         return getDB().query(qry);
     }
-    public static void closeProgram(){
-        
+
+    public static void closeProgram() {
+
     }
+
     public static ResultSet getLocationsByAgent(String AgentID) {
         String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n"
                 + "FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n"
@@ -246,40 +255,39 @@ public class iMuzaMusic {
         return iMuzaMusic.getDB().query(qry);
     }
 
-    
-    public static void OpenURI(String link){
+    public static void OpenURI(String link) {
         URI uri = null;
-        System.err.println("Before: "+link);
-        if(link.charAt(0)=='#'){
+        System.err.println("Before: " + link);
+        if (link.charAt(0) == '#') {
             System.err.println("Subbing..");
             link = link.substring(1);
         }
-        System.err.println("After: "+link);
-         try {
-             
-      URL url = new URL(link);
-      String nullFragment = null;
-      uri = new URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), nullFragment);
-      iMuzaMusic.log("Opening URL: " + uri.toString() + " OK!");
-    } catch (MalformedURLException e) {
-      iMuzaMusic.log("URL " + link + " is a malformed URL");
-    } catch (URISyntaxException e) {
-      iMuzaMusic.log("URI " + link + " is a malformed URL");
-    }
-         
+        System.err.println("After: " + link);
+        try {
+
+            URL url = new URL(link);
+            String nullFragment = null;
+            uri = new URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), nullFragment);
+            iMuzaMusic.log("Opening URL: " + uri.toString() + " OK!");
+        } catch (MalformedURLException e) {
+            iMuzaMusic.log("URL " + link + " is a malformed URL");
+        } catch (URISyntaxException e) {
+            iMuzaMusic.log("URI " + link + " is a malformed URL");
+        }
+
         if (Desktop.isDesktopSupported()) {
-      
+
             try {
                 Desktop.getDesktop().browse(uri);
             } catch (IOException ex) {
                 Logger.getLogger(iMuzaMusic.class.getName()).log(Level.SEVERE, null, ex);
             }
-     
+
+        }
+
     }
-    
-}
-    
-    public static void Success(String var){
+
+    public static void Success(String var) {
         iWindow.openWin(new frmSuccess(var));
     }
 }

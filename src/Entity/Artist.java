@@ -5,6 +5,8 @@
  */
 package Entity;
 
+import java.io.File;
+
 /**
  *
  * @author Administrator
@@ -23,15 +25,15 @@ public class Artist extends Person {
     private String fbAddr = "";
     private EArtistStatus arStatus = null;
     private String emailAddr = "";
-    private String iconPath = "";
-    public Artist(String ID, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr, String iconPath) {
+    private File sig = null;
+    public Artist(String ID, String biography, String stageName, String fbAddr, EArtistStatus arStatus, String emailAddr, File sig) {
         super(ID, stageName, "", EAuth.Artist);
         this.biography = biography;
         this.stageName = stageName;
         this.fbAddr = fbAddr;
         this.arStatus = arStatus;
         this.emailAddr = emailAddr;
-        this.iconPath = iconPath;
+        this.sig = sig;
     }
 
     public Artist(String ID) {
@@ -41,12 +43,12 @@ public class Artist extends Person {
         }
     }
 
-    public String getIconPath() {
-        return iconPath;
+    public File getSig() {
+        return sig;
     }
 
-    public void setIconPath(String iconPath) {
-        this.iconPath = iconPath;
+    public void setSig(File f) {
+        this.sig = sig;
     }
 
     public String getFbAddr() {

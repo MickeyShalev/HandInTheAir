@@ -5,9 +5,11 @@
  */
 package Controller.Agent;
 
+import Controller.Main.FileManager;
 import Controller.Main.iMuzaMusic;
 import Entity.Artist;
 import Entity.EArtistStatus;
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -29,9 +31,11 @@ public abstract class GeneralController {
             String strFaceBook = rs.getString("strFaceBook");
             String AgentID = rs.getString("AgentID");
             iStatus = rs.getString("iStatus");
-            String iconPath = rs.getString("Signarture");
+            File sig = null;
+            if(rs.getString("sig")!=null)
+                sig = FileManager.fromBase64(rs.getString("sig"));
            
-            art = new Artist(ArtistID, strBio, strStageName, strFaceBook, EArtistStatus.getStatus(iStatus), strEmailAddr, iconPath);
+            art = new Artist(ArtistID, strBio, strStageName, strFaceBook, EArtistStatus.getStatus(iStatus), strEmailAddr, sig);
             
             
             

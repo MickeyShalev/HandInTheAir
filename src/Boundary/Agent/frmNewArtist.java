@@ -20,6 +20,10 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import Controller.Main.FileManager;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -27,6 +31,7 @@ import javax.swing.JFileChooser;
  */
 public class frmNewArtist extends javax.swing.JInternalFrame {
     String iconPath = "";
+    File fileChosen = null;
     /**
      * Creates new form frmNewArtist
      */
@@ -69,7 +74,6 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         lblPath = new javax.swing.JLabel();
         errFile = new javax.swing.JLabel();
-        imgDisplay = new javax.swing.JLabel();
         vIcon = new javax.swing.JLabel();
         xIcon = new javax.swing.JLabel();
         lblGreeting = new javax.swing.JLabel();
@@ -202,7 +206,6 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         lblPath.setForeground(new java.awt.Color(255, 255, 255));
         pnlAdd.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 570, 20));
         pnlAdd.add(errFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 30, 20));
-        pnlAdd.add(imgDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 190, 120));
 
         getContentPane().add(pnlAdd);
         pnlAdd.setBounds(10, 40, 780, 390);
@@ -220,7 +223,7 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         lblGreeting.setForeground(new java.awt.Color(255, 255, 255));
         lblGreeting.setText("greetingtext");
         getContentPane().add(lblGreeting);
-        lblGreeting.setBounds(20, 10, 700, 16);
+        lblGreeting.setBounds(20, 10, 700, 14);
 
         jButton2.setText("Add Artist");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +232,7 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(20, 460, 100, 25);
+        jButton2.setBounds(20, 460, 100, 23);
         getContentPane().add(errSubmit);
         errSubmit.setBounds(130, 456, 40, 30);
 
@@ -333,29 +336,14 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
         File f = chooser.getSelectedFile();
-        try {
-            long size = Files.size(f.toPath()) / 1000;
-            if(size>2048){
-                errFile.setIcon(xIcon.getIcon());
-                lblPath.setText("Sorry, but it seems like you are trying to upload a large file.");
-                iWindow.update();
-                return;
-            }
-            iMuzaMusic.log("Attempting to upload file size: "+(Files.size(f.toPath())) / 1000+"KB" );
-          
-        } catch (IOException ex) {
-            Logger.getLogger(frmNewArtist.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        String path = f.getAbsolutePath();
-        lblPath.setText(path);
-        
+
         String extension = "";
 
-        int i = path.lastIndexOf('.');
-        int p = Math.max(path.lastIndexOf('/'), path.lastIndexOf('\\'));
+        int i = f.getAbsolutePath().lastIndexOf('.');
+        int p = Math.max(f.getAbsolutePath().lastIndexOf('/'), f.getAbsolutePath().lastIndexOf('\\'));
 
         if (i > p) {
-            extension = path.substring(i+1);
+            extension = f.getAbsolutePath().substring(i+1);
         }
         
         if(!extension.contains("png") && !extension.contains("jpg") && !extension.contains("gif") && !extension.contains("bmp") && !extension.contains("jpeg")){
@@ -365,32 +353,9 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
             return;
         }
         
-        
-        //Try creating the file
-        File uploads = new File("./src/sources/uploads");
-        iMuzaMusic.log("Upload dir: "+uploads.getAbsolutePath());
-        File tmp = new File(uploads, lblID.getText()+"."+extension);
-        iMuzaMusic.log("Tmp file: "+tmp.getAbsolutePath());
-        
-        try {
-           Files.copy(f.toPath(), tmp.toPath(), REPLACE_EXISTING);
-           errFile.setIcon(vIcon.getIcon());
-           lblPath.setText("Signarture successfully saved.");
-        } catch (IOException ex) {
-            Logger.getLogger(frmNewArtist.class.getName()).log(Level.SEVERE, null, ex);
-            errFile.setIcon(xIcon.getIcon());
-            lblPath.setText("Failed to save file.");
-        }
-        iMuzaMusic.log("Finished uploading. Short path: "+tmp.toPath());
-        String shortIconPath = tmp.toPath().toString().replace("\\", "/").replace("/src", "");
-        shortIconPath = shortIconPath.substring(1);
-        iMuzaMusic.log("Short Icon Path: "+shortIconPath);
-        this.iconPath = shortIconPath;
-        try{
-        imgDisplay.setIcon(new javax.swing.ImageIcon(getClass().getResource(shortIconPath))); // NOI18N
-        } catch(Exception e){
-            imgDisplay.setVisible(false);
-        }
+        errFile.setIcon(vIcon.getIcon());
+        lblPath.setText("Signarture successfully saved.");
+        fileChosen = f;
         iWindow.update();
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -398,11 +363,11 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         //Attempt to add an artist
-        if(!lblPath.getText().equals("Signarture successfully saved.") || lblNameError.getText().length()>0 || lblMailError.getText().length()>0 || lblAddrError.getText().length()>0 || lblPhoneError.getText().length()>0){
+        if(fileChosen==null || !lblPath.getText().equals("Signarture successfully saved.") || lblNameError.getText().length()>0 || lblMailError.getText().length()>0 || lblAddrError.getText().length()>0 || lblPhoneError.getText().length()>0){
             errSubmit.setIcon(xIcon.getIcon());
             lblSubmit.setText("Please fill all the fields before submitting.");
             
-            if(this.iconPath.length()==0){
+            if(fileChosen==null){
                 errFile.setIcon(xIcon.getIcon());
                 lblPath.setText("Please submit a signarture file.");
             }
@@ -412,7 +377,7 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
         errSubmit.setIcon(null);
         lblSubmit.setText("");
         
-        Artist a = new Artist(lblID.getText(), jTextArea1.getText(), tfFirstName.getText(), tfaddr.getText() ,EArtistStatus.Active, tfEmail.getText(), this.iconPath);
+        Artist a = new Artist(lblID.getText(), jTextArea1.getText(), tfFirstName.getText(), tfaddr.getText() ,EArtistStatus.Active, tfEmail.getText(), fileChosen);
         ManageController.createArtist(a);
         iMuzaMusic.Success("You have successfully added artist "+tfFirstName.getText()+".");
         iWindow.update();
@@ -422,7 +387,6 @@ public class frmNewArtist extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel errFile;
     private javax.swing.JLabel errSubmit;
-    private javax.swing.JLabel imgDisplay;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;

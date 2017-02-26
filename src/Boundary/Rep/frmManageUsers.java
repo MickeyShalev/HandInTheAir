@@ -6,6 +6,8 @@
 package Boundary.Rep;
 
 import Boundary.Main.iWindow;
+import Boundary.Rep.Create.createAgent;
+import Boundary.Rep.Create.createCustomer;
 import Boundary.Rep.Create.createRep;
 import Controller.Main.iMuzaMusic;
 
@@ -54,6 +56,11 @@ public class frmManageUsers extends javax.swing.JInternalFrame {
         jLabel1.setBounds(20, 40, 580, 14);
 
         btnAgent.setText("Create Agent");
+        btnAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgentActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAgent);
         btnAgent.setBounds(620, 150, 160, 40);
 
@@ -67,6 +74,11 @@ public class frmManageUsers extends javax.swing.JInternalFrame {
         btnRep.setBounds(50, 150, 160, 40);
 
         btnCustomer.setText("Create Customer");
+        btnCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomerActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCustomer);
         btnCustomer.setBounds(240, 150, 160, 40);
 
@@ -81,6 +93,16 @@ public class frmManageUsers extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         iWindow.openWin(new createRep());
     }//GEN-LAST:event_btnRepActionPerformed
+
+    private void btnAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentActionPerformed
+        // TODO add your handling code here:
+        iWindow.openWin(new createAgent());
+    }//GEN-LAST:event_btnAgentActionPerformed
+
+    private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
+        // TODO add your handling code here:
+        iWindow.openWin(new createCustomer());
+    }//GEN-LAST:event_btnCustomerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
