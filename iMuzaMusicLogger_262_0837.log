@@ -1,0 +1,40 @@
+=================  iMuzaMusic v1.0 - Sun Feb 26 08:37:31 IST 2017 ==================
+08:37:31	Attempting connection to MS Access DB
+08:37:31	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+08:37:34	Successfully connected to MS Access DB.
+08:37:34	Opening Login Window through iWindow
+08:37:34	Submitted
+08:37:34	User: RE001 Password: admin
+08:37:34	Attempting login using RE001/admin
+08:37:35	Artist logged in
+08:37:35	Initiating main UI
+08:37:36	Aquiring menu for RE001 Auth: Representative
+08:37:37	Current last ID is: RE006
+08:37:37	Returning next ID for Representative - RE007
+08:37:42	Sending UPDATE Query: INSERT INTO Reps (RepID, stRPasswd, FirstName, LastName) values ("RE007", "newrep","New","Rep")
+08:37:58	Logging out..
+08:37:58	Successfully logged out
+08:37:58	Submitted
+08:37:58	User: RE001 Password: admin
+08:37:58	Attempting login using RE001/admin
+08:37:58	Artist logged in
+08:37:58	Initiating main UI
+08:37:58	Aquiring menu for RE001 Auth: Representative
+08:37:58	Activating login screen
+08:38:03	Submitted
+08:38:03	User: RE007 Password: newrep
+08:38:03	Attempting login using RE007/newrep
+08:38:03	Artist logged in
+08:38:03	Initiating main UI
+08:38:03	Aquiring menu for RE007 Auth: Representative
+08:38:05	Current last ID is: RE007
+08:38:05	Returning next ID for Representative - RE008
+08:38:11	Exit command identified
+08:38:11	Exporting XML for iRecord
+08:38:11	Aquiring stream result
+08:38:11	Transforming result
+08:38:11	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+08:38:11	Aquiring stream result
+08:38:11	Transforming result
+08:38:11	Successfully exported HIA-Artist-Sessions.xml file for iRecord System.
+08:38:11	Quitting MuzaMusic

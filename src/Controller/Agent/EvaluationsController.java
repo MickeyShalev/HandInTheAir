@@ -24,7 +24,7 @@ public abstract class EvaluationsController{
     public static void getEvaluatedArtist(Artist artist, List<Artist> list1, List<Artist> list2){
         
         iMuzaMusic.log("Getting unevaluated and evaluated artists for artist "+artist.getID());
-        ResultSet rs = DBManager.query("SELECT Artists.*, Artists.ArtistID\n" +
+        ResultSet rs = iMuzaMusic.getDB().query("SELECT Artists.*, Artists.ArtistID\n" +
 "FROM Artists\n" +
 "WHERE (((Artists.ArtistID) Not In (\"AR002\")))");
         try {
@@ -39,7 +39,7 @@ public abstract class EvaluationsController{
             Logger.getLogger(EvaluationsController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        rs = DBManager.query("SELECT Artists.*\n" +
+        rs = iMuzaMusic.getDB().query("SELECT Artists.*\n" +
 "FROM Artists INNER JOIN ArtistLikes ON Artists.ArtistID = ArtistLikes.LikeID\n" +
 "WHERE (((ArtistLikes.ArtistID) In (\""+artist.getID()+"\")) AND ((ArtistLikes.LikeID)=[Artists].[ArtistID]));");
         try {

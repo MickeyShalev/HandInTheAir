@@ -93,7 +93,7 @@ public class iMuzaMusic {
     /**
      * Initiates a DB Connection
      */
-    public void init() {
+    public static void init() {
         try {
             log("Attempting connection to MS Access DB");
             DB = new DBManager();
@@ -230,7 +230,9 @@ public class iMuzaMusic {
 
         return getDB().query(qry);
     }
-
+    public static void closeProgram(){
+        
+    }
     public static ResultSet getLocationsByAgent(String AgentID) {
         String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n"
                 + "FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n"

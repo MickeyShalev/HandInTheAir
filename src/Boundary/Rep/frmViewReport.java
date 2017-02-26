@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Boundary.Reports;
+package Boundary.Rep;
 
 import Boundary.General.SuccessExport;
 import Controller.Main.iMuzaMusic;
@@ -99,6 +99,7 @@ public class frmViewReport extends javax.swing.JInternalFrame {
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.pack();
                 frame.setVisible(true);
+                conn.close();
                 n.clear();
                 dispose();
                 SuccessExport t = new SuccessExport();

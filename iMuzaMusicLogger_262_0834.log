@@ -1,0 +1,13 @@
+=================  iMuzaMusic v1.0 - Sun Feb 26 08:34:01 IST 2017 ==================
+08:34:01	Attempting connection to MS Access DB
+08:34:01	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+08:34:03	Successfully connected to MS Access DB.
+08:34:03	Opening Login Window through iWindow
+08:34:03	Submitted
+08:34:03	User: RE001 Password: admin
+08:34:03	Attempting login using RE001/admin
+08:34:03	Artist logged in
+08:34:03	Initiating main UI
+08:34:03	Aquiring menu for RE001 Auth: Representative
+08:34:06	Current last ID is: RE006
+08:34:06	Returning next ID for Representative - RE007

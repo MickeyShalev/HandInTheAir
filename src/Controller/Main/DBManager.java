@@ -26,11 +26,12 @@ public class DBManager {
         String driver="net.ucanaccess.jdbc.UcanaccessDriver"; 
         Class.forName(driver); 
         try{
-        conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);    
+        this.conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile); 
+        
         }
         catch(Exception e){
             dbFile = (new File("src/sources/MM_DB.accdb")).getAbsolutePath();
-            conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);
+            this.conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);
 
         } 
         
@@ -49,21 +50,7 @@ public class DBManager {
             
         } catch (SQLException ex) {
             Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
-            if(ex instanceof UcanaccessSQLException){
-                try {
-                    //Try to create new db
-                    iMuzaMusic.log("DB Error, possibly closed by jasper reports?");
-                    iMuzaMusic.log("Recreating connection");
-                    DBManager newDB = new DBManager();
-                    iMuzaMusic.setDB(newDB);
-                    newDB.query(SQL);
-                } catch (ClassNotFoundException ex1) {
-                    Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex1);
-                } catch (SQLException ex1) {
-                    Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex1);
-                }
-                
-            }
+            
         }
         return result;
     }
@@ -75,11 +62,11 @@ public class DBManager {
      * @return
      * @throws SQLException 
      */
-    public void updateReturnID(String SQL){
+    public static void updateReturnID(String SQL){
 
         iMuzaMusic.log("Sending UPDATE Query: "+SQL);
         try {
-            Statement stmt=conn.createStatement();
+            Statement stmt= conn.createStatement();
             stmt.executeUpdate(SQL, Statement.RETURN_GENERATED_KEYS);
             ResultSet result = stmt.getGeneratedKeys();
             if(result.next()){
@@ -112,17 +99,18 @@ public class DBManager {
             return false;
     }
 
-    public static Connection getConn() {
-        return conn;
+    public Connection getConn() {
+        return this.conn;
     }
 
-    public static void setConn(Connection conn) {
-        DBManager.conn = conn;
+    public void setConn(Connection conn) {
+        this.conn = conn;
     }
     public Connection getConnection(){
         return conn;
     }
     
+
 }
 
 

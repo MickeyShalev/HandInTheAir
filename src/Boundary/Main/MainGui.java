@@ -14,9 +14,10 @@ import Entity.EAuth;
 import Boundary.Agent.frmCreateShow;
 import Boundary.Agent.frmLocationManager;
 import Boundary.Agent.frmManageArtists;
-import Boundary.Reports.frmViewReport;
+import Boundary.Rep.frmViewReport;
 import Boundary.Customer.frmFanArtist;
 import Boundary.LRep.frmEditLocation;
+import Boundary.Rep.frmManageUsers;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.sql.ResultSet;
@@ -62,6 +63,7 @@ public class MainGui extends javax.swing.JFrame {
         pnlRep = new javax.swing.JPanel();
         btnManageArtists3 = new javax.swing.JLabel();
         btnAddShow5 = new javax.swing.JLabel();
+        btnAddShow6 = new javax.swing.JLabel();
         pnlLRep = new javax.swing.JPanel();
         btnManageArtists2 = new javax.swing.JLabel();
         btnAddShow4 = new javax.swing.JLabel();
@@ -140,6 +142,15 @@ public class MainGui extends javax.swing.JFrame {
             }
         });
 
+        btnAddShow6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnAddShow6.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddShow6.setText("Manage Users");
+        btnAddShow6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddShow6MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlRepLayout = new javax.swing.GroupLayout(pnlRep);
         pnlRep.setLayout(pnlRepLayout);
         pnlRepLayout.setHorizontalGroup(
@@ -148,7 +159,8 @@ public class MainGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlRepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddShow5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageArtists3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnManageArtists3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddShow6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlRepLayout.setVerticalGroup(
@@ -158,7 +170,9 @@ public class MainGui extends javax.swing.JFrame {
                 .addComponent(btnManageArtists3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddShow5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAddShow6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlRep, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
@@ -442,6 +456,11 @@ public class MainGui extends javax.swing.JFrame {
         //else iWindow.openWin(new frmCreateLocation());
     }//GEN-LAST:event_btnAddShow5MouseClicked
 
+    private void btnAddShow6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow6MouseClicked
+        // TODO add your handling code here:
+        iWindow.openWin(new frmManageUsers());
+    }//GEN-LAST:event_btnAddShow6MouseClicked
+
 
     public void refreshVars() {
         lblTitle.setText("Homepage");
@@ -477,6 +496,7 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JLabel btnAddShow3;
     private javax.swing.JLabel btnAddShow4;
     private javax.swing.JLabel btnAddShow5;
+    private javax.swing.JLabel btnAddShow6;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;

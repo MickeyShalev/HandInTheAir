@@ -1,0 +1,14 @@
+=================  iMuzaMusic v1.0 - Sun Feb 26 07:31:21 IST 2017 ==================
+07:31:21	Attempting connection to MS Access DB
+07:31:21	DB File: C:\Users\Administrator\Documents\NetBeansProjects2\HandsInAir\sources\MM_DB.accdb
+07:31:23	Successfully connected to MS Access DB.
+07:31:23	Opening Login Window through iWindow
+07:31:23	Submitted
+07:31:23	User: RE001 Password: admin
+07:31:23	Attempting login using RE001/admin
+07:31:23	Artist logged in
+07:31:23	Initiating main UI
+07:31:24	Aquiring menu for RE001 Auth: Representative
+07:31:26	Sending Report Query with Year: 2016
+07:31:30	Exit command identified
+07:31:30	Exporting XML for iRecord
