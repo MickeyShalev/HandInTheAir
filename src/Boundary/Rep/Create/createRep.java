@@ -220,11 +220,11 @@ public class createRep extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(lblerrFirstName.getText().length()>0 ||
-                lblerrLastName.getText().length()>0 ||
-                    lblerrPassword.getText().length()>0){
+        if(!errFirstName.getIcon().equals(vIcon.getIcon()) ||
+                !errLastName.getIcon().equals(vIcon.getIcon()) ||
+                    !errPassword.getIcon().equals(vIcon.getIcon())){
             errSubmit.setIcon(xIcon.getIcon());
-            lblerrSubmit.setText("Please fix the errors before proceeding.");
+            lblerrSubmit.setText("Please fill all the fields and fix the errors before proceeding.");
         } else{
             iMuzaMusic.Success("Representative #"+lblRepID.getText()+" has been successfully created.");
             Controller.Rep.createManager.create(new Rep(lblRepID.getText(), fldFirstName.getText(), fldLastName.getText(), fldPassword.getText(), EAuth.Representative));
