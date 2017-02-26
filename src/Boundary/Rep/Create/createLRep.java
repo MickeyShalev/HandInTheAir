@@ -313,7 +313,7 @@ public class createLRep extends javax.swing.JInternalFrame {
                 !errPhone.getIcon().equals(vIcon.getIcon()) ||
                 !errLastName.getIcon().equals(vIcon.getIcon()) ||
                     !errPassword.getIcon().equals(vIcon.getIcon())){
-            errPhone.setIcon(xIcon.getIcon());
+            
             lblerrSubmit.setText("Please fill all the fields and fix errors before proceeding.");
             errSubmit.setIcon(xIcon.getIcon());
         } else{

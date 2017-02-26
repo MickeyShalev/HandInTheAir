@@ -69,13 +69,15 @@ public class createAgent extends javax.swing.JInternalFrame {
         lblerrBirthDate = new javax.swing.JLabel();
         fldEmail = new javax.swing.JTextField();
         fldPhone = new javax.swing.JTextField();
+        errSubmit = new javax.swing.JLabel();
+        lblerrSubmit = new javax.swing.JLabel();
 
         getContentPane().setLayout(null);
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Please use the form below to create a new System Representative");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 11, 490, 14);
+        jLabel1.setBounds(20, 11, 490, 16);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,7 +88,7 @@ public class createAgent extends javax.swing.JInternalFrame {
         lblAgentID.setForeground(new java.awt.Color(255, 255, 255));
         lblAgentID.setText("jLabel3");
         getContentPane().add(lblAgentID);
-        lblAgentID.setBounds(110, 50, 150, 14);
+        lblAgentID.setBounds(110, 50, 150, 16);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +102,7 @@ public class createAgent extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldFirstName);
-        fldFirstName.setBounds(110, 70, 150, 20);
+        fldFirstName.setBounds(110, 70, 150, 22);
 
         errFirstName.setToolTipText("");
         getContentPane().add(errFirstName);
@@ -132,7 +134,7 @@ public class createAgent extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldLastName);
-        fldLastName.setBounds(110, 90, 150, 20);
+        fldLastName.setBounds(110, 90, 150, 22);
 
         errLastName.setToolTipText("");
         getContentPane().add(errLastName);
@@ -163,7 +165,7 @@ public class createAgent extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(20, 280, 240, 23);
+        jButton1.setBounds(20, 280, 240, 25);
 
         errPhone.setToolTipText("");
         getContentPane().add(errPhone);
@@ -179,7 +181,7 @@ public class createAgent extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldPassword);
-        fldPassword.setBounds(110, 110, 150, 20);
+        fldPassword.setBounds(110, 110, 150, 22);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -218,7 +220,7 @@ public class createAgent extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jxBirthDate);
-        jxBirthDate.setBounds(110, 170, 150, 22);
+        jxBirthDate.setBounds(110, 170, 150, 24);
 
         errBirthDate.setToolTipText("");
         getContentPane().add(errBirthDate);
@@ -234,7 +236,7 @@ public class createAgent extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldEmail);
-        fldEmail.setBounds(110, 130, 150, 20);
+        fldEmail.setBounds(110, 130, 150, 22);
 
         fldPhone.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -242,7 +244,13 @@ public class createAgent extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldPhone);
-        fldPhone.setBounds(110, 150, 150, 20);
+        fldPhone.setBounds(110, 150, 150, 22);
+        getContentPane().add(errSubmit);
+        errSubmit.setBounds(260, 280, 30, 30);
+
+        lblerrSubmit.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(lblerrSubmit);
+        lblerrSubmit.setBounds(300, 280, 420, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -299,11 +307,14 @@ public class createAgent extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(lblerrFirstName.getText().length()>0 ||
-                lblerrLastName.getText().length()>0 ||
-                    lblerrPassword.getText().length()>0){
-            errPhone.setIcon(xIcon.getIcon());
-            lblerrPhone.setText("Please fix the errors before proceeding.");
+           if(!errFirstName.getIcon().equals(vIcon.getIcon()) ||
+                !errEmail.getIcon().equals(vIcon.getIcon()) ||
+                !errPhone.getIcon().equals(vIcon.getIcon()) ||
+                !errLastName.getIcon().equals(vIcon.getIcon()) ||
+                    !errPassword.getIcon().equals(vIcon.getIcon())){
+
+            lblerrSubmit.setText("Please fill all the fields and fix errors before proceeding.");
+            errSubmit.setIcon(xIcon.getIcon());
         } else{
             iMuzaMusic.Success("Agent #"+lblAgentID.getText()+" has been successfully created.");
             Agent a = new Agent(fldPhone.getText(), fldEmail.getText(), jxBirthDate.getDate(), lblAgentID.getText(), fldFirstName.getText(), fldLastName.getText(), fldPassword.getText(), EAuth.Agent);
@@ -384,6 +395,7 @@ public class createAgent extends javax.swing.JInternalFrame {
     private javax.swing.JLabel errLastName;
     private javax.swing.JLabel errPassword;
     private javax.swing.JLabel errPhone;
+    private javax.swing.JLabel errSubmit;
     private javax.swing.JTextField fldEmail;
     private javax.swing.JTextField fldFirstName;
     private javax.swing.JTextField fldLastName;
@@ -406,6 +418,7 @@ public class createAgent extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblerrLastName;
     private javax.swing.JLabel lblerrPassword;
     private javax.swing.JLabel lblerrPhone;
+    private javax.swing.JLabel lblerrSubmit;
     private javax.swing.JLabel vIcon;
     private javax.swing.JLabel xIcon;
     // End of variables declaration//GEN-END:variables
