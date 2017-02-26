@@ -89,7 +89,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Please use the form below to create a new Customer");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 11, 490, 14);
+        jLabel1.setBounds(20, 11, 490, 16);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +100,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
         lblCustomerID.setForeground(new java.awt.Color(255, 255, 255));
         lblCustomerID.setText("jLabel3");
         getContentPane().add(lblCustomerID);
-        lblCustomerID.setBounds(110, 50, 150, 14);
+        lblCustomerID.setBounds(110, 50, 150, 16);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,7 +114,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldFirstName);
-        fldFirstName.setBounds(110, 70, 150, 20);
+        fldFirstName.setBounds(110, 70, 150, 22);
 
         errFirstName.setToolTipText("");
         getContentPane().add(errFirstName);
@@ -122,7 +122,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
 
         lblerrFirstName.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrFirstName);
-        lblerrFirstName.setBounds(280, 70, 300, 20);
+        lblerrFirstName.setBounds(300, 70, 300, 20);
 
         xIcon.setVisible(false);
         xIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/x.png"))); // NOI18N
@@ -146,7 +146,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldLastName);
-        fldLastName.setBounds(110, 90, 150, 20);
+        fldLastName.setBounds(110, 90, 150, 22);
 
         errLastName.setToolTipText("");
         getContentPane().add(errLastName);
@@ -154,7 +154,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
 
         lblerrLastName.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrLastName);
-        lblerrLastName.setBounds(280, 90, 310, 20);
+        lblerrLastName.setBounds(300, 90, 310, 20);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,7 +168,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
 
         lblerrPassword.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrPassword);
-        lblerrPassword.setBounds(280, 110, 370, 20);
+        lblerrPassword.setBounds(300, 110, 370, 20);
 
         jButton1.setText("Create Customer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +177,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(20, 280, 240, 23);
+        jButton1.setBounds(20, 280, 240, 25);
 
         errNickname.setToolTipText("");
         getContentPane().add(errNickname);
@@ -193,7 +193,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldPassword);
-        fldPassword.setBounds(110, 110, 150, 20);
+        fldPassword.setBounds(110, 110, 150, 22);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,7 +207,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
 
         lblerrEmail.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrEmail);
-        lblerrEmail.setBounds(280, 130, 370, 20);
+        lblerrEmail.setBounds(300, 130, 370, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,7 +232,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jxBirthDate);
-        jxBirthDate.setBounds(110, 170, 150, 22);
+        jxBirthDate.setBounds(110, 170, 150, 24);
 
         errBirthDate.setToolTipText("");
         getContentPane().add(errBirthDate);
@@ -248,7 +248,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldEmail);
-        fldEmail.setBounds(110, 130, 150, 20);
+        fldEmail.setBounds(110, 130, 150, 22);
 
         fldNickname.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -256,7 +256,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(fldNickname);
-        fldNickname.setBounds(110, 150, 150, 20);
+        fldNickname.setBounds(110, 150, 150, 22);
 
         jButton2.setText("Upload Avatar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -265,15 +265,15 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(20, 200, 110, 23);
+        jButton2.setBounds(20, 200, 240, 25);
 
         errFile.setToolTipText("");
         getContentPane().add(errFile);
-        errFile.setBounds(130, 200, 40, 20);
+        errFile.setBounds(260, 200, 40, 20);
 
         lblerrFile.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrFile);
-        lblerrFile.setBounds(170, 200, 200, 20);
+        lblerrFile.setBounds(300, 200, 200, 20);
 
         errSubmit.setToolTipText("");
         getContentPane().add(errSubmit);
@@ -281,7 +281,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
 
         lblerrSubmit.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(lblerrSubmit);
-        lblerrSubmit.setBounds(300, 280, 200, 20);
+        lblerrSubmit.setBounds(300, 280, 420, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -338,13 +338,15 @@ public class createCustomer extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(lblerrFirstName.getText().length()>0 ||
-                lblerrFile.getText().length()>0 ||
-                lblerrLastName.getText().length()>0 ||
-                lblerrEmail.getText().length()>0 ||
-                    lblerrPassword.getText().length()>0){
+        
+
+       if(!errFirstName.getIcon().equals(vIcon.getIcon()) ||
+                !errEmail.getIcon().equals(vIcon.getIcon()) ||
+                !errNickname.getIcon().equals(vIcon.getIcon()) ||
+                !errLastName.getIcon().equals(vIcon.getIcon()) ||
+                    !errPassword.getIcon().equals(vIcon.getIcon()) || uploadedFile==null){
             errSubmit.setIcon(xIcon.getIcon());
-            lblerrSubmit.setText("Please fix the errors before proceeding.");
+            lblerrSubmit.setText("Please fill all the fields and fix the errors before proceeding.");
         } else{
             iMuzaMusic.Success("Customer #"+lblCustomerID.getText()+" has been successfully created.");
             Customer c = new Customer(lblCustomerID.getText(), fldFirstName.getText(), fldLastName.getText(), fldPassword.getText(), EAuth.Customer, jxBirthDate.getDate(), fldNickname.getText(), uploadedFile, fldEmail.getText());
@@ -397,7 +399,7 @@ public class createCustomer extends javax.swing.JInternalFrame {
                 // TODO add your handling code here:
         if(fldNickname.getText().length()<2)
             lblerrNickname.setText("Nickname is too short.");
-        
+        else lblerrNickname.setText("");
         if(lblerrNickname.getText().length()>0)
             errNickname.setIcon(xIcon.getIcon());
         else errNickname.setIcon(vIcon.getIcon());
@@ -406,12 +408,13 @@ public class createCustomer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_fldNicknameFocusLost
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
         try {
             //upload avatar
             JFileChooser chooser = new JFileChooser();
             chooser.showOpenDialog(null);
             uploadedFile = chooser.getSelectedFile();
+            if(uploadedFile==null)
+                return;
             long size = Files.size(uploadedFile.toPath()) / 1000;
             if(size>2048){
                 errFile.setIcon(xIcon.getIcon());
@@ -421,7 +424,11 @@ public class createCustomer extends javax.swing.JInternalFrame {
             }
            
             iMuzaMusic.log("Image uploaded: "+uploadedFile.getAbsolutePath());
+            errFile.setIcon(vIcon.getIcon());
+            lblerrFile.setText("");
         } catch (IOException ex) {
+            errFile.setIcon(xIcon.getIcon());
+            lblerrFile.setText("We encoutered an error. Please view log file.");
             Logger.getLogger(createCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
