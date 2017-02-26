@@ -5,8 +5,13 @@
  */
 package Boundary.Rep;
 
+import Controller.Main.iMuzaMusic;
 import Controller.Rep.SettingsManager;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -19,17 +24,30 @@ public class frmEditSettings extends javax.swing.JInternalFrame {
      */
     public frmEditSettings() {
         initComponents();
+        lblGreeting.setText("Dear "+iMuzaMusic.getLoggedUser().getID()+",");
+        lblUpdated.setText("Please use the below form to edit global system settings"
+                + " (Date Updated: "+(new SimpleDateFormat("dd/mm/Y").format(new Date())).toString()+").");
         updateData();
     }
 
-    
-    
-    public void updateData(){
-        
+    public void updateData() {
+
         //Get vars
-        SettingsManager.getSettings(new Date());
+        Map<String, String> hm = SettingsManager.getSettings(new Date());
+        spnArtistCommission.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Artist_Commission")), 0, 100, 5));
+        spnLocationCommission.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Location_Commission")), 0, 100, 5));
+        spnMaxAddonCommission.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Max_Addon_Commission")), 0, 100, 5));
+        spnPresaleDiscount.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Presale_Discount")), 0, 100, 5));
+        spnShowAddonCommission.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Presale_Discount")), 0, 100, 5));
+        spnMaxAllowedShowtime.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Max_Allowed_Showtime")), 0, 12, 1));
+        spnMaxPresaleTickets.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Max_Presale_Tickets")), 0, 12, 1));
+        spnMinDaysBeforePresale.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Minimum_Days_Before_Presale")), 0, 31, 1));
+        spnRegularTicketsPeriod.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Regular_Tickets_Sale")), 0, 31, 1));
+        spnShowApprovalTimeout.setModel(new javax.swing.SpinnerNumberModel(Integer.parseInt(hm.get("Show_Approval_Timeout")), 0, 31, 1));
+        txtbDayCard.setText(hm.get("Birthday_Card"));
+        
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,12 +103,12 @@ public class frmEditSettings extends javax.swing.JInternalFrame {
         lblGreeting.setForeground(new java.awt.Color(255, 255, 255));
         lblGreeting.setText("jLabel1");
         getContentPane().add(lblGreeting);
-        lblGreeting.setBounds(27, 11, 737, 14);
+        lblGreeting.setBounds(27, 11, 737, 16);
 
         lblUpdated.setForeground(new java.awt.Color(255, 255, 255));
         lblUpdated.setText("jLabel1");
         getContentPane().add(lblUpdated);
-        lblUpdated.setBounds(27, 31, 540, 14);
+        lblUpdated.setBounds(27, 31, 540, 16);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -107,7 +125,7 @@ public class frmEditSettings extends javax.swing.JInternalFrame {
         spnLocationCommission.setBounds(180, 130, 40, 20);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Maximum Addon Commission");
+        jLabel3.setText("Max Addon Commission");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(30, 180, 150, 20);
 
@@ -263,8 +281,13 @@ public class frmEditSettings extends javax.swing.JInternalFrame {
         jLabel22.setBounds(390, 270, 390, 30);
 
         jButton1.setText("Update Changes");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
-        jButton1.setBounds(30, 460, 710, 23);
+        jButton1.setBounds(30, 460, 710, 25);
 
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Show Addon Commission");
@@ -286,6 +309,40 @@ public class frmEditSettings extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Map<String, String> hm = new HashMap<String, String>();
+        hm.put("Artist_Commission", spnArtistCommission.getValue().toString());
+        hm.put("Location_Commission", spnLocationCommission.getValue().toString());
+        hm.put("Max_Addon_Commission", spnMaxAddonCommission.getValue().toString());
+        hm.put("Presale_Discount", spnPresaleDiscount.getValue().toString());
+        hm.put("Show_Addon_Commission", spnShowAddonCommission.getValue().toString());
+        hm.put("Max_Allowed_Showtime", spnMaxAllowedShowtime.getValue().toString());
+        hm.put("Max_Presale_Tickets", spnMaxPresaleTickets.getValue().toString());
+        hm.put("Minimum_Days_Before_Presale", spnMinDaysBeforePresale.getValue().toString());
+        hm.put("Regular_Tickets_Sale", spnRegularTicketsPeriod.getValue().toString());
+        hm.put("Show_Approval_Timeout", spnShowApprovalTimeout.getValue().toString());
+        hm.put("Birthday_Card", txtbDayCard.getText());
+        //done
+        
+        Timestamp ts = new Timestamp(new Date().getTime());
+        iMuzaMusic.log("Starting to update global settings");
+        //execute
+        for(Map.Entry<String, String> e : hm.entrySet()){
+            
+            String qry = "INSERT INTO GlobalSettings(Key, Value, Comment, dateUpdated) VALUES (\""+e.getKey()+"\",\""+e.getValue()+"\",\"Updated By "+iMuzaMusic.getLoggedUser().getID()+"\", Now())";
+            iMuzaMusic.getDB().updateReturnID(qry);
+        }
+       
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

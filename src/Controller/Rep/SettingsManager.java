@@ -8,6 +8,8 @@ package Controller.Rep;
 import Controller.Main.iMuzaMusic;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,16 +44,25 @@ public class SettingsManager {
         }
         
         //For each setting get the recent one prior to the date
+        Timestamp ts = new Timestamp(prior.getTime());
+        java.sql.Date dd = new java.sql.Date(prior.getTime());
+        String df = new SimpleDateFormat("M/dd/Y hh:mm:ss a").format(prior);
+        iMuzaMusic.log("DF: "+df);
+        iMuzaMusic.log("TS: "+ts+" TST: "+ts.getTime()+" dd: "+dd+" ddt: "+dd.getTime());
         for(String setting : settingsMap.keySet()){
+            iMuzaMusic.log("Pulling data for "+setting);
         qry = "SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value\n" +
 "FROM GlobalSettings\n" +
 "GROUP BY GlobalSettings.Key, GlobalSettings.Value\n" +
-"HAVING (((GlobalSettings.Key) In (\""+setting+"\")) AND ((Last(GlobalSettings.dateUpdated))<"+prior.getTime()+"))\n" +
-"ORDER BY Last(GlobalSettings.dateUpdated) DESC;";
-        
+"HAVING (((GlobalSettings.Key) In (\""+setting+"\")) AND (LAST(GlobalSettings.dateUpdated<=#"+df+"#)))\n" +
+"ORDER BY Last(GlobalSettings.dateUpdated) DESC";
+        iMuzaMusic.log("Executing Query: "+qry);
         rs = iMuzaMusic.getDB().query(qry);
             try {
                 if(rs.next()){
+                    if(rs.getString(2)==null)
+                        settingsMap.put(setting, "");
+                    else
                     settingsMap.put(setting, rs.getString(2));
                 }   } catch (SQLException ex) {
                 Logger.getLogger(SettingsManager.class.getName()).log(Level.SEVERE, null, ex);
