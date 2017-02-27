@@ -12,6 +12,7 @@ import Controller.Main.DBManager;
 import Entity.EArtistStatus;
 import Entity.EAuth;
 import Boundary.Main.iWindow;
+import Controller.Main.XMLManager;
 import Controller.Show.ShowController;
 import Entity.Agent;
 import Entity.Location;
@@ -318,8 +319,32 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jXDatePicker1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXDatePicker1ActionPerformed
-        
-        
+       
+       Date dateSelected = jXDatePicker1.getDate();
+       
+       slctSubArtist.removeAllItems();
+       Artist a = new Artist("0000");
+       a.setStageName("Select Sub Artists");
+       slctSubArtist.addItem(a);
+       Map<Artist, List<Timestamp>> hm = XMLManager.importXML();
+       
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(dateSelected);
+        for(Artist tmpSubArt : ShowController.getSubArtistsForShow((Artist)slctArtist.getSelectedItem())){
+            slctSubArtist.addItem(tmpSubArt);
+            if(hm.containsKey(tmpSubArt)){
+                Calendar cal2 = Calendar.getInstance();
+                for(Timestamp ts : hm.get(tmpSubArt)){
+                    cal2.setTime(new Date(ts.getTime()));
+                    boolean sameDay = cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+                    cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);
+                    if(sameDay){
+                        iMuzaMusic.log("Removing sub artist "+tmpSubArt+" because artist isn't available at "+ts);
+                        slctSubArtist.removeItem(tmpSubArt);
+                    }
+                }
+            }
+        }
         
     }//GEN-LAST:event_jXDatePicker1ActionPerformed
 
@@ -335,14 +360,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
             if (item.toString().equals("Select Artist")) 
                 return;
             
-       slctSubArtist.removeAllItems();
-       Artist a = new Artist("0000");
-       a.setStageName("Select Sub Artists");
-       slctSubArtist.addItem(a);
-        
-        
-        for(Artist tmpSubArt : ShowController.getSubArtistsForShow((Artist)slctArtist.getSelectedItem()))
-            slctSubArtist.addItem(tmpSubArt);
+      
              
         jScrollPane1.setVisible(true);
         slctSubArtist.setVisible(true);
