@@ -21,6 +21,9 @@
     <Session timestamp="1483912800000">8 Jan 2017 22:00:00 GMT</Session>
     <Session timestamp="1487714400000">21 Feb 2017 22:00:00 GMT</Session>
   </Artist>
+  <Artist ID="AR237">
+      <Session timestamp="1485381600000">25 Jan 2017 22:00:00 GMT</Session>
+  </Artist>
   <Artist ID="AR011">
     <Session timestamp="1483999200000">9 Jan 2017 22:00:00 GMT</Session>
     <Session timestamp="1484604000000">16 Jan 2017 22:00:00 GMT</Session>

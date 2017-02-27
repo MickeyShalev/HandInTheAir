@@ -1,0 +1,17 @@
+=================  iMuzaMusic v1.0 - Mon Feb 27 14:46:36 IST 2017 ==================
+14:46:36	Attempting connection to MS Access DB
+14:46:36	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+14:46:37	Successfully connected to MS Access DB.
+14:46:37	Opening Login Window through iWindow
+14:46:38	Submitted
+14:46:38	User: AG001 Password: admin
+14:46:38	Attempting login using AG001/admin
+14:46:38	Agent logged in
+14:46:38	Initiating main UI
+14:46:38	Aquiring menu for AG001 Auth: Agent
+14:46:41	Importing XML from iRecord System
+14:46:41	Successfully imported 8 artists sessions from iRecord.
+14:46:41	Adding session date occupied: 2017-01-26 00:00:00.0
+14:46:45	Importing XML from iRecord System
+14:46:45	Successfully imported 8 artists sessions from iRecord.
+14:46:45	Removing sub artist Rihanna because artist isn't available at 2017-01-25 00:00:00.0
