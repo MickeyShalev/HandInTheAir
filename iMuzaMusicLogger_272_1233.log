@@ -1,0 +1,73 @@
+=================  iMuzaMusic v1.0 - Mon Feb 27 12:33:29 IST 2017 ==================
+12:33:29	Attempting connection to MS Access DB
+12:33:29	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+12:33:30	Successfully connected to MS Access DB.
+12:33:30	Opening Login Window through iWindow
+12:33:30	Submitted
+12:33:30	User: AG001 Password: admin
+12:33:30	Attempting login using AG001/admin
+12:33:30	Agent logged in
+12:33:30	Initiating main UI
+12:33:30	Aquiring menu for AG001 Auth: Agent
+12:33:33	Sending UPDATE Query: update Artists set iStatus=1 where ArtistID="AR002"
+12:33:34	Sending UPDATE Query: update Artists set iStatus=2 where ArtistID="AR002"
+12:33:35	Getting unevaluated and evaluated artists for artist AR002
+12:33:36	Sending UPDATE Query: DELETE FROM ArtistLikes WHERE ArtistID in("AR002")
+12:33:36	Successfully wiped artist evaluation (AR002 AR002
+12:33:36	Sending UPDATE Query: INSERT INTO ArtistLikes (ArtistID, LikeID) VALUES ('AR002',"AR003")
+12:33:36	Sending UPDATE Query: INSERT INTO ArtistLikes (ArtistID, LikeID) VALUES ('AR002',"AR004")
+12:33:36	Sending UPDATE Query: INSERT INTO ArtistLikes (ArtistID, LikeID) VALUES ('AR002',"AR232")
+12:33:40	Returning next ID for Artist - AR240
+12:33:42	Added show to ShowList (PF050 Justin Bieber)
+12:33:42	Added show to ShowList (PF032 Justin Bieber)
+12:33:42	Added show to ShowList (PF018 Shawn Mendes)
+12:33:42	Added show to ShowList (PF017 Justin Bieber)
+12:33:42	Added show to ShowList (PF019 Shawn Mendes)
+12:33:42	Added show to ShowList (PF031 Justin Bieber)
+12:33:42	Added show to ShowList (PF033 Justin Bieber)
+12:33:42	Added show to ShowList (PF030 Justin Bieber)
+12:33:42	Added show to ShowList (PF050 Justin Bieber)
+12:33:42	Added show to ShowList (PF032 Justin Bieber)
+12:33:42	Added show to ShowList (PF018 Shawn Mendes)
+12:33:42	Added show to ShowList (PF017 Justin Bieber)
+12:33:42	Added show to ShowList (PF019 Shawn Mendes)
+12:33:42	Added show to ShowList (PF031 Justin Bieber)
+12:33:42	Added show to ShowList (PF033 Justin Bieber)
+12:33:42	Added show to ShowList (PF030 Justin Bieber)
+12:33:43	Removing Rotshild from favorited list
+12:33:43	Removing Sleek from favorited list
+12:33:43	Removing OpenHouse from favorited list
+12:33:43	Found 3 favorited locations
+12:33:45	Opening URL: https://www.google.co.il/maps/place/%25D7%2594%25D7%2594%25D7%2592%25D7%25A0%25D7%2594+20,+%25D7%2590%25D7%2596%25D7%2595%25D7%25A8%25E2%2580%25AD/@32.0267995,34.8072585,17z/data=!3m1!4b1!4m5!3m4!1s0x151d4b32506ae2e9:0x9040f73f144e5513!8m2!3d32.0267995!4d34.8050698 OK!
+12:33:51	Importing XML from iRecord System
+12:33:51	Successfully imported 7 artists sessions from iRecord.
+12:33:51	Adding session date occupied: 2017-01-02 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-25 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-11 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-10 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-05 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-06 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-07 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-20 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-12 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-18 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-13 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-04 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-26 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-24 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-03 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-17 00:00:00.0
+12:33:51	Adding session date occupied: 2017-01-09 00:00:00.0
+12:33:51	Adding session date occupied: 2017-02-22 00:00:00.0
+12:33:57	Removing Rotshild from favorited list
+12:33:57	Removing Sleek from favorited list
+12:33:57	Removing OpenHouse from favorited list
+12:33:57	Found 3 favorited locations
+12:33:59	Added show to ShowList (PF050 Justin Bieber)
+12:33:59	Added show to ShowList (PF032 Justin Bieber)
+12:33:59	Added show to ShowList (PF018 Shawn Mendes)
+12:33:59	Added show to ShowList (PF017 Justin Bieber)
+12:33:59	Added show to ShowList (PF019 Shawn Mendes)
+12:33:59	Added show to ShowList (PF031 Justin Bieber)
+12:33:59	Added show to ShowList (PF033 Justin Bieber)
+12:33:59	Added show to ShowList (PF030 Justin Bieber)

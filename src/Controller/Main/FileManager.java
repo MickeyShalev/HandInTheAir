@@ -30,7 +30,7 @@ public abstract class FileManager {
  
 
     /**
-     * Decodes a given file to a base 64 string
+     * Encode a given file to a base 64 string
      *
      * @param f
      * @return
@@ -49,7 +49,7 @@ public abstract class FileManager {
     }
 
     /**
-     * Encode into File and creates a tmp file
+     * Decode into File and creates a tmp file
      * @param str
      * @return 
      */

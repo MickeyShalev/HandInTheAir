@@ -71,7 +71,8 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         pnlArtistSelected.setVisible(false);
         jXDatePicker1.setVisible(false);
         jLabel3.setVisible(false);
-        slctedArtists.setModel(new DefaultListModel());
+        ListModel<Artist> lm = new DefaultListModel<Artist>();
+        slctedArtists.setModel(lm);
         slctArtist.removeAllItems();
         Artist tmp = new Artist("0000");
         tmp.setStageName("Select Artist");
@@ -545,7 +546,7 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblArtistStageName;
     private javax.swing.JPanel pnlArtistSelected;
     private javax.swing.JPanel pnlSubArtists;
-    private javax.swing.JComboBox<Artist> slctArtist;
+    private javax.swing.JComboBox<Entity.Artist> slctArtist;
     private javax.swing.JComboBox<Location> slctLocation;
     private javax.swing.JComboBox<Artist> slctSubArtist;
     private javax.swing.JComboBox<String> slctTime;

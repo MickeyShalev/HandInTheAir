@@ -6,6 +6,7 @@
 package Controller.Show;
 
 import Controller.Main.DBManager;
+import Controller.Main.XMLManager;
 import Controller.Main.iMuzaMusic;
 import Entity.Agent;
 import Entity.Artist;
@@ -18,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Entity.Location;
 import java.sql.Timestamp;
+import java.util.Map;
 
 /**
  *
@@ -57,6 +59,12 @@ public abstract class ShowController {
         }
 
         //Get from XML
+        Map<Artist, List<Timestamp>> hm = XMLManager.importXML();
+        if(hm.containsKey(artist)){
+        for(Timestamp ts : hm.get(artist)){
+            iMuzaMusic.log("Adding session date occupied: "+ts);
+            arr.add(new Date(ts.getTime()));
+        }}
         //TBD
         Date darr[] = new Date[arr.size()];
         arr.toArray(darr);

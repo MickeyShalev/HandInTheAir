@@ -11,6 +11,9 @@ import Controller.Main.iMuzaMusic;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,7 +24,7 @@ import java.util.logging.Logger;
 public class LoginGui extends javax.swing.JFrame {
 
     public static boolean skipLogin = true;
-    public static String skipID = "RE001";
+    public static String skipID = "AG001";
     public static String skipPW = "admin";
 
     /**
@@ -30,6 +33,8 @@ public class LoginGui extends javax.swing.JFrame {
     public LoginGui() {
         //XMLManager.ExportXML();
         //System.exit(0);
+      
+        
         setUndecorated(true);
         initComponents();
         java.awt.EventQueue.invokeLater(new Runnable() {

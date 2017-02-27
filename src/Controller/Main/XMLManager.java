@@ -14,7 +14,9 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.transform.OutputKeys;
@@ -31,6 +33,63 @@ import javax.xml.transform.stream.StreamResult;
  */
 public abstract class XMLManager {
 
+    
+     public static Map<Artist, List<Timestamp>> importXML() {
+        
+        Map<Artist, List<Timestamp>> hmToReturn = new HashMap<Artist, List<Timestamp>>();
+        Document doc;
+        try {
+                iMuzaMusic.log("Importing XML from iRecord System");
+                File inputFile = new File("iRecord-Artist-Sessions.xml");
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                doc = dBuilder.parse(inputFile);
+                doc.getDocumentElement().normalize();
+
+            NodeList nList = doc.getElementsByTagName("Artist");
+            
+            for (int i = 0; i < nList.getLength(); i++) {
+                Node nNode = nList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    String ArtistID = eElement.getAttribute("ID");
+                    NodeList dList = nNode.getChildNodes();
+                    //Go through the sessions
+                    List<Timestamp> tsList = new ArrayList<Timestamp>();
+                    for (int j = 0; j < dList.getLength(); j++) {
+                        String d = dList.item(j).getNodeName();
+                        if (!d.equals("Session")) {
+                            continue;
+                        }
+                        Element ele = (Element) dList.item(j);
+                        String tsString = ele.getAttribute("timestamp");
+                        Node n = dList.item(j);
+                        String date = n.getNodeValue();
+                        Timestamp ts = new Timestamp(Long.parseLong(tsString));
+                        tsList.add(ts);
+                        
+                        //System.err.println("Aquired session - Timestamp: " + tsString + " Date: " + dList.item(j).getTextContent());
+                        //System.err.println("Converted date: " + tsList.get(tsList.size() - 1));
+                    }
+                    hmToReturn.put(new Artist(ArtistID), tsList);
+                }
+                
+            }
+        } catch (Exception e) {
+            iMuzaMusic.log("Could not locate XML File: iRecord-Artist-Sessions.xml");
+            
+        }
+        
+//        for(Map.Entry<Artist, List<Timestamp>> e : hmToReturn.entrySet()){
+//            iMuzaMusic.log(e.getKey().toString());
+//            for(Timestamp ts : (List<Timestamp>)e.getValue()){
+//                System.err.println("\tA"+ts);
+//            }
+//        }
+        iMuzaMusic.log("Successfully imported "+hmToReturn.size()+" artists sessions from iRecord.");
+        return hmToReturn;
+    }
+    
     /**
      * This will export ALL artist shows
      */
@@ -91,8 +150,8 @@ public abstract class XMLManager {
                     Integer columnCount = qry.getMetaData().getColumnCount();
                     for(int i=1; i<=columnCount;i++){
                         String columnName = qry.getMetaData().getColumnName(i);
-                        iMuzaMusic.log("Column: "+columnName);
-                        iMuzaMusic.log("Data Type: "+qry.getMetaData().getColumnType(i));
+//                        iMuzaMusic.log("Column: "+columnName);
+//                        iMuzaMusic.log("Data Type: "+qry.getMetaData().getColumnType(i));
                         String columnData = "";
                         if(qry.getObject(i)!=null)
                             columnData = qry.getObject(i).toString();
