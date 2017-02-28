@@ -1,0 +1,25 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 18:04:19 IST 2017 ==================
+18:04:19	Attempting connection to MS Access DB
+18:04:19	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+18:04:21	Successfully connected to MS Access DB.
+18:04:21	Opening Login Window through iWindow
+18:04:23	Selected Debug Quick Login Feature for Menashe
+18:04:23	Logging in...
+18:04:23	Submitted from DEBUG Window
+18:04:23	User: CU0125 Password: sg2gt12g
+18:04:23	Attempting login using CU0125/sg2gt12g
+18:04:23	test
+18:04:23	Customer logged in
+18:04:23	Initiating main UI
+18:04:24	Aquiring menu for CU0125 Auth: Customer
+18:04:24	Selected Debug Quick Login Feature for Menashe
+18:04:24	Logging in...
+18:04:24	Submitted from DEBUG Window
+18:04:24	User: CU0125 Password: sg2gt12g
+18:04:24	Attempting login using CU0125/sg2gt12g
+18:04:24	test
+18:04:24	Customer logged in
+18:04:24	Initiating main UI
+18:04:24	Aquiring menu for CU0125 Auth: Customer
+18:04:25	Creating birthday card for customer: Menashe
+18:04:33	Creating birthday card for customer: Menashe

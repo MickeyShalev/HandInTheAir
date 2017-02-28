@@ -1,0 +1,200 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 17:09:55 IST 2017 ==================
+17:09:55	Attempting connection to MS Access DB
+17:09:55	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+17:09:57	Successfully connected to MS Access DB.
+17:09:57	Opening Login Window through iWindow
+17:09:57	Submitted
+17:09:57	User: CU0123 Password: eg2j0g
+17:09:57	Attempting login using CU0123/eg2j0g
+17:09:57	test
+17:09:57	Customer logged in
+17:09:57	Initiating main UI
+17:09:57	Aquiring menu for CU0123 Auth: Customer
+17:09:58	Creating birthday card for customer: Rafi
+17:09:58	Added signarture file of artist AR002
+17:09:58	Added signarture file of artist AR004
+17:09:58	Added signarture file of artist AR231
+17:09:58	Added signarture file of artist AR235
+17:09:58	Added signarture file of artist AR237
+17:09:59	Artist FB: #https://www.facebook.com/justin.bib#
+17:09:59	Artist FB: #https://www.facebook.com/shawnm#
+17:09:59	Artist FB: #https://www.facebook.com/rihanna#
+17:09:59	Artist FB: #https://www.facebook.com/sia#
+17:09:59	Artist FB: #https://www.facebook.com/pita#
+17:09:59	Artist FB: #https://www.facebook.com/drake#
+17:09:59	Artist FB: facebook.com/url
+17:09:59	Artist FB: facebook.com
+17:09:59	Artist FB: facebook.com
+17:09:59	Artist FB: facebook.com
+17:09:59	Artist FB: facebook.com
+17:09:59	Artist FB: facebook.com/last.aspx
+17:09:59	Artist FB: facebook.com
+17:09:59	Artist FB: facebook.com
+17:09:59	Artist FB: facebook.com
+17:09:59	Artist FB: facebook.com
+17:09:59	Artist FB: asdfacebook.com
+17:09:59	Removing Justin Bieber from favorited list
+17:09:59	Removing Rihanna from favorited list
+17:09:59	Removing Drake from favorited list
+17:09:59	Removing nis from favorited list
+17:09:59	Removing Last from favorited list
+17:09:59	Found 5 favorited artists
+17:10:04	Sending UPDATE Query: INSERT INTO CustomerAdmires (ClientID, ArtistID) values ("CU0123","AR242")
+17:10:04	Artist FB: #https://www.facebook.com/justin.bib#
+17:10:04	Artist FB: #https://www.facebook.com/shawnm#
+17:10:04	Artist FB: #https://www.facebook.com/rihanna#
+17:10:04	Artist FB: #https://www.facebook.com/sia#
+17:10:04	Artist FB: #https://www.facebook.com/pita#
+17:10:04	Artist FB: #https://www.facebook.com/drake#
+17:10:04	Artist FB: facebook.com/url
+17:10:04	Artist FB: facebook.com
+17:10:04	Artist FB: facebook.com
+17:10:04	Artist FB: facebook.com
+17:10:04	Artist FB: facebook.com
+17:10:04	Artist FB: facebook.com/last.aspx
+17:10:04	Artist FB: facebook.com
+17:10:04	Artist FB: facebook.com
+17:10:04	Artist FB: facebook.com
+17:10:04	Artist FB: facebook.com
+17:10:04	Artist FB: asdfacebook.com
+17:10:04	Removing Justin Bieber from favorited list
+17:10:04	Removing Rihanna from favorited list
+17:10:04	Removing Drake from favorited list
+17:10:04	Removing nis from favorited list
+17:10:04	Removing Last from favorited list
+17:10:04	Removing asdsadsada from favorited list
+17:10:04	Found 6 favorited artists
+17:10:11	Sending UPDATE Query: delete from CustomerAdmires where ClientID="CU0123" AND ArtistID="AR231"
+17:10:11	Cancel favorited Artist: ArtistID: AR231
+17:10:11	Sending UPDATE Query: delete from CustomerAdmires where ClientID="CU0123" AND ArtistID="AR002"
+17:10:11	Cancel favorited Artist: ArtistID: AR002
+17:10:11	Sending UPDATE Query: delete from CustomerAdmires where ClientID="CU0123" AND ArtistID="AR235"
+17:10:11	Cancel favorited Artist: ArtistID: AR235
+17:10:11	Sending UPDATE Query: delete from CustomerAdmires where ClientID="CU0123" AND ArtistID="AR004"
+17:10:11	Cancel favorited Artist: ArtistID: AR004
+17:10:11	Sending UPDATE Query: delete from CustomerAdmires where ClientID="CU0123" AND ArtistID="AR237"
+17:10:11	Cancel favorited Artist: ArtistID: AR237
+17:10:11	Artist FB: #https://www.facebook.com/justin.bib#
+17:10:11	Artist FB: #https://www.facebook.com/shawnm#
+17:10:11	Artist FB: #https://www.facebook.com/rihanna#
+17:10:11	Artist FB: #https://www.facebook.com/sia#
+17:10:11	Artist FB: #https://www.facebook.com/pita#
+17:10:11	Artist FB: #https://www.facebook.com/drake#
+17:10:11	Artist FB: facebook.com/url
+17:10:11	Artist FB: facebook.com
+17:10:11	Artist FB: facebook.com
+17:10:11	Artist FB: facebook.com
+17:10:11	Artist FB: facebook.com
+17:10:11	Artist FB: facebook.com/last.aspx
+17:10:11	Artist FB: facebook.com
+17:10:11	Artist FB: facebook.com
+17:10:11	Artist FB: facebook.com
+17:10:11	Artist FB: facebook.com
+17:10:11	Artist FB: asdfacebook.com
+17:10:11	Removing asdsadsada from favorited list
+17:10:11	Found 1 favorited artists
+17:10:12	Creating birthday card for customer: Rafi
+17:10:12	Added signarture file of artist AR242
+17:10:26	Artist FB: #https://www.facebook.com/justin.bib#
+17:10:26	Artist FB: #https://www.facebook.com/shawnm#
+17:10:26	Artist FB: #https://www.facebook.com/rihanna#
+17:10:26	Artist FB: #https://www.facebook.com/sia#
+17:10:26	Artist FB: #https://www.facebook.com/pita#
+17:10:26	Artist FB: #https://www.facebook.com/drake#
+17:10:26	Artist FB: facebook.com/url
+17:10:26	Artist FB: facebook.com
+17:10:26	Artist FB: facebook.com
+17:10:26	Artist FB: facebook.com
+17:10:26	Artist FB: facebook.com
+17:10:26	Artist FB: facebook.com/last.aspx
+17:10:26	Artist FB: facebook.com
+17:10:26	Artist FB: facebook.com
+17:10:26	Artist FB: facebook.com
+17:10:26	Artist FB: facebook.com
+17:10:26	Artist FB: asdfacebook.com
+17:10:26	Removing asdsadsada from favorited list
+17:10:26	Found 1 favorited artists
+17:10:32	Sending UPDATE Query: INSERT INTO CustomerAdmires (ClientID, ArtistID) values ("CU0123","AR007")
+17:10:32	Artist FB: #https://www.facebook.com/justin.bib#
+17:10:32	Artist FB: #https://www.facebook.com/shawnm#
+17:10:32	Artist FB: #https://www.facebook.com/rihanna#
+17:10:32	Artist FB: #https://www.facebook.com/sia#
+17:10:32	Artist FB: #https://www.facebook.com/pita#
+17:10:32	Artist FB: #https://www.facebook.com/drake#
+17:10:32	Artist FB: facebook.com/url
+17:10:32	Artist FB: facebook.com
+17:10:32	Artist FB: facebook.com
+17:10:32	Artist FB: facebook.com
+17:10:32	Artist FB: facebook.com
+17:10:32	Artist FB: facebook.com/last.aspx
+17:10:32	Artist FB: facebook.com
+17:10:32	Artist FB: facebook.com
+17:10:32	Artist FB: facebook.com
+17:10:32	Artist FB: facebook.com
+17:10:32	Artist FB: asdfacebook.com
+17:10:32	Removing Pita from favorited list
+17:10:32	Removing asdsadsada from favorited list
+17:10:32	Found 2 favorited artists
+17:10:33	Artist FB: #https://www.facebook.com/justin.bib#
+17:10:33	Artist FB: #https://www.facebook.com/shawnm#
+17:10:33	Artist FB: #https://www.facebook.com/rihanna#
+17:10:33	Artist FB: #https://www.facebook.com/sia#
+17:10:33	Artist FB: #https://www.facebook.com/pita#
+17:10:33	Artist FB: #https://www.facebook.com/drake#
+17:10:33	Artist FB: facebook.com/url
+17:10:33	Artist FB: facebook.com
+17:10:33	Artist FB: facebook.com
+17:10:33	Artist FB: facebook.com
+17:10:33	Artist FB: facebook.com
+17:10:33	Artist FB: facebook.com/last.aspx
+17:10:33	Artist FB: facebook.com
+17:10:33	Artist FB: facebook.com
+17:10:33	Artist FB: facebook.com
+17:10:33	Artist FB: facebook.com
+17:10:33	Artist FB: asdfacebook.com
+17:10:33	Removing Pita from favorited list
+17:10:33	Removing asdsadsada from favorited list
+17:10:33	Found 2 favorited artists
+17:10:34	Artist FB: #https://www.facebook.com/justin.bib#
+17:10:34	Artist FB: #https://www.facebook.com/shawnm#
+17:10:34	Artist FB: #https://www.facebook.com/rihanna#
+17:10:34	Artist FB: #https://www.facebook.com/sia#
+17:10:34	Artist FB: #https://www.facebook.com/pita#
+17:10:34	Artist FB: #https://www.facebook.com/drake#
+17:10:34	Artist FB: facebook.com/url
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com/last.aspx
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: asdfacebook.com
+17:10:34	Removing Pita from favorited list
+17:10:34	Removing asdsadsada from favorited list
+17:10:34	Found 2 favorited artists
+17:10:34	Artist FB: #https://www.facebook.com/justin.bib#
+17:10:34	Artist FB: #https://www.facebook.com/shawnm#
+17:10:34	Artist FB: #https://www.facebook.com/rihanna#
+17:10:34	Artist FB: #https://www.facebook.com/sia#
+17:10:34	Artist FB: #https://www.facebook.com/pita#
+17:10:34	Artist FB: #https://www.facebook.com/drake#
+17:10:34	Artist FB: facebook.com/url
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com/last.aspx
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: facebook.com
+17:10:34	Artist FB: asdfacebook.com
+17:10:34	Removing Pita from favorited list
+17:10:34	Removing asdsadsada from favorited list
+17:10:34	Found 2 favorited artists
+17:10:35	Creating birthday card for customer: Rafi
+17:10:35	Added signarture file of artist AR007
+17:10:35	Added signarture file of artist AR242

@@ -32,20 +32,14 @@ public class LoginWindow extends javax.swing.JFrame {
         c.setBackground(Color.black);
         setBackground(Color.black);
 
-        List<Person> pList = new ArrayList<Person>();
         
-        pList = Controller.Main.LoginController.getPersons();
         initComponents();
         DefaultCaret caret = (DefaultCaret) txtDebug.getCaret();
         caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
         
         
         
-        
-        slctPerson.removeAllItems();
-        for(Person p : pList){
-            slctPerson.addItem(p);
-        }
+        refreshUsers();
         
         setLocationRelativeTo(null);
         
@@ -66,6 +60,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         slctPerson = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -110,6 +105,15 @@ public class LoginWindow extends javax.swing.JFrame {
         getContentPane().add(slctPerson);
         slctPerson.setBounds(130, 100, 300, 22);
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/refresh_dark.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(430, 80, 120, 60);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,6 +130,20 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_slctPersonItemStateChanged
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        iMuzaMusic.log("Refreshing QuickLogin Users Data");
+        refreshUsers();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    public void refreshUsers(){
+        List<Person> pList = new ArrayList<Person>();
+        pList = Controller.Main.LoginController.getPersons();
+        slctPerson.removeAllItems();
+        for(Person p : pList){
+            slctPerson.addItem(p);
+        }
+    }
    
 
     public void addDebug(String line){
@@ -136,6 +154,7 @@ public class LoginWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<Object> slctPerson;

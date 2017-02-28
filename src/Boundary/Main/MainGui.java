@@ -16,6 +16,7 @@ import Boundary.Agent.frmLocationManager;
 import Boundary.Agent.frmManageArtists;
 import Boundary.Rep.frmViewReport;
 import Boundary.Customer.frmFanArtist;
+import Boundary.Customer.frmViewBDayCard;
 import Boundary.LRep.frmEditLocation;
 import Boundary.Rep.frmEditSettings;
 import Boundary.Rep.frmManageUsers;
@@ -74,6 +75,7 @@ public class MainGui extends javax.swing.JFrame{
         pnlCustomer = new javax.swing.JPanel();
         btnManageArtists1 = new javax.swing.JLabel();
         btnAddShow3 = new javax.swing.JLabel();
+        btnAddShow7 = new javax.swing.JLabel();
         pnlAgent = new javax.swing.JPanel();
         btnManageArtists = new javax.swing.JLabel();
         btnAddShow = new javax.swing.JLabel();
@@ -248,6 +250,15 @@ public class MainGui extends javax.swing.JFrame{
             }
         });
 
+        btnAddShow7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnAddShow7.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddShow7.setText("Birthday Card");
+        btnAddShow7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddShow7MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlCustomerLayout = new javax.swing.GroupLayout(pnlCustomer);
         pnlCustomer.setLayout(pnlCustomerLayout);
         pnlCustomerLayout.setHorizontalGroup(
@@ -256,7 +267,8 @@ public class MainGui extends javax.swing.JFrame{
                 .addContainerGap()
                 .addGroup(pnlCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddShow3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageArtists1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnManageArtists1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddShow7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlCustomerLayout.setVerticalGroup(
@@ -266,7 +278,9 @@ public class MainGui extends javax.swing.JFrame{
                 .addComponent(btnManageArtists1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddShow3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAddShow7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
@@ -462,6 +476,11 @@ public class MainGui extends javax.swing.JFrame{
         iWindow.openWin(new frmManageUsers());
     }//GEN-LAST:event_btnAddShow6MouseClicked
 
+    private void btnAddShow7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddShow7MouseClicked
+        // TODO add your handling code here:
+        iWindow.openWin(new frmViewBDayCard());
+    }//GEN-LAST:event_btnAddShow7MouseClicked
+
 
     public void refreshVars() {
         lblTitle.setText("Homepage");
@@ -498,6 +517,7 @@ public class MainGui extends javax.swing.JFrame{
     private javax.swing.JLabel btnAddShow4;
     private javax.swing.JLabel btnAddShow5;
     private javax.swing.JLabel btnAddShow6;
+    private javax.swing.JLabel btnAddShow7;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnManageArtists;

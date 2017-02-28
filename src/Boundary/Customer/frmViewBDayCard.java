@@ -5,6 +5,28 @@
  */
 package Boundary.Customer;
 
+import Boundary.Main.iWindow;
+import Controller.Main.iMuzaMusic;
+import Entity.Customer;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Administrator
@@ -14,8 +36,39 @@ public class frmViewBDayCard extends javax.swing.JInternalFrame {
     /**
      * Creates new form frmViewBDayCard
      */
-    public frmViewBDayCard() {
+    public frmViewBDayCard(){
         initComponents();
+        lblTitle.setText("Happy Birthday "+iMuzaMusic.getLoggedUser().getFirstName()+"!");
+        txtLetter.setText(Controller.Customer.BDayController.getBirthdayText((Customer)iMuzaMusic.getLoggedUser()));
+        jScrollPane2.getViewport().setOpaque(false);
+        jScrollPane2.getViewport().setBorder(null);
+        txtLetter.setEnabled(false);
+        txtLetter.setEditable(false);
+        txtLetter.setFocusable(false);
+        iWindow.update();
+        //Get text
+        List<File> sigList = Controller.Customer.BDayController.getSigList((Customer)iMuzaMusic.getLoggedUser());
+        
+        for(File f : sigList){
+            //Artist sigs
+            
+            JLabel lbl = new JLabel();
+            lbl.setIcon(Controller.Main.FileManager.fileToIcon(f));
+            
+            lbl.setSize(new Dimension(150, 70));
+            lbl.setMaximumSize(new Dimension(150, 70));
+            lbl.setMinimumSize(new Dimension(150, 70));
+            lbl.setBorder(jScrollPane2.getBorder());
+            
+            try {
+                lbl.setIcon(new ImageIcon(new ImageIcon(f.toURL()).getImage().getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_DEFAULT)));
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(frmViewBDayCard.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            sigPanel.add(lbl);
+        }
     }
 
     /**
@@ -27,21 +80,49 @@ public class frmViewBDayCard extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 578, Short.MAX_VALUE)
-        );
+        lblTitle = new javax.swing.JLabel();
+        sigPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtLetter = new javax.swing.JTextPane();
+
+        getContentPane().setLayout(null);
+
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("Happy Birthday ");
+        getContentPane().add(lblTitle);
+        lblTitle.setBounds(160, 40, 530, 70);
+
+        sigPanel.setOpaque(false);
+        getContentPane().add(sigPanel);
+        sigPanel.setBounds(10, 290, 710, 270);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/balloons.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, -20, 160, 300);
+
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setOpaque(false);
+
+        txtLetter.setEditable(false);
+        txtLetter.setBorder(null);
+        txtLetter.setForeground(new java.awt.Color(255, 255, 255));
+        txtLetter.setOpaque(false);
+        jScrollPane2.setViewportView(txtLetter);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(170, 110, 610, 200);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel sigPanel;
+    private javax.swing.JTextPane txtLetter;
     // End of variables declaration//GEN-END:variables
 }

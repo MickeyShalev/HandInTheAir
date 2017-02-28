@@ -1,0 +1,327 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 17:44:05 IST 2017 ==================
+17:44:05	Attempting connection to MS Access DB
+17:44:05	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+17:44:06	Successfully connected to MS Access DB.
+17:44:07	Opening Login Window through iWindow
+17:44:07	Submitted
+17:44:07	User: CU0123 Password: eg2j0g
+17:44:07	Attempting login using CU0123/eg2j0g
+17:44:07	test
+17:44:07	Customer logged in
+17:44:07	Initiating main UI
+17:44:07	Aquiring menu for CU0123 Auth: Customer
+17:44:12	Selected Debug Quick Login Feature for Shai
+17:44:12	Logging in...
+17:44:12	Submitted from DEBUG Window
+17:44:12	User: CU1114 Password: gutman
+17:44:12	Attempting login using CU1114/gutman
+17:44:12	test
+17:44:12	Customer logged in
+17:44:12	Initiating main UI
+17:44:12	Aquiring menu for CU1114 Auth: Customer
+17:44:12	Selected Debug Quick Login Feature for Shai
+17:44:12	Logging in...
+17:44:12	Submitted from DEBUG Window
+17:44:12	User: CU1114 Password: gutman
+17:44:12	Attempting login using CU1114/gutman
+17:44:12	test
+17:44:12	Customer logged in
+17:44:12	Initiating main UI
+17:44:12	Aquiring menu for CU1114 Auth: Customer
+17:44:13	Artist FB: #https://www.facebook.com/justin.bib#
+17:44:13	Artist FB: #https://www.facebook.com/shawnm#
+17:44:13	Artist FB: #https://www.facebook.com/rihanna#
+17:44:13	Artist FB: #https://www.facebook.com/sia#
+17:44:13	Artist FB: #https://www.facebook.com/pita#
+17:44:13	Artist FB: #https://www.facebook.com/drake#
+17:44:13	Artist FB: facebook.com/url
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: facebook.com/last.aspx
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: asdfacebook.com
+17:44:13	Artist FB: facebook.com
+17:44:13	Artist FB: facebook.com
+17:44:13	Found 0 favorited artists
+17:44:20	Sending UPDATE Query: INSERT INTO CustomerAdmires (ClientID, ArtistID) values ("CU1114","AR243")
+17:44:20	Artist FB: #https://www.facebook.com/justin.bib#
+17:44:20	Artist FB: #https://www.facebook.com/shawnm#
+17:44:20	Artist FB: #https://www.facebook.com/rihanna#
+17:44:20	Artist FB: #https://www.facebook.com/sia#
+17:44:20	Artist FB: #https://www.facebook.com/pita#
+17:44:20	Artist FB: #https://www.facebook.com/drake#
+17:44:20	Artist FB: facebook.com/url
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: facebook.com/last.aspx
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: asdfacebook.com
+17:44:20	Artist FB: facebook.com
+17:44:20	Artist FB: facebook.com
+17:44:20	Removing New Artist from favorited list
+17:44:20	Found 1 favorited artists
+17:44:26	Sending UPDATE Query: INSERT INTO CustomerAdmires (ClientID, ArtistID) values ("CU1114","AR244")
+17:44:26	Artist FB: #https://www.facebook.com/justin.bib#
+17:44:26	Artist FB: #https://www.facebook.com/shawnm#
+17:44:26	Artist FB: #https://www.facebook.com/rihanna#
+17:44:26	Artist FB: #https://www.facebook.com/sia#
+17:44:26	Artist FB: #https://www.facebook.com/pita#
+17:44:26	Artist FB: #https://www.facebook.com/drake#
+17:44:26	Artist FB: facebook.com/url
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: facebook.com/last.aspx
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: asdfacebook.com
+17:44:26	Artist FB: facebook.com
+17:44:26	Artist FB: facebook.com
+17:44:26	Removing New Artist from favorited list
+17:44:26	Removing New Artista from favorited list
+17:44:26	Found 2 favorited artists
+17:44:28	Creating birthday card for customer: Shai
+17:44:28	Added signarture file of artist AR243
+17:44:28	Added signarture file of artist AR244
+17:44:43	Logging out Hands In Air
+17:44:43	Submitted
+17:44:43	User: CU0123 Password: eg2j0g
+17:44:43	Attempting login using CU0123/eg2j0g
+17:44:43	test
+17:44:43	Customer logged in
+17:44:43	Initiating main UI
+17:44:43	Aquiring menu for CU0123 Auth: Customer
+17:44:46	Selected Debug Quick Login Feature for Nofar
+17:44:46	Logging in...
+17:44:46	Submitted from DEBUG Window
+17:44:46	User: RE003 Password: Nofar
+17:44:46	Attempting login using RE003/Nofar
+17:44:46	Artist logged in
+17:44:46	Initiating main UI
+17:44:46	Aquiring menu for RE003 Auth: Representative
+17:44:46	Selected Debug Quick Login Feature for Nofar
+17:44:46	Logging in...
+17:44:46	Submitted from DEBUG Window
+17:44:46	User: RE003 Password: Nofar
+17:44:46	Attempting login using RE003/Nofar
+17:44:46	Artist logged in
+17:44:46	Initiating main UI
+17:44:47	Aquiring menu for RE003 Auth: Representative
+17:44:48	DF: 2/28/2017 05:44:48 PM
+17:44:48	TS: 2017-02-28 17:44:48.104 TST: 1488296688104 dd: 2017-02-28 ddt: 1488296688104
+17:44:48	Pulling data for Max_Allowed_Showtime
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Allowed_Showtime")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Location_Commission
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Location_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Show_Approval_Timeout
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Show_Approval_Timeout")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Show_Addon_Commission
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Show_Addon_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Artist_Commission
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Artist_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Birthday_Card
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Birthday_Card")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Max_Addon_Commission
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Addon_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Presale_Discount
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Presale_Discount")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Regular_Tickets_Sale
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Regular_Tickets_Sale")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Max_Presale_Tickets
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Presale_Tickets")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	Pulling data for Minimum_Days_Before_Presale
+17:44:48	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Minimum_Days_Before_Presale")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 05:44:48 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+17:44:48	GOT TXT: Dear {name},
+We have identified you have a birthday on {date}.
+iMuzaMusic wishes you a happy birthday and reaching the age of {age}.
+
+Below are signartures of your favorite artists!
+17:44:48	Max_Allowed_Showtime: 2
+17:44:48	Location_Commission: 20
+17:44:48	Show_Approval_Timeout: 7
+17:44:48	Show_Addon_Commission: 10
+17:44:48	Artist_Commission: 60
+17:44:48	Birthday_Card: Dear {name},
+We have identified you have a birthday on {date}.
+iMuzaMusic wishes you a happy birthday and reaching the age of {age}.
+
+Below are signartures of your favorite artists!
+17:44:48	Max_Addon_Commission: 8
+17:44:48	Presale_Discount: 10
+17:44:48	Regular_Tickets_Sale: 14
+17:44:48	Max_Presale_Tickets: 4
+17:44:48	Minimum_Days_Before_Presale: 21
+17:45:07	Selected Debug Quick Login Feature for Tddht
+17:45:07	Logging in...
+17:45:07	Submitted from DEBUG Window
+17:45:07	User: RE009 Password: hesttsrt
+17:45:07	Attempting login using RE009/hesttsrt
+17:45:07	Artist logged in
+17:45:08	Initiating main UI
+17:45:08	Aquiring menu for RE009 Auth: Representative
+17:45:08	Selected Debug Quick Login Feature for Tddht
+17:45:08	Logging in...
+17:45:08	Submitted from DEBUG Window
+17:45:08	User: RE009 Password: hesttsrt
+17:45:08	Attempting login using RE009/hesttsrt
+17:45:08	Artist logged in
+17:45:08	Initiating main UI
+17:45:08	Aquiring menu for RE009 Auth: Representative
+17:45:10	Selected Debug Quick Login Feature for Shai
+17:45:10	Logging in...
+17:45:10	Submitted from DEBUG Window
+17:45:10	User: CU1114 Password: gutman
+17:45:10	Attempting login using CU1114/gutman
+17:45:10	test
+17:45:10	Customer logged in
+17:45:10	Initiating main UI
+17:45:10	Aquiring menu for CU1114 Auth: Customer
+17:45:10	Selected Debug Quick Login Feature for Shai
+17:45:10	Logging in...
+17:45:10	Submitted from DEBUG Window
+17:45:10	User: CU1114 Password: gutman
+17:45:10	Attempting login using CU1114/gutman
+17:45:10	test
+17:45:10	Customer logged in
+17:45:10	Initiating main UI
+17:45:10	Aquiring menu for CU1114 Auth: Customer
+17:45:11	Artist FB: #https://www.facebook.com/justin.bib#
+17:45:11	Artist FB: #https://www.facebook.com/shawnm#
+17:45:11	Artist FB: #https://www.facebook.com/rihanna#
+17:45:11	Artist FB: #https://www.facebook.com/sia#
+17:45:11	Artist FB: #https://www.facebook.com/pita#
+17:45:11	Artist FB: #https://www.facebook.com/drake#
+17:45:11	Artist FB: facebook.com/url
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: facebook.com/last.aspx
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: asdfacebook.com
+17:45:11	Artist FB: facebook.com
+17:45:11	Artist FB: facebook.com
+17:45:11	Removing New Artist from favorited list
+17:45:11	Removing New Artista from favorited list
+17:45:11	Found 2 favorited artists
+17:45:16	Creating birthday card for customer: Shai
+17:45:16	Added signarture file of artist AR243
+17:45:16	Added signarture file of artist AR244
+17:45:18	Added show to ShowList (PF009 Rihanna)
+17:45:18	Added show to ShowList (PF006 Rihanna)
+17:45:19	Artist FB: #https://www.facebook.com/justin.bib#
+17:45:19	Artist FB: #https://www.facebook.com/shawnm#
+17:45:19	Artist FB: #https://www.facebook.com/rihanna#
+17:45:19	Artist FB: #https://www.facebook.com/sia#
+17:45:19	Artist FB: #https://www.facebook.com/pita#
+17:45:19	Artist FB: #https://www.facebook.com/drake#
+17:45:19	Artist FB: facebook.com/url
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: facebook.com/last.aspx
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: asdfacebook.com
+17:45:19	Artist FB: facebook.com
+17:45:19	Artist FB: facebook.com
+17:45:19	Removing New Artist from favorited list
+17:45:19	Removing New Artista from favorited list
+17:45:19	Found 2 favorited artists
+17:45:20	Creating birthday card for customer: Shai
+17:45:20	Added signarture file of artist AR243
+17:45:20	Added signarture file of artist AR244
+17:45:33	Artist FB: #https://www.facebook.com/justin.bib#
+17:45:33	Artist FB: #https://www.facebook.com/shawnm#
+17:45:33	Artist FB: #https://www.facebook.com/rihanna#
+17:45:33	Artist FB: #https://www.facebook.com/sia#
+17:45:33	Artist FB: #https://www.facebook.com/pita#
+17:45:33	Artist FB: #https://www.facebook.com/drake#
+17:45:33	Artist FB: facebook.com/url
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: facebook.com/last.aspx
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: asdfacebook.com
+17:45:33	Artist FB: facebook.com
+17:45:33	Artist FB: facebook.com
+17:45:33	Removing New Artist from favorited list
+17:45:33	Removing New Artista from favorited list
+17:45:33	Found 2 favorited artists
+17:45:35	Exit command identified
+17:45:35	Exporting XML for iRecord
+17:45:35	Aquiring stream result
+17:45:35	Transforming result
+17:45:35	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+17:45:35	Aquiring stream result
+17:45:35	Transforming result
+17:45:35	Successfully exported HIA-Artist-Sessions.xml file for iRecord System.
+17:45:35	Quitting MuzaMusic
