@@ -1,0 +1,84 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 19:13:31 IST 2017 ==================
+19:13:31	Attempting connection to MS Access DB
+19:13:31	Attempting connection to MS Access DB
+19:13:31	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+19:13:31	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+CONNECTING DB TO: jdbc:ucanaccess://C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+Using second URL: jdbc:ucanaccess://C:\Users\nisan\Documents\Git\HandsInAirLatest\src\sources\MM_DB.accdb
+19:13:33	Successfully connected to MS Access DB.
+19:13:33	Successfully connected to MS Access DB.
+19:13:33	Opening Login Window through iWindow
+19:13:33	Opening Login Window through iWindow
+19:13:34	Exporting XML Reports
+19:13:34	Exporting XML Reports
+19:13:34	Aquiring stream result
+19:13:34	Aquiring stream result
+19:13:34	Transforming result
+19:13:34	Transforming result
+Warning: Could not get charToByteConverterClass!
+19:13:34	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:34	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:34	Aquiring stream result
+19:13:34	Aquiring stream result
+19:13:34	Transforming result
+19:13:34	Transforming result
+19:13:34	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:34	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:52	Exporting XML Reports
+19:13:52	Exporting XML Reports
+19:13:52	Aquiring stream result
+19:13:52	Aquiring stream result
+19:13:52	Transforming result
+19:13:52	Transforming result
+19:13:52	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:52	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:52	Aquiring stream result
+19:13:52	Aquiring stream result
+19:13:52	Transforming result
+19:13:52	Transforming result
+19:13:52	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:52	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:53	Exporting XML Reports
+19:13:53	Exporting XML Reports
+19:13:53	Aquiring stream result
+19:13:53	Aquiring stream result
+19:13:53	Transforming result
+19:13:53	Transforming result
+19:13:53	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:53	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:53	Aquiring stream result
+19:13:53	Aquiring stream result
+19:13:53	Transforming result
+19:13:53	Transforming result
+19:13:53	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:53	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:53	Exporting XML Reports
+19:13:53	Exporting XML Reports
+19:13:53	Aquiring stream result
+19:13:53	Aquiring stream result
+19:13:53	Transforming result
+19:13:53	Transforming result
+19:13:53	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:53	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:53	Aquiring stream result
+19:13:53	Aquiring stream result
+19:13:53	Transforming result
+19:13:53	Transforming result
+19:13:53	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:53	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:53	Exporting XML Reports
+19:13:53	Exporting XML Reports
+19:13:53	Aquiring stream result
+19:13:53	Aquiring stream result
+19:13:53	Transforming result
+19:13:53	Transforming result
+19:13:53	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:53	Successfully exported HIA-Artist-Data.xml file for iRecord System.
+19:13:53	Aquiring stream result
+19:13:53	Aquiring stream result
+19:13:53	Transforming result
+19:13:53	Transforming result
+19:13:53	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:53	Successfully exported HIA-Artist-Shows.xml file for iRecord System.
+19:13:54	Refreshing QuickLogin Users Data
+19:13:54	Refreshing QuickLogin Users Data

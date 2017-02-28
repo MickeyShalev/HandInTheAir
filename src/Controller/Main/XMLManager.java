@@ -40,7 +40,7 @@ public abstract class XMLManager {
         Document doc;
         try {
                 iMuzaMusic.log("Importing XML from iRecord System");
-                File inputFile = new File("iRecord-Artist-Sessions.xml");
+                File inputFile = new File("sources/xml/iRecord-Artist-Sessions.xml");
                 DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
                 doc = dBuilder.parse(inputFile);
@@ -176,7 +176,7 @@ public abstract class XMLManager {
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             
-            PrintStream prntstrm = new PrintStream(new File("HIA-Artist-Data.xml"));
+            PrintStream prntstrm = new PrintStream(new File("sources/xml/HIA-Artist-Data.xml"));
             iMuzaMusic.log("Aquiring stream result");
             StreamResult result
                     = new StreamResult(prntstrm);
@@ -251,13 +251,13 @@ public abstract class XMLManager {
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             
-            PrintStream prntstrm = new PrintStream(new File("HIA-Artist-Sessions.xml"));
+            PrintStream prntstrm = new PrintStream(new File("sources/xml/HIA-Artist-Shows.xml"));
             iMuzaMusic.log("Aquiring stream result");
             StreamResult result
                     = new StreamResult(prntstrm);
             iMuzaMusic.log("Transforming result");
             transformer.transform(source, result);
-     iMuzaMusic.log("Successfully exported HIA-Artist-Sessions.xml file for iRecord System.");
+     iMuzaMusic.log("Successfully exported HIA-Artist-Shows.xml file for iRecord System.");
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(XMLManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerConfigurationException ex) {

@@ -1,0 +1,11 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 19:11:26 IST 2017 ==================
+19:11:26	Attempting connection to MS Access DB
+19:11:26	Attempting connection to MS Access DB
+19:11:26	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+19:11:26	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+CONNECTING DB TO: jdbc:ucanaccess://C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+Using second URL: jdbc:ucanaccess://C:\Users\nisan\Documents\Git\HandsInAirLatest\src\sources\MM_DB.accdb
+19:11:27	Successfully connected to MS Access DB.
+19:11:27	Successfully connected to MS Access DB.
+19:11:28	Opening Login Window through iWindow
+19:11:28	Opening Login Window through iWindow

@@ -38,6 +38,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.HashMap;
@@ -100,8 +101,14 @@ public class iMuzaMusic implements KeyListener {
             SimpleDateFormat sdfDate = new SimpleDateFormat("ddM_hhmm");
             Date now = new Date();
             String strDate = sdfDate.format(now);
-
-            logWriter = new PrintStream(new File(fileName + "_" + strDate + ".log"));
+            //mkdir
+            try{
+            File f = new File("logs/");
+            Files.createDirectory(f.toPath());
+            } catch(Exception e){
+                
+            }
+            logWriter = new PrintStream(new File("logs/"+fileName + "_" + strDate + ".log"));
             System.setErr(logWriter);
             System.setOut(logWriter);
             logWriter.print("=================  iMuzaMusic v1.0 - " + new Date() + " ==================" + System.getProperty("line.separator"));
@@ -362,6 +369,16 @@ public class iMuzaMusic implements KeyListener {
                 } else {
                     LoginWindow.setVisible(true);
                 }
+
+            }
+        });
+        
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F5, InputEvent.CTRL_MASK), "myAction2");
+        rootPane.getActionMap().put("myAction2", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                iMuzaMusic.log("Exporting XML Reports");
+                Controller.Main.XMLManager.ExportXML();
 
             }
         });

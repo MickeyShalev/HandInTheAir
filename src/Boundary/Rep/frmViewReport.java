@@ -9,6 +9,7 @@ import Boundary.General.SuccessExport;
 import Controller.Main.iMuzaMusic;
 import Boundary.Main.iWindow;
 import java.awt.event.ItemEvent;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -100,9 +101,12 @@ public class frmViewReport extends javax.swing.JInternalFrame {
 //                while(rs.next()){
 //                    System.err.println(rs.getString(1));
 //                }
+                iMuzaMusic.log("Opening report: "+getClass()
+                        .getResourceAsStream("/Boundary/Rep/annualReport.jasper").available());
                 JasperPrint print = JasperFillManager.fillReport(getClass()
                         .getResourceAsStream("/Boundary/Rep/annualReport.jasper"), 
                         n, conn);
+                
                 JFrame frame = new JFrame("iMuzaMusic - Annual Report "+n.get("year"));
                 frame.getContentPane().add(new JRViewer(print));
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -114,7 +118,9 @@ public class frmViewReport extends javax.swing.JInternalFrame {
                 iWindow.openWin(t);
             } catch (SQLException | JRException | NullPointerException e) {
                 e.printStackTrace();
-            }
+            }       catch (IOException ex) {
+                        Logger.getLogger(frmViewReport.class.getName()).log(Level.SEVERE, null, ex);
+                    }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
