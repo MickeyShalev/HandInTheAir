@@ -26,14 +26,18 @@ public class DBManager {
         String driver="net.ucanaccess.jdbc.UcanaccessDriver"; 
         Class.forName(driver); 
         try{
+            System.err.println("CONNECTING DB TO: jdbc:ucanaccess://"+dbFile);
         this.conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile); 
         
         }
         catch(Exception e){
+            
             dbFile = (new File("src/sources/MM_DB.accdb")).getAbsolutePath();
+            System.err.println("Using second URL: jdbc:ucanaccess://"+dbFile);
             this.conn=DriverManager.getConnection("jdbc:ucanaccess://"+dbFile);
 
         } 
+        
         
     }
     

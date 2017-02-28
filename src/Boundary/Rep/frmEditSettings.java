@@ -7,11 +7,15 @@ package Boundary.Rep;
 
 import Controller.Main.iMuzaMusic;
 import Controller.Rep.SettingsManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -323,7 +327,6 @@ public class frmEditSettings extends javax.swing.JInternalFrame {
         hm.put("Minimum_Days_Before_Presale", spnMinDaysBeforePresale.getValue().toString());
         hm.put("Regular_Tickets_Sale", spnRegularTicketsPeriod.getValue().toString());
         hm.put("Show_Approval_Timeout", spnShowApprovalTimeout.getValue().toString());
-        hm.put("Birthday_Card", txtbDayCard.getText());
         //done
         
         Timestamp ts = new Timestamp(new Date().getTime());
@@ -334,9 +337,23 @@ public class frmEditSettings extends javax.swing.JInternalFrame {
             String qry = "INSERT INTO GlobalSettings(Key, Value, Comment, dateUpdated) VALUES (\""+e.getKey()+"\",\""+e.getValue()+"\",\"Updated By "+iMuzaMusic.getLoggedUser().getID()+"\", Now())";
             iMuzaMusic.getDB().updateReturnID(qry);
         }
+        
+        //Treat BDay Cards
+        String qry = "INSERT INTO BDayCards (txt) values (\""+txtbDayCard.getText()+"\")";
+        iMuzaMusic.getDB().updateReturnID(qry);
+        qry = "SELECT TOP 1 id from BDayCards order by id desc";
+        ResultSet rs = iMuzaMusic.getDB().query(qry);
+        Integer id = 0;
+        try {
+            if(rs.next()){
+                id = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(frmEditSettings.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
-        
-        
+        qry = "INSERT INTO GlobalSettings(Key, Value, Comment, dateUpdated) VALUES (\"Birthday_Card\","+id+",\"Updated By "+iMuzaMusic.getLoggedUser().getID()+"\", Now())";
+        iMuzaMusic.getDB().updateReturnID(qry);
         
         
         

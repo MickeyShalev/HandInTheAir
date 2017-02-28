@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af0d66d3-ffd9-41fd-b9fd-ea85e6d73806">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     qrySalesWrapper42.`pID` AS qrySalesWrapper42_pID,
+     qrySalesWrapper42.`pStartDate` AS qrySalesWrapper42_pStartDate,
+     qrySalesWrapper42.`pTicketPrice` AS qrySalesWrapper42_pTicketPrice,
+     qrySalesWrapper42.`pMinAge` AS qrySalesWrapper42_pMinAge,
+     qrySalesWrapper42.`pStatus` AS qrySalesWrapper42_pStatus,
+     qrySalesWrapper42.`iLocation` AS qrySalesWrapper42_iLocation,
+     qrySalesWrapper42.`iMainArtist` AS qrySalesWrapper42_iMainArtist,
+     qrySalesWrapper42.`pDateCreated` AS qrySalesWrapper42_pDateCreated,
+     qrySalesWrapper42.`PreSaleTotal` AS qrySalesWrapper42_PreSaleTotal,
+     qrySalesWrapper42.`RegularSaleTotal` AS qrySalesWrapper42_RegularSaleTotal,
+     qrySalesWrapper42.`pTotalSales` AS qrySalesWrapper42_pTotalSales,
+     qrySalesWrapper42.`AdditionalCosts` AS qrySalesWrapper42_AdditionalCosts,
+     qrySalesWrapper42.`LocComm` AS qrySalesWrapper42_LocComm,
+     qrySalesWrapper42.`ArtistComm` AS qrySalesWrapper42_ArtistComm
+FROM
+     `qrySalesWrapper42` qrySalesWrapper42]]>
+	</queryString>
+	<field name="qrySalesWrapper42_pID" class="java.lang.String"/>
+	<field name="qrySalesWrapper42_pStartDate" class="java.sql.Timestamp"/>
+	<field name="qrySalesWrapper42_pTicketPrice" class="java.lang.Integer"/>
+	<field name="qrySalesWrapper42_pMinAge" class="java.lang.Integer"/>
+	<field name="qrySalesWrapper42_pStatus" class="java.lang.String"/>
+	<field name="qrySalesWrapper42_iLocation" class="java.lang.String"/>
+	<field name="qrySalesWrapper42_iMainArtist" class="java.lang.String"/>
+	<field name="qrySalesWrapper42_pDateCreated" class="java.sql.Timestamp"/>
+	<field name="qrySalesWrapper42_PreSaleTotal" class="java.math.BigDecimal"/>
+	<field name="qrySalesWrapper42_RegularSaleTotal" class="java.lang.Long"/>
+	<field name="qrySalesWrapper42_pTotalSales" class="java.math.BigDecimal"/>
+	<field name="qrySalesWrapper42_AdditionalCosts" class="java.lang.Double"/>
+	<field name="qrySalesWrapper42_LocComm" class="java.math.BigDecimal"/>
+	<field name="qrySalesWrapper42_ArtistComm" class="java.math.BigDecimal"/>
+	<group name="qrySalesWrapper42_pID">
+		<groupExpression><![CDATA[$F{qrySalesWrapper42_pID}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#333333" uuid="0822e536-0c52-40d4-90b1-96d89aea6cac"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{qrySalesWrapper42_pID}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="daacabf0-0701-4604-87d1-5fbf3d1114ab"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="0" width="595" height="64" uuid="ca137595-255d-4656-9c1a-fc521fa6341b"/>
+				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="263" height="33" uuid="2f5e106d-ec55-4fa3-8cd7-c4928bb8b7df"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Wood Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="39" width="200" height="22" forecolor="#FFFFFF" uuid="8c8d4e25-1576-41d8-bda5-31691ddd22b5"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Wood SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="bcd4e728-65d0-4d49-871e-7d22b6b77bd6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="42" height="15" uuid="9220b16a-0cb5-46f7-b971-39d9174b843d"/>
+				<text><![CDATA[qrySalesWrapper42_pStartDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="42" y="19" width="42" height="15" uuid="8f9444b2-d1bb-4367-b186-00e0a1b53534"/>
+				<text><![CDATA[qrySalesWrapper42_pTicketPrice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="84" y="19" width="42" height="15" uuid="06742a03-bb23-4910-9b66-a9e7276d9d7b"/>
+				<text><![CDATA[qrySalesWrapper42_pMinAge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="126" y="19" width="42" height="15" uuid="d197cc39-6593-429f-a608-b1a092f17d26"/>
+				<text><![CDATA[qrySalesWrapper42_pStatus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="168" y="19" width="42" height="15" uuid="f461ec2d-b131-4d2e-bd70-522cb93eeced"/>
+				<text><![CDATA[qrySalesWrapper42_iLocation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="210" y="19" width="42" height="15" uuid="4e95d51e-fba3-4592-9520-91e1b6d46c9c"/>
+				<text><![CDATA[qrySalesWrapper42_iMainArtist]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="252" y="19" width="42" height="15" uuid="0f3a8a32-a1e9-4ff3-956c-4bb475ecffdf"/>
+				<text><![CDATA[qrySalesWrapper42_pDateCreated]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="294" y="19" width="42" height="15" uuid="63def6ee-6363-4e47-b9f8-c2f6e5fe584e"/>
+				<text><![CDATA[qrySalesWrapper42_PreSaleTotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="336" y="19" width="42" height="15" uuid="2b0e54a0-1289-48a2-9c83-0e335b18b33a"/>
+				<text><![CDATA[qrySalesWrapper42_RegularSaleTotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="378" y="19" width="42" height="15" uuid="f08b7b3d-f78d-43f7-add9-ed8720106ec9"/>
+				<text><![CDATA[qrySalesWrapper42_pTotalSales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="420" y="19" width="42" height="15" uuid="d5db9466-833f-4934-a03e-5046da169c9e"/>
+				<text><![CDATA[qrySalesWrapper42_AdditionalCosts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="462" y="19" width="42" height="15" uuid="1c10dd69-2886-44e7-9277-cb8d80361d02"/>
+				<text><![CDATA[qrySalesWrapper42_LocComm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="504" y="19" width="42" height="15" uuid="e1823bc7-19eb-4f38-b185-3b41e73928c4"/>
+				<text><![CDATA[qrySalesWrapper42_ArtistComm]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="9f0cdfdb-4298-4fb7-bd77-8ef0140094a5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="42" height="15" uuid="ee4e23b0-cdff-47a5-aa59-63fce5fdf151"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_pStartDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="42" y="0" width="42" height="15" uuid="171349e4-ef3b-4e17-bee5-c62a3c4839a3"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_pTicketPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="84" y="0" width="42" height="15" uuid="b51662c3-c6c0-4f16-9522-bb1176d635c4"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_pMinAge}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="126" y="0" width="42" height="15" uuid="b289eb90-0d60-41d8-9b19-891255244bf3"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_pStatus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="168" y="0" width="42" height="15" uuid="61b57bf8-ec26-4816-94c1-337a05466ec5"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_iLocation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="210" y="0" width="42" height="15" uuid="256da5af-4e9e-44d3-b746-1b2416ada125"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_iMainArtist}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="252" y="0" width="42" height="15" uuid="dff3bef2-9db3-478a-a6d6-1b4fce008fda"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_pDateCreated}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="294" y="0" width="42" height="15" uuid="b8813a46-e7db-4022-b9b1-06ed4dd7bdc3"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_PreSaleTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="336" y="0" width="42" height="15" uuid="a453a6a4-4c76-4dcd-814f-23fcfdb1c8a0"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_RegularSaleTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="378" y="0" width="42" height="15" uuid="143f97be-737c-46dd-a016-60aa7d7b9d64"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_pTotalSales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="420" y="0" width="42" height="15" uuid="de916344-d754-4e61-b14d-69cc345f492d"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_AdditionalCosts}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="462" y="0" width="42" height="15" uuid="92c44647-5de9-4dfb-a588-a6b0b2257533"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_LocComm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="504" y="0" width="42" height="15" uuid="27a3aa38-dd67-48af-b689-820f064bdef8"/>
+				<textFieldExpression><![CDATA[$F{qrySalesWrapper42_ArtistComm}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="b6e272d2-8b6b-4d14-b6e6-203f63e0ef7e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="609cd3ed-6783-45a6-825d-4bc7dba76e74"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="48388a52-18e1-4549-ac2f-4ce98a6d5613"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="f97bc63f-8191-4e5b-9665-db548202ef5c"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

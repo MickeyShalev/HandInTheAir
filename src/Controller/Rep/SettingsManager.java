@@ -75,6 +75,18 @@ public class SettingsManager {
         
         }
         
+        //Treat BDay
+        qry = "SELECT TOP 1 txt from BDayCards where id="+Integer.parseInt(settingsMap.get("Birthday_Card"));
+        rs = iMuzaMusic.getDB().query(qry);
+        try {
+            if(rs.next()){
+                iMuzaMusic.log("GOT TXT: "+rs.getString(1));
+                settingsMap.put("Birthday_Card", rs.getString(1));
+            } else settingsMap.put("Birthday_Card", "");
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         
         //Test vars

@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import static java.sql.Types.NULL;
 import java.util.HashMap;
 import java.util.Map;
@@ -74,7 +75,7 @@ public class frmViewReport extends javax.swing.JInternalFrame {
 
     private void slctYearItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_slctYearItemStateChanged
                                                 
-                // TODO add your handling code here:
+                   // TODO add your handling code here:
                 if (evt.getStateChange() != ItemEvent.SELECTED)
                     return;
                 Object item = evt.getItem();
@@ -90,16 +91,23 @@ public class frmViewReport extends javax.swing.JInternalFrame {
                 Map<String, Object> n = new HashMap<String, Object>();
                 n.put("year",item.toString());
                 iMuzaMusic.log("Sending Report Query with Year: "+n.get("year"));
-                System.err.println("Aquiring report jasper: "+getClass().getResourceAsStream("annualReport.jasper").toString());
+//                Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+//                ResultSet rs = stmt.executeQuery("SELECT m.Name\n" +
+//"FROM MSysObjects AS m\n" +
+//"WHERE m.Type=5 AND m.Name Not ALike \"~%\"  \n" +
+//"ORDER BY m.Name;");
+//                
+//                while(rs.next()){
+//                    System.err.println(rs.getString(1));
+//                }
                 JasperPrint print = JasperFillManager.fillReport(getClass()
-                        .getResourceAsStream("annualReport.jasper"), 
+                        .getResourceAsStream("/Boundary/Rep/annualReport.jasper"), 
                         n, conn);
                 JFrame frame = new JFrame("iMuzaMusic - Annual Report "+n.get("year"));
                 frame.getContentPane().add(new JRViewer(print));
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.pack();
                 frame.setVisible(true);
-                conn.close();
                 n.clear();
                 dispose();
                 SuccessExport t = new SuccessExport();

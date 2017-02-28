@@ -1,0 +1,11 @@
+=================  iMuzaMusic v1.0 - Mon Feb 27 23:46:44 IST 2017 ==================
+23:46:44	Attempting connection to MS Access DB
+23:46:44	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+23:46:45	Successfully connected to MS Access DB.
+23:46:45	Opening Login Window through iWindow
+23:46:46	Submitted
+23:46:46	User: RE001 Password: admin
+23:46:46	Attempting login using RE001/admin
+23:46:46	Artist logged in
+23:46:46	Initiating main UI
+23:46:46	Aquiring menu for RE001 Auth: Representative

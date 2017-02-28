@@ -1,0 +1,63 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 12:18:44 IST 2017 ==================
+12:18:44	Attempting connection to MS Access DB
+12:18:44	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+12:18:46	Successfully connected to MS Access DB.
+12:18:46	Opening Login Window through iWindow
+12:18:46	Submitted
+12:18:46	User: RE001 Password: admin
+12:18:46	Attempting login using RE001/admin
+12:18:46	Artist logged in
+12:18:46	Initiating main UI
+12:18:46	Aquiring menu for RE001 Auth: Representative
+12:18:47	Logging out..
+12:18:47	Successfully logged out
+12:18:47	Submitted
+12:18:47	User: RE001 Password: admin
+12:18:47	Attempting login using RE001/admin
+12:18:47	Artist logged in
+12:18:47	Initiating main UI
+12:18:47	Aquiring menu for RE001 Auth: Representative
+12:18:47	Activating login screen
+12:18:55	Submitted
+12:18:55	User: CU0123 Password: eg2j0g
+12:18:55	Attempting login using CU0123/eg2j0g
+12:18:56	test
+12:18:56	Customer logged in
+12:18:56	Initiating main UI
+12:18:56	Aquiring menu for CU0123 Auth: Customer
+12:18:58	Artist FB: #https://www.facebook.com/justin.bib#
+12:18:58	Artist FB: #https://www.facebook.com/shawnm#
+12:18:58	Artist FB: #https://www.facebook.com/rihanna#
+12:18:58	Artist FB: #https://www.facebook.com/sia#
+12:18:58	Artist FB: #https://www.facebook.com/pita#
+12:18:58	Artist FB: #https://www.facebook.com/drake#
+12:18:58	Artist FB: facebook.com/url
+12:18:58	Artist FB: facebook.com
+12:18:58	Artist FB: facebook.com
+12:18:58	Artist FB: facebook.com
+12:18:58	Artist FB: facebook.com
+12:18:58	Artist FB: facebook.com/last.aspx
+12:18:58	Artist FB: facebook.com
+12:18:58	Artist FB: facebook.com
+12:18:58	Removing Justin Bieber from favorited list
+12:18:58	Removing Rihanna from favorited list
+12:18:58	Removing nis from favorited list
+12:18:58	Found 3 favorited artists
+12:19:17	Artist FB: #https://www.facebook.com/justin.bib#
+12:19:17	Artist FB: #https://www.facebook.com/shawnm#
+12:19:17	Artist FB: #https://www.facebook.com/rihanna#
+12:19:17	Artist FB: #https://www.facebook.com/sia#
+12:19:17	Artist FB: #https://www.facebook.com/pita#
+12:19:17	Artist FB: #https://www.facebook.com/drake#
+12:19:17	Artist FB: facebook.com/url
+12:19:17	Artist FB: facebook.com
+12:19:17	Artist FB: facebook.com
+12:19:17	Artist FB: facebook.com
+12:19:17	Artist FB: facebook.com
+12:19:17	Artist FB: facebook.com/last.aspx
+12:19:17	Artist FB: facebook.com
+12:19:17	Artist FB: facebook.com
+12:19:17	Removing Justin Bieber from favorited list
+12:19:17	Removing Rihanna from favorited list
+12:19:17	Removing nis from favorited list
+12:19:17	Found 3 favorited artists
