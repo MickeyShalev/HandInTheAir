@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.text.DefaultCaret;
 
 /**
  *
@@ -35,7 +36,8 @@ public class LoginWindow extends javax.swing.JFrame {
         
         pList = Controller.Main.LoginController.getPersons();
         initComponents();
-        
+        DefaultCaret caret = (DefaultCaret) txtDebug.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
         
         
         
@@ -76,6 +78,7 @@ public class LoginWindow extends javax.swing.JFrame {
         txtDebug.setColumns(20);
         txtDebug.setForeground(new java.awt.Color(255, 255, 255));
         txtDebug.setRows(5);
+        txtDebug.setWrapStyleWord(true);
         txtDebug.setBorder(null);
         jScrollPane1.setViewportView(txtDebug);
 
@@ -126,7 +129,7 @@ public class LoginWindow extends javax.swing.JFrame {
    
 
     public void addDebug(String line){
-        txtDebug.setText(txtDebug.getText()+System.getProperty("line.separator")+line);
+        txtDebug.setText(line+System.getProperty("line.separator")+txtDebug.getText());
         
     }
     
