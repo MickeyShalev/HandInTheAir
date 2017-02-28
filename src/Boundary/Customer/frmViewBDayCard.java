@@ -38,6 +38,12 @@ public class frmViewBDayCard extends javax.swing.JInternalFrame {
      */
     public frmViewBDayCard(){
         initComponents();
+        if(Controller.Customer.BDayController.canDisplay((Customer)iMuzaMusic.getLoggedUser()))
+            displayBDay.setVisible(true);
+        else {
+            displayErr.setVisible(true);
+            return;
+        }
         lblTitle.setText("Happy Birthday "+iMuzaMusic.getLoggedUser().getFirstName()+"!");
         txtLetter.setText(Controller.Customer.BDayController.getBirthdayText((Customer)iMuzaMusic.getLoggedUser()));
         jScrollPane2.getViewport().setOpaque(false);
@@ -80,27 +86,21 @@ public class frmViewBDayCard extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle = new javax.swing.JLabel();
-        sigPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        displayBDay = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtLetter = new javax.swing.JTextPane();
+        jLabel2 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        sigPanel = new javax.swing.JPanel();
+        displayErr = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         getContentPane().setLayout(null);
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Happy Birthday ");
-        getContentPane().add(lblTitle);
-        lblTitle.setBounds(160, 40, 530, 70);
-
-        sigPanel.setOpaque(false);
-        getContentPane().add(sigPanel);
-        sigPanel.setBounds(10, 290, 710, 270);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/balloons.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, -20, 160, 300);
+        displayBDay.setOpaque(false);
+        displayBDay.setLayout(null);
+        displayBDay.setVisible(false);
 
         jScrollPane2.setBorder(null);
         jScrollPane2.setOpaque(false);
@@ -111,14 +111,61 @@ public class frmViewBDayCard extends javax.swing.JInternalFrame {
         txtLetter.setOpaque(false);
         jScrollPane2.setViewportView(txtLetter);
 
-        getContentPane().add(jScrollPane2);
+        displayBDay.add(jScrollPane2);
         jScrollPane2.setBounds(170, 110, 610, 200);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/balloons.png"))); // NOI18N
+        displayBDay.add(jLabel2);
+        jLabel2.setBounds(20, -20, 160, 300);
+
+        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("Happy Birthday ");
+        displayBDay.add(lblTitle);
+        lblTitle.setBounds(160, 40, 530, 70);
+
+        sigPanel.setOpaque(false);
+        displayBDay.add(sigPanel);
+        sigPanel.setBounds(10, 290, 710, 270);
+
+        getContentPane().add(displayBDay);
+        displayBDay.setBounds(10, 10, 1040, 570);
+
+        displayErr.setOpaque(false);
+        displayErr.setLayout(null);
+        displayErr.setVisible(false);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Your Birthday Card cannot be generated because you do not fan an artist yet.");
+        displayErr.add(jLabel1);
+        jLabel1.setBounds(50, 30, 870, 16);
+
+        jButton1.setText("Fan Artists");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        displayErr.add(jButton1);
+        jButton1.setBounds(50, 70, 200, 25);
+
+        getContentPane().add(displayErr);
+        displayErr.setBounds(0, 0, 1040, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        iWindow.openWin(new frmFanArtist());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel displayBDay;
+    private javax.swing.JPanel displayErr;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblTitle;

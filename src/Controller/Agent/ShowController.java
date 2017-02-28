@@ -94,7 +94,7 @@ public abstract class ShowController {
 
     public static List<Location> getFavLocationsByAgent(Agent agent) {
         List<Location> arr = new ArrayList<Location>();
-        String qry = "SELECT Locations.LocationID, Locations.strName, Agents.AgentID\n"
+        String qry = "SELECT Locations.LocationID, Locations.strName, Locations.strAddress, Agents.AgentID\n"
                 + "FROM Locations INNER JOIN (Agents INNER JOIN AgentPreferLocation ON Agents.AgentID = AgentPreferLocation.AgentID) ON Locations.LocationID = AgentPreferLocation.LocationID\n"
                 + "WHERE (((Agents.AgentID)=[AgentPreferLocation].[AgentID]) AND ((Locations.LocationID)=[AgentPreferLocation].[LocationID]) AND ((Agents.AgentID)=\"" + agent.getID() + "\"))";
 

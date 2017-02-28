@@ -1,0 +1,186 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 19:38:42 IST 2017 ==================
+19:38:42	Attempting connection to MS Access DB
+19:38:42	Attempting connection to MS Access DB
+19:38:42	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+19:38:42	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+CONNECTING DB TO: jdbc:ucanaccess://C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+Using second URL: jdbc:ucanaccess://C:\Users\nisan\Documents\Git\HandsInAirLatest\src\sources\MM_DB.accdb
+19:38:43	Successfully connected to MS Access DB.
+19:38:43	Successfully connected to MS Access DB.
+19:38:43	Opening Login Window through iWindow
+19:38:43	Opening Login Window through iWindow
+19:38:48	Selected Debug Quick Login Feature for Danny
+19:38:48	Selected Debug Quick Login Feature for Danny
+19:38:48	Logging in...
+19:38:48	Logging in...
+19:38:48	Submitted from DEBUG Window
+19:38:48	Submitted from DEBUG Window
+19:38:48	User: AG001 Password: dannyb
+19:38:48	User: AG001 Password: dannyb
+19:38:48	Attempting login using AG001/dannyb
+19:38:48	Attempting login using AG001/dannyb
+19:38:48	Agent logged in
+19:38:48	Agent logged in
+19:38:48	Initiating main UI
+19:38:48	Initiating main UI
+19:38:48	Aquiring menu for AG001 Auth: Agent
+19:38:48	Aquiring menu for AG001 Auth: Agent
+19:38:48	Selected Debug Quick Login Feature for Danny
+19:38:48	Selected Debug Quick Login Feature for Danny
+19:38:48	Logging in...
+19:38:48	Logging in...
+19:38:48	Submitted from DEBUG Window
+19:38:48	Submitted from DEBUG Window
+19:38:48	User: AG001 Password: dannyb
+19:38:48	User: AG001 Password: dannyb
+19:38:48	Attempting login using AG001/dannyb
+19:38:48	Attempting login using AG001/dannyb
+19:38:48	Agent logged in
+19:38:48	Agent logged in
+19:38:48	Initiating main UI
+19:38:48	Initiating main UI
+19:38:48	Aquiring menu for AG001 Auth: Agent
+19:38:48	Aquiring menu for AG001 Auth: Agent
+19:38:49	Removing The Duke from favorited list
+19:38:49	Removing The Duke from favorited list
+19:38:49	Found 1 favorited locations
+19:38:49	Found 1 favorited locations
+19:38:49	Deleting tmp files
+19:38:49	Deleting tmp files
+19:38:52	Deleting tmp files
+19:38:52	Deleting tmp files
+19:38:52	Importing XML from iRecord System
+19:38:52	Importing XML from iRecord System
+19:38:52	Could not locate XML File: iRecord-Artist-Sessions.xml
+19:38:52	Could not locate XML File: iRecord-Artist-Sessions.xml
+19:38:52	Successfully imported 0 artists sessions from iRecord.
+19:38:52	Successfully imported 0 artists sessions from iRecord.
+Feb 28, 2017 7:38:52 PM Controller.Main.DBManager query
+SEVERE: null
+net.ucanaccess.jdbc.UcanaccessSQLException: UCAExc:::3.0.7 unexpected token: ,
+	at net.ucanaccess.jdbc.UcanaccessStatement.executeQuery(UcanaccessStatement.java:211)
+	at Controller.Main.DBManager.query(DBManager.java:53)
+	at Controller.Agent.ShowController.getFavLocationsByAgent(ShowController.java:101)
+	at Boundary.Agent.frmCreateShow.slctArtistItemStateChanged(frmCreateShow.java:383)
+	at Boundary.Agent.frmCreateShow.access$100(frmCreateShow.java:39)
+	at Boundary.Agent.frmCreateShow$2.itemStateChanged(frmCreateShow.java:166)
+	at javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1223)
+	at javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1280)
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1330)
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:118)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:93)
+	at javax.swing.JComboBox.setSelectedItem(JComboBox.java:576)
+	at javax.swing.JComboBox.setSelectedIndex(JComboBox.java:622)
+	at javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(BasicComboPopup.java:852)
+	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:290)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at javax.swing.plaf.basic.BasicComboPopup$1.processMouseEvent(BasicComboPopup.java:501)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.sql.SQLSyntaxErrorException: unexpected token: ,
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCUtil.sqlException(Unknown Source)
+	at org.hsqldb.jdbc.JDBCStatement.fetchResult(Unknown Source)
+	at org.hsqldb.jdbc.JDBCStatement.executeQuery(Unknown Source)
+	at net.ucanaccess.jdbc.UcanaccessStatement.executeQuery(UcanaccessStatement.java:208)
+	... 46 more
+Caused by: org.hsqldb.HsqlException: unexpected token: ,
+	at org.hsqldb.error.Error.parseError(Unknown Source)
+	at org.hsqldb.ParserBase.unexpectedToken(Unknown Source)
+	at org.hsqldb.ParserBase.checkIsIdentifier(Unknown Source)
+	at org.hsqldb.ParserDQL.readColumnOrFunctionExpression(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadSimpleValueExpressionPrimary(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadAllTypesValueExpressionPrimary(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadAllTypesPrimary(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadAllTypesFactor(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadAllTypesTerm(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadAllTypesCommonValueExpression(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadValueExpression(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadSelect(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadQuerySpecification(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadSimpleTable(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadQueryPrimary(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadQueryTerm(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadQueryExpressionBody(Unknown Source)
+	at org.hsqldb.ParserDQL.XreadQueryExpression(Unknown Source)
+	at org.hsqldb.ParserDQL.compileCursorSpecification(Unknown Source)
+	at org.hsqldb.ParserCommand.compilePart(Unknown Source)
+	at org.hsqldb.ParserCommand.compileStatements(Unknown Source)
+	at org.hsqldb.Session.executeDirectStatement(Unknown Source)
+	at org.hsqldb.Session.execute(Unknown Source)
+	... 49 more
+
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+	at Controller.Agent.ShowController.getFavLocationsByAgent(ShowController.java:103)
+	at Boundary.Agent.frmCreateShow.slctArtistItemStateChanged(frmCreateShow.java:383)
+	at Boundary.Agent.frmCreateShow.access$100(frmCreateShow.java:39)
+	at Boundary.Agent.frmCreateShow$2.itemStateChanged(frmCreateShow.java:166)
+	at javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1223)
+	at javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1280)
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1330)
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:118)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:93)
+	at javax.swing.JComboBox.setSelectedItem(JComboBox.java:576)
+	at javax.swing.JComboBox.setSelectedIndex(JComboBox.java:622)
+	at javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(BasicComboPopup.java:852)
+	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:290)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at javax.swing.plaf.basic.BasicComboPopup$1.processMouseEvent(BasicComboPopup.java:501)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)

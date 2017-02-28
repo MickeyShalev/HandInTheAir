@@ -375,6 +375,10 @@ public class frmCreateShow extends javax.swing.JInternalFrame {
         //Go through all of this agents' artists
        
         
+        slctLocation.removeAllItems();
+        Location tmpL = new Location("0000");
+        tmpL.setStrName("Select Location");
+        slctLocation.addItem(tmpL);
         
       for(Location l : ShowController.getFavLocationsByAgent((Agent)iMuzaMusic.getLoggedUser()))
                 slctLocation.addItem(l);

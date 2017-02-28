@@ -1,0 +1,93 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 20:40:20 IST 2017 ==================
+20:40:20	Attempting connection to MS Access DB
+20:40:20	Attempting connection to MS Access DB
+20:40:20	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+20:40:20	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+CONNECTING DB TO: jdbc:ucanaccess://C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+Using second URL: jdbc:ucanaccess://C:\Users\nisan\Documents\Git\HandsInAirLatest\src\sources\MM_DB.accdb
+20:40:21	Successfully connected to MS Access DB.
+20:40:21	Successfully connected to MS Access DB.
+20:40:21	Opening Login Window through iWindow
+20:40:21	Opening Login Window through iWindow
+20:40:24	Selected Debug Quick Login Feature for John
+20:40:24	Selected Debug Quick Login Feature for John
+20:40:24	Logging in...
+20:40:24	Logging in...
+20:40:24	Submitted from DEBUG Window
+20:40:24	Submitted from DEBUG Window
+20:40:24	User: CU001 Password: john123
+20:40:24	User: CU001 Password: john123
+20:40:24	Attempting login using CU001/john123
+20:40:24	Attempting login using CU001/john123
+20:40:24	test
+20:40:24	test
+20:40:24	Customer logged in
+20:40:24	Customer logged in
+20:40:24	Initiating main UI
+20:40:24	Initiating main UI
+20:40:24	Aquiring menu for CU001 Auth: Customer
+20:40:24	Aquiring menu for CU001 Auth: Customer
+20:40:24	Selected Debug Quick Login Feature for John
+20:40:24	Selected Debug Quick Login Feature for John
+20:40:24	Logging in...
+20:40:24	Logging in...
+20:40:24	Submitted from DEBUG Window
+20:40:24	Submitted from DEBUG Window
+20:40:24	User: CU001 Password: john123
+20:40:24	User: CU001 Password: john123
+20:40:24	Attempting login using CU001/john123
+20:40:24	Attempting login using CU001/john123
+20:40:24	test
+20:40:24	test
+20:40:24	Customer logged in
+20:40:24	Customer logged in
+20:40:24	Initiating main UI
+20:40:24	Initiating main UI
+20:40:24	Aquiring menu for CU001 Auth: Customer
+20:40:24	Aquiring menu for CU001 Auth: Customer
+20:40:26	Deleting tmp files
+20:40:26	Deleting tmp files
+20:40:29	Artist FB: https://www.facebook.com/rihanna/
+20:40:29	Artist FB: https://www.facebook.com/rihanna/
+20:40:29	Found 0 favorited artists
+20:40:29	Found 0 favorited artists
+20:40:29	Deleting tmp files
+20:40:29	Deleting tmp files
+20:40:30	Deleting tmp files
+20:40:30	Deleting tmp files
+20:40:32	Artist FB: https://www.facebook.com/rihanna/
+20:40:32	Artist FB: https://www.facebook.com/rihanna/
+20:40:32	Found 0 favorited artists
+20:40:32	Found 0 favorited artists
+20:40:32	Deleting tmp files
+20:40:32	Deleting tmp files
+20:40:33	Sending UPDATE Query: INSERT INTO CustomerAdmires (ClientID, ArtistID) values ("CU001","AR1")
+20:40:33	Sending UPDATE Query: INSERT INTO CustomerAdmires (ClientID, ArtistID) values ("CU001","AR1")
+20:40:33	Artist FB: https://www.facebook.com/rihanna/
+20:40:33	Artist FB: https://www.facebook.com/rihanna/
+20:40:33	Removing Rihanna from favorited list
+20:40:33	Removing Rihanna from favorited list
+20:40:33	Found 1 favorited artists
+20:40:33	Found 1 favorited artists
+20:40:34	Deleting tmp files
+20:40:34	Deleting tmp files
+20:40:35	Artist FB: https://www.facebook.com/rihanna/
+20:40:35	Artist FB: https://www.facebook.com/rihanna/
+20:40:35	Removing Rihanna from favorited list
+20:40:35	Removing Rihanna from favorited list
+20:40:35	Found 1 favorited artists
+20:40:35	Found 1 favorited artists
+20:40:35	Deleting tmp files
+20:40:35	Deleting tmp files
+20:40:36	Deleting tmp files
+20:40:36	Deleting tmp files
+20:40:39	Artist FB: https://www.facebook.com/rihanna/
+20:40:39	Artist FB: https://www.facebook.com/rihanna/
+20:40:39	Removing Rihanna from favorited list
+20:40:39	Removing Rihanna from favorited list
+20:40:39	Found 1 favorited artists
+20:40:39	Found 1 favorited artists
+20:40:39	Deleting tmp files
+20:40:39	Deleting tmp files
+20:40:40	Deleting tmp files
+20:40:40	Deleting tmp files

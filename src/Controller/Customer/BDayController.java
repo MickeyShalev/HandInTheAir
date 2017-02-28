@@ -76,4 +76,24 @@ public abstract class BDayController {
 
         return fileList;
     }
+
+    public static boolean canDisplay(Customer cust) {
+        String qry = "SELECT Count(*) from CustomerAdmires where ClientID=\""+cust.getID()+"\"";
+        ResultSet rs = iMuzaMusic.getDB().query(qry);
+        iMuzaMusic.log("Getting count for customer admires: "+cust.getID());
+        try {
+            if(rs.next()){
+                iMuzaMusic.log("Count is: "+rs.getInt(1));
+                if(rs.getInt(1)>0)
+                    return true;
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BDayController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return false;
+        
+    }
 }
