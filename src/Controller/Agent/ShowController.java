@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.Show;
+package Controller.Agent;
 
 import Controller.Main.DBManager;
 import Controller.Main.XMLManager;
@@ -60,11 +60,12 @@ public abstract class ShowController {
 
         //Get from XML
         Map<Artist, List<Timestamp>> hm = XMLManager.importXML();
-        if(hm.containsKey(artist)){
-        for(Timestamp ts : hm.get(artist)){
-            iMuzaMusic.log("Adding session date occupied: "+ts);
-            arr.add(new Date(ts.getTime()));
-        }}
+        if (hm.containsKey(artist)) {
+            for (Timestamp ts : hm.get(artist)) {
+                iMuzaMusic.log("Adding session date occupied: " + ts);
+                arr.add(new Date(ts.getTime()));
+            }
+        }
         //TBD
         Date darr[] = new Date[arr.size()];
         arr.toArray(darr);
@@ -156,17 +157,111 @@ public abstract class ShowController {
 
             String qry = "INSERT INTO Shows (pID, pStartDate, pTicketPrice, pMinAge, pStatus, iLocation, iMainArtist, pDateCreated)"
                     + " VALUES ('" + pID + "',\"" + ts + "\",'" + ticketPrice + "','" + minAge + "','Awaiting Approval','" + LocationID + "','" + MainArtist + "',\"" + dateCreated + "\")";
-            iMuzaMusic.log("Starting to insert show "+pID+" with "+subArtists.size()+" sub artists");
+            iMuzaMusic.log("Starting to insert show " + pID + " with " + subArtists.size() + " sub artists");
             iMuzaMusic.getDB().updateReturnID(qry);
-            for(Artist subArtist : subArtists){
-            qry = "INSERT INTO ShowsToArtists(ShowID, ArtistID, Status) values (\""+pID+"\",\""+subArtist.getID()+"\", 1)";
-            iMuzaMusic.getDB().updateReturnID(qry);
-            System.err.println("Added show to artist: "+qry);
+            for (Artist subArtist : subArtists) {
+                //Test if artist is managed by the agent created the session
+                Integer toApprove = 1;
+
+                qry = "SELECT count(*) from Artists where ArtistID=\"" + subArtist.getID() + "\" AND AgentID=\"" + iMuzaMusic.getLoggedUser().getID() + "\"";
+                rs = iMuzaMusic.getDB().query(qry);
+                if (rs.next()) {
+                    if (rs.getInt(1) > 0) {
+                        toApprove = 2;
+                    }
+                }
+
+                qry = "INSERT INTO ShowsToArtists(ShowID, ArtistID, Status) values (\"" + pID + "\",\"" + subArtist.getID() + "\", " + toApprove + ")";
+                iMuzaMusic.getDB().updateReturnID(qry);
+                System.err.println("Added show to artist: " + qry);
             }
-            
-           
+
+            updateShowStatus(pID);
+
         } catch (SQLException ex) {
             Logger.getLogger(ShowController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    /**
+     * Update show status
+     *
+     * @param pID
+     */
+    public static void updateShowStatus(String pID) {
+        iMuzaMusic.log("Updating show status: " + pID);
+        String pStatus = "";
+        Integer numNotApproved = 0;
+        Boolean didCancel = false;
+        Date pStartDate = null;
+        String qry = "SELECT pStatus, pStartDate from Shows where pID in(\"" + pID + "\")";
+        ResultSet rs = iMuzaMusic.getDB().query(qry);
+        try {
+            if (rs.next()) {
+                pStatus = rs.getString(1);
+                pStartDate = rs.getDate(2);
+
+                if (pStatus.length() == 0 || pStatus.equals("Cancelled") || pStatus.equals("Approved"))//error or cancelled already
+                {
+                    iMuzaMusic.log("Show is already approved or cancelled.");
+                    return;
+                }
+
+                iMuzaMusic.log("Show date: " + pStartDate);
+                iMuzaMusic.log("Show Status: "+ pStatus);
+                //Check if there is an artist who cancelled the attendance
+                qry = "SELECT COUNT(ArtistID) from ShowsToArtists where ShowID in(\""+pID+"\") AND Status=3";
+                rs = iMuzaMusic.getDB().query(qry);
+                if(rs.next()){
+                    if(rs.getInt(1)>0){
+                        //An artist cancelled his attendance
+                        //Update show with cancelled!
+                        iMuzaMusic.log("Cancelling show because we found an artist who cancelled.");
+                        qry = "UPDATE Shows set pStatus=\"Cancelled\" where pID in (\""+pID+"\")";
+                        iMuzaMusic.getDB().updateReturnID(qry);
+                        return;
+                    }
+                }
+                //Get number of artists who did not approve show yet
+                qry = "SELECT COUNT(ArtistID) from ShowsToArtists where ShowID in(\"" + pID + "\") AND Status=1";
+                rs = iMuzaMusic.getDB().query(qry);
+                if (rs.next()) {
+                    numNotApproved = rs.getInt(1);
+                }
+                if(numNotApproved>0){
+                    iMuzaMusic.log("Artists who did not approve show yet: "+numNotApproved);
+                } 
+                
+                if(numNotApproved>0){
+                //Show is not approved yet, now check if its been more than a week since it was created!
+                    qry = "SELECT Shows.pID, DateDiff(\"d\",[pDateCreated], Now()) AS Diff\n" +
+"FROM Shows WHERE pID in(\""+pID+"\")";
+                    rs = iMuzaMusic.getDB().query(qry);
+                    if(rs.next()){
+                        if(rs.getInt(2)>=7){
+                            //Cancel show! its been too long.
+                            iMuzaMusic.log("Cancelling show because its been more than a week for approval!");
+                             qry = "UPDATE Shows set pStatus=\"Cancelled\" where pID in (\""+pID+"\")";
+                            iMuzaMusic.getDB().updateReturnID(qry);
+                            return;
+                        }
+                    }
+                } else{
+                
+                //Show can be approved!
+                    iMuzaMusic.log("Approving show!");
+                    qry = "UPDATE Shows set pStatus=\"Approved\" where pID in (\""+pID+"\")";
+                    iMuzaMusic.getDB().updateReturnID(qry);
+                    
+                }
+                
+                
+                
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ShowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

@@ -13,7 +13,7 @@ import Entity.EArtistStatus;
 import Entity.EAuth;
 import Boundary.Main.iWindow;
 import Controller.Main.XMLManager;
-import Controller.Show.ShowController;
+import Controller.Agent.ShowController;
 import Entity.Agent;
 import Entity.Location;
 import java.awt.Color;

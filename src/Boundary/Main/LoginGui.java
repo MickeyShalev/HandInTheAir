@@ -26,7 +26,7 @@ public class LoginGui extends javax.swing.JFrame {
     public static boolean skipLogin = true;
     public static String skipID = "RE001";
     public static String skipPW = "admin";
-
+    
     /**
      * Creates new form LoginGui
      */
@@ -34,6 +34,7 @@ public class LoginGui extends javax.swing.JFrame {
         //XMLManager.ExportXML();
         //System.exit(0);
       
+     
         
         setUndecorated(true);
         initComponents();

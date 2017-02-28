@@ -45,6 +45,7 @@ public abstract class ManageController {
     public static void updateShowAttendance(String ArtistID, String ShowID, Integer status){
         String qry = "update ShowsToArtists set Status="+status+" where ShowID=\""+ShowID+"\" AND ArtistID=\""+ArtistID+"\"";
         iMuzaMusic.getDB().updateReturnID(qry);
+        Controller.Agent.ShowController.updateShowStatus(ShowID);
     }
     
     public static void updateAttendanceTable(JTable jTable1, Artist art){

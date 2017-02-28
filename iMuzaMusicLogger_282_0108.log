@@ -1,0 +1,31 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 13:08:58 IST 2017 ==================
+13:08:58	Attempting connection to MS Access DB
+13:08:58	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+13:09:00	Successfully connected to MS Access DB.
+13:09:00	Opening Login Window through iWindow
+13:09:00	Submitted
+13:09:00	User: RE001 Password: admin
+13:09:00	Attempting login using RE001/admin
+13:09:00	Artist logged in
+13:09:00	Initiating main UI
+13:09:00	Aquiring menu for RE001 Auth: Representative
+13:09:02	Logging out..
+13:09:02	Successfully logged out
+13:09:02	Submitted
+13:09:02	User: RE001 Password: admin
+13:09:02	Attempting login using RE001/admin
+13:09:02	Artist logged in
+13:09:02	Initiating main UI
+13:09:02	Aquiring menu for RE001 Auth: Representative
+13:09:02	Activating login screen
+13:09:21	Submitted
+13:09:21	User: AG003 Password: asf12gg12
+13:09:21	Attempting login using AG003/asf12gg12
+13:09:21	Agent logged in
+13:09:21	Initiating main UI
+13:09:21	Aquiring menu for AG003 Auth: Agent
+13:09:26	PF009 Rihanna Sleek 2017-02-14
+13:09:29	Sending UPDATE Query: update ShowsToArtists set Status=2 where ShowID="PF009" AND ArtistID="AR231"
+13:09:29	Updating show status: PF009
+13:09:29	Show is already approved or cancelled.
+13:09:29	Update Attendance: ArtistID: AR231 ShowID: PF009 Status: true

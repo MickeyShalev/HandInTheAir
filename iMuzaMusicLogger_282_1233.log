@@ -1,0 +1,138 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 12:33:43 IST 2017 ==================
+12:33:43	Attempting connection to MS Access DB
+12:33:43	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+12:33:45	Successfully connected to MS Access DB.
+12:33:45	Opening Login Window through iWindow
+12:33:45	Submitted
+12:33:45	User: RE001 Password: admin
+12:33:45	Attempting login using RE001/admin
+12:33:45	Artist logged in
+12:33:45	Initiating main UI
+12:33:45	Aquiring menu for RE001 Auth: Representative
+12:33:49	DF: 2/28/2017 12:33:49 PM
+12:33:49	TS: 2017-02-28 12:33:49.124 TST: 1488278029124 dd: 2017-02-28 ddt: 1488278029124
+12:33:49	Pulling data for Max_Allowed_Showtime
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Allowed_Showtime")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Location_Commission
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Location_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Show_Approval_Timeout
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Show_Approval_Timeout")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Show_Addon_Commission
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Show_Addon_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Artist_Commission
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Artist_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Birthday_Card
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Birthday_Card")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Max_Addon_Commission
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Addon_Commission")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Presale_Discount
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Presale_Discount")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Regular_Tickets_Sale
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Regular_Tickets_Sale")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Max_Presale_Tickets
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Max_Presale_Tickets")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	Pulling data for Minimum_Days_Before_Presale
+12:33:49	Executing Query: SELECT TOP 1 GlobalSettings.Key, GlobalSettings.Value
+FROM GlobalSettings
+GROUP BY GlobalSettings.Key, GlobalSettings.Value
+HAVING (((GlobalSettings.Key) In ("Minimum_Days_Before_Presale")) AND (LAST(GlobalSettings.dateUpdated<=#2/28/2017 12:33:49 PM#)))
+ORDER BY Last(GlobalSettings.dateUpdated) DESC
+12:33:49	GOT TXT: asd22asd
+
+asd
+ad
+sa
+d
+12:33:49	Max_Allowed_Showtime: 2
+12:33:49	Location_Commission: 20
+12:33:49	Show_Approval_Timeout: 7
+12:33:49	Show_Addon_Commission: 10
+12:33:49	Artist_Commission: 50
+12:33:49	Birthday_Card: asd22asd
+
+asd
+ad
+sa
+d
+12:33:49	Max_Addon_Commission: 8
+12:33:49	Presale_Discount: 10
+12:33:49	Regular_Tickets_Sale: 14
+12:33:49	Max_Presale_Tickets: 4
+12:33:49	Minimum_Days_Before_Presale: 21
+12:33:52	Logging out..
+12:33:52	Successfully logged out
+12:33:52	Submitted
+12:33:52	User: RE001 Password: admin
+12:33:52	Attempting login using RE001/admin
+12:33:52	Artist logged in
+12:33:52	Initiating main UI
+12:33:52	Aquiring menu for RE001 Auth: Representative
+12:33:52	Activating login screen
+12:33:54	Submitted
+12:33:54	User: AG001 Password: admin
+12:33:54	Attempting login using AG001/admin
+12:33:54	Agent logged in
+12:33:54	Initiating main UI
+12:33:54	Aquiring menu for AG001 Auth: Agent
+12:33:58	Importing XML from iRecord System
+12:33:58	Successfully imported 8 artists sessions from iRecord.
+12:33:58	Adding session date occupied: 2017-01-02 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-25 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-11 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-10 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-05 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-06 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-07 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-20 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-12 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-18 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-13 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-04 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-26 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-24 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-03 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-17 00:00:00.0
+12:33:58	Adding session date occupied: 2017-01-09 00:00:00.0
+12:33:58	Adding session date occupied: 2017-02-22 00:00:00.0
+12:34:01	Importing XML from iRecord System
+12:34:01	Successfully imported 8 artists sessions from iRecord.
