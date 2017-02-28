@@ -21,6 +21,8 @@ import Boundary.Rep.frmEditSettings;
 import Boundary.Rep.frmManageUsers;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,12 +31,13 @@ import java.util.logging.Logger;
  *
  * @author Administrator
  */
-public class MainGui extends javax.swing.JFrame {
+public class MainGui extends javax.swing.JFrame{
 
     /**
      * Creates new form MainGui
      */
     public MainGui() throws SQLException {
+        iMuzaMusic.setDebug(this);
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
@@ -371,15 +374,11 @@ public class MainGui extends javax.swing.JFrame {
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
         // TODO add your handling code here:
-        iMuzaMusic.log("Logging out..");
-        iMuzaMusic.setLoggedUser(null);
-        dispose();
-        setVisible(false);
-        iMuzaMusic.log("Successfully logged out");
-        
-        LoginGui tmp = new LoginGui();
-        iMuzaMusic.log("Activating login screen");
-        tmp.setVisible(true);
+        iMuzaMusic.log("Logging out Hands In Air");
+        iWindow.clean();
+        dispose();   
+        LoginGui lg = new LoginGui();
+        iMuzaMusic.setDebug(lg);
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
@@ -513,5 +512,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLRep;
     private javax.swing.JPanel pnlRep;
     // End of variables declaration//GEN-END:variables
+
 
 }

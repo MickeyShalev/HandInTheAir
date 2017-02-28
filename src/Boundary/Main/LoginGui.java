@@ -10,20 +10,22 @@ import Controller.Main.XMLManager;
 import Controller.Main.iMuzaMusic;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Administrator
  */
-public class LoginGui extends javax.swing.JFrame {
+public class LoginGui extends javax.swing.JFrame{
 
-    public static boolean skipLogin = true;
+    public static boolean skipLogin = false;
     public static String skipID = "RE001";
     public static String skipPW = "admin";
     
@@ -33,7 +35,7 @@ public class LoginGui extends javax.swing.JFrame {
     public LoginGui() {
         //XMLManager.ExportXML();
         //System.exit(0);
-      
+        
      
         
         setUndecorated(true);
@@ -98,10 +100,10 @@ public class LoginGui extends javax.swing.JFrame {
         fldLogin.setText("Username");
         fldLogin.setBorder(null);
         fldLogin.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 fldLoginCaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         fldLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +131,11 @@ public class LoginGui extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, 110, 110));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Boundary/Images/login.png"))); // NOI18N
+        bg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bgKeyPressed(evt);
+            }
+        });
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnSubmit.setText("jButton1");
@@ -213,6 +220,11 @@ public class LoginGui extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void bgKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bgKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_bgKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -268,6 +280,32 @@ public class LoginGui extends javax.swing.JFrame {
         }
 
     }
+    public void submitForm(String id, String pw) throws SQLException {
+        iMuzaMusic.log("Submitted from DEBUG Window");
+        fldLogin.setText(id);
+        fldPassword.setText(pw);
+        iMuzaMusic.log("User: " + fldLogin.getText() + " Password: " + fldPassword.getText());
+
+        if (iMuzaMusic.logIn(fldLogin.getText(), fldPassword.getText())) {
+            //Open main gui if successfull    
+            setVisible(false);
+            dispose();
+
+            iMuzaMusic.log("Initiating main UI");
+
+            MainGui tmp = new MainGui();
+            tmp.setVisible(true);
+            dispose();
+        }
+
+    }
+    
+    public void closeMain(JFrame jf){
+        System.err.println("Closing main");
+        jf.setVisible(false);
+        jf.dispose();
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
@@ -276,4 +314,5 @@ public class LoginGui extends javax.swing.JFrame {
     private javax.swing.JTextField fldPassword;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
 }

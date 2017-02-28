@@ -7,6 +7,7 @@ package Boundary.Main;
 
 import Boundary.Main.MainGui;
 import Boundary.Main.LoginGui;
+import Controller.Main.iMuzaMusic;
 import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -54,6 +55,9 @@ public abstract class iWindow {
 //    //======================================= Main ==========================================
     public static void openLogin(){
         LoginGui tmp = new LoginGui();
+        Controller.Main.LoginController.setLoginGui(tmp);
+        iMuzaMusic.setDebug(tmp);
+        
         
     }
     

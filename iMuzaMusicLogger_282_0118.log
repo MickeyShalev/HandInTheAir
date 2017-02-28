@@ -1,0 +1,35 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 13:18:21 IST 2017 ==================
+13:18:21	Attempting connection to MS Access DB
+13:18:21	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+13:18:23	Successfully connected to MS Access DB.
+13:18:23	Opening Login Window through iWindow
+13:18:23	Submitted
+13:18:23	User: RE001 Password: admin
+13:18:23	Attempting login using RE001/admin
+13:18:23	Artist logged in
+13:18:23	Initiating main UI
+13:18:23	Aquiring menu for RE001 Auth: Representative
+13:18:24	Logging out..
+13:18:24	Successfully logged out
+13:18:24	Submitted
+13:18:24	User: RE001 Password: admin
+13:18:24	Attempting login using RE001/admin
+13:18:24	Artist logged in
+13:18:24	Initiating main UI
+13:18:24	Aquiring menu for RE001 Auth: Representative
+13:18:24	Activating login screen
+13:18:27	Submitted
+13:18:27	User: RE001asdasd12e1rqf3f13f13f13 Password: admin
+13:18:27	Attempting login using RE001asdasd12e1rqf3f13f13f13/admin
+13:18:27	Submitted
+13:18:27	User: RE001asdasd12e1rqf3f13f13f13 Password: admin
+13:18:27	Attempting login using RE001asdasd12e1rqf3f13f13f13/admin
+13:18:28	Submitted
+13:18:28	User: RE001asdasd12e1rqf3f13f13f13 Password: admin
+13:18:28	Attempting login using RE001asdasd12e1rqf3f13f13f13/admin
+13:18:28	Submitted
+13:18:28	User: RE001asdasd12e1rqf3f13f13f13 Password: admin
+13:18:28	Attempting login using RE001asdasd12e1rqf3f13f13f13/admin
+13:18:29	Submitted
+13:18:29	User: RE001asdasd12e1rqf3f13f13f13 Password: admin
+13:18:29	Attempting login using RE001asdasd12e1rqf3f13f13f13/admin

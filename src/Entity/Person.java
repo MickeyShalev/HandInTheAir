@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Administrator
  */
-public abstract class Person {
+public class Person {
     private String firstName, lastName, ID, password;
     private EAuth userAuth=null;
     public Person(String ID, String firstName, String lastName, String password, EAuth userAuth){
@@ -35,6 +35,12 @@ public abstract class Person {
         this.userAuth=userAuth;
         
     }  
+      public Person(String ID, String PW, String firstName, String lastName){
+          this.ID = ID;
+          this.password = PW;
+          this.firstName = firstName;
+          this.lastName = lastName;
+      }
     public Person(String ID){
         this.ID=ID;
     }
@@ -102,6 +108,14 @@ public abstract class Person {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        if(ID.equals("0000"))
+            return firstName;
+        
+        return firstName+" "+lastName+" ("+ID+")";
     }
     
   

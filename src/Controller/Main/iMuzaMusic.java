@@ -19,9 +19,14 @@ import java.util.logging.Logger;
 import Entity.EAuth;
 import Boundary.General.SuccessExport;
 import Boundary.Agent.frmManageArtists;
+import Boundary.General.LoginWindow;
 import Boundary.General.frmSuccess;
 import Boundary.Main.iWindow;
 import java.awt.Desktop;
+import java.awt.event.ActionEvent;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,7 +40,11 @@ import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -45,16 +54,18 @@ import net.sf.jasperreports.view.JRViewer;
  *
  * @author Administrator
  */
-public class iMuzaMusic {
+public class iMuzaMusic implements KeyListener{
 
     private static DBManager DB;
     private static Person loggedUser = null;
     private static String fileName = "iMuzaMusicLogger";
     private static FileWriter logFile;
     private static PrintStream logWriter;
+    private static JFrame LoginWindow = null;
 
     public iMuzaMusic() {
         //Reset log
+        
         try {
             SimpleDateFormat sdfDate = new SimpleDateFormat("ddM_hhmm");
             Date now = new Date();
@@ -71,8 +82,9 @@ public class iMuzaMusic {
         }
 
         //Initiate DB
+        
         init();
-
+        LoginWindow = new LoginWindow();
     }
 
     public static DBManager getDB() {
@@ -118,6 +130,8 @@ public class iMuzaMusic {
         String strDate = sdfDate.format(now);
         System.out.println(strDate + "\t" + str);
         logWriter.print(strDate + "\t" + str + System.getProperty("line.separator"));
+        if(getLoginWindow()!=null)
+        getLoginWindow().addDebug(strDate + "\t" + str);
         logWriter.flush();
     }
 
@@ -289,5 +303,39 @@ public class iMuzaMusic {
 
     public static void Success(String var) {
         iWindow.openWin(new frmSuccess(var));
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        System.err.println("E: "+e);
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.err.println("E: "+e);
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        System.err.println("E: "+e);
+    }
+    
+    public static void setDebug(JFrame frame) {
+        JRootPane rootPane = frame.getRootPane();
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F1, InputEvent.CTRL_MASK), "myAction");
+        rootPane.getActionMap().put("myAction", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(LoginWindow.isVisible())
+                    LoginWindow.setVisible(false);
+                else
+                LoginWindow.setVisible(true);
+                
+            }
+        });
+    }
+    
+    public static LoginWindow getLoginWindow(){
+        return (LoginWindow) LoginWindow;
     }
 }

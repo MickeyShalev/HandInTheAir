@@ -1,0 +1,27 @@
+=================  iMuzaMusic v1.0 - Tue Feb 28 14:48:59 IST 2017 ==================
+14:48:59	Attempting connection to MS Access DB
+14:48:59	DB File: C:\Users\nisan\Documents\Git\HandsInAirLatest\sources\MM_DB.accdb
+14:49:01	Successfully connected to MS Access DB.
+14:49:01	Opening Login Window through iWindow
+14:49:04	Selected Debug Quick Login Feature for Johnny
+14:49:04	Logging in...
+14:49:04	Submitted from DEBUG Window
+14:49:04	User: AG001 Password: admin
+14:49:04	Attempting login using AG001/admin
+14:49:04	Agent logged in
+14:49:04	Initiating main UI
+14:49:04	Aquiring menu for AG001 Auth: Agent
+14:49:04	Selected Debug Quick Login Feature for Johnny
+14:49:04	Logging in...
+14:49:04	Submitted from DEBUG Window
+14:49:04	User: AG001 Password: admin
+14:49:04	Attempting login using AG001/admin
+14:49:04	Agent logged in
+14:49:04	Initiating main UI
+14:49:04	Aquiring menu for AG001 Auth: Agent
+14:49:06	Logging out..
+14:49:06	Successfully logged out
+14:49:06	Activating login screen
+14:49:13	Logging out..
+14:49:13	Successfully logged out
+14:49:13	Activating login screen
