@@ -26,7 +26,7 @@ public abstract class EvaluationsController{
         iMuzaMusic.log("Getting unevaluated and evaluated artists for artist "+artist.getID());
         ResultSet rs = iMuzaMusic.getDB().query("SELECT Artists.*, Artists.ArtistID\n" +
 "FROM Artists\n" +
-"WHERE (((Artists.ArtistID) Not In (\"AR002\")))");
+"WHERE (((Artists.ArtistID) Not In (\""+artist.getID()+"\")))");
         try {
             while(rs.next()){
                 Artist a = new Artist(rs.getString(1));

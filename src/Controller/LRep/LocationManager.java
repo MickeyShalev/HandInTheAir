@@ -87,6 +87,9 @@ public abstract class LocationManager {
             Logger.getLogger(ManageController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        if(recent.length()==0){
+            recent = "LC000";
+        }
         
         recent = recent.substring(2, recent.length());
  

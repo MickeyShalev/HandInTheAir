@@ -51,16 +51,22 @@ public abstract class iWindow {
     protected static JInternalFrame lastWindow = null;
     protected static JPanel panel = null;
     protected static BufferedWriter out = null;
+    protected static JFrame activeGUI = null;
     
 //    //======================================= Main ==========================================
     public static void openLogin(){
         LoginGui tmp = new LoginGui();
+        activeGUI = tmp;
         Controller.Main.LoginController.setLoginGui(tmp);
         iMuzaMusic.setDebug(tmp);
         
         
     }
     
+    public static void closeMain(){
+        activeGUI.dispose();
+        activeGUI = null;
+    }
     
     //================================= Setters and Getters ==================================
     
@@ -135,6 +141,11 @@ public abstract class iWindow {
         frame.setVisible(true);
         
         iWindow.update();
+        
+        //Clear tmp files
+       
+        iMuzaMusic.cleanTMP();
+        
         return;
     }
     

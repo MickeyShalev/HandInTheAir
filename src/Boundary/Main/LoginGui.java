@@ -275,6 +275,9 @@ public class LoginGui extends javax.swing.JFrame{
             iMuzaMusic.log("Initiating main UI");
 
             MainGui tmp = new MainGui();
+            iWindow.closeMain();
+            iWindow.activeGUI = tmp;
+            
             tmp.setVisible(true);
             dispose();
         }

@@ -590,22 +590,18 @@ public class frmEditLocation extends javax.swing.JInternalFrame {
             fldPhone.setText("Enter Phone Number");
             lblErrPhone.setText("Please enter Phone Number");
         }
-        try{
-        if(String.valueOf(Integer.parseInt(fldPhone.getText())).length()!=fldPhone.getText().length()){
-            String checkzero = "0"+String.valueOf(Integer.parseInt(fldPhone.getText()));
-            if(checkzero.length()!=fldPhone.getText().length())
+        else
+        if(!fldPhone.getText().matches("[0-9]+"))
             lblErrPhone.setText("Please use numbers only.");
-        }
         else lblErrPhone.setText("");
-        } catch(NumberFormatException e){
-            lblErrPhone.setText("Please use numbers only.");
-        }
+        
         
         
         if(lblErrPhone.getText().length()>0)
             errPhone.setIcon(xIcon.getIcon());
         else errPhone.setIcon(vIcon.getIcon());
         
+        iWindow.update();
         iWindow.update();
     }//GEN-LAST:event_fldPhoneFocusLost
 

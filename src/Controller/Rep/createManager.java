@@ -70,7 +70,10 @@ public abstract class createManager {
         } catch (SQLException ex) {
             Logger.getLogger(createManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        if(tmpID.length()==0){
+            //Case table is null
+            tmpID=prefix+"000";
+        }
         iMuzaMusic.log("Current last ID is: "+tmpID);
         tmpID = tmpID.substring(prefix.length(), tmpID.length());
  

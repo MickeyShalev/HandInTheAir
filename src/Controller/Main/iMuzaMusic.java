@@ -32,10 +32,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.io.UncheckedIOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.HashMap;
@@ -54,7 +56,7 @@ import net.sf.jasperreports.view.JRViewer;
  *
  * @author Administrator
  */
-public class iMuzaMusic implements KeyListener{
+public class iMuzaMusic implements KeyListener {
 
     private static DBManager DB;
     private static Person loggedUser = null;
@@ -63,17 +65,45 @@ public class iMuzaMusic implements KeyListener{
     private static PrintStream logWriter;
     private static JFrame LoginWindow = null;
 
+    public static void cleanTMP() {
+        iMuzaMusic.log("Deleting tmp files");
+        File directory = new File("src/sources/uploads/");
+        try {
+            Files.newDirectoryStream(directory.toPath()).forEach(file -> {
+                try {
+                    Files.delete(file);
+                } catch (IOException e) {
+                }
+            });
+        } catch (IOException e) {
+
+        }
+
+        directory = new File("sources/uploads/");
+        try {
+            Files.newDirectoryStream(directory.toPath()).forEach(file -> {
+                try {
+                    Files.delete(file);
+                } catch (IOException e) {
+                }
+            });
+        } catch (IOException e) {
+
+        }
+
+    }
+
     public iMuzaMusic() {
         //Reset log
-        
+
         try {
             SimpleDateFormat sdfDate = new SimpleDateFormat("ddM_hhmm");
             Date now = new Date();
             String strDate = sdfDate.format(now);
 
             logWriter = new PrintStream(new File(fileName + "_" + strDate + ".log"));
-//            System.setErr(logWriter);
-//            System.setOut(logWriter);
+            System.setErr(logWriter);
+            System.setOut(logWriter);
             logWriter.print("=================  iMuzaMusic v1.0 - " + new Date() + " ==================" + System.getProperty("line.separator"));
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -82,7 +112,6 @@ public class iMuzaMusic implements KeyListener{
         }
 
         //Initiate DB
-        
         init();
         LoginWindow = new LoginWindow();
     }
@@ -130,8 +159,9 @@ public class iMuzaMusic implements KeyListener{
         String strDate = sdfDate.format(now);
         System.out.println(strDate + "\t" + str);
         logWriter.print(strDate + "\t" + str + System.getProperty("line.separator"));
-        if(getLoginWindow()!=null)
-        getLoginWindow().addDebug(strDate + "\t" + str);
+        if (getLoginWindow() != null) {
+            getLoginWindow().addDebug(strDate + "\t" + str);
+        }
         logWriter.flush();
     }
 
@@ -156,9 +186,10 @@ public class iMuzaMusic implements KeyListener{
                 Date birthDate = tmp.getDate("BirthDate");
                 String nickName = tmp.getString("strNickname");
                 File avatar = null;
-                if (tmp.getString("avatar") != null) 
+                if (tmp.getString("avatar") != null) {
                     avatar = FileManager.fromBase64(tmp.getString("avatar"));
-                
+                }
+
                 String email = tmp.getString("strEmail");
 
                 Person p = new Customer(ID, strFirstName, strLastName, pass, EAuth.Customer, birthDate, nickName, avatar, email);
@@ -307,35 +338,36 @@ public class iMuzaMusic implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        System.err.println("E: "+e);
+        System.err.println("E: " + e);
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.err.println("E: "+e);
+        System.err.println("E: " + e);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        System.err.println("E: "+e);
+        System.err.println("E: " + e);
     }
-    
+
     public static void setDebug(JFrame frame) {
         JRootPane rootPane = frame.getRootPane();
         rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_F1, InputEvent.CTRL_MASK), "myAction");
         rootPane.getActionMap().put("myAction", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(LoginWindow.isVisible())
+                if (LoginWindow.isVisible()) {
                     LoginWindow.setVisible(false);
-                else
-                LoginWindow.setVisible(true);
-                
+                } else {
+                    LoginWindow.setVisible(true);
+                }
+
             }
         });
     }
-    
-    public static LoginWindow getLoginWindow(){
+
+    public static LoginWindow getLoginWindow() {
         return (LoginWindow) LoginWindow;
     }
 }

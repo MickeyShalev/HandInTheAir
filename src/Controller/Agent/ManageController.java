@@ -108,7 +108,9 @@ TableColumn tc = jTable1.getColumnModel().getColumn(4);
             Logger.getLogger(ManageController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+        if(recent.length()==0){
+            recent = "AR000";
+        }
         recent = recent.substring(2, recent.length());
         recent = "AR"+(Integer.parseInt(recent)+1);
         iMuzaMusic.log("Returning next ID for Artist - "+recent);

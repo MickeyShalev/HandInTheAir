@@ -365,24 +365,19 @@ public class createAgent extends javax.swing.JInternalFrame {
     private void fldPhoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fldPhoneFocusLost
                 // TODO add your handling code here:
         if(fldPhone.getText().length()==0){
+            fldPhone.setText("Enter Phone Number");
             lblerrPhone.setText("Please enter Phone Number");
         }
-        try{
-        if(String.valueOf(Integer.parseInt(fldPhone.getText())).length()!=fldPhone.getText().length()){
-            String checkzero = "0"+String.valueOf(Integer.parseInt(fldPhone.getText()));
-            if(checkzero.length()!=fldPhone.getText().length())
+        else
+        if(!fldPhone.getText().matches("[0-9]+"))
             lblerrPhone.setText("Please use numbers only.");
-        }
         else lblerrPhone.setText("");
-        } catch(NumberFormatException e){
-            lblerrPhone.setText("Please use numbers only.");
-        }
+        
         
         
         if(lblerrPhone.getText().length()>0)
             errPhone.setIcon(xIcon.getIcon());
         else errPhone.setIcon(vIcon.getIcon());
-        
         iWindow.update();
     }//GEN-LAST:event_fldPhoneFocusLost
 
